@@ -132,7 +132,8 @@ class Session
     */
    function login($subuser, $subpass, $subremember){
       global $database, $form;  //The database and form object
-
+        
+        
       /* Username error checking */
       $field = "user";  //Use field name for username
 	  $q = "SELECT valid FROM ".TBL_USERS." WHERE username='$subuser'";

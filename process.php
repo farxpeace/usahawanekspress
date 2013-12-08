@@ -10,8 +10,7 @@
  * Written by: Jpmaster77 a.k.a. The Grandmaster of C++ (GMC)
  * Last Updated: June 15, 2011 by Ivan Novak
  */
-include("include/session.php");
-
+include('bootstrap.php');
 class Process
 {
    /* Class constructor */

@@ -1,3 +1,6 @@
+<?php
+#print_r($session);
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,13 +18,13 @@
 	<div class="wrap">
 		<h2>Neat Admin Template</h2>
 		<h4>Welcome to the login page</h4>
-		<form action="dashboard.html"  autocomplete="off" method="post">
+		<form action="process.php"  autocomplete="off" method="post">
 		<div class="login">
 			<div class="email">
-				<label for="user">Email</label><div class="email-input"><div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span><input type="text" id="user" name="user"></div></div>
+				<label for="user">Username</label><div class="email-input"><div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span><input type="text" id="user" name="user"></div></div>
 			</div>
 			<div class="pw">
-				<label for="pw">Password</label><div class="pw-input"><div class="input-prepend"><span class="add-on"><i class="icon-lock"></i></span><input type="password" id="pw" name="pw"></div></div>
+				<label for="pw">Password</label><div class="pw-input"><div class="input-prepend"><span class="add-on"><i class="icon-lock"></i></span><input type="password" id="pw" name="pass"></div></div>
 			</div>
 			<div class="remember">
 				<label class="checkbox">
@@ -32,6 +35,7 @@
 		<div class="submit">
 			<a href="#">Lost password?</a>
 			<a href="index.php?modules=Main&amp;op=register">Register</a>
+			<input type="hidden" name="sublogin" value="1">
 			<button class="btn btn-red5">Login</button>
 		</div>
 		</form>
