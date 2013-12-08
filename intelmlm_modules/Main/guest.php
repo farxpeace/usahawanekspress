@@ -1,9 +1,9 @@
 <?php
-$pages = $_REQUEST['pages'];
+$op = $_REQUEST['op'];
 
-if($pages == ''){
-     
-}elseif($pages == 'register'){
+if($op == ''){
+    include('guest_main.php');
+}elseif($op == 'register'){
     include('guest_register.php');
 }
 

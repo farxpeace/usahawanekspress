@@ -2,8 +2,7 @@
 include('bootstrap.php');
 
 $modules = $_REQUEST["modules"];
-$content = $_REQUEST['content'];
-$pages = $_REQUEST['pages'];
+$op = $_REQUEST['op'];
 
 if($modules == ''){
     $modules = 'Main';

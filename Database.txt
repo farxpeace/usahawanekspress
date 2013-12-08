@@ -1,3 +1,7 @@
+URL: http://www.freesqldatabase.com
+Email: farxpeace@gmail.com
+Password: l1ZLRTCuQcxZ
+
 http://www.phpmyadmin.co
 
 Host: sql4.freesqldatabase.com
