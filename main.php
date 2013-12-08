@@ -11,8 +11,8 @@
  * Written by: Jpmaster77 a.k.a. The Grandmaster of C++ (GMC)
  * Last Updated: June 15, 2011 by Ivan Novak
  */
-include("include/session.php");
-$page = "main.php";
+include("bootstrap.php");
+
 ?>
 
 <html>
@@ -128,7 +128,7 @@ if($form->num_errors > 0){
 	<p><b>Member Total:</b><?php echo $database->getNumMembers(); ?>
 	<br>There are <?php echo $database->num_active_users; ?> registered members and <?php $database->num_active_guests; ?> guests viewing the site.<br><br>
 	<?php
-	include("include/view_active.php");
+	include("intelmlm_include/view_active.php");
 	?>
 	</p>
 </div><!-- #footer -->

@@ -1,0 +1,11 @@
+http://www.phpmyadmin.co
+
+Host: sql4.freesqldatabase.com
+
+Database name: sql424404
+
+Database user: sql424404
+
+Database password: kT1*zQ5*
+
+Port number: 3306
