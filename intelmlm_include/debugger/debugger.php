@@ -12,16 +12,13 @@ $debug = unserialize($_SESSION['debugdata']);
 	<script src="jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
 	<script type="text/javascript" src="Easy-Responsive-Tabs-to-Accordion-master/js/easyResponsiveTabs.js"></script>
 	<link rel="stylesheet" href="Easy-Responsive-Tabs-to-Accordion-master/css/easy-responsive-tabs.css">
-    <script>
-	$(function() {
-		
-        
-        $( "#tabs" ).tabs();
-	});
-	</script>
+    
+      
+    
 </head>
 <body>
    
+<div id="window_container">
 <div id="tabs">
 	<ul>
         <?php
@@ -56,14 +53,21 @@ $debug = unserialize($_SESSION['debugdata']);
                                 ?>
                                 
                                 <div>
-                                    <div class="title"><?php echo $title; ?>-><?php echo $a; ?><?php echo $variable; ?></div>
+                                    <div class="title"><input value="$<?php echo $title; ?>-><?php echo $a; ?>" /><?php echo $variable; ?></div>
                                     <div class="content">
                                         <?php
                                         if(is_object($b) || is_array($b)){
+                                            echo '<ul>';
                                             foreach($b as $c => $d){ ?>
-                                                <div><?php echo $c; ?> : <?php echo $d; ?></div>
+                                                <li>
+                                                    <div>
+                                                    <?php echo $c; ?> : <?php echo $d; ?><br />
+                                                    <input style="width:100%" value="$<?php echo $title; ?>-><?php echo $a; ?>[<?php echo $c; ?>]" />
+                                                    </div>
+                                                </li>
                                                 <?php
                                             }
+                                            echo '</ul>';
                                         }
                                         ?>
                                     </div>
@@ -94,9 +98,38 @@ $debug = unserialize($_SESSION['debugdata']);
 	
 	
 </div>
-
- 
-
+</div>
+<script type="text/javascript">
+jQuery.browser = {};
+(function () {
+    jQuery.browser.msie = false;
+    jQuery.browser.version = 0;
+    if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+        jQuery.browser.msie = true;
+        jQuery.browser.version = RegExp.$1;
+    }
+})();
+function SelectText(element) {
+    var text = $(element).text();
+    if ($.browser.msie) {
+        var range = document.body.createTextRange();
+        range.moveToElementText(text);
+        range.select();
+    } else if ($.browser.mozilla || $.browser.opera) {
+        var selection = window.getSelection();
+        var range = document.createRange();
+        range.selectNodeContents(text);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    } else if ($.browser.safari) {
+        var selection = window.getSelection();
+        selection.setBaseAndExtent(text, 0, text, 1);
+    }
+}
+$(function(){
+    $("#tabs").tabs();
+})
+</script>
 
 </body>
 </html>

@@ -11,6 +11,7 @@ define("THEME_LOC", FOLDER_TEMPLATES."/".THEME_NAME);
 
 define("DEBUG_MODE", 1);
 
+include(FOLDER_INCLUDE."/models.php");
 
 include(FOLDER_INCLUDE."/session.php");
 ?>

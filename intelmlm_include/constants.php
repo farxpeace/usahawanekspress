@@ -51,6 +51,8 @@ define("TBL_ACTIVE_USERS",  "intelmlm_active_users");
 define("TBL_ACTIVE_GUESTS", "intelmlm_active_guests");
 define("TBL_BANNED_USERS",  "intelmlm_banned_users");
 define("TBL_MAIL", "intelmlm_mail");
+define("TBL_MAIL", "intelmlm_settings_meta");
+
 
 /**
  * Special Names and Level Constants - the admin
