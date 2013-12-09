@@ -204,7 +204,7 @@ class MySQLDB
          return NULL;
       }
       /* Return result array */
-      $dbarray = mysql_fetch_array($result);
+      $dbarray = mysql_fetch_assoc($result);
       return $dbarray;
    }
    
