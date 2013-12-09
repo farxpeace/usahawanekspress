@@ -1,4 +1,6 @@
 <?php
+// Report all errors except E_NOTICE
+error_reporting(E_ALL ^ E_NOTICE);
 define ("FOLDER_INCLUDE", 'intelmlm_include');
 define ("FOLDER_ADMIN", 'intelmlm_admin');
 define ("FOLDER_MODULES", 'intelmlm_modules');
