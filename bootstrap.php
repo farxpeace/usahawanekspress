@@ -12,6 +12,6 @@ define("THEME_LOC", FOLDER_TEMPLATES."/".THEME_NAME);
 define("DEBUG_MODE", 1);
 
 
-
+$debugger = array();
 include(FOLDER_INCLUDE."/session.php");
 ?>

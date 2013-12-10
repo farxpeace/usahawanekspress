@@ -109,6 +109,7 @@ class Session
          $this->userrole = $this->userinfo['userrole'];
          $this->username  = $this->userinfo['username'];
          $this->userid    = $this->userinfo['userid'];
+         $this->uid    = $this->userinfo['id'];
          $this->userlevel = $this->userinfo['userlevel'];
          
          /* auto login hash expires in three days */
@@ -126,9 +127,10 @@ class Session
       }
    }
    
-   function role_get_by_user($userid){
+   function role_by_user($uid){
         global $database;  //The database connection
-        //$result = $database->query("SELECT * FROM ".TBL_ROLE." WHERE id='".$this->userrole."'");
+        $result = $database->query("SELECT name FROM ".TBL_ROLE." WHERE id='".$this->userrole."' AND id='$uid");
+        print_r($result);
    }
 
    /**

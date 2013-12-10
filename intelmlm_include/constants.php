@@ -54,6 +54,7 @@ define("TBL_MAIL", "intelmlm_mail");
 define("TBL_SETTINGS_META", "intelmlm_settings_meta");
 define("TBL_METATAG", "intelmlm_metatag");
 define("TBL_ROLE", "intelmlm_role");
+define("TBL_ROLE_META", "intelmlm_role_meta");
 
 
 /**

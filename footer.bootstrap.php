@@ -1,7 +1,8 @@
 <?php
 if(DEBUG_MODE){
-    $debugger = array();
+    
     $debugger['session'] = (array) $session;
+    $debugger['Users'] = (array) $Users;
     $debugger['database'] = (array) $database;
     $debugger['models'] = (array) $models;
     $debugger['Settings'] = (array) $Settings;

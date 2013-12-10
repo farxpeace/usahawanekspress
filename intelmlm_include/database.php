@@ -231,6 +231,17 @@ class MySQLDB
         return $output;
    }
    
+   function get_all_role_by_roleid($roleid){
+        $result = mysql_query("SELECT * FROM ".TBL_ROLE_META." WHERE roleid='".$roleid."'");
+        while($row = mysql_fetch_assoc($result)){
+            if(!empty($row)){
+                $output[] = $row;
+            }
+            
+        }
+        return $output;
+   }
+   
    function get_value_by_meta($ref,$meta){
         $q = "SELECT * FROM ".TBL_METATAG." WHERE meta='".$meta."' AND ref='".$ref."'";
         $result = mysql_query($q);
