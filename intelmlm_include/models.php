@@ -11,11 +11,23 @@ Class Models {
             $this->loadmodel($file);
         }
         
+        $this->check_table();
+        
+    }
+    
+    function check_table(){
+        global $database;
+        
+        foreach($this->model as $a){
+            print_r($a);
+        }
     }
     
     function loadmodel($file){
-        $data = file_get_contents($file);
-        $this->model = $data;
+        #$data = file_get_contents($file);
+        $data = simplexml_load_file($file);
+        print_r($data);
+        $this->model[] = $data;
     }
     
     function scanmodules(){

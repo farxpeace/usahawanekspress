@@ -9,6 +9,7 @@
  * Last Updated: June 15, 2011 by Ivan Novak
  */
 include("database.php");
+include(FOLDER_MODULES.'/Settings/Class.Settings.php');
 include("mailer.php");
 include("form.php");
 
