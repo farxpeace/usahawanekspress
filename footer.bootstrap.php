@@ -4,8 +4,10 @@ if(DEBUG_MODE){
     $debugger['session'] = (array) $session;
     $debugger['database'] = (array) $database;
     $debugger['models'] = (array) $models;
+    $debugger['Settings'] = (array) $Settings;
     $debugger['form'] = (array) $form;
     $debugger['mailer'] = (array) $mailer;
+    
     
     $_SESSION['debugdata'] = serialize($debugger);
     

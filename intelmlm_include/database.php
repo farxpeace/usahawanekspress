@@ -225,18 +225,18 @@ class MySQLDB
    function get_allvalue_by_ref($ref){
         $q = "SELECT * FROM ".TBL_METATAG." WHERE ref='".$ref."'";
         $result = mysql_query($q);
-        $dbarray = mysql_fetch_assoc($result);
-        while($dbarray = mysql_fetch_assoc($result)){
-            
+        while($row = mysql_fetch_assoc($result)){
+            $output[] = $row;
         }
-        return $dbarray;
+        return $output;
    }
    
    function get_value_by_meta($ref,$meta){
         $q = "SELECT * FROM ".TBL_METATAG." WHERE meta='".$meta."' AND ref='".$ref."'";
         $result = mysql_query($q);
         $dbarray = mysql_fetch_assoc($result);
-        return $dbarray;
+        
+        return $dbarray['value'];
    }
    
    /**

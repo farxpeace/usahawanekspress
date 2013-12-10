@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Neat Admin Template</title>
+<title><?php echo $Settings->title; ?></title>
 <meta name="description" content="">
 
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
@@ -13,7 +13,7 @@
 </head>
 <body class='login_body'>
 	<div class="wrap">
-		<h2>Neat Admin Template</h2>
+		<h2><?php echo $Settings->title; ?></h2>
 		<h4>Welcome to the login page</h4>
 		<form action="dashboard.html"  autocomplete="off" method="post">
 		<div class="login">

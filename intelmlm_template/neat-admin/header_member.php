@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Neat Admin Template</title>
+<title><?php echo $Settings->title; ?></title>
 <meta name="description" content="">
 
 <meta name="viewport" content="width=device-width">
@@ -36,7 +36,7 @@
 </div>
 <div class="topbar">
 	<div class="container-fluid">
-		<a href="dashboard.html" class='company'>Neat Admin Template</a>
+		<a href="dashboard.html" class='company'><?php echo $Settings->title; ?></a>
 		<form action="#">
 			<input type="text" value="Search here...">
 		</form>
@@ -207,23 +207,18 @@
 			<li>
 				<a href="#" class='light toggle-collapsed'>
 					<div class="ico"><i class="icon-th-large icon-white"></i></div>
-					Tables
-					<img src="img/toggle-subnav-down.png" alt="">
+					User Manager
+					<img src="<?php echo THEME_LOC; ?>/img/toggle-subnav-down.png" alt="">
 				</a>
 				<ul class='collapsed-nav closed'>
 					<li>
-						<a href="datatables.html">
-							Data Tables
+						<a href="index.php?modules=Users&amp;op=Search&amp;query=alluser">
+							All User
 						</a>
 					</li>
 					<li>
 						<a href="plaintables.html">
-							Plain Tables
-						</a>
-					</li>
-					<li>
-						<a href="mediatables.html">
-							Media Tables
+							User Role
 						</a>
 					</li>
 				</ul>
@@ -232,7 +227,7 @@
 				<a href="#" class='light toggle-collapsed'>
 					<div class="ico"><i class="icon-tasks icon-white"></i></div>
 					Interface Elements
-					<img src="img/toggle-subnav-down.png" alt="">
+					<img src="<?php echo THEME_LOC; ?>/img/toggle-subnav-down.png" alt="">
 				</a>
 				<ul class='collapsed-nav closed'>
 					<li>

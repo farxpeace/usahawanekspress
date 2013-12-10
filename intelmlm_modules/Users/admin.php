@@ -2,7 +2,7 @@
 $op = $_REQUEST['op'];
 if($op == ''){
     include('admin_main.php');
-}elseif($op == 'register'){
-    include('guest_register.php');
+}elseif($op == 'Search'){
+    include('user_search.php');
 }
 ?>

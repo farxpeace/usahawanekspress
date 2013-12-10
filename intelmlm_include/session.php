@@ -106,6 +106,7 @@ class Session
 
          /* User is logged in, set class variables */
          $this->userinfo  = $database->getUserInfo($_SESSION['username']);
+         $this->userrole = $this->userinfo['userrole'];
          $this->username  = $this->userinfo['username'];
          $this->userid    = $this->userinfo['userid'];
          $this->userlevel = $this->userinfo['userlevel'];
@@ -123,6 +124,11 @@ class Session
       else{
          return false;
       }
+   }
+   
+   function role_get_by_user($userid){
+        global $database;  //The database connection
+        //$result = $database->query("SELECT * FROM ".TBL_ROLE." WHERE id='".$this->userrole."'");
    }
 
    /**
