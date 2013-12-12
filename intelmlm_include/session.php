@@ -15,6 +15,7 @@ include("form.php");
 
 class Session
 {
+    var $uid;
    var $username;     //Username given on sign-up
    var $userid;       //Random value generated on current login
    var $userlevel;    //The level to which the user pertains
@@ -158,7 +159,7 @@ class Session
             $form->setError($field, "* Username not alphanumeric");
          }
       }	  
-
+        
       /* Password error checking */
       $field = "pass";  //Use field name for password
       if(!$subpass){
@@ -201,7 +202,7 @@ class Session
          return false;
       }
       
-
+        
 
       /* Username and password correct, register session variables */
       $this->userinfo  = $database->getUserInfo($subuser);
@@ -225,7 +226,8 @@ class Session
          setcookie("cookname", $this->username, time()+COOKIE_EXPIRE, COOKIE_PATH);
          setcookie("cookid",   $this->userid,   time()+COOKIE_EXPIRE, COOKIE_PATH);
       }
-
+        
+        
       /* Login completed successfully */
       return true;
    }

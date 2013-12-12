@@ -208,6 +208,19 @@ class MySQLDB
       return $dbarray;
    }
    
+   function getUserInfo_by_id($id){
+      $q = sprintf("SELECT * FROM ".TBL_USERS." WHERE id = '$id'",
+            mysql_real_escape_string($username));
+      $result = mysql_query($q, $this->connection);
+      /* Error occurred, return given name by default */
+      if(!$result || (mysql_numrows($result) < 1)){
+         return NULL;
+      }
+      /* Return result array */
+      $dbarray = mysql_fetch_assoc($result);
+      return $dbarray;
+   }
+   
    
    
    
@@ -231,6 +244,8 @@ class MySQLDB
         return $output;
    }
    
+   
+   
    function get_all_role_by_roleid($roleid){
         $result = mysql_query("SELECT * FROM ".TBL_ROLE_META." WHERE roleid='".$roleid."'");
         while($row = mysql_fetch_assoc($result)){
@@ -240,6 +255,14 @@ class MySQLDB
             
         }
         return $output;
+   }
+   
+   function get_value_by_meta_and_table($tablename, $refname, $refvalue, $meta){
+    $q = "SELECT * FROM ".$tablename." WHERE $refname='".$refvalue."' AND meta='".$meta."'";
+    $result = mysql_query($q);
+        $dbarray = mysql_fetch_assoc($result);
+        
+        return $dbarray;
    }
    
    function get_value_by_meta($ref,$meta){

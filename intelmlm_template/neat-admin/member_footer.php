@@ -9,5 +9,7 @@
 <script src="<?php echo THEME_LOC; ?>/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo THEME_LOC; ?>/js/jquery.dataTables.bootstrap.js"></script>
 <script src="<?php echo THEME_LOC; ?>/js/custom.js"></script>
+<script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/jQuery-Impromptu-master/jquery-impromptu.min.js"></script>
+<link rel="stylesheet" href="<?php echo THEME_LOC; ?>/js/jQuery-Impromptu-master/jquery-impromptu.css" />
 </body>
 </html>

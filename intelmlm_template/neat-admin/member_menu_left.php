@@ -14,6 +14,21 @@
 					<span class="label label-info">1</span>
 				</a>
 			</li>
+            <li>
+				<a href="#" class='light toggle-collapsed'>
+					<div class="ico"><i class="icon-th-large icon-white"></i></div>
+					Profile
+					<img src="<?php echo THEME_LOC; ?>/img/toggle-subnav-down.png" alt="">
+				</a>
+				<ul class='collapsed-nav closed'>
+					<li>
+						<a href="index.php?modules=Users&amp;op=edituser">
+							Edit Profile
+						</a>
+					</li>
+					
+				</ul>
+			</li>
 			<li>
 				<a href="#" class='light toggle-collapsed'>
 					<div class="ico"><i class="icon-th-large icon-white"></i></div>
@@ -29,6 +44,25 @@
 					<li>
 						<a href="index.php?modules=Users&amp;op=role">
 							User Role
+						</a>
+					</li>
+				</ul>
+			</li>
+            <li>
+				<a href="#" class='light toggle-collapsed'>
+					<div class="ico"><i class="icon-th-large icon-white"></i></div>
+					Product Manager
+					<img src="<?php echo THEME_LOC; ?>/img/toggle-subnav-down.png" alt="">
+				</a>
+				<ul class='collapsed-nav closed'>
+					<li>
+						<a href="index.php?modules=Product&amp;op=allproduct">
+							All product
+						</a>
+					</li>
+					<li>
+						<a href="index.php?modules=Users&amp;op=role">
+							All Purchases
 						</a>
 					</li>
 				</ul>

@@ -1,11 +1,19 @@
 <?php
-
 $op = $_REQUEST['op'];
-if($op == ''){
+
+if(!$session->logged_in){
+    if($op == ''){
+        include('guest_main.php');
+    }elseif($op == 'register'){
+        include('guest_main.php');
+    }
+}else{
+    if($op == ''){
     include('member_main.php');
-}elseif($op == 'register'){
-    include('guest_register.php');
+    }
 }
+
+
 
 
 

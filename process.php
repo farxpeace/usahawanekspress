@@ -51,7 +51,7 @@ class Process
        * by mistake and therefore is redirected.
        */
        else{
-          header("Location: main.php");
+          header("Location: index.php");
        }
    }
 
@@ -85,7 +85,7 @@ class Process
    function procLogout(){
       global $session;
       $retval = $session->logout();
-      header("Location: main.php");
+      header("Location: index.php");
    }
    
    /**
@@ -255,7 +255,7 @@ class Process
 		      $email = $info['email'];
 	      
 	      if($mailer->sendConfirmation($username,$userid,$email)){
-	      	  echo "Your confirmation email has been sent! Back to <a href='main.php'>Main</a>";
+	      	  echo "Your confirmation email has been sent! Back to <a href='index.php'>Main</a>";
 	      }
 	  }
    }

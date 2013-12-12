@@ -1,7 +1,6 @@
 <?php
 
-    
-    $search_return = $Users->search();
+
 
 ?>
 
@@ -22,9 +21,9 @@ include(THEME_LOC."/header_member.php");
 						<div class="box-content">
 							<ul class="quicktasks">
 								<li>
-									<a href="index.php?modules=Users&op=edituser&add=yes">
-										<img src="<?php echo THEME_LOC; ?>/img/icons/essen/32/hire-me.png" alt="">
-										<span>Add New User</span>
+									<a href="index.php?modules=Product&op=editproduct&add=yes">
+										<img src="<?php echo THEME_LOC; ?>/img/icons/essen/32/basket.png" alt="">
+										<span>Add New Product</span>
 									</a>
 								</li>
 								<li>

@@ -164,8 +164,8 @@
 				</a>
 			</li>
 			<li>
-				<a href="index.html">
-					<img src="img/icons/fugue/control-power.png" alt="">
+				<a href="process.php">
+					<img src="<?php echo THEME_LOC; ?>/img/icons/fugue/control-power.png" alt="">
 					Logout
 				</a>
 			</li>
