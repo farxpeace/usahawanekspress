@@ -6,14 +6,47 @@ $debug = unserialize($_SESSION['debugdata']);
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>jQuery UI Tabs - Default functionality</title>
+	<title>Debugger</title>
 	<link rel="stylesheet" href="jquery-ui-1.10.3.custom/css/debugger-theme/jquery-ui-1.10.3.custom.css">
 	<script src="jquery-ui-1.10.3.custom/js/jquery-1.9.1.js"></script>
 	<script src="jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
 	<script type="text/javascript" src="Easy-Responsive-Tabs-to-Accordion-master/js/easyResponsiveTabs.js"></script>
 	<link rel="stylesheet" href="Easy-Responsive-Tabs-to-Accordion-master/css/easy-responsive-tabs.css">
     
-      
+    <style>
+        input {
+            padding: 5px;
+        }   
+        input.half {
+            width: 50%;
+            float: left;
+        } 
+        .variable_type {
+            float: left;
+            padding: 5px;
+        }
+        .subcontent {
+            padding: 5px;
+            margin: 3px;
+            border: 1px solid #FFCCCC;
+
+        }
+        
+        .subcontent table td.title {
+            width: 120px;
+        }
+        .var2_type {
+            padding: 5px;
+            border: 1px solid #FFCCCC;
+            margin-left: 3px;
+            margin-bottom: 5px;
+        }
+        
+        .var2_type_content {
+            border: 1px solid #CCCCCC;
+            margin-bottom: 10px;
+        }
+    </style>
     
 </head>
 <body>
@@ -21,6 +54,7 @@ $debug = unserialize($_SESSION['debugdata']);
 <div id="window_container">
 <div id="tabs">
 	<ul>
+        <li><a href="#tabs-settings-system">Configuration</a></li>
         <?php
             foreach($debug as $title => $data){
                 echo '<li><a href="#tabs-'.$title.'">'.$title.'</a></li>';
@@ -29,50 +63,108 @@ $debug = unserialize($_SESSION['debugdata']);
 		
 		
 	</ul>
+        <div id="tabs-settings-system">
+        asdsad
+        </div>
         <?php foreach($debug as $title => $data){ ?>
         
             <div id="tabs-<?php echo $title; ?>">
+                <div class="search_content">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 50px;">Search</td>
+                            <td><input id="search_input" name="search_input" class="half" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="clear: both;"></div>
                 <div id="childtabs_<?php echo $title; ?>" class="childtabs">          
                     <ul class="resp-tabs-list">
-                        <?php
-                            foreach($data as $a => $b){
-                                echo '<li>'.$a.'</li>';
-                            }
-                        ?>    
+                    <?php foreach($data as $a => $b){ ?>
+                        <li><?php echo $a ?></li>
+                    <?php } ?>    
                     </ul> 
         
                     <div class="resp-tabs-container">                                                        
                         <?php
+                        
                             foreach($data as $a => $b){ 
                                 $object = 0;
-                                if(is_numeric($b) || is_string($b)){
-                                    $variable = ' : '.$b;
-                                }else{
-                                    $variable = ' : Object';
-                                }
+                                $obj_data = $b;
+                                $var_type = gettype($b);
                                 ?>
                                 
-                                <div>
-                                    <div class="title"><input value="$<?php echo $title; ?>-><?php echo $a; ?>" /><?php echo $variable; ?></div>
+                                <div class="content_container">
+                                    <div class="title">
+                                        <button class="variable_type"><?php echo $var_type; ?></button> <input class="half" value="$<?php echo $title; ?>-><?php echo $a; ?>" /></div>
+                                    <div style="clear: both"></div>
                                     <div class="content">
-                                        <?php
-                                        if(is_object($b) || is_array($b)){
-                                            echo '<ul>';
-                                            foreach($b as $c => $d){ ?>
-                                                <li>
-                                                    <div>
-                                                    <?php echo $c; ?> : <?php echo $d; ?><br />
-                                                    <input style="width:100%" value="$<?php echo $title; ?>-><?php echo $a; ?>[<?php echo $c; ?>]" />
-                                                    </div>
-                                                </li>
+                                    
+                                        <div class="subcontent">
+                                            <?php if(($var_type == 'string') || $var_type == 'integer'){ ?>
+                                                <button class="variable_type">value</button> <input class="half" value="<?php echo $b; ?>" />
+                                            <?php } ?>
+                                            
+                                            <?php if($var_type == 'boolean'){ ?>
+                                                <button class="variable_type">value</button> <input class="half" value="<?php if($b){ echo 'true'; }else{ echo 'false'; }; ?>" />
+                                            <?php } ?>
+                                            
+                                            <?php if($var_type == 'array'){ ?>
+                                                <?php foreach($obj_data as $key => $value){ ?>
+                                                <div class="var2_type_content">
                                                 <?php
-                                            }
-                                            echo '</ul>';
-                                        }
-                                        ?>
+                                                $var2_type = gettype($value);
+                                                ?>
+                                                
+                                                    <?php if(($var2_type == 'string') || $var2_type == 'integer'){ ?>
+                                                    <button class="variable_type"><?php echo $var2_type; ?></button> <input class="half" value="$<?php echo $title; ?>-><?php echo $a; ?>[<?php echo $key; ?>]" />
+
+                                                    <div style="clear: both"></div>
+                                                    <button class="variable_type">value</button> <input class="half" value="<?php echo $value; ?>" />
+                                                    <div style="clear: both"></div>
+                                                    <table style="width: 100%;">
+                                                        <tr>
+                                                            <td class="title">PHP+HTML</td>
+                                                            <td class="td_half"><input class="half" value="&lt;?php echo $<?php echo $title.'->'.$a; ?>[<?php echo $key; ?>]; ?&gt;" /></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="title">PHP Echo</td>
+                                                            <td class="td_half"><input class="half" value="echo $<?php echo $title.'->'.$a; ?>[<?php echo $key; ?>];" /></td>
+                                                        </tr>
+                                                    </table>
+                                                    
+                                                    <?php } ?>
+                                                    </div>
+                                                <?php } ?>
+                                            <?php } ?>
+                                            
+                                            <div style="clear: both"></div>
+                                            <table style="width: 100%;">
+                                                <tr>
+                                                    <td class="title">PHP+HTML</td>
+                                                    <td class="td_half"><input class="half" value="&lt;?php echo $<?php echo $title.'->'.$a; ?>; ?&gt;" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="title">PHP Echo</td>
+                                                    <td class="td_half"><input class="half" value="echo $<?php echo $title.'->'.$a; ?>;" /></td>
+                                                </tr>
+                                            </table>
+                                            
+                                            <?php if($var_type == 'Object'){ ?>
+                                                <?php foreach($b as $key => $value){ ?>
+                                                <div>
+                                                    <button class="variable_type">value</button> <input class="half" value="<?php echo $value; ?>" />
+                                                </div>
+                                                <?php } ?>
+                                                
+                                            <?php } ?>
+                                            
+                                            
+                                        </div>
+                                        
                                     </div>
                                 </div>
-                            <?php }
+                            <?php unset($var_type); }
                         ?>    
                     </div>
                 </div>
@@ -93,41 +185,20 @@ $debug = unserialize($_SESSION['debugdata']);
                 }
             });
             </script>
-        <?php } ?>
+        <?php unset($data); } ?>
         
 	
 	
 </div>
 </div>
 <script type="text/javascript">
-jQuery.browser = {};
-(function () {
-    jQuery.browser.msie = false;
-    jQuery.browser.version = 0;
-    if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
-        jQuery.browser.msie = true;
-        jQuery.browser.version = RegExp.$1;
-    }
-})();
-function SelectText(element) {
-    var text = $(element).text();
-    if ($.browser.msie) {
-        var range = document.body.createTextRange();
-        range.moveToElementText(text);
-        range.select();
-    } else if ($.browser.mozilla || $.browser.opera) {
-        var selection = window.getSelection();
-        var range = document.createRange();
-        range.selectNodeContents(text);
-        selection.removeAllRanges();
-        selection.addRange(range);
-    } else if ($.browser.safari) {
-        var selection = window.getSelection();
-        selection.setBaseAndExtent(text, 0, text, 1);
-    }
-}
+
 $(function(){
-    $("#tabs").tabs();
+    $("#tabs").tabs({
+        activate: function( event, ui ) {
+            
+        }
+    });
 })
 </script>
 

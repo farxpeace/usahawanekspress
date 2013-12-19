@@ -35,6 +35,9 @@ if(!$session->logged_in){
             Header("Location: index.php?modules=Users&op=search&query_style=alluser");
         }
         include('member_editrole.php');
+    }elseif($op == 'editprofile'){
+        $userid = $session->uid;
+        Header("Location: index.php?modules=Users&op=edituser&id=".$userid);
     }
 }
 

@@ -26,7 +26,7 @@ if(in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
     define("DB_SERVER", "localhost");
     define("DB_USER", "root");
     define("DB_PASS", "123456");
-    define("DB_NAME", "sql424404");
+    define("DB_NAME", "intelmlm");
 }else{
     define("DB_SERVER", "sql4.freesqldatabase.com");
     define("DB_USER", "sql424404");
@@ -47,17 +47,7 @@ if(in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
  * hold the names of all the database tables used
  * in the script.
  */
-define("TBL_USERS", "intelmlm_users");
-define("TBL_ACTIVE_USERS",  "intelmlm_active_users");
-define("TBL_ACTIVE_GUESTS", "intelmlm_active_guests");
-define("TBL_BANNED_USERS",  "intelmlm_banned_users");
-define("TBL_MAIL", "intelmlm_mail");
-define("TBL_SETTINGS_META", "intelmlm_settings_meta");
-define("TBL_METATAG", "intelmlm_metatag");
-define("TBL_ROLE", "intelmlm_role");
-define("TBL_ROLE_META", "intelmlm_role_meta");
-define("TBL_PRODUCT", "intelmlm_product");
-define("TBL_PRODUCT_META", "intelmlm_product_meta");
+ define("TBL_SETTINGS", "intelmlm_settings");
 
 
 /**
@@ -81,7 +71,7 @@ define("GUEST_LEVEL", 0);
  * not the script keeps track of active users
  * and active guests who are visiting the site.
  */
-define("TRACK_VISITORS", true);
+#define("TRACK_VISITORS", true);
 
 /**
  * Timeout Constants - these constants refer to

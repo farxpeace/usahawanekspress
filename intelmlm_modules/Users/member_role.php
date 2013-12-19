@@ -2,7 +2,7 @@
 
     
     //$search_return = $Users->search();
-
+    $all_userrole = $Users->get_allrole();
 ?>
 
 <?php
@@ -21,6 +21,12 @@ include(THEME_LOC."/header_member.php");
 						</div>
 						<div class="box-content">
 							
+                            <form action="" method="post" class="form-horizontal">
+				                Default role for new user
+                                <?php foreach($all_userrole as $role){ ?>
+                                    <label class="radio"><input type="radio" name="radio" id="radio" /><?php echo $role['name']; ?></label>
+                                <?php } ?>
+                            </form>
 
 							
 						</div>
@@ -49,7 +55,7 @@ include(THEME_LOC."/header_member.php");
         //print_r($Users->list_allrole());
                                             $i = 1;
                                             ?>
-                                            <?php foreach($Users->get_allrole() as $roles => $role){ ?>
+                                            <?php foreach($all_userrole as $roles => $role){ ?>
 												<tr>
 													<td><?php echo $i; ?></td>
 													<td><?php echo $role['name']; ?></td>

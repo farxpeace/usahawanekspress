@@ -9,8 +9,6 @@ define ("FOLDER_TEMPLATES", 'intelmlm_template');
 define("THEME_NAME", 'neat-admin');
 define("THEME_LOC", FOLDER_TEMPLATES."/".THEME_NAME);
 
-define("DEBUG_MODE", 1);
-
 function prevent_direct_access()
 {
     if($_SERVER['REQUEST_URI'] == $_SERVER['PHP_SELF'])
@@ -19,8 +17,5 @@ function prevent_direct_access()
         exit;
     }
 }
-
-
-$debugger = array();
 include(FOLDER_INCLUDE."/session.php");
 ?>

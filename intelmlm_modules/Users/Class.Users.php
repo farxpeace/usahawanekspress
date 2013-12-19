@@ -98,7 +98,7 @@ Class Users {
     function add_user(){
         $time = time();
         $username = 'temporary'.$time;
-        $query1 = mysql_query("INSERT INTO ".TBL_USERS." SET timestamp='".$time."',username='".$username."',password='".md5('123456')."', bpassword='123456', valid='1'");
+        $query1 = mysql_query("INSERT INTO ".TBL_USERS." SET timestamp='".$time."',username='".$username."',password='".md5('123456')."', bpassword='123456', valid='1', userrole='2'");
         $userid = mysql_insert_id();
         return $userid;
         

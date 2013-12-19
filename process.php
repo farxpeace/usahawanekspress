@@ -18,6 +18,7 @@ class Process
       global $session;
       /* User submitted login form */
       if(isset($_POST['sublogin'])){
+        
          $this->procLogin();
       }
       /* User submitted registration form */

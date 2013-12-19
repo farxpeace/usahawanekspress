@@ -60,28 +60,26 @@ include(THEME_LOC."/header_member.php");
 											<thead>
 												<tr>
 													<th>No</th>
-													<th>Username</th>
-													<th>Fullname</th>
-													<th>Role</th>
+													<th>Product name</th>
 													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
                                             <?php
                                             $i = 1;
+                                            $product_data = $Product->list_all_product();
+                                            if(!is_array($product_data)){ $product_data = array(); }
                                             ?>
-                                            <?php foreach($Users->search() as $number => $data){ ?>
-                                                <?php $rolename = $database->get_value_by_meta_and_table(TBL_ROLE_META,'roleid',$data['userrole'],'role_name'); ?>
+                                            <?php foreach($product_data as $data => $value){ ?>
+                                                
 												<tr>
 													<td><?php echo $i; ?></td>
-													<td><?php echo $data['username']; ?></td>
-													<td><?php echo $data['fullname']; ?></td>
-													<td><?php echo $rolename['value']; ?></td>
+													<td><?php echo $value['productname']; ?></td>
 													<td>
                                                         
 										<div class="btn-group">
 											
-											<a class="btn btn-primary" href="index.php?modules=Users&op=edituser&id=<?php echo $data['id']; ?>">edit</a>
+											<a class="btn btn-primary" href="index.php?modules=Product&op=editproduct&id=<?php echo $value['id']; ?>">edit</a>
 											
 										</div>
 									

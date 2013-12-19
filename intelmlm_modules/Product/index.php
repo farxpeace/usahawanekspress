@@ -7,9 +7,11 @@ if($session->logged_in){
         include('member_product.php');
     }elseif($op == 'editproduct'){
         $output = $Product->add_edit_product();
-        if($output[status] == 'ok'){
+        //print_r($session->referrer);
+        if($output['status'] == 'ok'){
             Header("Location: ".$session->referrer);
         }elseif($output['add'] == 'yes'){
+            //print_r($output);
             Header("Location: ".$session->referrer);
         }
         include('member_editproduct.php');

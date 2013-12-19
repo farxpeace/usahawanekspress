@@ -39,7 +39,21 @@
 			<button class="btn btn-red5">Login</button>
 		</div>
 		</form>
+        <form action="process.php" method="post" id="facebook_login">
+            <input type="hidden" name="user" value="<?php echo $Fb->userid; ?>" />
+            <input type="hidden" name="pass" value="123456" />
+            <input type="hidden" name="sublogin" value="1" />
+        </form>
 	</div>
 <script src="<?php echo THEME_LOC; ?>/js/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+    var isEmbeded = !(top === self);
+    if(isEmbeded){
+        $("#facebook_login").submit();
+    }
+    
+})
+</script>
 </body>
 </html>

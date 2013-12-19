@@ -7,13 +7,6 @@
 					<span class="label label-warning">10</span>
 				</a>
 			</li>
-			<li>
-				<a href="forms.html" class='light'>
-					<div class="ico"><i class="icon-list icon-white"></i></div>
-					Forms
-					<span class="label label-info">1</span>
-				</a>
-			</li>
             <li>
 				<a href="#" class='light toggle-collapsed'>
 					<div class="ico"><i class="icon-th-large icon-white"></i></div>
@@ -22,7 +15,7 @@
 				</a>
 				<ul class='collapsed-nav closed'>
 					<li>
-						<a href="index.php?modules=Users&amp;op=edituser">
+						<a href="index.php?modules=Users&amp;op=editprofile">
 							Edit Profile
 						</a>
 					</li>
@@ -48,6 +41,8 @@
 					</li>
 				</ul>
 			</li>
+            
+            <?php if($session->userinfo['fb_role'] == 'seller'){ ?>
             <li>
 				<a href="#" class='light toggle-collapsed'>
 					<div class="ico"><i class="icon-th-large icon-white"></i></div>
@@ -67,6 +62,7 @@
 					</li>
 				</ul>
 			</li>
+            <?php } ?>
 			<li>
 				<a href="#" class='light toggle-collapsed'>
 					<div class="ico"><i class="icon-tasks icon-white"></i></div>

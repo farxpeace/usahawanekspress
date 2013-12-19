@@ -8,8 +8,11 @@
  * Written by: Jpmaster77 a.k.a. The Grandmaster of C++ (GMC)
  * Last Updated: June 15, 2011 by Ivan Novak
  */
+include("constants.php");
+include("debugger/Class.Debugger.php");
 include("database.php");
-include(FOLDER_MODULES.'/Settings/Class.Settings.php');
+include('Class.Settings.php');
+#include(FOLDER_MODULES.'/Settings/Class.Settings.php');
 include("mailer.php");
 include("form.php");
 
@@ -86,6 +89,13 @@ class Session
     * If so, the database is queried to make sure of the user's 
     * authenticity. Returns true if the user has logged in.
     */
+   
+   function getUIDbyUsernameAndUserid($username, $userid){
+    global $database;  //The database connection
+    $query = mysql_query("SELECT id FROM ".$database->tbl_users_name." WHERE username='$username' AND userid='$userid'");
+    $row = mysql_fetch_assoc($query);
+    return $row['id'];
+   }
    function checkLogin(){
       global $database;  //The database connection
       /* Check if user has been remembered */
@@ -93,7 +103,9 @@ class Session
          $this->username = $_SESSION['username'] = $_COOKIE['cookname'];
          $this->userid   = $_SESSION['userid']   = $_COOKIE['cookid'];
       }
-
+        
+        
+        
       /* Username and userid have been set and not guest */
       if(isset($_SESSION['username']) && isset($_SESSION['userid']) &&
          $_SESSION['username'] != GUEST_NAME){
@@ -106,7 +118,9 @@ class Session
          }
 
          /* User is logged in, set class variables */
-         $this->userinfo  = $database->getUserInfo($_SESSION['username']);
+         //$this->userinfobyid  = $database->getUserInfoById($this->getUIDbyUsername($_SESSION['username']));
+         //$this->userinfobyid = 'a';
+         $this->userinfobyid  = $database->getUserInfoById($this->getUIDbyUsernameAndUserid($_SESSION['username'], $_SESSION['userid']));
          $this->userrole = $this->userinfo['userrole'];
          $this->username  = $this->userinfo['username'];
          $this->userid    = $this->userinfo['userid'];
@@ -127,12 +141,6 @@ class Session
          return false;
       }
    }
-   
-   function role_by_user($uid){
-        global $database;  //The database connection
-        $result = $database->query("SELECT name FROM ".TBL_ROLE." WHERE id='".$this->userrole."' AND id='$uid");
-        print_r($result);
-   }
 
    /**
     * login - The user has submitted his username and password
@@ -146,7 +154,7 @@ class Session
         
       /* Username error checking */
       $field = "user";  //Use field name for username
-	  $q = "SELECT valid FROM ".TBL_USERS." WHERE username='$subuser'";
+	  $q = "SELECT valid FROM ".$database->tbl_users_name." WHERE username='$subuser'";
 	  $valid = $database->query($q);
 	  $valid = mysql_fetch_array($valid);
 	  	      
@@ -532,6 +540,12 @@ class Session
  * which cannot be accessed unless the session has started.
  */
 $session = new Session;
+$domain = explode('.', $_SERVER["SERVER_NAME"]);
+if($domain[0] == 'facebook'){
+    include('facebook.php');
+    $Fb = new FB;
+}
+
 
 /* Initialize form object */
 $form = new Form;
