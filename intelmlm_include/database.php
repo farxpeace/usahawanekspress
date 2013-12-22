@@ -22,8 +22,16 @@ class MySQLDB
    var $tbl_active_guest_name;
    var $tbl_banned_users_name;
    var $tbl_mail_name;
+   var $tbl_ads_name;
+   var $tbl_store;
+   var $tbl_files_name;
    var $const_track_visitors;
    var $const_user_timeout;
+   var $const_thm_img;
+   var $admin_name;
+   var $guest_name;
+   var $level_constants = array();
+   var $login_using;
    /* Note: call getNumMembers() to access $num_members! */
 
    /* Class constructor */
@@ -45,8 +53,16 @@ class MySQLDB
       $this->tbl_active_guest_name = $this->process_db_active_guest();
       $this->tbl_banned_users_name = $this->process_db_banned_users();
       $this->tbl_mail_name = $this->process_db_mail();
+      $this->tbl_files_name = $this->getSingleValueByMetaAndRef('tbl_name', 'files');
+      $this->tbl_store = $this->getSingleValueByMetaAndRef('tbl_name', 'store');
       $this->const_track_visitors = $this->process_track_visitors();
       $this->const_user_timeout = $this->process_user_timeout();
+      $this->const_thm_img = $this->getSingleValueByMetaAndRef('constants', 'theme_img');
+      $this->tbl_ads_name = $this->process_db_ads();
+      $this->admin_name = $this->getSingleValueByMetaAndRef('level_name', 'admin_name');
+      $this->guest_name = $this->getSingleValueByMetaAndRef('level_name', 'guest_name');
+      $this->process_level_constants();
+      $this->login_using = $this->getSingleValueByMetaAndRef('system', 'login_using');
       
       
       if($this->const_track_visitors){
@@ -57,10 +73,60 @@ class MySQLDB
          $this->calcNumActiveGuests();
       }
    }
+   function process_level_constants(){
+        $tbldata = $this->getAllMetaValueByRef('level_constants');
+        foreach($tbldata as $a => $b){
+            $this->level_constants[$a] = $b;
+        }
+        //print_r($tbldata);
+   }
+   
    function process_db_active_users(){
         $tblname = $this->getSingleValueByMetaAndRef('tbl_name', 'active_users');
         return $tblname;
    }
+   
+   function getAllMetaValueByRef($ref){
+        $q = "SELECT value,meta FROM ".TBL_SETTINGS." WHERE ref='".$ref."'";
+        $result = mysql_query($q);
+        while($row = mysql_fetch_assoc($result)){
+            $list[$row['meta']] = $row['value'];
+        }
+        return $list;
+        
+    }
+    
+    function getAllIdMetaValueByRef($ref){
+        $q = "SELECT id,value,meta FROM ".TBL_SETTINGS." WHERE ref='".$ref."'";
+        $result = mysql_query($q);
+        while($row = mysql_fetch_assoc($result)){
+            $list[] = $row;
+        }
+        return $list;
+        
+    }
+    
+    function getAllValueByRef($ref){
+        $q = "SELECT id,value,meta FROM ".TBL_SETTINGS." WHERE ref='".$ref."'";
+        $result = mysql_query($q);
+        while($row = mysql_fetch_assoc($result)){
+            $list[$row['id']] = array($row['meta'] => $row['value']);
+        }
+        return $list;
+        
+    }
+    
+    function getAllValueByRefAndMeta($ref, $meta){
+        $q = "SELECT id,value FROM ".TBL_SETTINGS." WHERE ref='".$ref."' AND meta='".$meta."'";
+        $result = mysql_query($q);
+        while($row = mysql_fetch_assoc($result)){
+            $list[$row['id']] = $row['value'];
+        }
+        return $list;
+        
+    }
+   
+   
     function getSingleValueByMetaAndRef($ref, $meta){
         $q = "SELECT value FROM ".TBL_SETTINGS." WHERE ref='".$ref."' AND meta='".$meta."'";
         $result = mysql_query($q);
@@ -68,6 +134,14 @@ class MySQLDB
         return $row['value'];
         
     }
+    
+   function getSingleIdByMetaAndRef($ref, $meta){
+        $q = "SELECT id FROM ".TBL_SETTINGS." WHERE ref='".$ref."' AND meta='".$meta."'";
+        $result = mysql_query($q);
+        $row = mysql_fetch_assoc($result);
+        return $row['id'];
+        
+   }
    function process_db_users(){
         $tblname = $this->getSingleValueByMetaAndRef('tbl_name', 'users');
         return $tblname;
@@ -96,6 +170,10 @@ class MySQLDB
         $tblname = $this->getSingleValueByMetaAndRef('constants', 'user_timeout');
         return $tblname;
    }
+   function process_db_ads(){
+        $tblname = $this->getSingleValueByMetaAndRef('tbl_name', 'ads');
+        return $tblname;
+   }
    
    
 
@@ -112,9 +190,9 @@ class MySQLDB
       if(!get_magic_quotes_gpc()) {
 	      $username = addslashes($username);
       }
-
+        
       /* Verify that user is in database */
-      $q = sprintf("SELECT password FROM ".$this->tbl_users_name." where username = '%s'",
+      $q = sprintf("SELECT password FROM ".$this->tbl_users_name." where ".$this->login_using." = '%s'",
             mysql_real_escape_string($username));
       $result = mysql_query($q, $this->connection);
       if(!$result || (mysql_numrows($result) < 1)){
@@ -148,9 +226,11 @@ class MySQLDB
       if(!get_magic_quotes_gpc()) {
 	      $username = addslashes($username);
       }
+      
+      
 
       /* Verify that user is in database */
-      $q = sprintf("SELECT userid FROM ".$this->tbl_users_name." WHERE username= '%s'",
+      $q = sprintf("SELECT userid FROM ".$this->tbl_users_name." WHERE ".$this->login_using."= '%s'",
             mysql_real_escape_string($username));
       $result = mysql_query($q, $this->connection);
       if(!$result || (mysql_numrows($result) < 1)){
@@ -186,6 +266,8 @@ class MySQLDB
    }
    
    
+   
+   
    /**
     * emailTaken - Returns true if the email has
     * been taken by another user, false otherwise.
@@ -213,19 +295,47 @@ class MySQLDB
       $result = mysql_query($q, $this->connection);
       return (mysql_numrows($result) > 0);
    }
-   
+   function addNewUserByEmail($email, $password){
+    $time = time();
+      /* If admin sign up, give admin user level */
+      
+      $md5 = md5($password);
+       $q = sprintf("INSERT INTO ".$this->tbl_users_name." (
+            username,
+            password,
+            bpassword,
+            userid, 
+            userlevel, 
+            email, 
+            timestamp, 
+            valid
+       )VALUES(
+            '".mysql_real_escape_string($email)."',
+            '".mysql_real_escape_string($md5)."',
+            '".mysql_real_escape_string($password)."',
+            '".mysql_real_escape_string($time)."',
+            '".mysql_real_escape_string('1')."',
+            '".mysql_real_escape_string($email)."',
+            '".mysql_real_escape_string($time)."',
+            '".mysql_real_escape_string('1')."'
+       )");
+            
+            
+      return mysql_query($q, $this->connection);
+   }
    /**
     * addNewUser - Inserts the given (username, password, email)
     * info into the database. Appropriate user level is set.
     * Returns true on success, false otherwise.
     */
    function addNewUser($username, $password, $email, $userid, $name){
+    
       $time = time();
       /* If admin sign up, give admin user level */
-      if(strcasecmp($username, ADMIN_NAME) == 0){
-         $ulevel = ADMIN_LEVEL;
+      if(strcasecmp($username, $this->admin_name) == 0){
+         $ulevel = $this->level_constants['admin_level'];
       }else{
-         $ulevel = USER_LEVEL;
+         $ulevel = $this->level_constants['user_level'];
       }
        $q = sprintf("INSERT INTO ".$this->tbl_users_name." VALUES ('%s', '%s', '%s', '%s', '%s', $time, '0', '%s', '0', '0')",
             mysql_real_escape_string($username),
@@ -256,7 +366,7 @@ class MySQLDB
     */
     
    function getUserInfo($username){
-      $q = sprintf("SELECT * FROM ".$this->tbl_users_name." WHERE username = '%s'",
+      $q = sprintf("SELECT * FROM ".$this->tbl_users_name." WHERE ".$this->login_using." = '%s'",
             mysql_real_escape_string($username));
       $result = mysql_query($q, $this->connection);
       /* Error occurred, return given name by default */
@@ -278,6 +388,22 @@ class MySQLDB
       /* Return result array */
       $dbarray = mysql_fetch_assoc($result);
       return $dbarray;
+   }
+   
+   function getSingleUserDetailById($uid, $column){
+    
+      $q = sprintf("SELECT ".$column." FROM ".$this->tbl_users_name." WHERE id = '$uid'",
+            mysql_real_escape_string($uid));
+      $result = mysql_query($q, $this->connection);
+      /* Error occurred, return given name by default */
+      if(!$result || (mysql_numrows($result) < 1)){
+         return NULL;
+      }
+      
+      /* Return result array */
+      $dbarray = mysql_fetch_assoc($result);
+      //print_r($dbarray);
+      return $dbarray[$column];
    }
    
    

@@ -18,6 +18,8 @@ Class Settings extends MySQLDB {
         //$this->get_value_by_meta($this->ref, 'short-name');
     }
     
+    
+    
     function process_debug_mode(){
         global $database;
         $tblname = $database->getSingleValueByMetaAndRef('constants', 'debug_mode');

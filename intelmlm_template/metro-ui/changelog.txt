@@ -1,0 +1,51 @@
+V1.5
+- Fixed Dynamic Tables Pagination styling
+- Fixed Multiple File-Upload input
+- Fixed dropdown entries on Dynamic Tables page
+
+V1.4
+- Update to Bootstrap 2.3 - more about it http://bit.ly/Y6ghRz
+- Fixed Gmaps plugin images controls
+- Fixed images width & height attributes in IE
+- Fixed Button Groups Radio & Checkboxes
+
+V1.3.1
+- Added color_light class for boxes
+- Fixed a bug when switching from Menu Default State to Icons
+- Fixed sidebar background on IE8/9
+  *Changed Files
+  - js/scripts.js
+
+V1.3
+- Added Icon State menu option
+- Added Wizard Forms
+- Added IE7 Support
+- Fixed Checkbox/Radios on touch devices
+
+  *Changed Files
+  - for Icon state - js/scripts.js
+  - for Wizard Forms - js/plugins/wizard-master/jquery.bootstrap.wizard.js
+  - for IE7 Support - js/scripts.js
+                    - css/base.css
+                    - css/twitter/responsive.css
+
+V1.2
+- Added Blog articles page
+- Added Register form on Form Elements - General page
+- Improved Messages Layout to meet Twitter guidelines
+- Fixed some responsive things - especially on mobile view
+- Fixed tables actions group buttons
+
+  *Changed Files
+  - css/base.css
+  - css/twitter/responsive.css
+  - js/scripts.js
+  - sass/base.scss
+  - sass/_specific.scss
+  - sass/_general.scss
+  - all .html files (markup changes)
+
+V1.1
+- Added IE8/9 support
+- Loading speed improvements
+- Small styling issues fixed

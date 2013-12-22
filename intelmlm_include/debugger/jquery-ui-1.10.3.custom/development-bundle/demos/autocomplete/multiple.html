@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="../demos.css">
 	<script>
 	$(function() {
-		var availableTags = [
+		var availabelTags = [
 			"ActionScript",
 			"AppleScript",
 			"Asp",
@@ -57,7 +57,7 @@
 				source: function( request, response ) {
 					// delegate back to autocomplete, but extract the last term
 					response( $.ui.autocomplete.filter(
-						availableTags, extractLast( request.term ) ) );
+						availabelTags, extractLast( request.term ) ) );
 				},
 				focus: function() {
 					// prevent value inserted on focus

@@ -1,59 +1,82 @@
 <?php
-#print_r($session);
+include(THEME_LOC."/main_header.php");
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title><?php echo $Settings->title; ?></title>
-<meta name="description" content="">
-
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
-
-<link rel="stylesheet" href="<?php echo THEME_LOC; ?>/css/bootstrap.css">
-<link rel="stylesheet" href="<?php echo THEME_LOC; ?>/css/jquery.fancybox.css">
-<link rel="stylesheet" href="<?php echo THEME_LOC; ?>/css/style.css">
-</head>
-<body class='login_body'>
-	<div class="wrap">
-		<h2><?php echo $Settings->title; ?></h2>
-		<h4>Welcome to the login page</h4>
-		<form action="process.php"  autocomplete="off" method="post">
-		<div class="login">
-			<div class="email">
-				<label for="user">Username</label><div class="email-input"><div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span><input type="text" id="user" name="user"></div></div>
-			</div>
-			<div class="pw">
-				<label for="pw">Password</label><div class="pw-input"><div class="input-prepend"><span class="add-on"><i class="icon-lock"></i></span><input type="password" id="pw" name="pass"></div></div>
-			</div>
-			<div class="remember">
-				<label class="checkbox">
-					<input type="checkbox" value="1" name="remember"> Remember me on this computer
-				</label>
+<div class="grid fluid" style="padding: 10px;">
+	<div class="row">
+		<div class="span6">
+			<div class="listview">
+				
+				<?php
+                $left_ads = $Class_Ads->get_latest_ads_limit_by('50', 'published');
+                $all_ads = $Class_Ads->get_latest_ads_limit_by('50', 'published');
+                //print_r($left_ads);
+                //echo '<pre>';
+                $total_ads = 5;//count($left_ads);
+                $half_event = ($total_half & 1);
+                $is_odd = ($total_ads & 1);
+                
+                
+                //echo 'Total ads: '.$total_ads."<br>Is odd: ".$is_odd."<br>";
+                
+                
+                if($is_odd){
+                    
+                    $total_minus = $total_ads-1;
+                    $total_half = $total_minus/2;
+                    $left_count = $total_half+1;
+                    $right_count = $total_half;
+                    
+                }else{
+                    $total_half = $total_ads/2;
+                    $left_count = $total_half;
+                    $right_count = $total_half;
+                }
+                //echo 'left: '.$left_count." right: ".$right_count."<br>";
+                //foreach($left_ads as $id => $ads){
+                for ($i=0;$i<$left_count;$i++){ ?>
+				<a href="index.php?modules=ads&op=view_ads&id=<?php echo $all_ads[$i]['id']; ?>" class="list bg-lightBlue fg-white">
+				<div class="list-content">
+					<img src="<?php echo 'intelmlm_images/uploaded/thumbnail/'.$all_ads[$i]['images'][0]['name']; ?>" class="icon">
+					<div class="data">
+						<span class="list-title"><?php echo $all_ads[$i]['title']; ?></span>
+						
+						<div class="rating small no-margin fg-yellow" data-score="4" data-role="rating" data-stars="5">
+							<ul style="margin-bottom: 0px;">
+								<li class="rated"></li>
+								<li class="rated"></li>
+								<li class="rated"></li>
+								<li class="rated"></li>
+								<li></li>
+							</ul>
+						</div>
+                        <span class="list-remark">Price: RM<?php echo $all_ads[$i]['price_sale']; ?></span>
+					</div>
+				</div>
+				</a>
+                <?php } ?>
+                
 			</div>
 		</div>
-		<div class="submit">
-			<a href="#">Lost password?</a>
-			<a href="index.php?modules=Main&amp;op=register">Register</a>
-			<input type="hidden" name="sublogin" value="1">
-			<button class="btn btn-red5">Login</button>
+		<div class="span6">
+			<div class="listview">
+				
+                <?php for ($i=0;$i<$right_count;$i++){ ?>
+				<a href="index.php?modules=ads&op=view_ads&id=<?php echo $all_ads[$i]['id']; ?>" class="list bg-lightBlue fg-white">
+				<div class="list-content">
+					<img src="<?php echo 'intelmlm_images/uploaded/thumbnail/'.$all_ads[$i]['images'][0]['name']; ?>" class="icon">
+					<div class="data">
+						<span class="list-title"><?php echo $all_ads[$i]['title']; ?></span>
+						<span class="list-desc" style="font-size: 12px;"><?php echo $all_ads[$i]['description']; ?></span>
+						<span class="list-remark">Price: RM<?php echo $all_ads[$i]['price_sale']; ?></span>
+					</div>
+				</div>
+				</a>
+                <?php } ?>
+			</div>
 		</div>
-		</form>
-        <form action="process.php" method="post" id="facebook_login">
-            <input type="hidden" name="user" value="<?php echo $Fb->userid; ?>" />
-            <input type="hidden" name="pass" value="123456" />
-            <input type="hidden" name="sublogin" value="1" />
-        </form>
+		<div class="span4">
+		</div>
 	</div>
-<script src="<?php echo THEME_LOC; ?>/js/jquery.js"></script>
-<script type="text/javascript">
-$(function(){
-    var isEmbeded = !(top === self);
-    if(isEmbeded){
-        $("#facebook_login").submit();
-    }
-    
-})
-</script>
+</div>
 </body>
 </html>

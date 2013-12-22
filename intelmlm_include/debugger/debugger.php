@@ -1,6 +1,10 @@
 <?php
+ob_start();
 session_start();
 $debug = unserialize($_SESSION['debugdata']);
+$debug_r = unserialize($_SESSION['debug_r']);
+$Config = unserialize($_SESSION['config']);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -12,7 +16,7 @@ $debug = unserialize($_SESSION['debugdata']);
 	<script src="jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
 	<script type="text/javascript" src="Easy-Responsive-Tabs-to-Accordion-master/js/easyResponsiveTabs.js"></script>
 	<link rel="stylesheet" href="Easy-Responsive-Tabs-to-Accordion-master/css/easy-responsive-tabs.css">
-    
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
     <style>
         input {
             padding: 5px;
@@ -60,12 +64,50 @@ $debug = unserialize($_SESSION['debugdata']);
                 echo '<li><a href="#tabs-'.$title.'">'.$title.'</a></li>';
             }
         ?>
+        <?php
+            foreach($debug_r as $title => $data){
+                echo '<li><a href="#tabs-'.$title.'">'.$title.'</a></li>';
+            }
+        ?>
 		
 		
 	</ul>
         <div id="tabs-settings-system">
-        asdsad
+        
+        <table class="pure-table" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>References</th>
+            <th>Meta</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <?php foreach($Config as $key => $value){ ?> 
+        <tr class="pure-table-odd">
+            <td style="width: 20px;"><?php echo $value['id']; ?></td>
+            <td style="width: 120px;"><?php echo $value['ref']; ?></td>
+            <td style="width: 120px;"><?php echo $value['meta']; ?></td>
+            <td><?php echo $value['value']; ?></td>
+        </tr>
+        <?php } ?>
+    </tbody>
+</table>
+
         </div>
+        
+        <?php foreach($debug_r as $title => $data){ ?>
+        
+            <div id="tabs-<?php echo $title; ?>">
+                <pre>
+                <?php print_r($data); ?>
+                </pre>
+            </div>
+        <?php } ?>
+        
+        
         <?php foreach($debug as $title => $data){ ?>
         
             <div id="tabs-<?php echo $title; ?>">
@@ -204,3 +246,6 @@ $(function(){
 
 </body>
 </html>
+<?php
+ob_end_flush();
+?>

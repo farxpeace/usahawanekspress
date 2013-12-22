@@ -9,9 +9,12 @@
  * Last Updated: June 15, 2011 by Ivan Novak
  */
 include("constants.php");
-include("debugger/Class.Debugger.php");
+include("gump.class.php");
+include("Class.Mx.php");
 include("database.php");
+include("debugger/Class.Debugger.php");
 include('Class.Settings.php');
+include(FOLDER_MODULES.'/Ads/Class.Ads.php');
 #include(FOLDER_MODULES.'/Settings/Class.Settings.php');
 include("mailer.php");
 include("form.php");
@@ -20,6 +23,7 @@ class Session
 {
     var $uid;
    var $username;     //Username given on sign-up
+   var $email;
    var $userid;       //Random value generated on current login
    var $userlevel;    //The level to which the user pertains
    var $time;         //Time user was last active (page loaded)
@@ -57,9 +61,10 @@ class Session
        * Set guest value to users not logged in, and update
        * active guests table accordingly.
        */
+       
       if(!$this->logged_in){
-         $this->username = $_SESSION['username'] = GUEST_NAME;
-         $this->userlevel = GUEST_LEVEL;
+         $this->username = $_SESSION['username'] = $database->guest_name;
+         $this->userlevel = $database->level_constants['guest_level'];
          $database->addActiveGuest($_SERVER['REMOTE_ADDR'], $this->time);
       }
       /* Update users last active timestamp */
@@ -99,41 +104,55 @@ class Session
    function checkLogin(){
       global $database;  //The database connection
       /* Check if user has been remembered */
-      if(isset($_COOKIE['cookname']) && isset($_COOKIE['cookid'])){
+      if(isset($_COOKIE['cookname']) && isset($_COOKIE['cookid']) && ($_COOKIE['cookemail'])){
          $this->username = $_SESSION['username'] = $_COOKIE['cookname'];
          $this->userid   = $_SESSION['userid']   = $_COOKIE['cookid'];
+         $this->email   = $_SESSION['email']   = $_COOKIE['cookemail'];
       }
-        
-        
+      
+      
+      
+      
         
       /* Username and userid have been set and not guest */
-      if(isset($_SESSION['username']) && isset($_SESSION['userid']) &&
-         $_SESSION['username'] != GUEST_NAME){
+      if(isset($_SESSION['username']) && isset($_SESSION['userid']) && $_SESSION['username'] != $database->guest_name){
          /* Confirm that username and userid are valid */
-         if($database->confirmUserID($_SESSION['username'], $_SESSION['userid']) != 0){
+         if($database->login_using == 'email'){
+            $confirm = $database->confirmUserID($_SESSION['email'], $_SESSION['userid']);
+         }elseif($database->login_using == 'username'){
+            $confirm = $database->confirmUserID($_SESSION['username'], $_SESSION['userid']);
+         }
+         
+         if($confirm != 0){
             /* Variables are incorrect, user not logged in */
             unset($_SESSION['username']);
             unset($_SESSION['userid']);
+            unset($_SESSION['email']);
             return false;
-         }
+      }
+      
+      
 
          /* User is logged in, set class variables */
          //$this->userinfobyid  = $database->getUserInfoById($this->getUIDbyUsername($_SESSION['username']));
          //$this->userinfobyid = 'a';
-         $this->userinfobyid  = $database->getUserInfoById($this->getUIDbyUsernameAndUserid($_SESSION['username'], $_SESSION['userid']));
-         $this->userrole = $this->userinfo['userrole'];
-         $this->username  = $this->userinfo['username'];
-         $this->userid    = $this->userinfo['userid'];
-         $this->uid    = $this->userinfo['id'];
-         $this->userlevel = $this->userinfo['userlevel'];
-         
+         $this->userinfobyid  = $database->getUserInfoById($this->getUIDbyUsernameAndUserid($this->username, $this->userid));
+         $this->userrole = $this->userinfobyid['userrole'];
+         $this->username  = $this->userinfobyid['username'];
+         $this->userid    = $this->userinfobyid['userid'];
+         $this->uid    = $this->userinfobyid['id'];
+         $this->userlevel = $this->userinfobyid['userlevel'];
+         $this->email = $this->userinfobyid['email'];
+         $this->userinfo = $this->userinfobyid;
          /* auto login hash expires in three days */
-         if($this->userinfo['hash_generated'] < (time() - (60*60*24*3))){
+         if($this->userinfobyid['hash_generated'] < (time() - (60*60*24*3))){
          	/* Update the hash */
-	         $database->updateUserField($this->userinfo['username'], 'hash', $this->generateRandID());
-	         $database->updateUserField($this->userinfo['username'], 'hash_generated', time());
+	         $database->updateUserField($this->userinfobyid['username'], 'hash', $this->generateRandID());
+	         $database->updateUserField($this->userinfobyid['username'], 'hash_generated', time());
          }
          
+         //print_r($this->userinfobyid);
+         //exit();
          return true;
       }
       /* User not logged in */
@@ -150,23 +169,37 @@ class Session
     */
    function login($subuser, $subpass, $subremember){
       global $database, $form;  //The database and form object
+      
+        if($database->login_using == 'email'){
+            /* Username error checking */
+            $field = "user";  //Use field name for username
+            $q = "SELECT valid FROM ".$database->tbl_users_name." WHERE email='$subuser'";
+        }elseif($database->login_using == 'username'){
+            /* Username error checking */
+            $field = "user";  //Use field name for username
+            $q = "SELECT valid FROM ".$database->tbl_users_name." WHERE username='$subuser'";
+        }
         
-        
-      /* Username error checking */
-      $field = "user";  //Use field name for username
-	  $q = "SELECT valid FROM ".$database->tbl_users_name." WHERE username='$subuser'";
+      
 	  $valid = $database->query($q);
 	  $valid = mysql_fetch_array($valid);
+      
+      
 	  	      
       if(!$subuser || strlen($subuser = trim($subuser)) == 0){
          $form->setError($field, "* Username not entered");
       }
       else{
          /* Check if username is not alphanumeric */
-         if(!ctype_alnum($subuser)){
-            $form->setError($field, "* Username not alphanumeric");
+         if($database->login_using == 'username'){
+            if(!ctype_alnum($subuser)){
+                $form->setError($field, "* Username not alphanumeric");
+             }
          }
+         
       }	  
+      
+      
         
       /* Password error checking */
       $field = "pass";  //Use field name for password
@@ -178,11 +211,11 @@ class Session
       if($form->num_errors > 0){
          return false;
       }
-
+        
       /* Checks that username is in database and password is correct */
       $subuser = stripslashes($subuser);
       $result = $database->confirmUserPass($subuser, md5($subpass));
-
+      
       /* Check error codes */
       if($result == 1){
          $field = "user";
@@ -204,25 +237,30 @@ class Session
       		$form->setError($field, "* User's account has not yet been confirmed.");
       	}
       }
-                  
+             
       /* Return if form errors exist */
       if($form->num_errors > 0){
          return false;
       }
       
-        
+      
 
       /* Username and password correct, register session variables */
       $this->userinfo  = $database->getUserInfo($subuser);
+      
       $this->username  = $_SESSION['username'] = $this->userinfo['username'];
+      
+      $this->email  = $_SESSION['email'] = $this->userinfo['email'];
+      
       $this->userid    = $_SESSION['userid']   = $this->generateRandID();
+      
       $this->userlevel = $this->userinfo['userlevel'];
       
       /* Insert userid into database and update active users table */
       $database->updateUserField($this->username, "userid", $this->userid);
       $database->addActiveUser($this->username, $this->time);
       $database->removeActiveGuest($_SERVER['REMOTE_ADDR']);
-
+      
       /**
        * This is the cool part: the user has requested that we remember that
        * he's logged in, so we set two cookies. One to hold his username,
@@ -232,10 +270,11 @@ class Session
        */
       if($subremember){
          setcookie("cookname", $this->username, time()+COOKIE_EXPIRE, COOKIE_PATH);
+         setcookie("cookemail", $this->email, time()+COOKIE_EXPIRE, COOKIE_PATH);
          setcookie("cookid",   $this->userid,   time()+COOKIE_EXPIRE, COOKIE_PATH);
       }
-        
-        
+       
+      
       /* Login completed successfully */
       return true;
    }
@@ -256,10 +295,12 @@ class Session
       if(isset($_COOKIE['cookname']) && isset($_COOKIE['cookid'])){
          setcookie("cookname", "", time()-COOKIE_EXPIRE, COOKIE_PATH);
          setcookie("cookid",   "", time()-COOKIE_EXPIRE, COOKIE_PATH);
+         setcookie("cookemail", "", time()-COOKIE_EXPIRE, COOKIE_PATH);
       }
 
       /* Unset PHP session variables */
       unset($_SESSION['username']);
+      unset($_SESSION['email']);
       unset($_SESSION['userid']);
 
       /* Reflect fact that user has logged out */
@@ -273,8 +314,55 @@ class Session
       $database->addActiveGuest($_SERVER['REMOTE_ADDR'], $this->time);
       
       /* Set user level to guest */
-      $this->username  = GUEST_NAME;
-      $this->userlevel = GUEST_LEVEL;
+      $this->username  = $database->guest_name;
+      $this->userlevel = $database->level_constants['guest_level'];
+   }
+   
+   function registerByEmail($email, $subpass){
+    global $database, $form;
+    /* Username error checking */
+      $field = "user";  //Use field name for username
+      if(!$email || strlen($email = trim($email)) == 0){
+         $form->setError($field, "* Email not entered");
+      }
+      else{
+        if(filter_var($email, FILTER_VALIDATE_EMAIL) == FALSE){
+            $form->setError($field, "* Email invalid");
+         }
+         /* Spruce up username, check length */
+         $email = stripslashes($email);
+         if(strlen($email) < 5){
+            $form->setError($field, "* Email below 5 characters");
+         }
+         else if(strlen($email) > 30){
+            $form->setError($field, "* Email above 30 characters");
+         }
+         /* Check if username is reserved */
+         else if(strcasecmp($email, $database->guest_name) == 0){
+            $form->setError($field, "* Email reserved word");
+         }
+         /* Check if username is already in use */
+         else if($database->emailTaken($email)){
+            $form->setError($field, "* Username already in use");
+         }
+         
+      }
+      
+      /* Errors exist, have user correct them */
+      if($form->num_errors > 0){
+         return 1;  //Errors with form
+      }
+      /* No errors, add the new account to the */
+      else{
+         if($database->addNewUserByEmail($email, $subpass)){
+            if(EMAIL_WELCOME){               
+               //$mailer->sendWelcome($subuser,$subemail,$subpass,$randid);
+            }
+            return 0;  //New user added succesfully
+         }else{
+            return 2;  //Registration attempt failed
+         }
+      }
    }
 
    /**
@@ -294,6 +382,7 @@ class Session
          $form->setError($field, "* Username not entered");
       }
       else{
+
          /* Spruce up username, check length */
          $subuser = stripslashes($subuser);
          if(strlen($subuser) < 5){
@@ -307,7 +396,7 @@ class Session
             $form->setError($field, "* Username not alphanumeric");
          }
          /* Check if username is reserved */
-         else if(strcasecmp($subuser, GUEST_NAME) == 0){
+         else if(strcasecmp($subuser, $database->guest_name) == 0){
             $form->setError($field, "* Username reserved word");
          }
          /* Check if username is already in use */
@@ -483,8 +572,9 @@ class Session
     * an administrator, false otherwise.
     */
    function isAdmin(){
-      return ($this->userlevel == ADMIN_LEVEL ||
-              $this->username  == ADMIN_NAME);
+    global $database;
+      return ($this->userlevel == $database->level_constants['admin_level'] ||
+              $this->username  == $database->admin_name);
    }
    
    /**
@@ -492,8 +582,9 @@ class Session
     * an author or an administrator, false otherwise.
     */
    function isAuthor(){
+    global $database;
       return ($this->userlevel == AUTHOR_LEVEL ||
-              $this->userlevel == ADMIN_LEVEL);
+              $this->userlevel == $database->level_constants['admin_level']);
    }
    
    /**

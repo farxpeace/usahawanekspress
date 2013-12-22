@@ -97,14 +97,24 @@ class Process
     * created user.
     */
    function procRegister(){
-      global $session, $form;
+      global $session, $form, $database;
       $_POST = $session->cleanInput($_POST);
       /* Convert username to all lowercase (by option) */
       if(ALL_LOWERCASE){
          $_POST['user'] = strtolower($_POST['user']);
       }
-      /* Registration attempt */
-      $retval = $session->register($_POST['user'], $_POST['pass'], $_POST['email'], $_POST['name']);
+      
+      if($database->login_using == 'email'){
+        /* Registration attempt */
+        $retval = $session->registerByEmail($_REQUEST['email'], $_REQUEST['pass']);
+        
+        
+      }elseif($database->login_using == 'username'){
+        /* Registration attempt */
+        $retval = $session->register($_REQUEST['user'], $_REQUEST['pass'], $_REQUEST['email'], $_REQUEST['name']);
+      }
+      
+      
       
       /* Registration Successful */
       if($retval == 0){

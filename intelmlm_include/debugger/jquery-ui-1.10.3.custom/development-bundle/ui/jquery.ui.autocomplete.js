@@ -587,7 +587,7 @@ $.widget( "ui.autocomplete", $.ui.autocomplete, {
 			noResults: "No search results.",
 			results: function( amount ) {
 				return amount + ( amount > 1 ? " results are" : " result is" ) +
-					" available, use up and down arrow keys to navigate.";
+					" availabel, use up and down arrow keys to navigate.";
 			}
 		}
 	},

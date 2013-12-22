@@ -59,8 +59,8 @@ if(in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
  * also add additional level specifications.
  * Levels must be digits between 0-9.
  */
-define("ADMIN_NAME", "admin");
-define("GUEST_NAME", "Guest");
+#define("ADMIN_NAME", "admin");
+#define("GUEST_NAME", "Guest");
 define("ADMIN_LEVEL", 9);
 define("AUTHOR_LEVEL", 5);
 define("USER_LEVEL",  1);

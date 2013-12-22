@@ -356,7 +356,7 @@ Test.prototype = {
 		}
 
 		// `bad` initialized at top of scope
-		// defer when previous test run passed, if storage is available
+		// defer when previous test run passed, if storage is availabel
 		bad = QUnit.config.reorder && defined.sessionStorage &&
 						+sessionStorage.getItem( "qunit-test-" + this.module + "-" + this.testName );
 
@@ -1061,7 +1061,7 @@ QUnit.load = function() {
 			val = {
 				id: val,
 				label: val,
-				tooltip: "[no tooltip available]"
+				tooltip: "[no tooltip availabel]"
 			};
 		}
 		config[ val.id ] = QUnit.urlParams[ val.id ];

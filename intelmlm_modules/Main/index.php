@@ -9,7 +9,9 @@ if(!$session->logged_in){
     }
 }else{
     if($op == ''){
-    include('member_main.php');
+        include('guest_main.php');
+    }elseif($op == 'account'){
+        include('my_account.php');
     }
 }
 

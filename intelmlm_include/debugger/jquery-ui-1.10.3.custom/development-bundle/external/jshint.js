@@ -1159,7 +1159,7 @@ var JSHINT = (function () {
                 }
 
                 if (!option.iterator && name === "__iterator__") {
-                    warningAt("'{a}' is only available in JavaScript 1.7.", line, from, name);
+                    warningAt("'{a}' is only availabel in JavaScript 1.7.", line, from, name);
                     return;
                 }
 

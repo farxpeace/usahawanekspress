@@ -1,4 +1,5 @@
 <?php
+
 include('bootstrap.php');
 
 $modules = $_REQUEST["modules"];
@@ -15,7 +16,8 @@ if($modules == ''){
 
 
 
-include('footer.bootstrap.php')
+include('footer.bootstrap.php');
+
 ?>
 
 
