@@ -31,12 +31,8 @@ $all_store = $Class_Ads->get_all_store_by_userid($session->uid);
 
 <div>
 
-<?php foreach($all_store as $count => $store_detail){ ?>
-<?php
-if($store_detail['store_status'] == 'need_admin_approval'){
-    $store_detail['store_status'] = 'Waiting for approval';
-}
-?>
+<?php $all_store = array(); foreach($all_store as $count => $store_detail){ ?>
+
 <div class="fx-float-left" style="float: left; min-width: 50%">
     <div class="grid fluid" style="padding: 10px;">
     <div class="row">
@@ -55,7 +51,7 @@ if($store_detail['store_status'] == 'need_admin_approval'){
                                         </div>
                                         <label>Store status</label>
                                         <div class="input-control text" data-role="input-control">
-                                            <input type="text" placeholder="type text" value="<?php echo $store_detail['store_status']; ?>" disabled="disabled" />
+                                            <input type="text" placeholder="type text" value="<?php echo $database->getSingleValueByMetaAndRef('store_status', $store_detail['store_status']); ?>" disabled="disabled" />
                                             <button class="btn-clear" tabindex="-1"></button>
                                         </div>
                                         

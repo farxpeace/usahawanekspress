@@ -25,7 +25,7 @@ $list_ads = $Class_Ads->get_list_ads_by_userid($session->uid);
 </tr>
 </thead>
 <tbody>
-<?php foreach($list_ads as $count => $ads_detail){ ?> 
+<?php $list_ads = array(); foreach($list_ads as $count => $ads_detail){ ?> 
 <tr>
     
 	<td class="right">
