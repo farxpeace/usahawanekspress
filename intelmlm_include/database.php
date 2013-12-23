@@ -22,9 +22,6 @@ class MySQLDB
    var $tbl_active_guest_name;
    var $tbl_banned_users_name;
    var $tbl_mail_name;
-   var $tbl_ads_name;
-   var $tbl_store;
-   var $tbl_files_name;
    var $const_track_visitors;
    var $const_user_timeout;
    var $const_thm_img;

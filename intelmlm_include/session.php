@@ -14,8 +14,6 @@ include("Class.Mx.php");
 include("database.php");
 include("debugger/Class.Debugger.php");
 include('Class.Settings.php');
-include(FOLDER_MODULES.'/Ads/Class.Ads.php');
-#include(FOLDER_MODULES.'/Settings/Class.Settings.php');
 include("mailer.php");
 include("form.php");
 

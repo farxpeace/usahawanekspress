@@ -11,7 +11,7 @@
  * Last Updated: August 2, 2009 by Ivan Novak
  */
 
-define("BASEURL", "http://www.example.com/");
+define("BASEURL", "http://www.intelmlm.com/");
 define('SYSURL','http://localhost/intelmlm/');
 
 
