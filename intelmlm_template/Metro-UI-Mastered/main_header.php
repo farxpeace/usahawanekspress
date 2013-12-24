@@ -17,12 +17,11 @@
 <nav class="navigation-bar">
 <nav class="navigation-bar-content">
 <div class="element">
-	<a class="dropdown-toggle" href="#">Kedai Online</a>
+	<a class="dropdown-toggle" href="#">Intel MLM</a>
 	<ul class="dropdown-menu" data-role="dropdown">
         <li><a href="index.php">Dashboard</a></li>
         <?php if($session->logged_in){ ?> 
-        <li><a href="index.php?modules=Ads&op=myads">My Ads</a></li>
-        <li><a href="index.php?modules=Ads&op=mystore">My Store</a></li>
+        <li><a href="index.php">Member menu</a></li>
         <?php } ?>
 		<li><a href="#">About us</a></li>
 		<li><a href="#">Contact</a></li>
@@ -54,8 +53,8 @@
 	<ul class="dropdown-menu place-right" data-role="dropdown">
         
         <?php if($session->logged_in){ ?> 
-		<li><a href="index.php?modules=Main&op=account">Account</a></li>
-        <li><a href="process.php">Logout</a></li>
+		  <li><a href="index.php?modules=Main&op=account">Account</a></li>
+            <li><a href="process.php">Logout</a></li>
         <?php }else{ ?> 
 		
 		
@@ -146,22 +145,7 @@ function window_login_register(){
 </button>
 <?php } ?>
 <span class="element-divider place-right"></span>
-<!--    -->
-<div class="element place-right" style="padding: 2px;">
-<?php
-if($session->logged_in){ ?>
-    <button class="command-button primary" onclick="location.href='?modules=Ads&op=post_ads_form'">
-        <i class="icon-share-2 on-left"></i>
-        Post an Adsvertisement
-        <small>also upload ads image</small>
-    </button>
-<?php }else{ ?>
-    <button class="command-button primary" onclick="window_login_register();">
-        <i class="icon-share-2 on-left"></i>
-        Post an Adsvertisement
-        <small>but please login first</small>
-    </button>
-<?php } ?>
+
 
 
  
