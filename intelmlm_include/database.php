@@ -22,6 +22,7 @@ class MySQLDB
    var $tbl_active_guest_name;
    var $tbl_banned_users_name;
    var $tbl_mail_name;
+   var $tbl_transaction;
    var $const_track_visitors;
    var $const_user_timeout;
    var $const_thm_img;
@@ -58,6 +59,7 @@ class MySQLDB
       $this->tbl_ads_name = $this->process_db_ads();
       $this->admin_name = $this->getSingleValueByMetaAndRef('level_name', 'admin_name');
       $this->guest_name = $this->getSingleValueByMetaAndRef('level_name', 'guest_name');
+      $this->tbl_transaction = $this->getSingleValueByMetaAndRef('tbl_name', 'transaction');
       $this->process_level_constants();
       $this->login_using = $this->getSingleValueByMetaAndRef('system', 'login_using');
       
@@ -129,6 +131,14 @@ class MySQLDB
         $result = mysql_query($q);
         $row = mysql_fetch_assoc($result);
         return $row['value'];
+        
+    }
+    
+    function getSingleColumnById($userid, $column){
+        $q = "SELECT ".$column." FROM ".$this->tbl_users_name." WHERE id='".$userid."'";
+        $result = mysql_query($q);
+        $row = mysql_fetch_assoc($result);
+        return $row["$column"];
         
     }
     
@@ -328,6 +338,39 @@ class MySQLDB
             
       return mysql_query($q, $this->connection);
    }
+   
+   
+   
+   function createTransaction($user_id, $upline_id, $amount, $book_id, $type, $status){
+    $time = time();
+      /* If admin sign up, give admin user level */
+      $query = mysql_query("INSERT INTO ".$this->tbl_transaction." (
+            trx_uid,
+            rcx_uid,
+            amount,
+            trx_type,
+            trx_desc,
+            trx_date,
+            status
+      )VALUES(
+            '$user_id',
+            '$upline_id',
+            '$amount',
+            '$type',
+            '$book_id',
+            '$time',
+            '$status'
+      )");
+       $insert_id = mysql_insert_id();
+      return $insert_id;
+   }
+   
+   function getSingleTransactionByType($user_id, $upline_id, $type, $status){
+    $query = mysql_query("SELECT * FROM ".$this->tbl_transaction." WHERE trx_uid='".$user_id."' AND rcx_uid='".$upline_id."' AND trx_type='".$type."' AND status='".$status."'");
+    $row = mysql_fetch_assoc($query);
+    return $row;
+   }
+   
    /**
     * addNewUser - Inserts the given (username, password, email)
     * info into the database. Appropriate user level is set.

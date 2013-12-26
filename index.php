@@ -29,9 +29,9 @@ if(!$Class_unilevel->getCookieUpline()){
 }
 
 $Class_unilevel = new Unilevel($uplineid);
-
-
-
+$uplineList = $Class_unilevel->getAllUplineIdByUplineId($uplineid, 10);
+//echo '<pre>';
+//print_r($uplineList);
 if($modules == ''){
     $modules = 'Main';
     include(FOLDER_MODULES."/".$modules."/index.php");

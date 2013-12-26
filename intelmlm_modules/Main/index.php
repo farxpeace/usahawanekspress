@@ -14,6 +14,8 @@ if(!$session->logged_in){
         include('guest_main.php');
     }elseif($op == 'account'){
         include('my_account.php');
+    }elseif($op == 'checkout_process'){
+        include('checkout_process.php');
     }
 }
 
