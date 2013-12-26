@@ -16,6 +16,17 @@ include("debugger/Class.Debugger.php");
 include('Class.Settings.php');
 include("mailer.php");
 include("form.php");
+require 'facebook-php-sdk-master/src/facebook.php';
+$facebook = new Facebook(array(
+  'appId'  => '567145173378045',
+  'secret' => 'a5761971bcb7de3755ef5dd54aa99eb9',
+  'cookie' => true
+));
+$user = $facebook->getUser();
+
+
+
+
 
 class Session
 {
@@ -157,6 +168,116 @@ class Session
       else{
          return false;
       }
+   }
+   
+   function fb_isIdRegistered($fb_id){
+        global $database, $form;  //The database and form object
+    //$query = mysql_query("SELECT * FROM ". $database->tbl_users_name ." WHERE fb_email='".$fb_email."'");
+        
+       $q = sprintf("SELECT fb_id FROM ".$database->tbl_users_name." WHERE fb_id = '$fb_id'",
+            mysql_real_escape_string($fb_id));
+       $result = mysql_query($q, $database->connection);
+      
+       return (mysql_num_rows($result) > 0);
+    
+   }
+   
+   function fb_checkToken($fb_token){
+    global $database, $form;  //The database and form object
+    //$query = mysql_query("SELECT * FROM ". $database->tbl_users_name ." WHERE fb_email='".$fb_email."'");
+        
+       
+       
+       $q = sprintf("SELECT fb_token FROM ".$database->tbl_users_name." WHERE fb_token = '$fb_token'");
+       $result = mysql_query($q, $database->connection);
+       
+       return (mysql_num_rows($result) > 0);
+   }
+   
+   function fb_check_login($fb_id, $fb_email){
+    global $database, $form;  //The database and form object
+    //$query = mysql_query("SELECT * FROM ". $database->tbl_users_name ." WHERE fb_email='".$fb_email."'");
+        if(!get_magic_quotes_gpc()){
+          $fb_id = addslashes($fb_id);
+       }
+       $q = sprintf("SELECT fb_id FROM ".$database->tbl_users_name." WHERE fb_id = '$fb_id' AND username = '$fb_email'",
+            mysql_real_escape_string($fb_token));
+       $result = mysql_query($q, $database->connection);
+       
+       return (mysql_num_rows($result) > 0);
+   }
+   
+   function fb_login($fb_id,$fb_email, $fb_token){
+    global $database, $form;  //The database and form object
+        
+        if($this->logged_in){
+            $output['status'] = 'logged_in';
+        }else{
+            $isAlreadyRegistered = $this->fb_isIdRegistered($fb_id);
+            $isEmailExists = $database->emailTaken($fb_email);
+            
+        
+            if(($isAlreadyRegistered) && ($isEmailExists)){
+                if($this->fb_check_login($fb_id, $fb_email)){
+                    $output['status'] = 'logging in user';
+                    $retval = $this->login($fb_email, '123456', '1');
+                    if($retval == '1'){
+                        $output['status'] = 'reload_window';
+                    }
+                }
+            }else if((!$isAlreadyRegistered) && (!$isEmailExists)){
+                $output['status'] = 'Registering user';
+                $isRegistered = $this->fb_register($fb_id, $fb_email, $fb_token);
+                $output['status'] = $isRegistered;
+                $output['status'] = 'logging in user';
+                $retval = $this->login($fb_email, '123456', '1');
+                if($retval == '1'){
+                    $output['status'] = 'reload_window';
+                }
+            }else{
+                
+            }
+            $output['isAlreadyRegistered'] = $isAlreadyRegistered;
+            $output['isTokenExists'] = $isTokenExists;
+        }
+        
+        
+        
+        return $output;
+    
+   }
+   
+   function fb_register($fb_id, $fb_email, $fb_token){
+    global $database, $form, $facebook;  //The database and form object
+    
+    
+       $database->addNewUserByEmail($fb_email, '123456');
+       $database->updateUserField($fb_email, 'fb_id', $fb_id);
+       $database->updateUserField($fb_email, 'fb_token', $fb_token);
+       $database->updateUserField($fb_email, 'fb_email', $fb_email);
+       
+       if($database->usernameTaken($fb_email)){
+       $params = array(
+            'message'       =>  "Saya baru sahaja menyertai program Usahawan Ekspress",
+            'name'          =>  "Pendaftaran berjaya",
+            'caption'       =>  "Usahawan Ekspress",
+            'description'   =>  "Program Usahawan Ekspress",
+            'link'          =>  "https://apps.facebook.com/ushawanekspress/",
+            'picture'       =>  "http://i.imgur.com/VUBz8.png",
+        );
+        $post = $facebook->api("/$user/feed","POST",$params);
+        $output['facebook'] = $post;
+        $output['status'] = 'register_success';
+       }else{
+        $output['status'] = 'register_error';
+       }
+       
+        
+       
+       return $output;
+
+    //$database->addNewUserByEmail();
+    
    }
 
    /**
@@ -629,12 +750,9 @@ class Session
  * which cannot be accessed unless the session has started.
  */
 $session = new Session;
-$domain = explode('.', $_SERVER["SERVER_NAME"]);
-if($domain[0] == 'facebook'){
-    include('facebook.php');
-    $Fb = new FB;
-}
 
+include(FOLDER_MODULES.'/Main/Class.Unilevel.php');
+$Class_unilevel = new Unilevel;
 
 /* Initialize form object */
 $form = new Form;

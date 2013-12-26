@@ -139,6 +139,15 @@ class MySQLDB
         return $row['id'];
         
    }
+   
+   function getSingleMetaByRefAndValue($ref, $value){
+        $q = "SELECT meta FROM ".TBL_SETTINGS." WHERE ref='".$ref."' AND value='".$value."'";
+        $result = mysql_query($q);
+        $row = mysql_fetch_assoc($result);
+        return $row['meta'];
+        
+   }
+   
    function process_db_users(){
         $tblname = $this->getSingleValueByMetaAndRef('tbl_name', 'users');
         return $tblname;
@@ -316,7 +325,6 @@ class MySQLDB
             '".mysql_real_escape_string($time)."',
             '".mysql_real_escape_string('1')."'
        )");
-            
             
       return mysql_query($q, $this->connection);
    }

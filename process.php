@@ -22,6 +22,10 @@ class Process
          $this->procLogin();
       }
       /* User submitted registration form */
+      else if(isset($_POST['sublogin_fb'])){
+         $this->procLoginFb();
+      }
+      /* User submitted registration form */
       else if(isset($_POST['subjoin'])){
          $this->procRegister();
       }
@@ -76,6 +80,25 @@ class Process
          $_SESSION['value_array'] = $_POST;
          $_SESSION['error_array'] = $form->getErrorArray();
          header("Location: ".$session->referrer);
+      }
+   }
+   
+   function procLoginFb(){
+      global $session, $form;
+      /* Login attempt */
+      $_POST = $session->cleanInput($_POST);
+      $retval = $session->fb_login($_POST['fb_id'], $_POST['fb_email'], $_POST['fb_token']);
+      
+      /* Login successful */
+      if($retval['status'] == 'register_success'){
+        echo json_encode($retval);
+         //header("Location: ".$session->referrer);
+      }
+      /* Login failed */
+      else{
+         $_SESSION['value_array'] = $_POST;
+         $_SESSION['error_array'] = $form->getErrorArray();
+         echo json_encode($retval);
       }
    }
    

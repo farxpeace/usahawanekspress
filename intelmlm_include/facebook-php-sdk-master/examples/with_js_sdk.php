@@ -3,8 +3,8 @@
 require '../src/facebook.php';
 
 $facebook = new Facebook(array(
-  'appId'  => '344617158898614',
-  'secret' => '6dc8ac871858b34798bc2488200e503d',
+  'appId'  => '567145173378045',
+  'secret' => 'a5761971bcb7de3755ef5dd54aa99eb9',
 ));
 
 // See if there is a user from a cookie

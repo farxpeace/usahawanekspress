@@ -19,9 +19,10 @@
 <div class="element">
 	<a class="dropdown-toggle" href="#">Intel MLM</a>
 	<ul class="dropdown-menu" data-role="dropdown">
-        <li><a href="index.php">Dashboard</a></li>
+        <li><a href="main.php">Dashboard</a></li>
+        <li><a href="main.php?modules=Main&op=choose_product">Produk</a></li>
         <?php if($session->logged_in){ ?> 
-        <li><a href="index.php">Member menu</a></li>
+        <li><a href="main.php">Member menu</a></li>
         <?php } ?>
 		<li><a href="#">About us</a></li>
 		<li><a href="#">Contact</a></li>
@@ -53,7 +54,7 @@
 	<ul class="dropdown-menu place-right" data-role="dropdown">
         
         <?php if($session->logged_in){ ?> 
-		  <li><a href="index.php?modules=Main&op=account">Account</a></li>
+		  <li><a href="main.php?modules=Main&op=account">Account</a></li>
             <li><a href="process.php">Logout</a></li>
         <?php }else{ ?> 
 		
@@ -110,7 +111,10 @@ function window_login_register(){
         		<div class="form-actions">
                 <input type="hidden" name="sublogin" value="1" />
         			<button type="submit" class="button primary">Login to...</button>
+                    <button type="button" class="button primary" onclick="login_form_fb();">Login using Facebook</button>
         		</div>
+                
+                
 	       </form>
         </div>
         <div class="span6">

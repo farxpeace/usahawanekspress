@@ -6,6 +6,8 @@ if(!$session->logged_in){
         include('guest_main.php');
     }elseif($op == 'register'){
         include('guest_main.php');
+    }elseif($op == 'choose_product'){
+        include('choose_product.php');
     }
 }else{
     if($op == ''){

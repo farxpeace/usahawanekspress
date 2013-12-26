@@ -75,7 +75,7 @@ class CustomUploadHandler extends UploadHandler {
     
     
     protected function handle_form_data($file, $index) {
-        $file->userid = @$_REQUEST['uid'][$index];
+        //$file->userid = @$_REQUEST['uid'][$index];
     	$file->title = @$_REQUEST['title'][$index];
     	$file->description = @$_REQUEST['description'][$index];
     }
