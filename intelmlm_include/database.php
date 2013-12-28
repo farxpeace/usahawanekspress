@@ -53,6 +53,7 @@ class MySQLDB
       $this->tbl_mail_name = $this->process_db_mail();
       $this->tbl_files_name = $this->getSingleValueByMetaAndRef('tbl_name', 'files');
       $this->tbl_store = $this->getSingleValueByMetaAndRef('tbl_name', 'store');
+      $this->tbl_ebooks = $this->getSingleValueByMetaAndRef('tbl_name', 'ebooks');
       $this->const_track_visitors = $this->process_track_visitors();
       $this->const_user_timeout = $this->process_user_timeout();
       $this->const_thm_img = $this->getSingleValueByMetaAndRef('constants', 'theme_img');
@@ -370,6 +371,8 @@ class MySQLDB
     $row = mysql_fetch_assoc($query);
     return $row;
    }
+   
+
    
    /**
     * addNewUser - Inserts the given (username, password, email)

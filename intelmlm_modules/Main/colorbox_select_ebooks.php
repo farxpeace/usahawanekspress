@@ -1,4 +1,6 @@
-<table style="width: 100%;">
+<table style="width: 100%;" id="table_select_ebook_<?php echo $i; ?>" 
+data-selebook="[<?php echo $Class_ebooks->getEbooksTrxById($p_status['id']); ?>]"
+>
                 <tr>
                     <td style="width: 80px;" valign="top">
                         <img style="width: 50px; height: 50px;" src="http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/64/Numbers-<?php echo $i; ?>-icon.png" class="">
@@ -8,7 +10,7 @@
                             <div class="tab-control" data-role="tab-control">
                                 <ul class="tabs">
                                     <li class="active"><a href="#_ebook_pilih_<?php echo $i; ?>">E-Book</a></li>
-                                    <li><a href="#_ebook_peniaga_<?php echo $i; ?>">Peniaga</a></li>
+                                    
                                     <li><a href="#_ebook_invois_<?php echo $i; ?>">Invois</a></li>
                                     
                                 </ul>
@@ -21,12 +23,12 @@
                                     </form>
                                     </div>
                                     
-                                    <div class="frame" id="_ebook_peniaga_<?php echo $i; ?>">
-                                        <p>Nama: Mohamad Farizul</p>
-                                        <p>Lokasi: Kuala Lumpur</p>
-                                        <p>Jumlah jualan: 51 eboo</p>
-                                    </div>
+                                    
                                     <div class="frame" id="_ebook_invois_<?php echo $i; ?>">
+                                        <div id="frame_invois_unavailable_<?php echo $i; ?>">
+                                            <div style="text-align: center;">Sila pilih ebook untuk membuat pesanan terlebih dahulu</div>
+                                        </div>
+                                        <div id="frame_invois_show_<?php echo $i; ?>" style="display: none;">
                                         <button class="image-button danger" id="_ebook_invois_<?php echo $i; ?>_print">
                                             Cetak
                                             <i class="icon-printer bg-red"></i>
@@ -47,31 +49,31 @@
                                                     });
                                                 });
                                                 </script>
-                                                <p class="text-center"><strong>Mohamad Farizul</strong></p>
+                                                <p class="text-center"><strong class="invoice_print_upline_email"><?php echo $uplineList[$up]['email'] ?></strong></p>
                                                 <p class="text-center">Pembelian e-book dalam bentuk Portable Document Format (pdf)</p>
                                                 
                                                 <table style="width: 100%;">
                                                     <tr>
                                                         <td class="text-right">
-                                                            No invois :
+                                                            Id invois : 
                                                         </td>
                                                         <td>
-                                                            #66677766
+                                                            #<span class="invoice_print_numberinvoice"><?php echo $p_status['trx_invoice'].'-'.$p_status['id']; ?></span>
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-right">
-                                                            Tarikh invois :
+                                                            Tarikh invois : 
                                                         </td>
                                                         <td>
-                                                            26 Disember 2014
+                                                            <span class="invoice_print_date"><?php echo $Mx->timestamp_to_date($p_status['trx_date'], 'd M Y'); ?></span>
                                                         </td>
                                                     </tr>
                                                 </table>
                                                 <h4>Kepada :</h4>
-                                                <p>Adri Andrian (Nama Facebook)</p>
-                                                <p>john45@gmail.com</p>
-                                                <br /><br />
+                                                
+                                                <p><?php echo $session->email; ?></p>
+                                                <br />
                                                 
                                                 <h4>Senarai barang</h4>
                                                 <table class="table hovered">
@@ -87,14 +89,14 @@
                                                     <tbody>
                                                         <tr>
                                                             <td>1</td>
-                                                            <td class="right">tajuk disini</td>
+                                                            <td class="right"><span class="invois_title_ebook_<?php echo $i; ?>"></span></td>
                                                             <td class="right">1</td>
                                                             
                                                             <td class="right">10</td>
                                                         </tr>
                                                         <tr>
                                                             <td>2</td>
-                                                            <td class="right">tajuk disini</td>
+                                                            <td class="right"><span class="invois_title_ebook_<?php echo $i; ?>"></span></td>
                                                             <td class="right">1</td>
                                                             
                                                             <td class="right">10</td>
@@ -121,6 +123,7 @@
                                                     </div>
                                                 </div>
                                         
+                                        </div>
                                         </div>
                                     
                                     </div>
