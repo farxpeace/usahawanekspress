@@ -96,6 +96,75 @@ $(function(){
     });
 })
 </script>
+<style>
+#borang tbody tr td:first-child {
+    width: 200px !important;
+}
+</style>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="<?php echo THEME_LOC; ?>/js/jQuery-File-Upload-master/js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="<?php echo THEME_LOC; ?>/js/jQuery-File-Upload-master/js/jquery.fileupload.js"></script>
+
+<script>
+/*jslint unparam: true */
+/*global window, $ */
+$(function () {
+    'use strict';
+    // Change this to the location of your server-side upload handler:
+    var url = 'intelmlm_images/';
+    $('.frame_upload .fileupload').fileupload({
+        url: url,
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                //$('<p/>').text(file.name).appendTo('#files');
+                console.log(e);
+                console.log(data);
+            });
+        },
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('.frame_upload .progress-bar').css(
+                'width',
+                progress + '%'
+            );
+        }
+    }).prop('disabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+});
+</script>
+<script type="text/javascript">
+function submit_form_bayar(number){
+    var frame = $("#_ebook_payment_"+number);
+    
+    $("#form_bayar_"+number).ajaxSubmit({
+        dataType: 'json',
+            type: 'post',
+            data: {  },
+            beforeSubmit: function(){
+                
+            },
+            success: function(data){
+                var status = data.payment_status;
+                var id = data.id;
+                console.log(status)
+                if(status == 'success'){
+                    update_bayar_form_status(number,status, id)
+                }
+            }
+    })
+}
+function update_bayar_form_status(number,status, id){
+    var frame = $("#_ebook_payment_"+number);
+    frame.data('status', status);
+    frame.data('paymentid', id);
+}
+
+$(function(){
+    
+});
+</script>
 <?php include(THEME_LOC.'/footer_facebook.php'); ?>
 </body>
 </html>

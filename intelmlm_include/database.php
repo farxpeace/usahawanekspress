@@ -471,7 +471,72 @@ class MySQLDB
       return $dbarray;
    }
    
+   function insert($tbl_name, $array){
+        $a = array(
+            'data'    => array(
+                'column1'   => 'value1',
+                'column2'   => 'value2'
+            )
+        );    
+        
+        $data = $array['data'];
+        foreach($data as $column => $value){
+            $columns[] = $column;
+            $values[] = "'".$value."'";
+        }
+        
+        $acolumn = implode(',', $columns);
+        $avalue = implode(',', $values);
+        
+        $query = "INSERT INTO ".$tbl_name." (".$acolumn.")VALUES(".$avalue.")";
+        $result = mysql_query($query);
+        $id = mysql_insert_id();
+        return $id;
+   }
    
+   /**
+    * Update table
+    * @var $tbl_name Table name
+    */
+   function update($tbl_name, $array){
+        $a = array(
+            'column'    => array(
+                'column1'   => 'value1',
+                'column2'   => 'value2'
+            )
+        );
+    //UPDATE tbl_name SET column1='value1' AND column2='value2' WHERE id='10' AND test='45';
+        //column
+        $columns = $array['column'];
+        foreach($columns as $column => $value){
+            $tcolumn[] = $column."='".$value."'";
+        }
+        $scolumn = implode(',', $tcolumn);
+        //where
+        $wheres = $array['where'];
+        foreach($wheres as $where => $data){
+            $twhere[] = $where."='".$data."'";
+        }
+        $swhere = implode(' AND ', $twhere);
+        
+        $query = "UPDATE ".$tbl_name." SET ".$scolumn." WHERE ".$swhere;
+        $result = mysql_query($query);
+        return $result;
+        
+   }
+   
+   function getSingle($tbl_name, $statement){
+        $arr_key = array_keys($statement);
+        $column = implode(',',$arr_key);
+        foreach($statement as $a => $b){
+            $select[] = $a."='".$b."'";
+        }
+        $where = implode(' AND ', $select);
+        $q = "SELECT * FROM ".$tbl_name." WHERE ".$where;
+        $result = mysql_query($q);
+        $row = mysql_fetch_assoc($result);
+        return $row;
+   }
    
    
    function getUserInfoFromHash($hash){

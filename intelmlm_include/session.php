@@ -754,6 +754,9 @@ $session = new Session;
 include('Class.Unilevel.php');
 $Class_unilevel = new Unilevel;
 
+include('Class.Transaction.php');
+$Class_Transaction = new Transaction;
+
 include('Class.Ebooks.php');
 $Class_ebooks = new Ebooks;
 

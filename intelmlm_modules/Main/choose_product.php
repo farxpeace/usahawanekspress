@@ -16,6 +16,40 @@
 .metro .listview .list.list_upline.selected {
     border: 4px #0FA00A solid;
 }
+
+.list-title {
+    font-size: 16px !important;
+}
+.list-ebooks {
+    font-size: 14px !important;
+}
+
+.list-total {
+    font-size: 14px !important;
+}
+.list-note {
+    font-size: 11px;
+    line-height: 16px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.list-debug {
+    font-size: 10px;
+    line-height: 16px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.ebook_info_frame.row:after {
+    display: none !important;
+} 
 </style>
 <script type="text/javascript">
 var pakej_10_limit = 2;
@@ -137,7 +171,7 @@ function reset_check_ebook_pilih_order_by_id(number){
     });
     unblock_frame(number);
     update_ebook_purchase_count(number);
-    update_table_selected_ebooks('clear', number);
+    update_table_selected_ebooks(0, number, 'clear');
 }
 
 function ebook_pilih_order_select(el){
@@ -180,26 +214,51 @@ function check_ebook(){
 }
 */
 
-function update_table_selected_ebooks(ebook_id, number){
+function update_table_selected_ebooks(ebook_id, number, operation){
     
     var frame = $("#table_select_ebook_"+number);
     var data = frame.data();
     var sel = data.selebook;
-    if(ebook_id == 'clear'){
+    if(operation == 'clear'){
+        console.log('operation: '+operation)
         sel = [];
-    }else{
+    }else if(operation == 'add'){
         sel.push(ebook_id);
+    }else if(operation == 'remove'){
+        sel = jQuery.grep(sel, function(value) {
+            return value != ebook_id;
+        });
     }
     
+    //set again
     frame.data('selebook', sel);
     
-    console.log($("#table_select_ebook_"+number).data())
+    
+}
+
+function set_note(number){
+    var selected = get_selected_ebook(number);
+    var count = selected.length;
+    var note = '';
+    if(count == 1){
+        note = 'Sila pesan 1 lagi ebook';
+    }
+    
+    if(note != ''){
+        $("#list_note_"+number).text(note);
+    }
+}
+
+function get_selected_ebook(number){
+    var latest = $("#table_select_ebook_"+number).data('selebook');
+    return latest;
 }
 
 function invois_update_selected_list(number){
     var frame = $("#table_select_ebook_"+number);
     var data = frame.data();
     var sel = data.selebook;
+    console.log('selected ebook: '+sel);
     var spantitle = $('.invois_title_ebook_'+number);
     $.each(sel, function(i, el){
         var title = $("#ebook_pilih_order_title_"+el).text();
@@ -218,39 +277,43 @@ function check_order_by_ebook(el){
     var number = frameId.split('_')[3];
     console.log('pakej: '+pakej);
     console.log('selected: '+selected);
-    console.log('limit: '+limit);
+    
     if(pakej == '10'){
         var limit = pakej_10_limit;
         if(selected <= limit){
             if(isSelected){
                 $(el).removeClass('selected');
                 $(input).attr('disabled', 'disabled').val('0');
+                update_table_selected_ebooks(data.ebookid, number, 'remove');
             }else{
-                
                 $(el).addClass('selected');
                 $(input).removeAttr('disabled').val(data.ebookid);
                 
-                update_table_selected_ebooks(data.ebookid, number);
+                update_table_selected_ebooks(data.ebookid, number, 'add');
             }
-        }else if(selected == 1){
-            console.log('blok');
+        }else{
+            console.log(selected+' ebooks selected');
         }
     }else{
         var limit = pakej_20_limit;
         
         if(selected <= limit){
-            if(!isSelected){
-                $(el).addClass('selected');
-                $(input).removeAttr('disabled').val(data.ebookid);
-            }else{
+            if(isSelected){
                 $(el).removeClass('selected');
                 $(input).attr('disabled', 'disabled').val('0');
+                update_table_selected_ebooks(data.ebookid, number, 'remove');
+            }else{
+                $(el).addClass('selected');
+                $(input).removeAttr('disabled').val(data.ebookid);
+                
+                update_table_selected_ebooks(data.ebookid, number, 'add');
             }
         }else{
-            console.log('blok');
+            console.log(selected+' ebooks selected');
         }
         
     }
+    console.log('limit: '+limit);
     var selected_c = $(frame).find('a.selected').length;
     if(selected_c == limit){
         block_frame(frame);
@@ -334,6 +397,7 @@ function submit_form_checkout(number){
                 invoice_update(number);
                 
             }
+            console.log('Ajax success. NUmber '+number);
             invois_update_selected_list(number)
         }
     }); 
@@ -362,6 +426,7 @@ function update_ebook_purchase_count(number){
 
 function set_ebook_purchase_count(number, count){
     $(".ebook_purchase_count_"+number).text(count);
+    $(".ebook_purchase_total_"+number).text(count*10);
 }
 
 function open_colorbox_select_ebook_for_purchase_number(number){
@@ -381,6 +446,10 @@ function open_colorbox_select_ebook_for_purchase_number(number){
             }else if(status == 'already_waiting_for_payment'){
                 status_waiting_for_payment(number);
             }
+         },
+         onClosed: function(){
+            
+            set_note(number)
          }
     });
 }
@@ -438,7 +507,18 @@ function open_colorbox_select_ebook_for_purchase_number(number){
                             <img src="images/onenote2013icon.png" class="icon">
                             <div class="data">
                                 <span class="list-title">Pembelian <?php echo $i; ?></span>
-                                <span>Ebook : <span class="ebook_purchase_count_<?php echo $i; ?>">0</span>/2</span>
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td>
+                                            <span class="list-ebooks">Ebook : <span class="ebook_purchase_count_<?php echo $i; ?>">0</span>/2</span>
+                                        </td>
+                                        <td>
+                                            <span class="list-total">Harga : RM <span class="ebook_purchase_total_<?php echo $i; ?>">0</span></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <span class="list-note" id="list_note_<?php echo $i; ?>">Klik untuk membuat pesanan</span>
+                                <span class="list-debug">upline: <?php echo $uplineList[$uplineCountArray]['id']; ?>, <?php echo $uplineList[$uplineCountArray]['email']; ?></span>
                             </div>
                         </div>
                     </a>
@@ -488,7 +568,20 @@ function open_colorbox_select_ebook_for_purchase_number(number){
                             <img src="images/onenote2013icon.png" class="icon">
                             <div class="data">
                                 <span class="list-title">Pembelian <?php echo $i; ?></span>
-                                <span>Ebook : <span class="ebook_purchase_count_<?php echo $i; ?>">0</span>/2</span>
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td>
+                                            <span class="list-ebooks">Ebook : <span class="ebook_purchase_count_<?php echo $i; ?>">0</span>/2</span>
+                                        </td>
+                                        <td>
+                                            <span class="list-total">Harga : RM <span class="ebook_purchase_total_<?php echo $i; ?>">0</span></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+            
+                                <span class="list-note" id="list_note_<?php echo $i; ?>">Klik untuk membuat pesanan</span>
+                                <span class="list-debug">upline: <?php echo $uplineList[$uplineCountArray]['id']; ?>, <?php echo $uplineList[$uplineCountArray]['email']; ?></span>
                             </div>
                         </div>
                     </a>

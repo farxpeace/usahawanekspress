@@ -16,6 +16,8 @@ if(!$session->logged_in){
         include('my_account.php');
     }elseif($op == 'checkout_process'){
         include('checkout_process.php');
+    }elseif($op == 'payment_process'){
+        include('payment_process.php');
     }
 }
 

@@ -13,6 +13,10 @@ data-selebook="[<?php echo $Class_ebooks->getEbooksTrxById($p_status['id']); ?>]
                                     
                                     <li><a href="#_ebook_invois_<?php echo $i; ?>">Invois</a></li>
                                     
+                                    <li><a href="#_ebook_payment_<?php echo $i; ?>">Pembayaran</a></li>
+                                    
+                                    <li><a href="#_ebook_receipt_<?php echo $i; ?>">Resit</a></li>
+                                    
                                 </ul>
                              
                                 <div class="frames">
@@ -49,7 +53,7 @@ data-selebook="[<?php echo $Class_ebooks->getEbooksTrxById($p_status['id']); ?>]
                                                     });
                                                 });
                                                 </script>
-                                                <p class="text-center"><strong class="invoice_print_upline_email"><?php echo $uplineList[$up]['email'] ?></strong></p>
+                                                <p class="text-center"><strong class="invoice_print_upline_email"><?php echo $uplineList[$up]['email']; ?></strong></p>
                                                 <p class="text-center">Pembelian e-book dalam bentuk Portable Document Format (pdf)</p>
                                                 
                                                 <table style="width: 100%;">
@@ -125,8 +129,16 @@ data-selebook="[<?php echo $Class_ebooks->getEbooksTrxById($p_status['id']); ?>]
                                         
                                         </div>
                                         </div>
-                                    
+                                        
                                     </div>
+                                    <div class="frame" id="_ebook_payment_<?php echo $i; ?>"
+                                        data-status="" data-paymentid="" data-paymentdate=""
+                                    >
+                                            <?php include('ebook_payment.php'); ?>
+                                        </div>
+                                        <div class="frame" id="_ebook_receipt_<?php echo $i; ?>">
+                                        
+                                        </div>
                                 </div>
                             </div>
                         </div>
