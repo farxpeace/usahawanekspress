@@ -46,6 +46,8 @@ if(!$session->logged_in){
         include('pesanan.php');
     }elseif($op == 'statistik'){
         include('statistik.php');
+    }elseif($op == 'kumpulan'){
+        include('kumpulan.php');
     }
 }
 

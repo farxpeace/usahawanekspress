@@ -52,9 +52,9 @@ $pagination->records_per_page($records_per_page);
 <div class="grid fluid" style="padding: 10px;">
     <div class="row">
         <div class="span12">
-            <table class="table hovered">
+            <table class="table hovered bordered">
 
-    <tr class="info">
+    <tr class="info fg-white">
         <th>Dari</th>
         <th>Jenis</th>
         <th>E-Books</th>

@@ -28,6 +28,7 @@
         <?php if($session->logged_in){ ?>
             <?php if($Class_unilevel->isVerified($session->uid)){ ?>
                 <li><a href="main.php?modules=Main&op=choose_product">E-Book</a></li>
+                <li><a href="index.php?modules=Main&op=kumpulan">Kumpulan</a></li>
                 <li><a href="index.php?modules=Main&op=pesanan">Pesanan</a></li>
                 <li><a href="index.php?modules=Main&op=statistik">Statistik</a></li>
             <?php } ?>
@@ -63,7 +64,6 @@
 		
         
         <?php } ?>
-        <li><a href="#">Pricing</a></li>
         <li><a href="#">Support</a></li>
 	</ul>
 </div>
