@@ -23,6 +23,7 @@ class MySQLDB
    var $tbl_banned_users_name;
    var $tbl_mail_name;
    var $tbl_transaction;
+   var $tbl_transaction_meta;
    var $const_track_visitors;
    var $const_user_timeout;
    var $const_thm_img;
@@ -61,6 +62,7 @@ class MySQLDB
       $this->admin_name = $this->getSingleValueByMetaAndRef('level_name', 'admin_name');
       $this->guest_name = $this->getSingleValueByMetaAndRef('level_name', 'guest_name');
       $this->tbl_transaction = $this->getSingleValueByMetaAndRef('tbl_name', 'transaction');
+      $this->tbl_transaction_meta = $this->getSingleValueByMetaAndRef('tbl_name', 'transaction_meta');
       $this->process_level_constants();
       $this->login_using = $this->getSingleValueByMetaAndRef('system', 'login_using');
       
@@ -313,11 +315,13 @@ class MySQLDB
       return (mysql_numrows($result) > 0);
    }
    function addNewUserByEmail($email, $password){
+    $uplineid = $_REQUEST['uplineid'];
     $time = time();
       /* If admin sign up, give admin user level */
       
       $md5 = md5($password);
        $q = sprintf("INSERT INTO ".$this->tbl_users_name." (
+            uplineid,
             username,
             password,
             bpassword,
@@ -327,6 +331,7 @@ class MySQLDB
             timestamp, 
             valid
        )VALUES(
+            '".$uplineid."',
             '".mysql_real_escape_string($email)."',
             '".mysql_real_escape_string($md5)."',
             '".mysql_real_escape_string($password)."',
@@ -336,41 +341,15 @@ class MySQLDB
             '".mysql_real_escape_string($time)."',
             '".mysql_real_escape_string('1')."'
        )");
-            
+            $last_insert = mysql_insert_id();
       return mysql_query($q, $this->connection);
    }
    
    
    
-   function createTransaction($user_id, $upline_id, $amount, $book_id, $type, $status){
-    $time = time();
-      /* If admin sign up, give admin user level */
-      $query = mysql_query("INSERT INTO ".$this->tbl_transaction." (
-            trx_uid,
-            rcx_uid,
-            amount,
-            trx_type,
-            trx_desc,
-            trx_date,
-            status
-      )VALUES(
-            '$user_id',
-            '$upline_id',
-            '$amount',
-            '$type',
-            '$book_id',
-            '$time',
-            '$status'
-      )");
-       $insert_id = mysql_insert_id();
-      return $insert_id;
-   }
    
-   function getSingleTransactionByType($user_id, $upline_id, $type, $status){
-    $query = mysql_query("SELECT * FROM ".$this->tbl_transaction." WHERE trx_uid='".$user_id."' AND rcx_uid='".$upline_id."' AND trx_type='".$type."' AND status='".$status."'");
-    $row = mysql_fetch_assoc($query);
-    return $row;
-   }
+   
+   
    
 
    
@@ -407,6 +386,18 @@ class MySQLDB
             mysql_real_escape_string($field),
             mysql_real_escape_string($value),
             mysql_real_escape_string($username));
+      return mysql_query($q, $this->connection);
+   }
+   
+   /**
+    * updateUserFieldById - Updates a field, specified by the field
+    * parameter, in the user's row of the database.
+    */
+   function updateUserFieldById($user_id, $field, $value){
+      $q = sprintf("UPDATE ".$this->tbl_users_name." SET %s = '%s' WHERE id = '%s'",
+            mysql_real_escape_string($field),
+            mysql_real_escape_string($value),
+            mysql_real_escape_string($user_id));
       return mysql_query($q, $this->connection);
    }
    

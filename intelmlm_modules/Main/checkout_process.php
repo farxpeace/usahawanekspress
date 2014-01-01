@@ -18,28 +18,27 @@ $book_id = implode(',',$ordered_book_id);
 $error = array();
 $type = 'pendaftaran';
 $status = 'waiting_for_payment';
-$check_db = $database->getSingleTransactionByType($session->uid, $upline_id, $type, $status);
+$check_db = $Class_Transaction->getSingleTransactionByType($session->uid, $upline_id, $type, $status);
+$database->updateUserFieldById($session->uid, 'pakej', $pakej);
 if(!$check_db){
-    $trxid = $database->createTransaction($session->uid, $upline_id, $amount, $book_id, $type, $status);
-    $check_db = $database->getSingleTransactionByType($session->uid, $upline_id, $type, $status);
+    $trxid = $Class_Transaction->createTransaction($session->uid, $upline_id, $amount, $book_id, $type, $status);
+    $check_db = $Class_Transaction->getSingleTransactionByType($session->uid, $upline_id, $type, $status);
+    
+}
+
+
+
+
+
     echo json_encode(array(
         'upline_id' => $upline_id,
         'status'    => $status,
         'user_id'   => $session->uid,
         'trx_id'    => $trxid,
         'trx_date'  => $Mx->timestamp_to_date($check_db['trx_date'], 'd M Y'),
-        'trx_invoice'  => $check_db['trx_date']
+        'trx_invoice'  => $check_db['trx_date'],
+        'trx_ref'   => $check_db['trx_ref']
     ));
-}else{
-    echo json_encode(array(
-        'upline_id' => $upline_id,
-        'status'    => 'already_waiting_for_payment',
-        'user_id'   => $session->uid,
-        'trx_id'    => $check_db['id'],
-        'trx_date'  => $Mx->timestamp_to_date($check_db['trx_date'], 'd M Y'),
-        'trx_invoice'  => $check_db['trx_date']
-    ));
-}
 
 
 

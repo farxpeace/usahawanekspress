@@ -22,19 +22,23 @@
 <nav class="navigation-bar">
 <nav class="navigation-bar-content">
 <div class="element">
-	<a class="dropdown-toggle" href="#">Intel MLM</a>
+	<a class="dropdown-toggle" href="#">Usahawan Ekspress</a>
 	<ul class="dropdown-menu" data-role="dropdown">
-        <li><a href="main.php">Dashboard</a></li>
-        <li><a href="main.php?modules=Main&op=choose_product">Produk</a></li>
-        <?php if($session->logged_in){ ?> 
-        <li><a href="main.php">Member menu</a></li>
+        <li><a href="index.php">Dashboard</a></li>
+        <?php if($session->logged_in){ ?>
+            <?php if($Class_unilevel->isVerified($session->uid)){ ?>
+                <li><a href="main.php?modules=Main&op=choose_product">E-Book</a></li>
+                <li><a href="index.php?modules=Main&op=pesanan">Pesanan</a></li>
+                <li><a href="index.php?modules=Main&op=statistik">Statistik</a></li>
+            <?php } ?>
         <?php } ?>
-		<li><a href="#">About us</a></li>
-		<li><a href="#">Contact</a></li>
+        
+        
+		
 		<li class="divider"></li>
-		<li><a href="#">Terms and regulations</a></li>
+		<li><a href="#">Terma dan syarat</a></li>
 		<li class="divider"></li>
-		<li><a href="#">Exit</a></li>
+		<li><a href="#">Keluar</a></li>
 	</ul>
     
 </div>
@@ -42,15 +46,7 @@
 <span class="element-divider"></span>
 <a class="element brand" href="#"><span class="icon-spin"></span></a>
 <a class="element brand" href="#"><span class="icon-printer"></span></a>
-<span class="element-divider"></span>
-<div class="element input-element">
-	<form>
-		<div class="input-control text">
-			<input style="width: 400px;" type="text" placeholder="Search...">
-			<button class="btn-search"></button>
-		</div>
-	</form>
-</div>
+
 
 <div class="element place-right">
 	<a class="dropdown-toggle" href="#">
@@ -138,6 +134,7 @@ function window_login_register(){
         		</div>
         		<div class="form-actions">
                 <input type="hidden" name="subjoin" value="1" />
+                <input type="hidden" name="uplineid" value="<?php echo $Class_unilevel->uplineInfo['id']; ?>" />
         			<button class="button primary">Register with...</button>
         		</div>
 	       </form>

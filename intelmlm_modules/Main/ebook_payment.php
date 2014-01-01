@@ -1,10 +1,20 @@
 <?php
 $number = $i;
 $uplineInfo = $uplineList[$uplineCountArray];
-?>
-<div class="listview">
+$transactionStatus = $Class_Transaction->getStatusByTrx_Ref($p_status['trx_ref']);
 
- 
+?>
+<div id="frame_pembayaran_hide_<?php echo $i; ?>" style="display: none;" class="frame_payment_status_info">
+    <div style="text-align: center;">Sila buat pesanan terlebih dahulu</div>
+</div>
+<div id="frame_pembayaran_hide_paid_<?php echo $i; ?>" style="display: none;" class="frame_payment_status_info">
+    <div style="text-align: center;">Pembayaran telah diterima</div>
+</div>
+<div id="frame_pembayaran_<?php echo $number; ?>" class="frame_pembayaran_tab frame_payment_status_info" 
+data-status="<?php echo $transactionStatus; ?>" data-number="<?php echo $number; ?>" data-trx_ref="<?php echo $p_status['trx_ref']; ?>"
+>
+
+<div class="frame_listview listview">
     <a href="#" class="list">
         <div class="list-content">
             <img src="intelmlm_images/assets/maybank175x175.jpg" class="icon" />
@@ -60,6 +70,7 @@ $uplineInfo = $uplineList[$uplineCountArray];
         					</td>
         				</tr>
         				</table>
+                        
                         <input type="button" onclick="submit_form_bayar(<?php echo $number; ?>);" class="button" name="submit" value="submit" />
         			</form>
                     
@@ -94,6 +105,8 @@ $uplineInfo = $uplineList[$uplineCountArray];
 		</div>
 	</div>
 </div>
+</div>
+
 
 
                                                      

@@ -1,7 +1,7 @@
 <?php
 #include(THEME_LOC."/main_header.php");
 ?>
-
+<script src="intelmlm_modules/Main/make_payment2.js"></script>
 <script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/Print-Specified-Area-Of-A-Page-PrintArea/demo/jquery.PrintArea.metro.js"></script>
 <style>
 .metro .listview .list.list_upline {
@@ -12,6 +12,9 @@
 }
 .metro .listview .list.list_upline.selected:after {
     border-top: 28px solid #0FA00A;
+}
+.metro .listview .list.list_upline.waiting_for_payment {
+    border: 4px #2EA2CF solid;
 }
 .metro .listview .list.list_upline.selected {
     border: 4px #0FA00A solid;
@@ -50,6 +53,8 @@
 .ebook_info_frame.row:after {
     display: none !important;
 } 
+
+
 </style>
 <script type="text/javascript">
 var pakej_10_limit = 2;
@@ -63,6 +68,7 @@ $(function(){
         pakej = $(this).val();
         pakej_detail(pakej);
         choose_pakej();
+        $("#user_pakej").text(pakej+' ebook');
     });
 });
 
@@ -75,10 +81,19 @@ function run_each_purchase_box(){
         
         if(status == 'waiting_for_payment'){
             set_ebook_purchase_count(number, '2');
-            $("#mainframe_purchase_"+number).find('.list_upline').addClass('selected');
+            //$("#mainframe_purchase_"+number).find('.list_upline').addClass('selected');
+            $("#frame_pembayaran_"+number).payment('option', 'status', 'waiting_for_payment');
             
             invoice_show(number);
             invois_update_selected_list(number);
+        }else if(status == 'paid'){
+            set_ebook_purchase_count(number, '2');
+            //$("#mainframe_purchase_"+number).find('.list_upline').addClass('selected');
+            
+            
+            invoice_show(number);
+            invois_update_selected_list(number);
+            $("#frame_pembayaran_"+number).payment('option', 'status', 'paid');
         }else{
             invoice_hide(number);
         }
@@ -267,6 +282,17 @@ function invois_update_selected_list(number){
 }
 
 function check_order_by_ebook(el){
+    
+    var logged_in = '<?php echo $session->logged_in; ?>';
+    if(!logged_in){
+        window_login_register();
+        $.colorbox.close();
+        return false;
+    }
+    
+    
+    
+    
     var data = $(el).data();
     var frame = $(el).closest('.frame_choose_ebook');
     var input = $(el).children('input.input_select_single_ebook');
@@ -381,11 +407,17 @@ function submit_form_checkout(number){
             var trx_id = data.trx_id;
             var trx_date = data.trx_date;
             var trx_invoice = data.trx_invoice;
+            var trx_ref = data.trx_ref;
             var setData = $("#colorbox_select_ebooks_"+number);
                 setData.data('status', status)
                 setData.data('trx_id', trx_id)
                 setData.data('trx_invoice', trx_invoice)
                 setData.data('trx_date', trx_date);
+                setData.data('trx_ref', trx_ref);
+            $("#frame_pembayaran_"+number).payment('option', {
+                status: status,
+                trx_ref: trx_ref
+            });
             if(status == 'waiting_for_payment'){
                 status_waiting_for_payment(number);
                 invoice_show(number);
@@ -396,7 +428,12 @@ function submit_form_checkout(number){
                 invoice_show(number);
                 invoice_update(number);
                 
+            }else if(status == 'paid'){
+                status_paid(number);
+                invoice_show(number);
+                invoice_update(number);
             }
+            
             console.log('Ajax success. NUmber '+number);
             invois_update_selected_list(number)
         }
@@ -410,7 +447,18 @@ function status_waiting_for_payment(number){
     $("#frame_choice_"+number).hide();
     $("#frame_success_"+number).hide(); 
     $("#frame_already_"+number).show();
-    $("#mainframe_purchase_"+number).find('.list_upline').addClass('selected');
+    $("#frame_pembayaran_"+number).payment('option', 'status', 'waiting_for_payment');
+    //$("#mainframe_purchase_"+number).find('.list_upline').addClass('selected');
+    
+}
+
+function status_paid(number){
+    $("#colorbox_select_ebooks_"+number).data('status', 'paid');
+    $("#frame_choice_"+number).hide();
+    $("#frame_success_"+number).hide(); 
+    $("#frame_already_"+number).show();
+    $("#frame_pembayaran_"+number).payment('option', 'status', 'paid');
+    //$("#mainframe_purchase_"+number).find('.list_upline').addClass('selected');
     
 }
 
@@ -445,10 +493,11 @@ function open_colorbox_select_ebook_for_purchase_number(number){
                 status_waiting_for_payment(number);
             }else if(status == 'already_waiting_for_payment'){
                 status_waiting_for_payment(number);
+            }else if(status == 'paid'){
+                status_paid(number);
             }
          },
          onClosed: function(){
-            
             set_note(number)
          }
     });
@@ -457,36 +506,30 @@ function open_colorbox_select_ebook_for_purchase_number(number){
 
 <div class="grid" style="margin-bottom: 0px;">
     <div class="row">
-        <div class="span4">
-            <table>
+        <div class="span12">
+            <table style="width: 100%;">
                 <tr>
-                    <td valign="center">
+                    <td valign="center" style="width: 100px;">
                         <div class="input-control text" style="margin-bottom: 0px; width: 100px; padding-top: 5px;">
                             Pilih Pakej
                         </div>
                     </td>
-                    <td >
-                         <div class="input-control select" style="margin-bottom: 0px;">
+                    <td style="">
+                         <div class="input-control select" style="margin-bottom: 0px; width: 500px;">
                         <select name="order[pakej]" id="order_pakej">
-                            <option value="10" selected="selected">10 ebook (RM 100)</option>
-                            <option value="20">20 ebook (RM 200)</option>
+                            <option value="10" selected="selected">10 ebook (RM 100) - Pilih 10 ebook dari 5 orang penjual</option>
+                            <option value="20">20 ebook (RM 200) - Pilih 20 ebook dari 10 orang penjual</option>
                                         
                         </select>
                         </div>
+                        <p class="item-title" id="pakej_text_detail" style="display: none;">Sila pilih pakej</p>
                     </td>
+                    
                 </tr>
             </table>
             
            
                 
-        </div>
-        <div class="span8 bg-white">
-            <div class="padding5 bg-amber">
-                    <p class="fg-white item-title" id="pakej_text_detail">Sila pilih pakej</p>
-                </div>
-                
-            
-            
         </div>
         
     </div>
@@ -504,7 +547,7 @@ function open_colorbox_select_ebook_for_purchase_number(number){
                 	<a href="javascript: void(0);" onclick="open_colorbox_select_ebook_for_purchase_number(<?php echo $i; ?>);" class="list list_upline input_select_ebook" data-bookid="54<?php echo $i; ?>">
                         <input class="hidden_select" type="hidden" value="1" name="order[ebook][<?php echo $i; ?>][<?php echo $uplineList[$uplineCountArray]['id']; ?>]" />
                         <div class="list-content">
-                            <img src="images/onenote2013icon.png" class="icon">
+                            <img src="intelmlm_images/assets/onenote2013icon.png" class="icon">
                             <div class="data">
                                 <span class="list-title">Pembelian <?php echo $i; ?></span>
                                 <table style="width: 100%;">
@@ -526,7 +569,7 @@ function open_colorbox_select_ebook_for_purchase_number(number){
                 </div>
                 <div style="display: none;">
                 <?php
-                $p_status = $database->getSingleTransactionByType($session->uid, $uplineList[$uplineCountArray]['id'], 'pendaftaran', 'waiting_for_payment');
+                $p_status = $Class_Transaction->getSingleTransactionByType($session->uid, $uplineList[$uplineCountArray]['id'], 'pendaftaran');
                 
                 if($p_status){
                     $p_status['trx_invoice'] = $p_status['trx_date'];
@@ -542,12 +585,13 @@ function open_colorbox_select_ebook_for_purchase_number(number){
                     $h_trx_date = '';
                     $h_trx_invoice = '';
                     $selected_ebook = array();
+                    $p_status = array();
                 }
                 
                 ?>
                 
                 
-                    <div <?php echo $h_trx_id; ?> <?php echo $h_trx_invoice; ?> <?php echo $h_trx_date; ?> class="colorbox_select_ebooks_class" id="colorbox_select_ebooks_<?php echo $i; ?>" <?php echo $h_status; ?>>
+                    <div data-status="<?php echo $p_status['status']; ?>" data-trx_ref="<?php echo $p_status['trx_ref']; ?>" <?php echo $h_trx_id; ?> <?php echo $h_trx_invoice; ?> <?php echo $h_trx_date; ?> class="colorbox_select_ebooks_class" id="colorbox_select_ebooks_<?php echo $i; ?>">
                         <?php include('colorbox_select_ebooks.php'); ?>
                     </div>
                     
@@ -565,7 +609,7 @@ function open_colorbox_select_ebook_for_purchase_number(number){
                 	<a href="javascript: void(0);" onclick="open_colorbox_select_ebook_for_purchase_number(<?php echo $i; ?>);" class="list list_upline input_select_ebook">
                         <input class="hidden_select" type="hidden" value="1" name="order[ebook][<?php echo $i; ?>][<?php echo $uplineList[$uplineCountArray]['id']; ?>]" />
                         <div class="list-content">
-                            <img src="images/onenote2013icon.png" class="icon">
+                            <img src="intelmlm_images/assets/onenote2013icon.png" class="icon">
                             <div class="data">
                                 <span class="list-title">Pembelian <?php echo $i; ?></span>
                                 <table style="width: 100%;">
@@ -589,7 +633,7 @@ function open_colorbox_select_ebook_for_purchase_number(number){
                 </div>
                 <div style="display: none;">
                 <?php
-                $p_status = $database->getSingleTransactionByType($session->uid, $uplineList[$uplineCountArray]['id'], 'pendaftaran', 'waiting_for_payment');
+                $p_status = $Class_Transaction->getSingleTransactionByType($session->uid, $uplineList[$uplineCountArray]['id'], 'pendaftaran', 'waiting_for_payment');
                 if($p_status){
                     $p_status['trx_invoice'] = $p_status['trx_date'];
                     $h_status = 'data-status="waiting_for_payment"';
@@ -597,17 +641,18 @@ function open_colorbox_select_ebook_for_purchase_number(number){
                     $h_trx_date = 'data-trx_date="'.$Mx->timestamp_to_date($p_status['trx_date'], 'd M Y').'"';
                     $h_trx_invoice = 'data-trx_invoice="'.$p_status['trx_invoice'].'"';
                     $selected_ebook = explode(',',$p_status['trx_desc']);
+                    
                 }else{
                     $h_status = '';
                     $h_trx_id = '';
                     $h_trx_date = '';
                     $h_trx_invoice = '';
                     $selected_ebook = array();
-                    
+                    $p_status = array();
                 }
                 
                 ?>
-                    <div <?php echo $h_trx_id; ?> <?php echo $h_trx_invoice; ?> <?php echo $h_trx_date; ?> class="colorbox_select_ebooks_class" id="colorbox_select_ebooks_<?php echo $i; ?>" <?php echo $h_status; ?>>
+                    <div data-status="<?php echo $p_status['status']; ?>" data-trx_ref="<?php echo $p_status['trx_ref']; ?>" <?php echo $h_trx_id; ?> <?php echo $h_trx_invoice; ?> <?php echo $h_trx_date; ?> class="colorbox_select_ebooks_class" id="colorbox_select_ebooks_<?php echo $i; ?>">
                         <?php include('colorbox_select_ebooks.php'); ?>
                     </div>
                     
@@ -622,5 +667,3 @@ function open_colorbox_select_ebook_for_purchase_number(number){
     
 </div>
 
-
-<p>Anda perlu membuat 5 pembelian dari peniaga kami</p>

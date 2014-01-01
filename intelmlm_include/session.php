@@ -60,12 +60,40 @@ class Session
     * update the active visitors tables.
     */
    function startSession(){
-      global $database;  //The database connection
+      global $database, $facebook, $Mx;  //The database connection
       session_start();   //Tell PHP to start the session
-
+        
+      
+      
+        
       /* Determine if user is logged in */
       $this->logged_in = $this->checkLogin();
-
+        
+        if(($Mx->getSubdomain($_SERVER['HTTP_HOST']) == 'facebook') && (!$this->logged_in)){
+        $fb_user = $facebook->getUser();
+        if($fb_user){
+            $fb_user_profile = $facebook->api('/me');
+            $fb_email = $fb_user_profile['email'];
+            $fb_token = $facebook->getAccessToken();
+            $x_user = $database->getUserInfo($fb_email);
+            if($x_user){
+                //logging in user
+                if($x_user['username'] == $fb_email){
+                    $o = $this->fb_login($fb_user, $fb_email, $fb_token);
+                    if($o['status'] == 'reload_window'){
+                        Header("Location: index.php");
+                    }
+                }
+            }else{
+                //register user
+                $o = $this->fb_register($fb_user, $fb_email, $fb_token);
+                if($o['status'] == 'register_success'){
+                    Header("Location: index.php");
+                }
+            }
+        }  
+      }
+        
       /**
        * Set guest value to users not logged in, and update
        * active guests table accordingly.
@@ -111,7 +139,8 @@ class Session
     return $row['id'];
    }
    function checkLogin(){
-      global $database;  //The database connection
+      global $database, $facebook;  //The database connection
+      
       /* Check if user has been remembered */
       if(isset($_COOKIE['cookname']) && isset($_COOKIE['cookid']) && ($_COOKIE['cookemail'])){
          $this->username = $_SESSION['username'] = $_COOKIE['cookname'];
@@ -119,10 +148,6 @@ class Session
          $this->email   = $_SESSION['email']   = $_COOKIE['cookemail'];
       }
       
-      
-      
-      
-        
       /* Username and userid have been set and not guest */
       if(isset($_SESSION['username']) && isset($_SESSION['userid']) && $_SESSION['username'] != $database->guest_name){
          /* Confirm that username and userid are valid */
@@ -139,9 +164,6 @@ class Session
             unset($_SESSION['email']);
             return false;
       }
-      
-      
-
          /* User is logged in, set class variables */
          //$this->userinfobyid  = $database->getUserInfoById($this->getUIDbyUsername($_SESSION['username']));
          //$this->userinfobyid = 'a';
@@ -166,6 +188,7 @@ class Session
       }
       /* User not logged in */
       else{
+        
          return false;
       }
    }
@@ -248,21 +271,22 @@ class Session
    }
    
    function fb_register($fb_id, $fb_email, $fb_token){
-    global $database, $form, $facebook;  //The database and form object
+    global $database, $form, $facebook, $Mx;  //The database and form object
     
     
        $database->addNewUserByEmail($fb_email, '123456');
        $database->updateUserField($fb_email, 'fb_id', $fb_id);
        $database->updateUserField($fb_email, 'fb_token', $fb_token);
        $database->updateUserField($fb_email, 'fb_email', $fb_email);
-       
+       $e = $database->getUserInfo($fb_email);
+       $encrypt = $Mx->encrypt_decrypt('encrypt', $e['id']);
        if($database->usernameTaken($fb_email)){
        $params = array(
             'message'       =>  "Saya baru sahaja menyertai program Usahawan Ekspress",
             'name'          =>  "Pendaftaran berjaya",
             'caption'       =>  "Usahawan Ekspress",
             'description'   =>  "Program Usahawan Ekspress",
-            'link'          =>  "https://apps.facebook.com/ushawanekspress/",
+            'link'          =>  "https://apps.facebook.com/ushawanekspress/".$encrypt,
             'picture'       =>  "http://i.imgur.com/VUBz8.png",
         );
         $post = $facebook->api("/$user/feed","POST",$params);
@@ -477,6 +501,7 @@ class Session
             if(EMAIL_WELCOME){               
                //$mailer->sendWelcome($subuser,$subemail,$subpass,$randid);
             }
+            
             return 0;  //New user added succesfully
          }else{
             return 2;  //Registration attempt failed
@@ -751,11 +776,13 @@ class Session
  */
 $session = new Session;
 
+include('Class.Transaction.php');
+$Class_Transaction = new Transaction;
+
 include('Class.Unilevel.php');
 $Class_unilevel = new Unilevel;
 
-include('Class.Transaction.php');
-$Class_Transaction = new Transaction;
+
 
 include('Class.Ebooks.php');
 $Class_ebooks = new Ebooks;

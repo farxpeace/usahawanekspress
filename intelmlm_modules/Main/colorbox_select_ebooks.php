@@ -3,19 +3,20 @@ data-selebook="[<?php echo $Class_ebooks->getEbooksTrxById($p_status['id']); ?>]
 >
                 <tr>
                     <td style="width: 80px;" valign="top">
-                        <img style="width: 50px; height: 50px;" src="http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/64/Numbers-<?php echo $i; ?>-icon.png" class="">
+                        <img style="width: 50px; height: 50px;" src="<?php echo FOLDER_IMAGES.'/assets/'; ?>Numbers-<?php echo $i; ?>-icon.png" class="">
                     </td>
                     <td>
                         <div class="balloon right" style="padding: 10px;">
                             <div class="tab-control" data-role="tab-control">
                                 <ul class="tabs">
-                                    <li class="active"><a href="#_ebook_pilih_<?php echo $i; ?>">E-Book</a></li>
+                                    <li class="active"><a href="#_ebook_pilih_<?php echo $i; ?>">Pilih E-Book</a></li>
                                     
                                     <li><a href="#_ebook_invois_<?php echo $i; ?>">Invois</a></li>
                                     
                                     <li><a href="#_ebook_payment_<?php echo $i; ?>">Pembayaran</a></li>
                                     
                                     <li><a href="#_ebook_receipt_<?php echo $i; ?>">Resit</a></li>
+                                    <li><a href="#_ebook_download_<?php echo $i; ?>">Download E-Book</a></li>
                                     
                                 </ul>
                              
@@ -38,6 +39,14 @@ data-selebook="[<?php echo $Class_ebooks->getEbooksTrxById($p_status['id']); ?>]
                                             <i class="icon-printer bg-red"></i>
                                         </button>
                                         <div id="_ebook_print_area_<?php echo $i; ?>">
+                                            <style>
+                                            #_ebook_print_area_<?php echo $i; ?> table tr.info {
+                                                background-color: #4390df !important;
+                                            }
+                                            #_ebook_print_area_<?php echo $i; ?> .fg-white {
+                                                color: #ffffff !important;
+                                            }
+                                            </style>
                                             <script type="text/javascript">
                                                 $(function(){
                                                     $("#_ebook_invois_<?php echo $i; ?>_print").click(function(){
@@ -126,7 +135,8 @@ data-selebook="[<?php echo $Class_ebooks->getEbooksTrxById($p_status['id']); ?>]
                                                         </div>
                                                     </div>
                                                 </div>
-                                        
+                                        Note: This receipt is computer generated and no signature is required.
+
                                         </div>
                                         </div>
                                         
@@ -135,10 +145,15 @@ data-selebook="[<?php echo $Class_ebooks->getEbooksTrxById($p_status['id']); ?>]
                                         data-status="" data-paymentid="" data-paymentdate=""
                                     >
                                             <?php include('ebook_payment.php'); ?>
-                                        </div>
-                                        <div class="frame" id="_ebook_receipt_<?php echo $i; ?>">
-                                        
-                                        </div>
+                                    </div>
+                                    
+                                    <div class="frame" id="_ebook_receipt_<?php echo $i; ?>">
+                                        <?php include('payment_receipt.php'); ?>
+                                    </div>
+                                    
+                                    <div class="frame frame_download_ebook" id="_ebook_download_<?php echo $i; ?>">
+                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>
