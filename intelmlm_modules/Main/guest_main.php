@@ -31,8 +31,8 @@ include(THEME_LOC."/main_header.php");
                         <?php include('step_kemudian.php') ?>
                     </div>
                     <div class="frame" id="_kemudian">
-                        <h4 class="padding10">Promosikan produk atau perkhidmatan anda kepada rakan-rakan</h4>
-                        
+                        <h3>Promosikan E-Book yang terdapat disini kepada rakan-rakan anda</h3>
+                        <?php include('step_calculator.php') ?>
                     </div>
                     <div class="frame" id="_dan_seterusnya">
                         <?php include('step_seterusnya.php') ?>
@@ -110,6 +110,38 @@ function getUserInfo(callback){
     });
 }
 
+function step_calculator(){
+    FB.getLoginStatus(function(response) {
+        if(response.status == 'connected'){
+        
+        var uid = response.authResponse.userID;
+        var accessToken = response.authResponse.accessToken;
+        $("#calculator_fb").show();
+        calculator_initialize();
+        calc_init();
+      }else if(response.status == 'not_authorized') {
+        $("#calculator_fb").hide();
+      }else{
+        $("#calculator_fb").hide();
+      }
+    });
+}
+
+function calc_init(){
+    calc_update_pakej();
+}
+
+function calculator_initialize(){
+    FB.api('me/friends', function(friends) {
+        $("#_fbc_total_friend").text((friends.data).length)
+    });
+}
+
+function calc_update_pakej(){
+    $("#_fbc_pakej").text($("#order_pakej").val());
+    $("#_fbc_level").text(($("#order_pakej").val())/2);
+}
+
 $(function(){
     $('.main-tab').tabcontrol().bind("tabcontrolchange", function(event, frame){
         var frame = frame;
@@ -119,6 +151,8 @@ $(function(){
                 
                 console.log(data)
             });
+        }else if(frameId == '_kemudian'){
+            step_calculator();
         }
     });
     

@@ -23,11 +23,10 @@
             	<a href="javascript: void(0);" class="<?php echo $class_selected_a; ?> list ebook ebook_pilih_order" data-ebookid="<?php echo $ebook_id; ?>" data-purchaseno="<?php echo $i; ?>" onclick="check_order_by_ebook(this);">
                     <input type="hidden" value="0" class="input_select_single_ebook" data-ebookid="<?php echo $ebook_id; ?>" data-purchaseno="<?php echo $i; ?>" name="order[ebook][<?php echo $uplineList[$up]['id'] ?>][]" />
                     <div class="list-content">
-                        <img src="intelmlm_images/assets/onenote2013icon.png" class="icon">
+                        <img src="<?php echo FOLDER_IMAGES."/assets/Book-icon.png"; ?>" class="icon">
                         <div class="data">
                             <span class="list-title" id="ebook_pilih_order_title_<?php echo $ebook_id; ?>"><?php echo $ebookList[$ebook_id]['title']; ?></span>
-                            <div class="progress-bar small" data-role="progress-bar" data-value="75"><div class="bar bg-cyan" style="width: 75%;"></div></div>
-                            <span class="list-remark">Download...75%</span>
+                            
                         </div>
                     </div>
                 </a>

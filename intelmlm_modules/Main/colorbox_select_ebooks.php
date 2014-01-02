@@ -1,9 +1,9 @@
-<table style="width: 100%;" id="table_select_ebook_<?php echo $i; ?>" 
+<table style="width: 99%;" id="table_select_ebook_<?php echo $i; ?>" 
 data-selebook="[<?php echo $Class_ebooks->getEbooksTrxById($p_status['id']); ?>]"
 >
                 <tr>
                     <td style="width: 80px;" valign="top">
-                        <img style="width: 50px; height: 50px;" src="<?php echo FOLDER_IMAGES.'/assets/'; ?>Numbers-<?php echo $i; ?>-icon.png" class="">
+                        <img style="width: 70px; height: 70px;" src="<?php echo FOLDER_IMAGES.'/assets/'; ?>Numbers-solid-<?php echo $i; ?>-icon.png" class="">
                     </td>
                     <td>
                         <div class="balloon right" style="padding: 10px;">

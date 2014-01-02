@@ -12,6 +12,9 @@
 <script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/jquery.blockUI.js"></script>
 <script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/jquery.form.js"></script>
 
+<link rel="stylesheet" href="<?php echo THEME_LOC; ?>/js/jquery.qtip/jquery.qtip.css" />
+<script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/jquery.qtip/jquery.qtip.js"></script>
+
 <style>
         .list {
             width: 100% !important;

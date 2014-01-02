@@ -139,7 +139,7 @@ class Session
     return $row['id'];
    }
    function checkLogin(){
-      global $database, $facebook;  //The database connection
+      global $database, $facebook, $Mx;  //The database connection
       
       /* Check if user has been remembered */
       if(isset($_COOKIE['cookname']) && isset($_COOKIE['cookid']) && ($_COOKIE['cookemail'])){
@@ -175,6 +175,9 @@ class Session
          $this->userlevel = $this->userinfobyid['userlevel'];
          $this->email = $this->userinfobyid['email'];
          $this->userinfo = $this->userinfobyid;
+         
+         
+         
          /* auto login hash expires in three days */
          if($this->userinfobyid['hash_generated'] < (time() - (60*60*24*3))){
          	/* Update the hash */

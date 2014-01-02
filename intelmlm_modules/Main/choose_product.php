@@ -518,9 +518,28 @@ function open_colorbox_select_ebook_for_purchase_number(number){
                          <div class="input-control select" style="margin-bottom: 0px; width: 500px;">
                         <select name="order[pakej]" id="order_pakej">
                             <option value="10" selected="selected">10 ebook (RM 100) - Pilih 10 ebook dari 5 orang penjual</option>
-                            <option value="20">20 ebook (RM 200) - Pilih 20 ebook dari 10 orang penjual</option>
-                                        
+                            <option value="20">20 ebook (RM 200) - Pilih 20 ebook dari 10 orang penjual</option>         
                         </select>
+                        <div style="display: none;" id="order_pakej_tooltip">
+                        <div class="padding10">
+                            Pilih pakej yang anda mahukan
+                        </div>
+                        </div>
+                        <script type="text/javascript">
+                        $(function(){
+                            $("#order_pakej").qtip({
+                                 style: { classes: 'qtip-bootstrap' },
+                                 content: {
+                                     text: $("#order_pakej_tooltip"),
+                                     title: 'Pilih Pakej'
+                                 },
+                                 position: {
+                                    my: 'bottom center',  // Position my top left...
+                                    at: 'top center'
+                                }
+                             });
+                        })
+                        </script>
                         </div>
                         <p class="item-title" id="pakej_text_detail" style="display: none;">Sila pilih pakej</p>
                     </td>
@@ -660,6 +679,51 @@ function open_colorbox_select_ebook_for_purchase_number(number){
             </div>
             <?php } ?>
             <div style="clear: both;"></div>
+            <script type="text/javascript">
+            $(function(){
+                $(".list_upline").each(function(){
+                    $(this).qtip({
+                        style: { classes: 'qtip-bootstrap' },
+                        content: {
+                            text: 'Klik untuk pilih E-Book dan membuat pembayaran',
+                            title: 'Pembelian dan Pembayaran'
+                        },
+                        position: {
+                            my: 'bottom center',  // Position my top left...
+                            at: 'top center',
+                            viewport: $(window)
+                        }
+                    }); 
+                });
+                
+                $(".ebook_pilih_order").each(function(){
+                    var ebookid = $(this).data('ebookid');
+                    var title = $(this).find('.list-title').text();
+                    $(this).qtip({
+                        style: { classes: 'qtip-bootstrap' },
+                        content: {
+                            text: function(event, api) {
+                                $.ajax({ url: 'index.php?modules=Main&op=getbookinfo', data: { bookid: ebookid } })
+                                    .done(function(html) {
+                                        api.set('content.text', html)
+                                    })
+                                    .fail(function(xhr, status, error) {
+                                        api.set('content.text', status + ': ' + error)
+                                    })
+                    
+                                return 'Loading...';
+                            },
+                            title: title
+                        },
+                        position: {
+                            my: 'bottom center',  // Position my top left...
+                            at: 'top center',
+                            viewport: $(window)
+                        }
+                    }); 
+                });
+            });
+            </script>
     </div>
 
     

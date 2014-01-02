@@ -22,6 +22,10 @@ if($op == 'getuserinfo'){
     }
     echo json_encode($outu);
     exit();
+}elseif($op == 'getbookinfo'){
+    $bookid = $_REQUEST['bookid'];
+    include('getbookinfo.php');
+    exit();
 }
 if(!$session->logged_in){
     if($op == ''){
