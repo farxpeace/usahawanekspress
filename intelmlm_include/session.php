@@ -24,8 +24,8 @@ $facebook = new Facebook(array(
 ));
 $user = $facebook->getUser();
 
-
-
+include('Nexmo-PHP-lib/NexmoMessage.php');
+$Class_Sms = new NexmoMessage('81b2db94', 'd5be1a55');
 
 
 class Session

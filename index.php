@@ -1,7 +1,7 @@
 <?php
 
 include('bootstrap.php');
-
+//$info = $Class_Sms->sendText( '60127415914', 'MyApp', 'Hello!' );
 $modules = $_REQUEST["modules"];
 $op = $_REQUEST['op'];
 
