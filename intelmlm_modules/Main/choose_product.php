@@ -70,6 +70,15 @@ $(function(){
         choose_pakej();
         $("#user_pakej").text(pakej+' ebook');
     });
+    
+    $( window ).resize(function() {
+        width = ($(window).width())-10;
+        height = ($(window).height())-10;
+        $.colorbox.resize({
+            width: width,
+            height: height
+        });
+    });
 });
 
 function run_each_purchase_box(){
@@ -482,9 +491,11 @@ function set_ebook_purchase_count(number, count){
 }
 
 function open_colorbox_select_ebook_for_purchase_number(number){
-    width = 0.9*($(window).width());
-    height = 0.9*($(window).height());
+    width = ($(window).width())-10;
+    height = ($(window).height())-10;
+    
     $.colorbox({
+        reposition: true,
          href: '#colorbox_select_ebooks_'+number,
          inline: true,
          width: width,

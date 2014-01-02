@@ -78,6 +78,7 @@ class CustomUploadHandler extends UploadHandler {
         //$file->userid = @$_REQUEST['uid'][$index];
     	$file->title = @$_REQUEST['title'][$index];
     	$file->description = @$_REQUEST['description'][$index];
+        //$file->upload_type = @$_REQUEST['upload_type'][$index];
     }
 
     protected function handle_file_upload($uploaded_file, $name, $size, $type, $error,
@@ -90,14 +91,16 @@ class CustomUploadHandler extends UploadHandler {
 			$sql = 'INSERT INTO `'.$this->options['db_table']
 				.'` (`name`, `size`, `type`, `title`, `description`)'
 				.' VALUES (?, ?, ?, ?, ?)';
-                
-            $sql2 = "INSERT INTO ".$this->options['db_table']." (uid,name,size,type,title,description)VALUES(
+            $upload_type = $file->upload_type;
+            $sql2 = "INSERT INTO ".$this->options['db_table']." (uid,name,size,type,title,description,upload_type,trx_uid)VALUES(
                 '".$session->uid."',
                 '".$file->name."',
 	        	'".$file->size."',
 	        	'".$file->type."',
 	        	'".$file->title."',
-	        	'".$file->description."'
+	        	'".$file->description."',
+                '".$_REQUEST['upload_type']."',
+                '".$_REQUEST['trx_uid']."'
             )";
 	        $query = $this->db->prepare($sql2);
 	        

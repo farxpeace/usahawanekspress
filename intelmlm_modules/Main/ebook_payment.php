@@ -43,7 +43,7 @@ data-status="<?php echo $transactionStatus; ?>" data-number="<?php echo $number;
         						Tarikh :
         					</td>
         					<td>
-        						<div class="input-control text datepicker " data-role="datepicker" data-date="01-01-2014" data-format="dd mm yyyy" data-position="bottom" data-effect="none">
+        						<div class="input-control text datepicker " data-role="datepicker" data-date="01-01-2014" data-format="dd mmmm yyyy" data-position="bottom" data-effect="none">
         							<input type="text" name="bayar[<?php echo $uplineInfo['id']; ?>][tarikh]"/><button class="btn-date" type="button"></button>
         						</div>
         					</td>
@@ -54,7 +54,7 @@ data-status="<?php echo $transactionStatus; ?>" data-number="<?php echo $number;
         					</td>
         					<td>
         						<div class="input-control text" data-role="input-control">
-        							<input type="text" placeholder="type text" name="bayar[<?php echo $uplineInfo['id']; ?>][masa]">
+        							<input type="text" placeholder="Contoh: 01:29:30 PM" name="bayar[<?php echo $uplineInfo['id']; ?>][masa]">
         							<button class="btn-clear" tabindex="-1" type="button"></button>
         						</div>
         					</td>
@@ -69,8 +69,35 @@ data-status="<?php echo $transactionStatus; ?>" data-number="<?php echo $number;
         						</div>
         					</td>
         				</tr>
-        				</table>
                         
+        				</table>
+                        <div class="frame_upload" data-trx_uid="<?php echo $uplineInfo['id']; ?>" data-number="<?php echo $i; ?>">
+                				<div class="listview small" style="margin-right: 0;">
+                                    <a href="#" class="list btn fileinput-button">
+                                    <div class="list-content">
+                                        <img src="<?php echo FOLDER_IMAGES.'/assets/up-icon.png'; ?>" class="icon image_src">
+                                    <div class="data">
+                                        <span class="list-title">Upload screenshot. No file selected</span>
+                                        <div class="progress-bar small" data-role="progress-bar" data-value="0"></div>
+                                    </div>
+                                    </div>
+                                    <input class="fileupload" type="file" name="files[]" multiple>
+                                </a>
+                                </div>
+                                
+                                <!-- The fileinput-button span is used to style the file input field as button -->
+            
+                                <br>
+                                <br>
+                                <!-- The global progress bar -->
+            
+                                <!-- The container for the uploaded files -->
+                                <div class="files">
+                                    
+                                    <span class="image_name" style="display: none;"></span>
+                                </div>
+                                <br>
+                			</div>
                         <input type="button" onclick="submit_form_bayar(<?php echo $number; ?>);" class="button" name="submit" value="submit" />
         			</form>
                     
@@ -79,28 +106,7 @@ data-status="<?php echo $transactionStatus; ?>" data-number="<?php echo $number;
 			
 		</div>
 		<div class="span5">
-            <div class="padding5" style="border: 1px solid #ECECEC;">
-                <div class="fg-white bg-lightBlue padding5">
-					 Upload transaction
-				</div>
-                <div class="frame_upload">
-    				<span class="btn btn-success fileinput-button">
-    				<i class="glyphicon glyphicon-plus"></i>
-    				<span>Select files...</span>
-    				<!-- The file input field used as target for the file upload widget -->
-    				<input class="fileupload" id="_bayar_upload_fileupload_<?php echo $number; ?>" type="file" name="files[]" multiple> </span>
-    				<br>
-    				<br>
-    				<!-- The global progress bar -->
-    				<div id="_bayar_upload_progress_<?php echo $number; ?>" class="progress">
-    					<div class="progress-bar progress-bar-success">
-    					</div>
-    				</div>
-    				<!-- The container for the uploaded files -->
-    				<div id="files_<?php echo $number; ?>" class="files">
-    				</div>
-    			</div>
-            </div>
+            
 			
 		</div>
 	</div>

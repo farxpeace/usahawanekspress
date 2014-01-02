@@ -254,6 +254,46 @@ $(function(){
 <!-- The basic File Upload plugin -->
 <script src="<?php echo THEME_LOC; ?>/js/jQuery-File-Upload-master/js/jquery.fileupload.js"></script>
 
+<style>
+.frame_upload .progress {
+height: 20px;
+margin-bottom: 20px;
+overflow: hidden;
+background-color: #f5f5f5;
+border-radius: 4px;
+-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+.frame_upload .progress-bar-success {
+    background-color: #5cb85c;
+}
+.frame_upload .progress-bar {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #428bca;
+    
+}
+.fileinput-button {
+position: relative;
+overflow: hidden;
+}
+.fileinput-button input {
+position: absolute;
+top: 0;
+right: 0;
+margin: 0;
+opacity: 0;
+-ms-filter: 'alpha(opacity=0)';
+font-size: 200px;
+direction: ltr;
+cursor: pointer;
+}
+</style>
 <script>
 /*jslint unparam: true */
 /*global window, $ */
@@ -261,25 +301,34 @@ $(function () {
     'use strict';
     // Change this to the location of your server-side upload handler:
     var url = 'intelmlm_images/';
-    $('.frame_upload .fileupload').fileupload({
-        url: url,
-        dataType: 'json',
-        done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                //$('<p/>').text(file.name).appendTo('#files');
-                console.log(e);
-                console.log(data);
-            });
-        },
-        progressall: function (e, data) {
-            var progress = parseInt(data.loaded / data.total * 100, 10);
-            $('.frame_upload .progress-bar').css(
-                'width',
-                progress + '%'
-            );
-        }
-    }).prop('disabled', !$.support.fileInput)
-        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+    $('.frame_upload').each(function(){
+        var self = this;
+        var fileupload = $(this).find('.fileupload');
+        var progress_bar = $(this).find('.progress-bar');
+        var files = $(this).find('.files');
+        var trx_uid = $(self).data('trx_uid');
+        var number = $(self).data('number');
+        $(fileupload).fileupload({
+            url: url,
+            dataType: 'json',
+            formData: { upload_type: 'upload_transaction', trx_uid: trx_uid },
+            done: function (e, data) {
+                var result = data.result.files[0];
+                $(self).find('.list-title').text(result['name']);
+                $(self).data('upload_id', result['id']);
+                $(self).find('.image_src').attr('src', result['thumbnailUrl']);
+            },
+            progressall: function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                
+                $(progress_bar).css(
+                    'width',
+                    progress + '%'
+                );
+            }
+        }).prop('disabled', !$.support.fileInput)
+            .parent().addClass($.support.fileInput ? undefined : 'disabled'); 
+    });
 });
 </script>
 <script type="text/javascript">
@@ -290,8 +339,10 @@ function submit_form_bayar(number){
         dataType: 'json',
             type: 'post',
             data: { trx_ref: trx_ref },
-            beforeSubmit: function(){
-                
+            beforeSubmit: function(arr, $form, options){
+                var upload_id = $("#form_bayar_"+number).find('.frame_upload').data('upload_id');
+                arr.push({ name: 'upload_id',required: 'false', type: 'text', value: upload_id })
+                return true;
             },
             success: function(data){
                 if(data.status == 'success'){
