@@ -503,7 +503,7 @@ function open_colorbox_select_ebook_for_purchase_number(number){
     });
 }
 </script>
-
+<div>Sila pilih E-Book dan buat pembayaran.Sebaik sahaja semua pembayaran selesai, akaun anda akan aktif secara automatik dan anda boleh mula mempromosikan produk anda.</div>
 <div class="grid" style="margin-bottom: 0px;">
     <div class="row">
         <div class="span12">
@@ -553,6 +553,8 @@ function open_colorbox_select_ebook_for_purchase_number(number){
         
     </div>
 </div>
+
+
 
 <div id="frame_list_choose_product">
     <div>

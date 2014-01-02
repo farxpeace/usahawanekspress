@@ -1,4 +1,0 @@
-IntelMLM
-========
-
-Intelligent Multilevel Sustem

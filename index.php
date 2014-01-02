@@ -5,7 +5,10 @@ include('bootstrap.php');
 $modules = $_REQUEST["modules"];
 $op = $_REQUEST['op'];
 
-
+        //echo '<pre>';
+        //print_r(unserialize($session->userinfo['fb_array']));
+        //print_r($session->fbinfo);
+        //echo '</pre>';
 $memberid = $_GET['member'];
 $decrypt_uid = $Mx->encrypt_decrypt('decrypt',$memberid);
 

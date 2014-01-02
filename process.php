@@ -92,6 +92,7 @@ class Process
       /* Login successful */
       if($retval['status'] == 'register_success'){
         echo json_encode($retval);
+        
          //header("Location: ".$session->referrer);
       }
       /* Login failed */

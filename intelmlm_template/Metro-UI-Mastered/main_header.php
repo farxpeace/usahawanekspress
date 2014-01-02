@@ -149,9 +149,15 @@ function window_login_register(){
 
 <span class="element-divider place-right"></span>
 <?php if($session->logged_in){ ?>
-<button class="element image-button image-left place-right">
-<?php echo $session->userinfo['fullname'];  ?> <img src="<?php  echo $database->const_thm_img.'/default-profile-256x256.png'; ?>"/>
-</button>
+    <?php if($session->login_using == 'facebook'){ ?>
+    <button class="element image-button image-left place-right">
+    <?php echo $session->fbinfo['name'];  ?> <img src="https://graph.facebook.com/<?php echo $session->userinfo['fb_id']; ?>/picture">
+    </button>
+    <?php }else{ ?>
+    <button class="element image-button image-left place-right">
+    <?php echo $session->userinfo['email'];  ?> <img src="<?php  echo $database->const_thm_img.'/default-profile-256x256.png'; ?>"/>
+    </button>
+    <?php } ?>
 <?php } ?>
 <span class="element-divider place-right"></span>
 

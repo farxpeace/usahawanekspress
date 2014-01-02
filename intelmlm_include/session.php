@@ -163,7 +163,7 @@ class Session
             unset($_SESSION['userid']);
             unset($_SESSION['email']);
             return false;
-      }
+        }
          /* User is logged in, set class variables */
          //$this->userinfobyid  = $database->getUserInfoById($this->getUIDbyUsername($_SESSION['username']));
          //$this->userinfobyid = 'a';
@@ -175,8 +175,13 @@ class Session
          $this->userlevel = $this->userinfobyid['userlevel'];
          $this->email = $this->userinfobyid['email'];
          $this->userinfo = $this->userinfobyid;
+         if($_SESSION['login_using'] == 'facebook'){
+            $this->fbinfo = unserialize($database->getSingleColumnById($this->uid, 'fb_array'));
+         }
          
-         
+         if(isset($_SESSION['login_using'])){
+            $this->login_using = $_SESSION['login_using'];
+         }
          
          /* auto login hash expires in three days */
          if($this->userinfobyid['hash_generated'] < (time() - (60*60*24*3))){
@@ -246,7 +251,7 @@ class Session
             if(($isAlreadyRegistered) && ($isEmailExists)){
                 if($this->fb_check_login($fb_id, $fb_email)){
                     $output['status'] = 'logging in user';
-                    $retval = $this->login($fb_email, '123456', '1');
+                    $retval = $this->login($fb_email, '123456', '1', 'facebook');
                     if($retval == '1'){
                         $output['status'] = 'reload_window';
                     }
@@ -256,7 +261,7 @@ class Session
                 $isRegistered = $this->fb_register($fb_id, $fb_email, $fb_token);
                 $output['status'] = $isRegistered;
                 $output['status'] = 'logging in user';
-                $retval = $this->login($fb_email, '123456', '1');
+                $retval = $this->login($fb_email, '123456', '1', 'facebook');
                 if($retval == '1'){
                     $output['status'] = 'reload_window';
                 }
@@ -313,7 +318,7 @@ class Session
     * of that information in the database and creates the session.
     * Effectively logging in the user if all goes well.
     */
-   function login($subuser, $subpass, $subremember){
+   function login($subuser, $subpass, $subremember, $login_using = NULL){
       global $database, $form;  //The database and form object
       
         if($database->login_using == 'email'){
@@ -392,6 +397,7 @@ class Session
       
 
       /* Username and password correct, register session variables */
+      
       $this->userinfo  = $database->getUserInfo($subuser);
       
       $this->username  = $_SESSION['username'] = $this->userinfo['username'];
@@ -406,6 +412,23 @@ class Session
       $database->updateUserField($this->username, "userid", $this->userid);
       $database->addActiveUser($this->username, $this->time);
       $database->removeActiveGuest($_SERVER['REMOTE_ADDR']);
+      
+      if($login_using == 'facebook'){
+        $this->login_using  = $_SESSION['login_using'] = $login_using;
+        $url = 'http://graph.facebook.com/'.$this->userinfo['fb_id'];
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch,CURLOPT_URL,$url);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        $fb_array = array();
+        $result = json_decode($result);
+        foreach($result as $a => $b){
+            $this->fbinfo[$a] = $b;
+            $fb_array[$a] = $b; 
+        }
+        $database->updateUserFieldById($this->userinfo['id'], 'fb_array', serialize($fb_array));
+      }
       
       /**
        * This is the cool part: the user has requested that we remember that
@@ -445,6 +468,7 @@ class Session
       }
 
       /* Unset PHP session variables */
+      unset($_SESSION['login_using']);
       unset($_SESSION['username']);
       unset($_SESSION['email']);
       unset($_SESSION['userid']);
