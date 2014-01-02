@@ -51,6 +51,7 @@ function login_form_fb(){
                 fb_login_form();
             } else {
                 // the user isn't logged in to Facebook.
+                fb_login_form();
                 console.log('Not login')
             }
         });
