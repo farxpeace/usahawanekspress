@@ -57,7 +57,6 @@ $pagination->records_per_page($records_per_page);
     <tr class="info fg-white">
         <th>Dari</th>
         <th>Jenis</th>
-        <th>E-Books</th>
         <th>Amount (RM)</th>
         <th>Status</th>
     </tr>
@@ -74,17 +73,7 @@ $pagination->records_per_page($records_per_page);
     <tr<?php echo $index++ % 2 ? ' class="even"' : ''?>>
         <td><?php echo $tx_user['email']?></td>
         <td><?php echo $trx_type; ?></td>
-        <td>
-        <?php
-        $ebooks_arr = explode(',', $row['trx_desc']);
-        if(is_array($ebooks_arr)){
-            foreach($ebooks_arr as $a=> $b){
-                $ebook = $Class_ebooks->getSingleEbook($b);
-                echo '<div>'.$ebook['title'].'</div>';
-            }
-        }
-        ?>
-        </td>
+        
         <td><?php echo $row['amount']; ?></td>
         <td>
         <?php

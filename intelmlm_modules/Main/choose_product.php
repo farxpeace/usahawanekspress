@@ -403,12 +403,19 @@ function unblock_frame(number){
     $("#frame_already_"+number).hide();
 }
 
+<?php
+foreach($uplineList as $a => $b){
+    $uplineList_x[] = $b['id']; 
+}
+?>
+
 function submit_form_checkout(number){
     var pakej = $("#order_pakej").val();
+    //var upline_arr = '<?php echo implode(',', $uplineList_x); ?>';
     $("#form_checkout_"+number).ajaxSubmit({
         dataType: 'json',
-        data: { pakej: pakej  },
-        beforeSubmit: function(){
+        data: { pakej: pakej , upline_arr: '<?php echo implode(',', $uplineList_x); ?>' },
+        beforeSubmit: function(arr, $form, options){
             
         },
         success: function(data){

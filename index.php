@@ -59,7 +59,30 @@ if($session->userinfo['uplineid']){
 
 
 $Class_unilevel = new Unilevel($uplineid);
-$uplineList = $Class_unilevel->getAllUplineIdByUplineId2($uplineid, 10);
+if($session->userinfo['upline_arr']){
+    $limit = 10;
+    $ex = explode(',', $session->userinfo['upline_arr']);
+    for($i = 0; $i < $limit; $i++){
+        if($ex[$i]){
+            $up_id = $ex[$i];    
+        }else{
+            $up_id = $uplineid_x;
+        }
+        
+        $up_info = $database->getUserInfoById($up_id);
+        if($up_info['userlevel'] != '3'){
+            $limit++;
+        }else{
+            $uplineList[] = $up_info;    
+        }
+        
+        $uplineid_x = $up_info['uplineid'];
+        
+    }
+}else{
+    $uplineList = $Class_unilevel->getAllUplineIdByUplineId2($uplineid, 10);
+}
+//$uplineList = $Class_unilevel->getAllUplineIdByUplineId2($uplineid, 10);
 $ebookList = $Class_ebooks->getAllEbooks();
 //echo '<pre>';
 //print_r($uplineList);

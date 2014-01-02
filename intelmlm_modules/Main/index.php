@@ -52,6 +52,8 @@ if(!$session->logged_in){
         include('statistik.php');
     }elseif($op == 'kumpulan'){
         include('kumpulan.php');
+    }elseif($op == 'promosi'){
+        include('promosi.php');
     }
 }
 
