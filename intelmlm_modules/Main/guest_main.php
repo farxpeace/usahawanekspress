@@ -332,6 +332,7 @@ $(function () {
 });
 </script>
 <script type="text/javascript">
+
 function submit_form_bayar(number){
     var frame = $("#_ebook_payment_"+number);
     var trx_ref = $("#frame_pembayaran_"+number).data('trx_ref');
@@ -340,8 +341,23 @@ function submit_form_bayar(number){
             type: 'post',
             data: { trx_ref: trx_ref },
             beforeSubmit: function(arr, $form, options){
+                //validate first
+                //validate masa
+                var inputmasa = $("#form_bayar_"+number).find('input.input_bayar_masa').val();
+                if(!inputmasa){
+                    $("#form_bayar_"+number).find('input.input_bayar_masa').parent('div').addClass('error-state')
+                    return false;
+                }
+                
+                var inputrujukan = $("#form_bayar_"+number).find('textarea.input_bayar_rujukan').val();
+                if(!inputrujukan){
+                    $("#form_bayar_"+number).find('textarea.input_bayar_rujukan').parent('div').addClass('error-state')
+                    return false;
+                }
+                
+                
                 var upload_id = $("#form_bayar_"+number).find('.frame_upload').data('upload_id');
-                arr.push({ name: 'upload_id',required: 'false', type: 'text', value: upload_id })
+                arr.push({ name: 'upload_id',required: 'false', type: 'text', value: upload_id });
                 return true;
             },
             success: function(data){

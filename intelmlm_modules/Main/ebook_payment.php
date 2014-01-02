@@ -54,7 +54,7 @@ data-status="<?php echo $transactionStatus; ?>" data-number="<?php echo $number;
         					</td>
         					<td>
         						<div class="input-control text" data-role="input-control">
-        							<input type="text" placeholder="Contoh: 01:29:30 PM" name="bayar[<?php echo $uplineInfo['id']; ?>][masa]">
+        							<input type="text" class="input_bayar_masa" placeholder="Contoh: 01:29:30 PM" name="bayar[<?php echo $uplineInfo['id']; ?>][masa]">
         							<button class="btn-clear" tabindex="-1" type="button"></button>
         						</div>
         					</td>
@@ -65,7 +65,7 @@ data-status="<?php echo $transactionStatus; ?>" data-number="<?php echo $number;
         					</td>
         					<td>
         						<div class="input-control textarea">
-        							<textarea name="bayar[<?php echo $uplineInfo['id']; ?>][rujukan]"></textarea>
+        							<textarea class="input_bayar_rujukan" name="bayar[<?php echo $uplineInfo['id']; ?>][rujukan]"></textarea>
         						</div>
         					</td>
         				</tr>
