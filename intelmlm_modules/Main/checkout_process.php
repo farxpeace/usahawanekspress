@@ -19,16 +19,16 @@ $error = array();
 $type = 'pendaftaran';
 $status = 'waiting_for_payment';
 $check_db = $Class_Transaction->getSingleTransactionByType($session->uid, $upline_id, $type, $status);
-$database->updateUserFieldById($session->uid, 'pakej', $pakej);
+$pakej_updated = 'no';
+if($session->userinfo['pakej'] == ''){
+    $database->updateUserFieldById($session->uid, 'pakej', $pakej);
+    $pakej_updated = 'yes';
+}
 if(!$check_db){
     $trxid = $Class_Transaction->createTransaction($session->uid, $upline_id, $amount, $book_id, $type, $status);
     $check_db = $Class_Transaction->getSingleTransactionByType($session->uid, $upline_id, $type, $status);
     
 }
-
-
-
-
 
     echo json_encode(array(
         'upline_id' => $upline_id,
@@ -37,7 +37,8 @@ if(!$check_db){
         'trx_id'    => $trxid,
         'trx_date'  => $Mx->timestamp_to_date($check_db['trx_date'], 'd M Y'),
         'trx_invoice'  => $check_db['trx_date'],
-        'trx_ref'   => $check_db['trx_ref']
+        'trx_ref'   => $check_db['trx_ref'],
+        'pakej_updated' => $pakej_updated
     ));
 
 

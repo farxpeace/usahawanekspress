@@ -45,12 +45,96 @@ include(THEME_LOC."/main_header.php");
 		<div class="span3 bg-white">
             <div class="accordion" data-role="accordion">
                 <div class="accordion-frame">
-                    <a href="#" class="heading active bg-amber fg-white">Status</a>
+                    <a href="#" class="heading active bg-darkGreen fg-white">Status</a>
                     <div class="content right_status"
                     data-user_status="<?php echo $session->userinfo['userlevel']; ?>"
                     data-user_pakej="<?php echo $session->userinfo['pakej']; ?>"
                     >
-                        <table style="width: 100%;">
+                    <div class="listview small">
+                    <a href="#" id="status_login_register" class="list <?php echo ($session->logged_in ? 'selected' : ''); ?>">
+                        <div class="list-content">
+                            <img src="<?php echo FOLDER_IMAGES.'/assets/Register-icon32x32.png'; ?>" class="icon">
+                            <div class="data">
+                                <span class="list-title" style="line-height: normal;">Login / Register</span>
+                                <span class="list-remark">Sila login atau register dahulu</span>
+                            </div>
+                        </div>
+                        <div style="display: none;" class="tooltip">
+                            Anda perlu Register sebagai ahli ataupun Login sekiranya anda telah mendaftar sebelum ini.
+                        </div>
+                    </a>
+                    <a href="#" id="status_pakej_pilih" class="list <?php echo ($session->userinfo['pakej'] == '' ? '' : 'selected'); ?>">
+                        <div class="list-content">
+                            <img src="<?php echo FOLDER_IMAGES.'/assets/Devices-secure-card-icon.png'; ?>" class="icon">
+                            <div class="data">
+                                <span class="list-title" style="line-height: normal;">Pilih Pakej</span>
+                                <span class="list-remark">Sila pilih pakej</span>
+                            </div>
+                        </div>
+                        <div style="display: none;" class="tooltip">
+                            Pakej 10 E-Books membenarkan anda mempunyai 5 Kumpulan Promosi manakala Pakej 20 E-Books pula memberikan 10 Kumpulan Promosi
+                        </div>
+                    </a>
+                    <a href="#" id="status_pembayaran_" class="list <?php echo ($session->userinfo['userlevel'] == '3' ? 'selected' : ''); ?>">
+                        <div class="list-content">
+                            <img src="<?php echo FOLDER_IMAGES.'/assets/payment-icon.png'; ?>" class="icon">
+                            <div class="data">
+                                <span class="list-title" style="line-height: normal;">Buat Pembayaran</span>
+                                <span class="list-remark">Bayar kepada setiap penjual</span>
+                            </div>
+                        </div>
+                        <div style="display: none;" class="tooltip">
+                            Pilih 2 E-Book dari setiap Penjual dan buat Pembayaran.
+                        </div>
+                    </a>
+                    </div>
+                    <script type="text/javascript">
+                    $(function(){
+                        $("a#status_login_register").qtip({
+                            style: { classes: 'qtip-bootstrap' },
+                            content: {
+                                text: function(){
+                                    var html = $(this).children('.tooltip').html();
+                                    return html;
+                                },
+                                title: 'Login atau Register'
+                            },
+                            position: {
+                                my: 'center right',  // Position my top left...
+                                at: 'top left'
+                            }
+                        });
+                        $("a#status_pakej_pilih").qtip({
+                            style: { classes: 'qtip-bootstrap' },
+                            content: {
+                                text: function(){
+                                    var html = $(this).children('.tooltip').html();
+                                    return html;
+                                },
+                                title: 'Pilih Pakej'
+                            },
+                            position: {
+                                my: 'center right',  // Position my top left...
+                                at: 'top left'
+                            }
+                        });
+                        $("a#status_pembayaran_").qtip({
+                            style: { classes: 'qtip-bootstrap' },
+                            content: {
+                                text: function(){
+                                    var html = $(this).children('.tooltip').html();
+                                    return html;
+                                },
+                                title: 'Pesanan dan Pembayaran'
+                            },
+                            position: {
+                                my: 'center right',  // Position my top left...
+                                at: 'top left'
+                            }
+                        });
+                    });
+                    </script>
+                        <table style="width: 100%; display: none">
                             <tr>
                                 <td>
                                     Status

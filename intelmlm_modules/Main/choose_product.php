@@ -434,6 +434,10 @@ function submit_form_checkout(number){
                 invoice_update(number);
             }
             
+            if(data.pakej_updated == 'yes'){
+                $("#order_pakej").attr('disabled', 'disabled');
+            }
+            
             console.log('Ajax success. NUmber '+number);
             invois_update_selected_list(number)
         }
@@ -516,7 +520,7 @@ function open_colorbox_select_ebook_for_purchase_number(number){
                     </td>
                     <td style="">
                          <div class="input-control select" style="margin-bottom: 0px; width: 500px;">
-                        <select name="order[pakej]" id="order_pakej">
+                        <select name="order[pakej]" id="order_pakej" <?php echo ($session->userinfo['pakej'] == '' ? '' : 'disabled'); ?>>
                             <option value="10" selected="selected">10 ebook (RM 100) - Pilih 10 ebook dari 5 orang penjual</option>
                             <option value="20">20 ebook (RM 200) - Pilih 20 ebook dari 10 orang penjual</option>         
                         </select>

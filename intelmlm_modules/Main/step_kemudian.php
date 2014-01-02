@@ -48,18 +48,22 @@
 </div>
 <div id="s_show" style="">
 
-<div class="padding5" style="border: 1px solid #ECECEC;">
+<div>
+Anda boleh menggunakan 'Referral Link' yang disediakan untuk membuat promosi. 
+</div>
+
+<div class="padding5" style="border: 1px solid #ECECEC; margin-bottom: 10px">
     <div class="fg-white bg-lightBlue padding5">
         Referral link
     </div>
-    Gunakan referral link ini untuk kegunaan promosi.
+    
     <div class="input-control text" data-role="input-control">
                                             <input type="text" placeholder="type text" value="<?php echo $database->getSingleValueByMetaAndRef('constants', 'referral_url').'/'.$Mx->encrypt_decrypt('encrypt',$session->uid); ?>">
                                             
                                         </div>
 </div>
 
-<div class="padding5" style="border: 1px solid #ECECEC;">
+<div class="padding5" style="border: 1px solid #ECECEC; margin-bottom: 10px">
     <div class="fg-white bg-lightBlue padding5">
         Invite rakan Facebook
     </div>
