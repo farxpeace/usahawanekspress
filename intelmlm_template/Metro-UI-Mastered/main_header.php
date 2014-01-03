@@ -168,32 +168,36 @@ function window_login_register(){
 </div>
 </nav>
 </nav>
- 
-<div class="grid fluid" style="padding: 0 20px 0 20px;">
+<style>
+.stat_head .notice {
+    padding: 10px !important;
+}
+</style>
+<div class="grid fluid stat_head" style="padding: 0 20px 0 20px; margin-bottom: 0px">
     <div class="row">
         <div class="span3 text-center">
-            <div style="font-size: 50px;"><?php echo 'RM '.$Class_Transaction->countTransactionByStatus('paid')*20; ?></div>
+            <div style="font-size: 40px;"><?php echo 'RM '.$Class_Transaction->countTransactionByStatus('paid')*20; ?></div>
             <div class="notice marker-on-top bg-darkRed fg-white">
             Jumlah transaksi
             </div>
 
         </div>
         <div class="span3 text-center">
-            <div style="font-size: 50px;"><?php echo $database->getNumMembersVerified(); ?></div>
+            <div style="font-size: 40px;"><?php echo $database->getNumMembersVerified(); ?></div>
             <div class="notice marker-on-top bg-pink">
             Ahli aktif
             </div>
 
         </div>
         <div class="span3 text-center">
-            <div style="font-size: 50px;"><?php echo $Class_Transaction->countTransactionByStatus('paid'); ?></div>
+            <div style="font-size: 40px;"><?php echo $Class_Transaction->countTransactionByStatus('paid'); ?></div>
             <div class="notice marker-on-top bg-darkTeal fg-white">
             Jualan ebook
             </div>
 
         </div>
         <div class="span3 text-center">
-            <div style="font-size: 50px;"><?php echo ($database->calcNumActiveUsers()+$database->calcNumActiveGuests()); ?></div>
+            <div style="font-size: 40px;"><?php echo ($database->calcNumActiveUsers()+$database->calcNumActiveGuests()); ?></div>
             <div class="notice marker-on-top">
             Ahli Online
             </div>
