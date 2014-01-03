@@ -7,7 +7,7 @@ include(THEME_LOC."/main_header.php");
 			<div class="tab-control main-tab" data-role="tab-control">
                 <ul class="tabs">
                     <li class="active"><a href="#_pengenalan">Pengenalan</a></li>
-                    
+                    <li><a href="#_konsep">Konsep</a></li>
                     <li><a href="#_langkah_pertama">Langkah Pertama</a></li>
                     <li><a href="#_langkah_kedua">Langkah Kedua</a></li>
                     <li><a href="#_kemudian">Kemudian</a></li>
@@ -20,6 +20,18 @@ include(THEME_LOC."/main_header.php");
                         <h3>Selamat datang ke Program Galakan Usahawan 1Malaysia</h3>
                         <p>Program ini menawarkan kepelbagaian jenis perniagaan yang boleh menjana pendapatan dikala kenaikan kos sara diri ketika ini.</p>
                         <p>Kami komited dalam menggalakkan perniagaan di kalangan rakyat Malaysia terutamanya.</p>
+                    </div>
+                    
+                    <div class="frame" id="_konsep">
+                        <blockquote>
+                            <p>Single Buyer Multiple Seller</p>
+                            <small>menggalakkan promosi dan keusahawanan</small>
+                        </blockquote>
+                        <br />
+                        <p>Program ini berkonsepkan <strong>Single Buyer Multiple Seller</strong> (SBMS) dimana anda perlu membuat pembelian dengan lebih dari seorang Peniaga</p>
+                        <div class="text-center">
+                            <img src="<?php echo FOLDER_IMAGES.'/assets/konsep1.png' ?>" />
+                        </div>
                     </div>
                     
                     <div class="frame" id="_langkah_pertama">
