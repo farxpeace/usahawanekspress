@@ -168,7 +168,7 @@ function window_login_register(){
 </div>
 </nav>
 </nav>
-
+ 
 <div class="grid fluid" style="padding: 0 20px 0 20px;">
     <div class="row">
         <div class="span3 text-center">
