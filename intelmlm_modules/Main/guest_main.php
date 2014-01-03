@@ -63,7 +63,7 @@ include(THEME_LOC."/main_header.php");
                     data-user_pakej="<?php echo $session->userinfo['pakej']; ?>"
                     >
                     <div class="listview small">
-                    <a href="#" id="status_login_register" class="list <?php echo ($session->logged_in ? 'selected' : ''); ?>">
+                    <a href="javascript: void(0);" <?php echo ($session->logged_in ? '' : 'onclick="window_login_register();"'); ?> id="status_login_register" class="list <?php echo ($session->logged_in ? 'selected' : ''); ?>">
                         <div class="list-content">
                             <img src="<?php echo FOLDER_IMAGES.'/assets/Register-icon32x32.png'; ?>" class="icon">
                             <div class="data">
