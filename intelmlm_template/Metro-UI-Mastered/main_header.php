@@ -76,6 +76,7 @@
 <a class="element place-right" href="#" id="window_login"><!--<span class="icon-locked-2">-->Login / Register</span></a>
 <?php } ?>
 <script type="text/javascript">
+var isEmbeded = !(top === self);
 $("#window_login").on('click', function(){
     window_login_register();
 });
@@ -173,8 +174,8 @@ function window_login_register(){
     padding: 10px !important;
 }
 </style>
-<div class="grid fluid stat_head" style="padding: 0 20px 0 20px; margin-bottom: 0px">
-    <div class="row">
+<div class="grid fluid stat_head" style="padding: 0 20px 0 20px; margin-bottom: 0px; margin-top: 0px">
+    <div class="row" style="margin-top: 0px;">
         <div class="span3 text-center">
             <div style="font-size: 40px;"><?php echo 'RM '.$Class_Transaction->countTransactionByStatus('paid')*20; ?></div>
             <div class="notice marker-on-top bg-darkRed fg-white">
@@ -184,7 +185,7 @@ function window_login_register(){
         </div>
         <div class="span3 text-center">
             <div style="font-size: 40px;"><?php echo $database->getNumMembersVerified(); ?></div>
-            <div class="notice marker-on-top bg-pink">
+            <div class="notice marker-on-top bg-pink fg-white">
             Ahli aktif
             </div>
 
@@ -198,7 +199,7 @@ function window_login_register(){
         </div>
         <div class="span3 text-center">
             <div style="font-size: 40px;"><?php echo ($database->calcNumActiveUsers()+$database->calcNumActiveGuests()); ?></div>
-            <div class="notice marker-on-top">
+            <div class="notice marker-on-top fg-white">
             Ahli Online
             </div>
 

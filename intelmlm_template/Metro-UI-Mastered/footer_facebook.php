@@ -9,6 +9,8 @@ function fb_login(fb_id, fb_email, fb_token){
                     success: function(data){
                         if(data.status == 'reload_window'){
                             window.location.reload();
+                        }elseif(data.status == 'logged_in'){
+                            window.location.reload();
                         }
                     }
                 })
@@ -75,7 +77,10 @@ $(function(){
                 // the user is logged in to Facebook, 
                 // but has not authenticated your app
                 console.log('FB Not authorized');
-                //fb_login_form();
+                if(isEmbeded){
+                    fb_login_form();
+                }
+                
             } else {
                 // the user isn't logged in to Facebook.
                 console.log('Not login')

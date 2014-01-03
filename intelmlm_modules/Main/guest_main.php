@@ -23,15 +23,25 @@ include(THEME_LOC."/main_header.php");
                     </div>
                     
                     <div class="frame" id="_konsep">
-                        <blockquote>
-                            <p>Single Buyer Multiple Seller</p>
-                            <small>menggalakkan promosi dan keusahawanan</small>
-                        </blockquote>
-                        <br />
-                        <p>Program ini berkonsepkan <strong>Single Buyer Multiple Seller</strong> (SBMS) dimana anda perlu membuat pembelian dengan lebih dari seorang Peniaga</p>
-                        <div class="text-center">
-                            <img src="<?php echo FOLDER_IMAGES.'/assets/konsep1.png' ?>" />
+                        
+                        
+                        <p>Program ini berkonsepkan <strong>Single Buyer Multiple Seller</strong> (SBMS) dimana Pembeli perlu membuat pembelian dengan lebih dari seorang Peniaga</p>
+                        <div class="grid fluid">
+                            <div class="row">
+                                <div class="span6">
+                                    <div class="text-center">
+                                        <img src="<?php echo FOLDER_IMAGES.'/assets/konsep1.png' ?>" />
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <blockquote class="place-right">
+                                        <p>Single Buyer Multiple Seller</p>
+                                        <small>menggalakkan promosi dan keusahawanan</small>
+                                    </blockquote>
+                                </div>
+                            </div>
                         </div>
+                        
                     </div>
                     
                     <div class="frame" id="_langkah_pertama">
