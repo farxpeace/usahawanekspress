@@ -1,5 +1,5 @@
 <?php
-/**
+/** 
  * Database.php
  * 
  * The Database class is meant to simplify the task of accessing
