@@ -46,7 +46,8 @@ include(THEME_LOC."/main_header.php");
                     
                     <div class="frame" id="_langkah_pertama">
                         <h3>Pilih E-book dan buat pembayaran</h3>
-                        <?php include('choose_product.php'); ?>
+                        <?php //include('choose_product.php'); ?>
+                        <?php include('tab_choose_package.php'); ?>
                     </div>
                     <div class="frame" id="_langkah_kedua" data-userrole="<?php echo $session->userinfo['userlevel']; ?>">
                         <h3>Promosikan E-Book yang terdapat disini kepada rakan-rakan anda</h3>
@@ -85,7 +86,7 @@ include(THEME_LOC."/main_header.php");
                             Anda perlu Register sebagai ahli ataupun Login sekiranya anda telah mendaftar sebelum ini.
                         </div>
                     </a>
-                    <a href="#" id="status_pakej_pilih" class="list <?php echo ($session->userinfo['pakej'] == '' ? '' : 'selected'); ?>">
+                    <a href="javascript:void(0);" <?php echo ($session->userinfo['pakej'] ? '' : 'onclick="colorbox_choose_package();"'); ?> id="status_pakej_pilih" class="list <?php echo ($session->userinfo['pakej'] == '' ? '' : 'selected'); ?>">
                         <div class="list-content">
                             <img src="<?php echo FOLDER_IMAGES.'/assets/Devices-secure-card-icon.png'; ?>" class="icon">
                             <div class="data">
@@ -127,7 +128,7 @@ include(THEME_LOC."/main_header.php");
                             }
                         });
                         $("a#status_pakej_pilih").qtip({
-                            style: { classes: 'qtip-bootstrap' },
+                            style: { classes: 'qtip-bootstrap', width: 500 },
                             content: {
                                 text: function(){
                                     var html = $(this).children('.tooltip').html();
@@ -138,6 +139,10 @@ include(THEME_LOC."/main_header.php");
                             position: {
                                 my: 'center right',  // Position my top left...
                                 at: 'top left'
+                            },
+                            hide: {
+                                fixed: true,
+                                delay: 300
                             }
                         });
                         $("a#status_pembayaran_").qtip({
@@ -183,6 +188,11 @@ include(THEME_LOC."/main_header.php");
 	</div>
 </div>
 <script type="text/javascript">
+function colorbox_choose_package(){
+    alert('a');
+}
+
+
 function update_right_status(){
     var frame = $(".right_status");
     var data = frame.data();
