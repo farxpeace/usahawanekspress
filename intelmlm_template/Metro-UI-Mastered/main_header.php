@@ -7,7 +7,7 @@
 
 <script src="<?php echo THEME_LOC; ?>/js/metro-loader.js"></script>
 
-<link rel="stylesheet" href="<?php echo THEME_LOC; ?>/js/colorbox-master/example4/colorbox.css">
+<link rel="stylesheet" href="<?php echo THEME_LOC; ?>/js/colorbox-master/example5/colorbox.css">
 <script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/colorbox-master/jquery.colorbox.js"></script>
 <script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/jquery.blockUI.js"></script>
 <script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/jquery.form.js"></script>
