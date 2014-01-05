@@ -1,9 +1,4 @@
-Pilih Pakej yang anda inginkan. Jumlah Kumpulan Promosi adalah bergantung pada pakej yang anda pilih.
-
-<button class="image-button primary">
-    Pilih Pakej
-    <img src="images/download-32.png" class="bg-cobalt">
-</button>
+<br />
 
 
 <style>
@@ -25,7 +20,7 @@ Pilih Pakej yang anda inginkan. Jumlah Kumpulan Promosi adalah bergantung pada p
 }
 .hosting_plans_center_div {
 	padding: 0px;
-	margin: 0px 0 0 30px;
+	margin: 0px 0 0 0px;
 }
 .site_center_div {
 	padding: 0px;
@@ -43,7 +38,7 @@ Pilih Pakej yang anda inginkan. Jumlah Kumpulan Promosi adalah bergantung pada p
 .hosting_plans_area .plan_box {
 	padding: 0;
 	margin: 0 20px 30px 0;
-	width: 320px;
+	width: 220px;
 	float: left;
 	border-top: 3px solid #0099cc;
 }
@@ -71,7 +66,7 @@ Pilih Pakej yang anda inginkan. Jumlah Kumpulan Promosi adalah bergantung pada p
 	padding: 0;
 	margin: 10px 0 0 0;
 	color: #fff;
-	font-size: 20px;
+	font-size: 15px;
 	text-align: center;
 	line-height: 20px;
 	font-weight: bold;
@@ -110,6 +105,8 @@ Pilih Pakej yang anda inginkan. Jumlah Kumpulan Promosi adalah bergantung pada p
 .hosting_plans_area .plan_box_content ul {
 	padding: 4px 0px 0 10px;
 	margin: 0;
+    font-size: 14px;
+    color: #A2A2A2;
 }
 .hosting_plans_area .plan_box_content li {
 	padding: 10px 0 0 16px;
@@ -142,33 +139,29 @@ clear: right;
 <div class="hosting_plans_area">
 <div class="hosting_plans_center_div">
         <div class="plan_box">
-        	<div class="plan_box_price"><h3>$ 2.99<br><i>/m</i></h3></div>
-            <div class="plan_box_title"><h3>Standard<br>hosting</h3></div>
+        	<div class="plan_box_price"><h3>RM 100<br /><i>/</i></h3></div>
+            <div class="plan_box_title"><h3>Pakej 10<br />E-Book</h3></div>
             <div class="plan_box_content">
                 <ul>
-                    <li>500 GB Disk Space</li>
-                    <li>100 Databases</li>
-                    <li>Free Domain Registration</li>
-                    <li>1 Website Host</li>
-                    <li>24/7 Support</li>
+                    <li>10 buah E-Book</li>
+                    <li>5 Kumpulan Promosi</li>
+                    
                 </ul>
-           <h6><a href="#" class="plans_button">sign up now!</a></h6>
+           <h6><a href="javascript: void(0);" onclick="open_colorbox_choosepackage(10);" class="plans_button">pilih pakej ini</a></h6>
            	</div>
         	<div class="plan_box_shadow"></div>
         </div><!-- end a Plan --> 
         
         <div class="plan_box last">
-        	<div class="plan_box_price"><h3>$ 99<br><i>/m</i></h3></div>
-            <div class="plan_box_title"><h3>Unlimited<br>hosting</h3></div>
+        	<div class="plan_box_price"><h3>RM 200<br><i>/m</i></h3></div>
+            <div class="plan_box_title"><h3>Pakej 20<br>E-Book</h3></div>
             <div class="plan_box_content">
                 <ul>
-                    <li>Unlimited Disk Space</li>
-                    <li>Unlimited Databases</li>
-                    <li>10 Free Domains</li>
-                    <li>10 Website Host</li>
-                    <li>24/7 Support</li>
+                    <li>20 buah E-Book</li>
+                    <li>10 Kumpulan Promosi</li>
+                    
                 </ul>
-           <h6><a href="#" class="plans_button">sign up now!</a></h6>
+           <h6><a href="javascript: void(0);" onclick="open_colorbox_choosepackage(20);" class="plans_button">pilih pakej ini</a></h6>
            	</div>
         	<div class="plan_box_shadow"></div>
         </div><!-- end a Plan -->

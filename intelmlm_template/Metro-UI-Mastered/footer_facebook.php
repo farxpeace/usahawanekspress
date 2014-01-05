@@ -9,7 +9,7 @@ function fb_login(fb_id, fb_email, fb_token){
                     success: function(data){
                         if(data.status == 'reload_window'){
                             window.location.reload();
-                        }elseif(data.status == 'logged_in'){
+                        }else if(data.status == 'logged_in'){
                             window.location.reload();
                         }
                     }

@@ -45,13 +45,14 @@ include(THEME_LOC."/main_header.php");
                     </div>
                     
                     <div class="frame" id="_langkah_pertama">
-                        <h3>Pilih E-book dan buat pembayaran</h3>
+                        <h3>Pilih Pakej Pendaftaran</h3>
                         <?php //include('choose_product.php'); ?>
                         <?php include('tab_choose_package.php'); ?>
                     </div>
                     <div class="frame" id="_langkah_kedua" data-userrole="<?php echo $session->userinfo['userlevel']; ?>">
                         <h3>Promosikan E-Book yang terdapat disini kepada rakan-rakan anda</h3>
-                        <?php include('step_kemudian.php') ?>
+                        <?php //include('step_kemudian.php') ?>
+                        <?php include('tab_choose_and_payment.php'); ?>
                     </div>
                     <div class="frame" id="_kemudian">
                         <h3>Promosikan E-Book yang terdapat disini kepada rakan-rakan anda</h3>
@@ -86,7 +87,7 @@ include(THEME_LOC."/main_header.php");
                             Anda perlu Register sebagai ahli ataupun Login sekiranya anda telah mendaftar sebelum ini.
                         </div>
                     </a>
-                    <a href="javascript:void(0);" <?php echo ($session->userinfo['pakej'] ? '' : 'onclick="colorbox_choose_package();"'); ?> id="status_pakej_pilih" class="list <?php echo ($session->userinfo['pakej'] == '' ? '' : 'selected'); ?>">
+                    <a href="javascript:void(0);" <?php echo ($session->logged_in ? 'onclick="open_colorbox_choosepackage(10);"' : 'onclick="window_login_register();"'); ?> id="status_pakej_pilih" class="list <?php echo ($session->userinfo['pakej'] == '' ? '' : 'selected'); ?>">
                         <div class="list-content">
                             <img src="<?php echo FOLDER_IMAGES.'/assets/Devices-secure-card-icon.png'; ?>" class="icon">
                             <div class="data">
@@ -187,10 +188,8 @@ include(THEME_LOC."/main_header.php");
         
 	</div>
 </div>
+
 <script type="text/javascript">
-function colorbox_choose_package(){
-    alert('a');
-}
 
 
 function update_right_status(){
@@ -263,10 +262,12 @@ $(function(){
         var frame = frame;
         var frameId = $(frame).attr('id');
         if(frameId == '_langkah_kedua'){
-            getUserInfo(function(data){
-                
+            $(frame).load('?modules=Main&op=tab_choose_and_payment');
+            /*
+            getUserInfo(function(data){    
                 console.log(data)
             });
+            */
         }else if(frameId == '_kemudian'){
             step_calculator();
         }
@@ -429,7 +430,9 @@ $(function(){
     
 });
 </script>
-<?php include(THEME_LOC.'/footer_facebook.php'); ?>
 
+
+<?php include(THEME_LOC.'/footer_facebook.php'); ?>
+<?php include('choosepackage_colorbox.php'); ?>
 </body>
 </html>

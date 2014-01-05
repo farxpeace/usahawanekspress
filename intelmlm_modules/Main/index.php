@@ -26,6 +26,12 @@ if($op == 'getuserinfo'){
     $bookid = $_REQUEST['bookid'];
     include('getbookinfo.php');
     exit();
+}elseif($op == 'process_choose_package'){
+    include('process_choose_package.php');
+    exit();
+}elseif($op == 'tab_choose_and_payment'){
+    include('tab_choose_and_payment.php');
+    exit();
 }
 if(!$session->logged_in){
     if($op == ''){
