@@ -1,6 +1,7 @@
 <?php
 $payment = $_REQUEST['bayar'];
 $trx_ref = $_REQUEST['trx_ref'];
+$upload_id = $_REQUEST['upload_id'];
 
 foreach($payment as $upline_id => $bayar){
     
@@ -33,6 +34,10 @@ foreach($payment as $upline_id => $bayar){
         
         
         if($update){
+            if($upload_id){
+                $Class_Transaction->createMeta($isExists['trx_ref'], 'upload_id', $upload_id);
+            }
+            
             $Class_Transaction->createMeta($isExists['trx_ref'], 'payment_date', $bayar['tarikh']);
             $Class_Transaction->createMeta($isExists['trx_ref'], 'payment_time', $bayar['masa']);
             $Class_Transaction->createMeta($isExists['trx_ref'], 'payment_reference', $bayar['rujukan']);

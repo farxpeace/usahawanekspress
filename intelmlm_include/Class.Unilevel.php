@@ -1,6 +1,7 @@
 <?php
 Class Unilevel {
     var $defaultUplineId = '10';
+    var $uplineListDefault = array('1','2','3','4','5','6','7','8','9','10');
     var $uplineInfo = array();
     
     function __construct($userid = false){
@@ -12,6 +13,46 @@ Class Unilevel {
     
     function getAllUpline($uplineId){
         global $database;
+    }
+    
+    function randomUpline($count){
+        global $database;
+        
+        $arr = array (
+            '1' =>  array('min' =>  0, 'max' =>  5),
+            '2' =>  array('min' =>  6, 'max' =>  10),
+            '3' =>  array('min' =>  11, 'max' =>  15),
+            '4' =>  array('min' =>  16, 'max' =>  20),
+            '5' =>  array('min' =>  21, 'max' =>  25),
+            '6' =>  array('min' =>  26, 'max' =>  30),
+            '7' =>  array('min' =>  31, 'max' =>  35),
+            '8' =>  array('min' =>  36, 'max' =>  40),
+            '9' =>  array('min' =>  41, 'max' =>  45),
+            '10'    =>  array('min' => 46, 'max' =>  100)
+        );
+        
+        
+        $rnd = rand(1,100);
+        foreach($arr as $k =>$v) {
+            if ($rnd > $v['min'] && $rnd <= $v['max']) {
+                $main = 'yes';
+            }else{
+                $main = 'no';
+            }
+        }
+        $shuffle = $this->uplineListDefault;
+        shuffle($shuffle);
+        
+        if($main == 'yes'){
+            if(($key = array_search('10', $shuffle)) !== false) {
+                unset($shuffle[$key]);
+            }
+            $shuffle[] = '10';
+        }
+        $c = ($count)-($count*2);
+        
+        print_r($shuffle);
+        print_r(array_slice($shuffle, $c));
     }
     
     function getAllUplineIdByUserId($user_id, $level_count){

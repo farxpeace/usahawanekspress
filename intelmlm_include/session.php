@@ -51,7 +51,28 @@ class Session
       $this->time = time();
       $this->startSession();
    }
-
+    function parse_signed_request($signed_request) {
+      list($encoded_sig, $payload) = explode('.', $signed_request, 2); 
+    
+      $secret = "appsecret"; // Use your app secret here
+    
+      // decode the data
+      $sig = $this->base64_url_decode($encoded_sig);
+      $data = json_decode($this->base64_url_decode($payload), true);
+    
+      // confirm the signature
+      $expected_sig = hash_hmac('sha256', $payload, $secret, $raw = true);
+      if ($sig !== $expected_sig) {
+        error_log('Bad Signed JSON signature!');
+        return null;
+      }
+    
+      return $data;
+    }
+    
+    function base64_url_decode($input) {
+      return base64_decode(strtr($input, '-_', '+/'));
+    }
    /**
     * startSession - Performs all the actions necessary to 
     * initialize this session object. Tries to determine if the
@@ -63,9 +84,8 @@ class Session
       global $database, $facebook, $Mx;  //The database connection
       session_start();   //Tell PHP to start the session
         
+
       
-      
-        
       /* Determine if user is logged in */
       $this->logged_in = $this->checkLogin();
         

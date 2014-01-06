@@ -65,11 +65,20 @@ class Process
     * are found, the user is redirected to correct the information,
     * if not, the user is effectively logged in to the system.
     */
-   function procLogin(){
+   function procLogin($user = null, $pass = null, $remember = null){
       global $session, $form;
       /* Login attempt */
       $_POST = $session->cleanInput($_POST);
-      $retval = $session->login($_POST['user'], $_POST['pass'], isset($_POST['remember']));
+      if(!$user){
+        $user = $_REQUEST['user'];
+      }
+      if(!$pass){
+        $pass = $_REQUEST['pass'];
+      }
+      if(!$remember){
+        $remember = $_REQUEST['remember'];
+      }
+      $retval = $session->login($user, $pass, isset($remember));
       
       /* Login successful */
       if($retval){
@@ -130,11 +139,13 @@ class Process
       
       if($database->login_using == 'email'){
         /* Registration attempt */
+        $user = $_REQUEST['email'];
         $retval = $session->registerByEmail($_REQUEST['email'], $_REQUEST['pass']);
         
         
       }elseif($database->login_using == 'username'){
         /* Registration attempt */
+        $user = $_REQUEST['user'];
         $retval = $session->register($_REQUEST['user'], $_REQUEST['pass'], $_REQUEST['email'], $_REQUEST['name']);
       }
       
@@ -144,7 +155,8 @@ class Process
       if($retval == 0){
          $_SESSION['reguname'] = $_POST['user'];
          $_SESSION['regsuccess'] = true;
-         header("Location: ".$session->referrer);
+         $this->procLogin($user, $_REQUEST['pass'], '1');
+         //header("Location: ".$session->referrer);
       }
       /* Error found with form */
       else if($retval == 1){

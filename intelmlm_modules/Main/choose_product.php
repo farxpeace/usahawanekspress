@@ -70,6 +70,15 @@ $(function(){
         choose_pakej();
         $("#user_pakej").text(pakej+' ebook');
     });
+    
+    $( window ).resize(function() {
+        width = ($(window).width())-10;
+        height = ($(window).height())-10;
+        $.colorbox.resize({
+            width: width,
+            height: height
+        });
+    });
 });
 
 function run_each_purchase_box(){
@@ -394,12 +403,19 @@ function unblock_frame(number){
     $("#frame_already_"+number).hide();
 }
 
+<?php
+foreach($uplineList as $a => $b){
+    $uplineList_x[] = $b['id']; 
+}
+?>
+
 function submit_form_checkout(number){
     var pakej = $("#order_pakej").val();
+    //var upline_arr = '<?php echo implode(',', $uplineList_x); ?>';
     $("#form_checkout_"+number).ajaxSubmit({
         dataType: 'json',
-        data: { pakej: pakej  },
-        beforeSubmit: function(){
+        data: { pakej: pakej , upline_arr: '<?php echo implode(',', $uplineList_x); ?>' },
+        beforeSubmit: function(arr, $form, options){
             
         },
         success: function(data){
@@ -432,6 +448,10 @@ function submit_form_checkout(number){
                 status_paid(number);
                 invoice_show(number);
                 invoice_update(number);
+            }
+            
+            if(data.pakej_updated == 'yes'){
+                $("#order_pakej").attr('disabled', 'disabled');
             }
             
             console.log('Ajax success. NUmber '+number);
@@ -478,9 +498,11 @@ function set_ebook_purchase_count(number, count){
 }
 
 function open_colorbox_select_ebook_for_purchase_number(number){
-    width = 0.9*($(window).width());
-    height = 0.9*($(window).height());
+    width = ($(window).width())-10;
+    height = ($(window).height())-10;
+    
     $.colorbox({
+        reposition: true,
          href: '#colorbox_select_ebooks_'+number,
          inline: true,
          width: width,
@@ -516,7 +538,7 @@ function open_colorbox_select_ebook_for_purchase_number(number){
                     </td>
                     <td style="">
                          <div class="input-control select" style="margin-bottom: 0px; width: 500px;">
-                        <select name="order[pakej]" id="order_pakej">
+                        <select name="order[pakej]" id="order_pakej" <?php echo ($session->userinfo['pakej'] == '' ? '' : 'disabled'); ?>>
                             <option value="10" selected="selected">10 ebook (RM 100) - Pilih 10 ebook dari 5 orang penjual</option>
                             <option value="20">20 ebook (RM 200) - Pilih 20 ebook dari 10 orang penjual</option>         
                         </select>

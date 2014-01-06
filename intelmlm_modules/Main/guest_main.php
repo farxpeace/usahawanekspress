@@ -7,7 +7,7 @@ include(THEME_LOC."/main_header.php");
 			<div class="tab-control main-tab" data-role="tab-control">
                 <ul class="tabs">
                     <li class="active"><a href="#_pengenalan">Pengenalan</a></li>
-                    
+                    <li><a href="#_konsep">Konsep</a></li>
                     <li><a href="#_langkah_pertama">Langkah Pertama</a></li>
                     <li><a href="#_langkah_kedua">Langkah Kedua</a></li>
                     <li><a href="#_kemudian">Kemudian</a></li>
@@ -22,13 +22,37 @@ include(THEME_LOC."/main_header.php");
                         <p>Kami komited dalam menggalakkan perniagaan di kalangan rakyat Malaysia terutamanya.</p>
                     </div>
                     
+                    <div class="frame" id="_konsep">
+                        
+                        
+                        <p>Program ini berkonsepkan <strong>Single Buyer Multiple Seller</strong> (SBMS) dimana Pembeli perlu membuat pembelian dengan lebih dari seorang Peniaga</p>
+                        <div class="grid fluid">
+                            <div class="row">
+                                <div class="span6">
+                                    <div class="text-center">
+                                        <img src="<?php echo FOLDER_IMAGES.'/assets/konsep1.png' ?>" />
+                                    </div>
+                                </div>
+                                <div class="span6">
+                                    <blockquote class="place-right">
+                                        <p>Single Buyer Multiple Seller</p>
+                                        <small>menggalakkan promosi dan keusahawanan</small>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
                     <div class="frame" id="_langkah_pertama">
-                        <h3>Pilih E-book dan buat pembayaran</h3>
-                        <?php include('choose_product.php'); ?>
+                        <h3>Pilih Pakej Pendaftaran</h3>
+                        <?php //include('choose_product.php'); ?>
+                        <?php include('tab_choose_package.php'); ?>
                     </div>
                     <div class="frame" id="_langkah_kedua" data-userrole="<?php echo $session->userinfo['userlevel']; ?>">
                         <h3>Promosikan E-Book yang terdapat disini kepada rakan-rakan anda</h3>
-                        <?php include('step_kemudian.php') ?>
+                        <?php //include('step_kemudian.php') ?>
+                        <?php include('tab_choose_and_payment.php'); ?>
                     </div>
                     <div class="frame" id="_kemudian">
                         <h3>Promosikan E-Book yang terdapat disini kepada rakan-rakan anda</h3>
@@ -45,12 +69,100 @@ include(THEME_LOC."/main_header.php");
 		<div class="span3 bg-white">
             <div class="accordion" data-role="accordion">
                 <div class="accordion-frame">
-                    <a href="#" class="heading active bg-amber fg-white">Status</a>
+                    <a href="#" class="heading active bg-darkGreen fg-white">Status</a>
                     <div class="content right_status"
                     data-user_status="<?php echo $session->userinfo['userlevel']; ?>"
                     data-user_pakej="<?php echo $session->userinfo['pakej']; ?>"
                     >
-                        <table style="width: 100%;">
+                    <div class="listview small">
+                    <a href="javascript: void(0);" <?php echo ($session->logged_in ? '' : 'onclick="window_login_register();"'); ?> id="status_login_register" class="list <?php echo ($session->logged_in ? 'selected' : ''); ?>">
+                        <div class="list-content">
+                            <img src="<?php echo FOLDER_IMAGES.'/assets/Register-icon32x32.png'; ?>" class="icon">
+                            <div class="data">
+                                <span class="list-title" style="line-height: normal;">Login / Register</span>
+                                <span class="list-remark">Sila login atau register dahulu</span>
+                            </div>
+                        </div>
+                        <div style="display: none;" class="tooltip">
+                            Anda perlu Register sebagai ahli ataupun Login sekiranya anda telah mendaftar sebelum ini.
+                        </div>
+                    </a>
+                    <a href="javascript:void(0);" <?php echo ($session->logged_in ? 'onclick="open_colorbox_choosepackage(10);"' : 'onclick="window_login_register();"'); ?> id="status_pakej_pilih" class="list <?php echo ($session->userinfo['pakej'] == '' ? '' : 'selected'); ?>">
+                        <div class="list-content">
+                            <img src="<?php echo FOLDER_IMAGES.'/assets/Devices-secure-card-icon.png'; ?>" class="icon">
+                            <div class="data">
+                                <span class="list-title" style="line-height: normal;">Pilih Pakej</span>
+                                <span class="list-remark">Sila pilih pakej</span>
+                            </div>
+                        </div>
+                        <div style="display: none;" class="tooltip">
+                            Pakej 10 E-Books membenarkan anda mempunyai 5 Kumpulan Promosi manakala Pakej 20 E-Books pula memberikan 10 Kumpulan Promosi
+                        </div>
+                    </a>
+                    <a href="#" id="status_pembayaran_" class="list <?php echo ($session->userinfo['userlevel'] == '3' ? 'selected' : ''); ?>">
+                        <div class="list-content">
+                            <img src="<?php echo FOLDER_IMAGES.'/assets/payment-icon.png'; ?>" class="icon">
+                            <div class="data">
+                                <span class="list-title" style="line-height: normal;">Buat Pembayaran</span>
+                                <span class="list-remark">Bayar kepada setiap penjual</span>
+                            </div>
+                        </div>
+                        <div style="display: none;" class="tooltip">
+                            Pilih 2 E-Book dari setiap Penjual dan buat Pembayaran.
+                        </div>
+                    </a>
+                    </div>
+                    <script type="text/javascript">
+                    $(function(){
+                        $("a#status_login_register").qtip({
+                            style: { classes: 'qtip-bootstrap' },
+                            content: {
+                                text: function(){
+                                    var html = $(this).children('.tooltip').html();
+                                    return html;
+                                },
+                                title: 'Login atau Register'
+                            },
+                            position: {
+                                my: 'center right',  // Position my top left...
+                                at: 'top left'
+                            }
+                        });
+                        $("a#status_pakej_pilih").qtip({
+                            style: { classes: 'qtip-bootstrap', width: 500 },
+                            content: {
+                                text: function(){
+                                    var html = $(this).children('.tooltip').html();
+                                    return html;
+                                },
+                                title: 'Pilih Pakej'
+                            },
+                            position: {
+                                my: 'center right',  // Position my top left...
+                                at: 'top left'
+                            },
+                            hide: {
+                                fixed: true,
+                                delay: 300
+                            }
+                        });
+                        $("a#status_pembayaran_").qtip({
+                            style: { classes: 'qtip-bootstrap' },
+                            content: {
+                                text: function(){
+                                    var html = $(this).children('.tooltip').html();
+                                    return html;
+                                },
+                                title: 'Pesanan dan Pembayaran'
+                            },
+                            position: {
+                                my: 'center right',  // Position my top left...
+                                at: 'top left'
+                            }
+                        });
+                    });
+                    </script>
+                        <table style="width: 100%; display: none">
                             <tr>
                                 <td>
                                     Status
@@ -76,7 +188,10 @@ include(THEME_LOC."/main_header.php");
         
 	</div>
 </div>
+
 <script type="text/javascript">
+
+
 function update_right_status(){
     var frame = $(".right_status");
     var data = frame.data();
@@ -147,10 +262,12 @@ $(function(){
         var frame = frame;
         var frameId = $(frame).attr('id');
         if(frameId == '_langkah_kedua'){
-            getUserInfo(function(data){
-                
+            $(frame).load('?modules=Main&op=tab_choose_and_payment');
+            /*
+            getUserInfo(function(data){    
                 console.log(data)
             });
+            */
         }else if(frameId == '_kemudian'){
             step_calculator();
         }
@@ -170,6 +287,46 @@ $(function(){
 <!-- The basic File Upload plugin -->
 <script src="<?php echo THEME_LOC; ?>/js/jQuery-File-Upload-master/js/jquery.fileupload.js"></script>
 
+<style>
+.frame_upload .progress {
+height: 20px;
+margin-bottom: 20px;
+overflow: hidden;
+background-color: #f5f5f5;
+border-radius: 4px;
+-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+.frame_upload .progress-bar-success {
+    background-color: #5cb85c;
+}
+.frame_upload .progress-bar {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #428bca;
+    
+}
+.fileinput-button {
+position: relative;
+overflow: hidden;
+}
+.fileinput-button input {
+position: absolute;
+top: 0;
+right: 0;
+margin: 0;
+opacity: 0;
+-ms-filter: 'alpha(opacity=0)';
+font-size: 200px;
+direction: ltr;
+cursor: pointer;
+}
+</style>
 <script>
 /*jslint unparam: true */
 /*global window, $ */
@@ -177,28 +334,38 @@ $(function () {
     'use strict';
     // Change this to the location of your server-side upload handler:
     var url = 'intelmlm_images/';
-    $('.frame_upload .fileupload').fileupload({
-        url: url,
-        dataType: 'json',
-        done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                //$('<p/>').text(file.name).appendTo('#files');
-                console.log(e);
-                console.log(data);
-            });
-        },
-        progressall: function (e, data) {
-            var progress = parseInt(data.loaded / data.total * 100, 10);
-            $('.frame_upload .progress-bar').css(
-                'width',
-                progress + '%'
-            );
-        }
-    }).prop('disabled', !$.support.fileInput)
-        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+    $('.frame_upload').each(function(){
+        var self = this;
+        var fileupload = $(this).find('.fileupload');
+        var progress_bar = $(this).find('.progress-bar');
+        var files = $(this).find('.files');
+        var trx_uid = $(self).data('trx_uid');
+        var number = $(self).data('number');
+        $(fileupload).fileupload({
+            url: url,
+            dataType: 'json',
+            formData: { upload_type: 'upload_transaction', trx_uid: trx_uid },
+            done: function (e, data) {
+                var result = data.result.files[0];
+                $(self).find('.list-title').text(result['name']);
+                $(self).data('upload_id', result['id']);
+                $(self).find('.image_src').attr('src', result['thumbnailUrl']);
+            },
+            progressall: function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                
+                $(progress_bar).css(
+                    'width',
+                    progress + '%'
+                );
+            }
+        }).prop('disabled', !$.support.fileInput)
+            .parent().addClass($.support.fileInput ? undefined : 'disabled'); 
+    });
 });
 </script>
 <script type="text/javascript">
+
 function submit_form_bayar(number){
     var frame = $("#_ebook_payment_"+number);
     var trx_ref = $("#frame_pembayaran_"+number).data('trx_ref');
@@ -206,8 +373,25 @@ function submit_form_bayar(number){
         dataType: 'json',
             type: 'post',
             data: { trx_ref: trx_ref },
-            beforeSubmit: function(){
+            beforeSubmit: function(arr, $form, options){
+                //validate first
+                //validate masa
+                var inputmasa = $("#form_bayar_"+number).find('input.input_bayar_masa').val();
+                if(!inputmasa){
+                    $("#form_bayar_"+number).find('input.input_bayar_masa').parent('div').addClass('error-state')
+                    return false;
+                }
                 
+                var inputrujukan = $("#form_bayar_"+number).find('textarea.input_bayar_rujukan').val();
+                if(!inputrujukan){
+                    $("#form_bayar_"+number).find('textarea.input_bayar_rujukan').parent('div').addClass('error-state')
+                    return false;
+                }
+                
+                
+                var upload_id = $("#form_bayar_"+number).find('.frame_upload').data('upload_id');
+                arr.push({ name: 'upload_id',required: 'false', type: 'text', value: upload_id });
+                return true;
             },
             success: function(data){
                 if(data.status == 'success'){
@@ -246,7 +430,9 @@ $(function(){
     
 });
 </script>
-<?php include(THEME_LOC.'/footer_facebook.php'); ?>
 
+
+<?php include(THEME_LOC.'/footer_facebook.php'); ?>
+<?php include('choosepackage_colorbox.php'); ?>
 </body>
 </html>

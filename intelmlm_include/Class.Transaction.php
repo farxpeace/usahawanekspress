@@ -36,6 +36,13 @@ Class Transaction {
     }
     return $list;
    }
+   
+   function countTransactionByStatus($status){
+    global $database;
+    $query = mysql_query("SELECT id FROM ".$database->tbl_transaction." WHERE status='".$status."'");
+    $output = mysql_numrows($query);
+    return $output;
+   }
     
     function getSingle($array, $column=NULL){
         global $database;

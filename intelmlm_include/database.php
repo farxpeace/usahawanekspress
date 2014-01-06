@@ -1,5 +1,5 @@
 <?php
-/**
+/** 
  * Database.php
  * 
  * The Database class is meant to simplify the task of accessing
@@ -48,7 +48,7 @@ class MySQLDB
       
       //Set table
       $this->tbl_users_name = $this->process_db_users();
-      $this->tbl_active_users_name = $this->process_db_active_users();
+      $this->tbl_active_users_name = $this->getSingleValueByMetaAndRef('tbl_name', 'active_users');
       $this->tbl_active_guest_name = $this->process_db_active_guest();
       $this->tbl_banned_users_name = $this->process_db_banned_users();
       $this->tbl_mail_name = $this->process_db_mail();
@@ -582,6 +582,15 @@ class MySQLDB
          $this->num_members = mysql_numrows($result);
       }
       return $this->num_members;
+   }
+   
+   function getNumMembersVerified(){
+      
+         $q = "SELECT * FROM ".$this->tbl_users_name." WHERE userlevel='3'";
+         $result = mysql_query($q, $this->connection);
+         $output = mysql_numrows($result);
+        return $output;
+      
    }
    
    /**

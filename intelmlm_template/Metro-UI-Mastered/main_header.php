@@ -7,7 +7,7 @@
 
 <script src="<?php echo THEME_LOC; ?>/js/metro-loader.js"></script>
 
-<link rel="stylesheet" href="<?php echo THEME_LOC; ?>/js/colorbox-master/example4/colorbox.css">
+<link rel="stylesheet" href="<?php echo THEME_LOC; ?>/js/colorbox-master/example5/colorbox.css">
 <script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/colorbox-master/jquery.colorbox.js"></script>
 <script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/jquery.blockUI.js"></script>
 <script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/jquery.form.js"></script>
@@ -33,6 +33,7 @@
                 <li><a href="main.php?modules=Main&op=choose_product">E-Book</a></li>
                 <li><a href="index.php?modules=Main&op=kumpulan">Kumpulan</a></li>
                 <li><a href="index.php?modules=Main&op=pesanan">Pesanan</a></li>
+                <li><a href="main.php?modules=Main&op=promosi">Promosi</a></li>
                 <li><a href="index.php?modules=Main&op=statistik">Statistik</a></li>
             <?php } ?>
         <?php } ?>
@@ -75,6 +76,7 @@
 <a class="element place-right" href="#" id="window_login"><!--<span class="icon-locked-2">-->Login / Register</span></a>
 <?php } ?>
 <script type="text/javascript">
+var isEmbeded = !(top === self);
 $("#window_login").on('click', function(){
     window_login_register();
 });
@@ -167,3 +169,41 @@ function window_login_register(){
 </div>
 </nav>
 </nav>
+<style>
+.stat_head .notice {
+    padding: 10px !important;
+}
+</style>
+<div class="grid fluid stat_head" style="padding: 0 20px 0 20px; margin-bottom: 0px; margin-top: 0px">
+    <div class="row" style="margin-top: 0px;">
+        <div class="span3 text-center">
+            <div style="font-size: 40px;"><?php echo 'RM '.$Class_Transaction->countTransactionByStatus('paid')*20; ?></div>
+            <div class="notice marker-on-top bg-darkRed fg-white">
+            Jumlah transaksi
+            </div>
+
+        </div>
+        <div class="span3 text-center">
+            <div style="font-size: 40px;"><?php echo $database->getNumMembersVerified(); ?></div>
+            <div class="notice marker-on-top bg-pink fg-white">
+            Ahli aktif
+            </div>
+
+        </div>
+        <div class="span3 text-center">
+            <div style="font-size: 40px;"><?php echo $Class_Transaction->countTransactionByStatus('paid'); ?></div>
+            <div class="notice marker-on-top bg-darkTeal fg-white">
+            Jualan ebook
+            </div>
+
+        </div>
+        <div class="span3 text-center">
+            <div style="font-size: 40px;"><?php echo ($database->calcNumActiveUsers()+$database->calcNumActiveGuests()); ?></div>
+            <div class="notice marker-on-top fg-white">
+            Ahli Online
+            </div>
+
+        </div>
+    </div>
+
+</div>
