@@ -12,7 +12,7 @@ Class Settings extends MySQLDB {
         $this->ref = __CLASS__;
         
         $this->title = $database->getSingleValueByMetaAndRef('system', 'title');
-        //$this->shortname = $database->get_value_by_meta($this->ref, 'shortname');
+        $this->shortname = $database->getSingleValueByMetaAndRef('system', 'shortname');
         $this->const_debug_mode = $this->process_debug_mode();
         //$this->get_value_by_meta($this->ref, 'title');
         //$this->get_value_by_meta($this->ref, 'short-name');

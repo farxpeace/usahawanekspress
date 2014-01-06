@@ -14,6 +14,8 @@
 
 <link rel="stylesheet" href="<?php echo THEME_LOC; ?>/js/jquery.qtip/jquery.qtip.css" />
 <script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/jquery.qtip/jquery.qtip.js"></script>
+<script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/ui/jquery-ui.custom.js"></script>
+
 
 <style>
         .list {
@@ -22,6 +24,9 @@
 </style>
 </head>
 <body class="metro">
+<?php if($session->isAdmin()){ ?>
+<?php include_once(THEME_LOC.'/admin_panel.php'); ?>
+<?php } ?>
 <nav class="navigation-bar">
 <nav class="navigation-bar-content">
 <div class="element">

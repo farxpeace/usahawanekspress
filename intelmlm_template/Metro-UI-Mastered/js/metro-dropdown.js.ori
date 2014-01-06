@@ -4,8 +4,7 @@
         version: "1.0.0",
 
         options: {
-            effect: 'slide',
-            show: 'click'
+            effect: 'slide'
         },
 
         _create: function(){
@@ -18,17 +17,11 @@
             if (menu.data('effect') != undefined) {
                 this.options.effect = menu.data('effect');
             }
-            
-            if (menu.data('show') != undefined) {
-                if((menu.data('show')) == 'hover'){ menu.data('show', 'mouseover'); }
-                this.options.show = menu.data('show');
-            }
-            toggle = toggle.parent();
-            toggle.css('cursor', 'pointer');
-            toggle.on(this.options.show+'.'+name, function(e){
+
+            toggle.on('click.'+name, function(e){
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 if (menu.css('display') == 'block' && !menu.hasClass('keep-open')) {
                     that._close(menu);
                 } else {
@@ -41,7 +34,7 @@
                 }
             });
 
-            $(menu).find('li.disabled a').on(this.options.show, function(e){
+            $(menu).find('li.disabled a').on('click', function(e){
                 e.preventDefault();
             });
 
@@ -59,7 +52,7 @@
         _open: function(el){
             switch (this.options.effect) {
                 case 'fade': $(el).fadeIn('fast'); break;
-                case 'slide': $(el).slideDown('normal'); break;
+                case 'slide': $(el).slideDown('fast'); break;
                 default: $(el).hide();
             }
             this._trigger("onOpen", null, el);
@@ -68,7 +61,7 @@
         _close: function(el){
             switch (this.options.effect) {
                 case 'fade': $(el).fadeOut('fast'); break;
-                case 'slide': $(el).slideUp('normal'); break;
+                case 'slide': $(el).slideUp('fast'); break;
                 default: $(el).hide();
             }
             this._trigger("onClose", null, el);
@@ -83,45 +76,4 @@
     });
 })( jQuery );
 
-/*
-(function($){
-    $.fn.PullDown = function( options ){
-        var defaults = {
-        };
 
-        var $this = $(this)
-            ;
-
-        var initSelectors = function(selectors){
-
-            addTouchEvents(selectors[0]);
-
-            selectors.on('click', function(e){
-                var $m = $this.parent().children(".element-menu");
-                console.log($m);
-                if ($m.css('display') == "block") {
-                    $m.slideUp('fast');
-                } else {
-                    $m.slideDown('fast');
-                }
-                e.preventDefault();
-                e.stopPropagation();
-            });
-        };
-
-        return this.each(function(){
-            if ( options ) {
-                $.extend(defaults, options);
-            }
-
-            initSelectors($this);
-        });
-    };
-
-    $(function () {
-        $('.pull-menu, .menu-pull').each(function () {
-            $(this).PullDown();
-        });
-    });
-})(window.jQuery);
-*/

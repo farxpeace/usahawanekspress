@@ -32,6 +32,9 @@ if($op == 'getuserinfo'){
 }elseif($op == 'tab_choose_and_payment'){
     include('tab_choose_and_payment.php');
     exit();
+}elseif($op == 'search'){
+    include('search.php');
+    exit();
 }
 if(!$session->logged_in){
     if($op == ''){
