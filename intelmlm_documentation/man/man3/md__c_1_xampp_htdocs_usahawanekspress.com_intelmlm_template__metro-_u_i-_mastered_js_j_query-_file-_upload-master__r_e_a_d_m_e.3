@@ -1,0 +1,161 @@
+.TH "md__c_1_xampp_htdocs_usahawanekspress.com_intelmlm_template__metro-_u_i-_mastered_js_j_query-_file-_upload-master__r_e_a_d_m_e" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__c_1_xampp_htdocs_usahawanekspress.com_intelmlm_template__metro-_u_i-_mastered_js_j_query-_file-_upload-master__r_e_a_d_m_e \- jQuery File Upload Plugin 
+
+.SS "Demo"
+.PP
+\fCDemo File Upload\fP
+.PP
+.SS "Description"
+.PP
+File Upload widget with multiple file selection, drag&drop support, progress bars, validation and preview images, audio and video for jQuery\&. Supports cross-domain, chunked and resumable file uploads and client-side image resizing\&. Works with any server-side platform (PHP, Python, Ruby on Rails, Java, Node\&.js, Go etc\&.) that supports standard HTML form file uploads\&.
+.PP
+.SS "Setup"
+.PP
+.IP "\(bu" 2
+\fCHow to setup the plugin on your website\fP
+.IP "\(bu" 2
+\fCHow to use only the basic plugin (minimal setup guide)\&.\fP
+.PP
+.PP
+.SS "Support"
+.PP
+.IP "\(bu" 2
+**\fCSupport Forum\fP** \fBSupport requests\fP and \fBgeneral discussions\fP about the File Upload plugin can be posted to the official \fCSupport Forum\fP\&. If your question is not directly related to the File Upload plugin, you might have a better chance to get a reply by posting to \fCStack Overflow\fP\&.
+.IP "\(bu" 2
+Bugs and Feature requests \fBBugs\fP and \fBFeature requests\fP can be reported using the \fCissues tracker\fP\&. Please read the \fBhttps:\fP//github\&.com/blueimp/jQuery-File-Upload/blob/master/CONTRIBUTING\&.md 'issue guidelines' before posting\&.
+.PP
+.PP
+.SS "Features"
+.PP
+.IP "\(bu" 2
+\fBMultiple file upload:\fP Allows to select multiple files at once and upload them simultaneously\&.
+.IP "\(bu" 2
+\fBDrag & Drop support:\fP Allows to upload files by dragging them from your desktop or filemanager and dropping them on your browser window\&.
+.IP "\(bu" 2
+\fBUpload progress bar:\fP Shows a progress bar indicating the upload progress for individual files and for all uploads combined\&.
+.IP "\(bu" 2
+\fBCancelable uploads:\fP Individual file uploads can be canceled to stop the upload progress\&.
+.IP "\(bu" 2
+\fBResumable uploads:\fP Aborted uploads can be resumed with browsers supporting the Blob API\&.
+.IP "\(bu" 2
+\fBChunked uploads:\fP Large files can be uploaded in smaller chunks with browsers supporting the Blob API\&.
+.IP "\(bu" 2
+\fBClient-side image resizing:\fP Images can be automatically resized on client-side with browsers supporting the required JS APIs\&.
+.IP "\(bu" 2
+\fBPreview images, audio and video:\fP A preview of image, audio and video files can be displayed before uploading with browsers supporting the required APIs\&.
+.IP "\(bu" 2
+\fBNo browser plugins (e\&.g\&. Adobe Flash) required:\fP The implementation is based on open standards like HTML5 and JavaScript and requires no additional browser plugins\&.
+.IP "\(bu" 2
+\fBGraceful fallback for legacy browsers:\fP Uploads files via XMLHttpRequests if supported and uses iframes as fallback for legacy browsers\&.
+.IP "\(bu" 2
+\fBHTML file upload form fallback:\fP Allows progressive enhancement by using a standard HTML file upload form as widget element\&.
+.IP "\(bu" 2
+\fBCross-site file uploads:\fP Supports uploading files to a different domain with cross-site XMLHttpRequests or iframe redirects\&.
+.IP "\(bu" 2
+\fBMultiple plugin instances:\fP Allows to use multiple plugin instances on the same webpage\&.
+.IP "\(bu" 2
+\fBCustomizable and extensible:\fP Provides an API to set individual options and define callBack methods for various upload events\&.
+.IP "\(bu" 2
+\fBMultipart and file contents stream uploads:\fP Files can be uploaded as standard 'multipart/form-data' or file contents stream (HTTP PUT file upload)\&.
+.IP "\(bu" 2
+\fBCompatible with any server-side application platform:\fP Works with any server-side platform (PHP, Python, Ruby on Rails, Java, Node\&.js, Go etc\&.) that supports standard HTML form file uploads\&.
+.PP
+.PP
+.SS "Requirements"
+.PP
+.SS "Mandatory requirements"
+.PP
+.IP "\(bu" 2
+\fCjQuery\fP v\&. 1\&.6+
+.IP "\(bu" 2
+\fCjQuery UI widget factory\fP v\&. 1\&.9+ (included)
+.IP "\(bu" 2
+\fCjQuery Iframe Transport plugin\fP (included)
+.PP
+.PP
+The jQuery UI widget factory is a requirement for the basic File Upload plugin, but very lightweight without any other dependencies from the jQuery UI suite\&.
+.PP
+The jQuery Iframe Transport is required for \fCbrowsers without XHR file upload support\fP\&.
+.PP
+.SS "Optional requirements"
+.PP
+.IP "\(bu" 2
+\fCJavaScript Templates engine\fP v\&. 2\&.5\&.3+
+.IP "\(bu" 2
+\fCJavaScript Load Image library\fP v\&. 1\&.11\&.0+
+.IP "\(bu" 2
+\fCJavaScript Canvas to Blob polyfill\fP v\&. 2\&.1\&.0+
+.IP "\(bu" 2
+\fCblueimp Gallery\fP v\&. 2\&.12\&.0+
+.IP "\(bu" 2
+\fCBootstrap CSS framework\fP v\&. 3\&.0\&.0+
+.IP "\(bu" 2
+\fCGlyphicons\fP
+.PP
+.PP
+The JavaScript Templates engine is used to render the selected and uploaded files for the Basic Plus UI and jQuery UI versions\&.
+.PP
+The JavaScript Load Image library and JavaScript Canvas to Blob polyfill are required for the image previews and resizing functionality\&.
+.PP
+The blueimp Gallery is used to display the uploaded images in a lightbox\&.
+.PP
+The user interface of all versions except the jQuery UI version is built with Twitter's \fCBootstrap\fP framework and icons from \fCGlyphicons\fP\&.
+.PP
+.SS "Cross-domain requirements"
+.PP
+\fCCross-domain File Uploads\fP using the \fCIframe Transport plugin\fP require a redirect back to the origin server to retrieve the upload results\&. The \fCexample implementation\fP makes use of \fCresult\&.html\fP as a static redirect page for the origin server\&.
+.PP
+The repository also includes the \fCjQuery XDomainRequest Transport plugin\fP, which enables limited cross-domain AJAX requests in Microsoft Internet Explorer 8 and 9 (IE 10 supports cross-domain XHR requests)\&. The XDomainRequest object allows GET and POST requests only and doesn't support file uploads\&. It is used on the \fCDemo\fP to delete uploaded files from the cross-domain demo file upload service\&.
+.PP
+.SS "Browsers"
+.PP
+.SS "Desktop browsers"
+.PP
+The File Upload plugin is regularly tested with the latest browser versions and supports the following minimal versions:
+.PP
+.IP "\(bu" 2
+Google Chrome
+.IP "\(bu" 2
+Apple Safari 4\&.0+
+.IP "\(bu" 2
+Mozilla Firefox 3\&.0+
+.IP "\(bu" 2
+Opera 11\&.0+
+.IP "\(bu" 2
+Microsoft Internet Explorer 6\&.0+
+.PP
+.PP
+.SS "Mobile browsers"
+.PP
+The File Upload plugin has been tested with and supports the following mobile browsers:
+.PP
+.IP "\(bu" 2
+Apple Safari on iOS 6\&.0+
+.IP "\(bu" 2
+Google Chrome on iOS 6\&.0+
+.IP "\(bu" 2
+Google Chrome on Android 4\&.0+
+.IP "\(bu" 2
+Default Browser on Android 2\&.3+
+.IP "\(bu" 2
+Opera Mobile 12\&.0+
+.PP
+.PP
+.SS "Supported features"
+.PP
+For a detailed overview of the features supported by each browser version please have a look at the \fCExtended browser support information\fP\&.
+.PP
+.SS "License"
+.PP
+Released under the \fCMIT license\fP\&.
+.PP
+.SS "Donations"
+.PP
+jQuery File Upload is free software, but you can donate to support the developer, Sebastian Tschan:
+.PP
+Flattr: \fC![Flattr](https://api\&.flattr\&.com/button/flattr-badge-large\&.png)\fP
+.PP
+PayPal: \fC![PayPal](https://www\&.paypalobjects\&.com/WEBSCR-640-20110429-1/en_US/i/btn/btn_donateCC_LG\&.gif)\fP 

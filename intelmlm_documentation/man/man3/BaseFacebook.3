@@ -1,0 +1,1027 @@
+.TH "BaseFacebook" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BaseFacebook \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBFacebook\fP, and \fBTransientFacebook\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($config)"
+.br
+.ti -1c
+.RI "\fBsetAppId\fP ($appId)"
+.br
+.ti -1c
+.RI "\fBgetAppId\fP ()"
+.br
+.ti -1c
+.RI "\fBsetApiSecret\fP ($apiSecret)"
+.br
+.ti -1c
+.RI "\fBsetAppSecret\fP ($appSecret)"
+.br
+.ti -1c
+.RI "\fBgetApiSecret\fP ()"
+.br
+.ti -1c
+.RI "\fBgetAppSecret\fP ()"
+.br
+.ti -1c
+.RI "\fBsetFileUploadSupport\fP ($fileUploadSupport)"
+.br
+.ti -1c
+.RI "\fBgetFileUploadSupport\fP ()"
+.br
+.ti -1c
+.RI "\fBuseFileUploadSupport\fP ()"
+.br
+.ti -1c
+.RI "\fBsetAccessToken\fP ($access_token)"
+.br
+.ti -1c
+.RI "\fBsetExtendedAccessToken\fP ()"
+.br
+.ti -1c
+.RI "\fBgetAccessToken\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSignedRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBgetUser\fP ()"
+.br
+.ti -1c
+.RI "\fBgetLoginUrl\fP ($params=array())"
+.br
+.ti -1c
+.RI "\fBgetLogoutUrl\fP ($params=array())"
+.br
+.ti -1c
+.RI "\fBgetLoginStatusUrl\fP ($params=array())"
+.br
+.ti -1c
+.RI "\fBapi\fP ()"
+.br
+.ti -1c
+.RI "\fBgetApplicationAccessToken\fP ()"
+.br
+.ti -1c
+.RI "\fBdestroySession\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBVERSION\fP = '3\&.2\&.3'"
+.br
+.ti -1c
+.RI "const \fBSIGNED_REQUEST_ALGORITHM\fP = 'HMAC-SHA256'"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$CURL_OPTS\fP"
+.br
+.ti -1c
+.RI "static \fB$DOMAIN_MAP\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgetUserAccessToken\fP ()"
+.br
+.ti -1c
+.RI "\fBgetUserFromAvailableData\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSignedRequestCookieName\fP ()"
+.br
+.ti -1c
+.RI "\fBgetMetadataCookieName\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCode\fP ()"
+.br
+.ti -1c
+.RI "\fBgetUserFromAccessToken\fP ()"
+.br
+.ti -1c
+.RI "\fBestablishCSRFTokenState\fP ()"
+.br
+.ti -1c
+.RI "\fBgetAccessTokenFromCode\fP ($code, $redirect_uri=null)"
+.br
+.ti -1c
+.RI "\fB_restserver\fP ($params)"
+.br
+.ti -1c
+.RI "\fBisVideoPost\fP ($path, $method= 'GET')"
+.br
+.ti -1c
+.RI "\fB_graph\fP ($path, $method= 'GET', $params=array())"
+.br
+.ti -1c
+.RI "\fB_oauthRequest\fP ($url, $params)"
+.br
+.ti -1c
+.RI "\fBgetAppSecretProof\fP ($access_token)"
+.br
+.ti -1c
+.RI "\fBmakeRequest\fP ($url, $params, $ch=null)"
+.br
+.ti -1c
+.RI "\fBparseSignedRequest\fP ($signed_request)"
+.br
+.ti -1c
+.RI "\fBmakeSignedRequest\fP ($data)"
+.br
+.ti -1c
+.RI "\fBgetApiUrl\fP ($method)"
+.br
+.ti -1c
+.RI "\fBgetUrl\fP ($name, $path='', $params=array())"
+.br
+.ti -1c
+.RI "\fBgetHttpHost\fP ()"
+.br
+.ti -1c
+.RI "\fBgetHttpProtocol\fP ()"
+.br
+.ti -1c
+.RI "\fBgetBaseDomain\fP ()"
+.br
+.ti -1c
+.RI "\fBgetCurrentUrl\fP ()"
+.br
+.ti -1c
+.RI "\fBshouldRetainParam\fP ($param)"
+.br
+.ti -1c
+.RI "\fBthrowAPIException\fP ($result)"
+.br
+.ti -1c
+.RI "\fBgetMetadataCookie\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPersistentData\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBgetPersistentData\fP ($key, $default=false)"
+.br
+.ti -1c
+.RI "\fBclearPersistentData\fP ($key)"
+.br
+.ti -1c
+.RI "\fBclearAllPersistentData\fP ()"
+.br
+.in -1c
+.SS "Static Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBerrorLog\fP ($msg)"
+.br
+.ti -1c
+.RI "static \fBbase64UrlDecode\fP ($input)"
+.br
+.ti -1c
+.RI "static \fBbase64UrlEncode\fP ($input)"
+.br
+.ti -1c
+.RI "static \fBisAllowedDomain\fP ($big, $small)"
+.br
+.ti -1c
+.RI "static \fBendsWith\fP ($big, $small)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$appId\fP"
+.br
+.ti -1c
+.RI "\fB$appSecret\fP"
+.br
+.ti -1c
+.RI "\fB$user\fP"
+.br
+.ti -1c
+.RI "\fB$signedRequest\fP"
+.br
+.ti -1c
+.RI "\fB$state\fP"
+.br
+.ti -1c
+.RI "\fB$accessToken\fP = null"
+.br
+.ti -1c
+.RI "\fB$fileUploadSupport\fP = false"
+.br
+.ti -1c
+.RI "\fB$trustForwarded\fP = false"
+.br
+.ti -1c
+.RI "\fB$allowSignedRequest\fP = true"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$DROP_QUERY_PARAMS\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Provides access to the \fBFacebook\fP Platform\&. This class provides a majority of the functionality needed, but the class is abstract because it is designed to be sub-classed\&. The subclass must implement the four abstract methods listed at the bottom of the file\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Naitik Shah naitik@facebook.com 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ($config)"
+Initialize a \fBFacebook\fP Application\&.
+.PP
+The configuration:
+.IP "\(bu" 2
+appId: the application ID
+.IP "\(bu" 2
+secret: the application secret
+.IP "\(bu" 2
+fileUpload: (optional) boolean indicating if file uploads are enabled
+.IP "\(bu" 2
+allowSignedRequest: (optional) boolean indicating if signed_request is allowed in query parameters or POST body\&. Should be false for non-canvas apps\&. Defaults to true\&.
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP The application configuration 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "_graph ($path, $method = \fC'GET'\fP, $params = \fCarray()\fP)\fC [protected]\fP"
+Invoke the Graph API\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP The path (required) 
+.br
+\fI$method\fP The http method (default 'GET') 
+.br
+\fI$params\fP The query/post data
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The decoded response object 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFacebookApiException\fP\fP 
+.RE
+.PP
+
+.SS "_oauthRequest ($url, $params)\fC [protected]\fP"
+Make a OAuth Request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP The path (required) 
+.br
+\fI$params\fP The query/post data
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The decoded response object 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFacebookApiException\fP\fP 
+.RE
+.PP
+
+.SS "_restserver ($params)\fC [protected]\fP"
+Invoke the old restserver\&.php endpoint\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$params\fP Method call object
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The decoded response object 
+.RE
+.PP
+\fBExceptions:\fP
+.RS 4
+\fI\fBFacebookApiException\fP\fP 
+.RE
+.PP
+
+.SS "api ()"
+Make an API call\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The decoded response 
+.RE
+.PP
+
+.SS "static base64UrlDecode ($input)\fC [static]\fP, \fC [protected]\fP"
+Base64 encoding that doesn't need to be urlencode()ed\&. Exactly the same as base64_encode except it uses
+.IP "\(bu" 2
+instead of + _ instead of / No padded =
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP base64UrlEncoded input
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The decoded string 
+.RE
+.PP
+
+.SS "static base64UrlEncode ($input)\fC [static]\fP, \fC [protected]\fP"
+Base64 encoding that doesn't need to be urlencode()ed\&. Exactly the same as base64_encode except it uses
+.IP "\(bu" 2
+instead of + _ instead of /
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP The input to encode 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The base64Url encoded input, as a string\&. 
+.RE
+.PP
+
+.SS "clearAllPersistentData ()\fC [abstract]\fP, \fC [protected]\fP"
+Clear all data from the persistent storage
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "clearPersistentData ($key)\fC [abstract]\fP, \fC [protected]\fP"
+Clear the data with $key from the persistent storage
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "destroySession ()"
+Destroy the current session 
+.SS "static endsWith ($big, $small)\fC [static]\fP, \fC [protected]\fP"
+Checks if $big string ends with $small string
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$big\fP The value to be checked against $small 
+.br
+\fI$small\fP The input string
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean TRUE if $big ends with $small 
+.RE
+.PP
+
+.SS "static errorLog ($msg)\fC [static]\fP, \fC [protected]\fP"
+Prints to the error log if you aren't in command line mode\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$msg\fP Log message 
+.RE
+.PP
+
+.SS "establishCSRFTokenState ()\fC [protected]\fP"
+Lays down a CSRF state token for this process\&.
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "getAccessToken ()"
+Determines the access token that should be used for API calls\&. The first time this is called, $this->accessToken is set equal to either a valid user access token, or it's set to the application access token if a valid user access token wasn't available\&. Subsequent calls return whatever the first call returned\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The access token 
+.RE
+.PP
+
+.SS "getAccessTokenFromCode ($code, $redirect_uri = \fCnull\fP)\fC [protected]\fP"
+Retrieves an access token for the given authorization code (previously generated from www\&.facebook\&.com on behalf of a specific user)\&. The authorization code is sent to graph\&.facebook\&.com and a legitimate access token is generated provided the access token and the user for which it was generated all match, and the user is either logged in to \fBFacebook\fP or has granted an offline access permission\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$code\fP An authorization code\&. 
+.br
+\fI$redirect_uri\fP Optional redirect URI\&. Default null
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed An access token exchanged for the authorization code, or false if an access token could not be generated\&. 
+.RE
+.PP
+
+.SS "getApiSecret ()"
+Get the App Secret\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string the App Secret
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use getAppSecret instead\&. 
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBgetAppSecret()\fP 
+.RE
+.PP
+.RE
+.PP
+
+.SS "getApiUrl ($method)\fC [protected]\fP"
+Build the URL for api given parameters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$method\fP The method name\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The URL for the given parameters 
+.RE
+.PP
+
+.SS "getAppId ()"
+Get the Application ID\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string the Application ID 
+.RE
+.PP
+
+.SS "getApplicationAccessToken ()"
+Returns the access token that should be used for logged out users when no authorization code is available\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The application access token, useful for gathering public information about users and applications\&. 
+.RE
+.PP
+
+.SS "getAppSecret ()"
+Get the App Secret\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string the App Secret 
+.RE
+.PP
+
+.SS "getAppSecretProof ($access_token)\fC [protected]\fP"
+Generate a proof of App Secret This is required for all API calls originating from a server It is a sha256 hash of the access_token made using the app secret
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$access_token\fP The access_token to be hashed (required)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The sha256 hash of the access_token 
+.RE
+.PP
+
+.SS "getBaseDomain ()\fC [protected]\fP"
+Returns the base domain used for the cookie\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The base domain 
+.RE
+.PP
+
+.SS "getCode ()\fC [protected]\fP"
+Get the authorization code from the query parameters, if it exists, and otherwise return false to signal no authorization code was discoverable\&.
+.PP
+\fBReturns:\fP
+.RS 4
+mixed The authorization code, or false if the authorization code could not be determined\&. 
+.RE
+.PP
+
+.SS "getCurrentUrl ()\fC [protected]\fP"
+Returns the Current URL, stripping it of known FB parameters that should not persist\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The current URL 
+.RE
+.PP
+
+.SS "getFileUploadSupport ()"
+Get the file upload support status\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean true if and only if the server supports file upload\&. 
+.RE
+.PP
+
+.SS "getHttpHost ()\fC [protected]\fP"
+Returns the HTTP Host
+.PP
+\fBReturns:\fP
+.RS 4
+string The HTTP Host 
+.RE
+.PP
+
+.SS "getHttpProtocol ()\fC [protected]\fP"
+Returns the HTTP Protocol
+.PP
+\fBReturns:\fP
+.RS 4
+string The HTTP Protocol 
+.RE
+.PP
+
+.SS "getLoginStatusUrl ($params = \fCarray()\fP)"
+Get a login status URL to fetch the status from \fBFacebook\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$params\fP Provide custom parameters 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The URL for the logout flow 
+.RE
+.PP
+
+.SS "getLoginUrl ($params = \fCarray()\fP)"
+Get a Login URL for use with redirects\&. By default, full page redirect is assumed\&. If you are using the generated URL with a window\&.open() call in JavaScript, you can pass in display=popup as part of the $params\&.
+.PP
+The parameters:
+.IP "\(bu" 2
+redirect_uri: the url to go to after a successful login
+.IP "\(bu" 2
+scope: comma separated list of requested extended perms
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$params\fP Provide custom parameters 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The URL for the login flow 
+.RE
+.PP
+
+.SS "getLogoutUrl ($params = \fCarray()\fP)"
+Get a Logout URL suitable for use with redirects\&.
+.PP
+The parameters:
+.IP "\(bu" 2
+next: the url to go to after a successful logout
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$params\fP Provide custom parameters 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The URL for the logout flow 
+.RE
+.PP
+
+.SS "getMetadataCookie ()\fC [protected]\fP"
+Parses the metadata cookie that our Javascript API set
+.PP
+\fBReturns:\fP
+.RS 4
+array an array mapping key to value 
+.RE
+.PP
+
+.SS "getMetadataCookieName ()\fC [protected]\fP"
+Constructs and returns the name of the cookie that potentially contain metadata\&. The cookie is not set by the \fBBaseFacebook\fP class, but it may be set by the JavaScript SDK\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string the name of the cookie that would house metadata\&. 
+.RE
+.PP
+
+.SS "getPersistentData ($key, $default = \fCfalse\fP)\fC [abstract]\fP, \fC [protected]\fP"
+Get the data for $key, persisted by \fBBaseFacebook::setPersistentData()\fP
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP The key of the data to retrieve 
+.br
+\fI$default\fP The default value to return if $key is not found
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "getSignedRequest ()"
+Retrieve the signed request, either from a request parameter or, if not present, from a cookie\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string the signed request, if available, or null otherwise\&. 
+.RE
+.PP
+
+.SS "getSignedRequestCookieName ()\fC [protected]\fP"
+Constructs and returns the name of the cookie that potentially houses the signed request for the app user\&. The cookie is not set by the \fBBaseFacebook\fP class, but it may be set by the JavaScript SDK\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string the name of the cookie that would house the signed request value\&. 
+.RE
+.PP
+
+.SS "getUrl ($name, $path = \fC''\fP, $params = \fCarray()\fP)\fC [protected]\fP"
+Build the URL for given domain alias, path and parameters\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$name\fP The name of the domain 
+.br
+\fI$path\fP Optional path (without a leading slash) 
+.br
+\fI$params\fP Optional query parameters
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The URL for the given parameters 
+.RE
+.PP
+
+.SS "getUser ()"
+Get the UID of the connected user, or 0 if the \fBFacebook\fP user is not connected\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string the UID if available\&. 
+.RE
+.PP
+
+.SS "getUserAccessToken ()\fC [protected]\fP"
+Determines and returns the user access token, first using the signed request if present, and then falling back on the authorization code if present\&. The intent is to return a valid user access token, or false if one is determined to not be available\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string A valid user access token, or false if one could not be determined\&. 
+.RE
+.PP
+
+.SS "getUserFromAccessToken ()\fC [protected]\fP"
+Retrieves the UID with the understanding that $this->accessToken has already been set and is seemingly legitimate\&. It relies on \fBFacebook\fP's Graph API to retrieve user information and then extract the user ID\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer Returns the UID of the \fBFacebook\fP user, or 0 if the \fBFacebook\fP user could not be determined\&. 
+.RE
+.PP
+
+.SS "getUserFromAvailableData ()\fC [protected]\fP"
+Determines the connected user by first examining any signed requests, then considering an authorization code, and then falling back to any persistent store storing the user\&.
+.PP
+\fBReturns:\fP
+.RS 4
+integer The id of the connected \fBFacebook\fP user, or 0 if no such user exists\&. 
+.RE
+.PP
+
+.SS "static isAllowedDomain ($big, $small)\fC [static]\fP, \fC [protected]\fP"
+Finds whether the given domain is allowed or not
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$big\fP The value to be checked against $small 
+.br
+\fI$small\fP The input string
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean Returns TRUE if $big matches $small 
+.RE
+.PP
+
+.SS "isVideoPost ($path, $method = \fC'GET'\fP)\fC [protected]\fP"
+Return true if this is video post\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$path\fP The path 
+.br
+\fI$method\fP The http method (default 'GET')
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean true if this is video post 
+.RE
+.PP
+
+.SS "makeRequest ($url, $params, $ch = \fCnull\fP)\fC [protected]\fP"
+Makes an HTTP request\&. This method can be overridden by subclasses if developers want to do fancier things or use something other than curl to make the request\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$url\fP The URL to make the request to 
+.br
+\fI$params\fP The parameters to use for the POST body 
+.br
+\fI$ch\fP Initialized curl handle
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The response text 
+.RE
+.PP
+
+.SS "makeSignedRequest ($data)\fC [protected]\fP"
+Makes a signed_request blob using the given data\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP The data array\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The signed request\&. 
+.RE
+.PP
+
+.SS "parseSignedRequest ($signed_request)\fC [protected]\fP"
+Parses a signed_request and validates the signature\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$signed_request\fP A signed token
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array The payload inside it or null if the sig is wrong 
+.RE
+.PP
+
+.SS "setAccessToken ($access_token)"
+Sets the access token for api calls\&. Use this if you get your access token by other means and just want the SDK to use it\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$access_token\fP an access token\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBBaseFacebook\fP 
+.RE
+.PP
+
+.SS "setApiSecret ($apiSecret)"
+Set the App Secret\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$apiSecret\fP The App Secret
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBBaseFacebook\fP 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use setAppSecret instead\&. 
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBsetAppSecret()\fP 
+.RE
+.PP
+.RE
+.PP
+
+.SS "setAppId ($appId)"
+Set the Application ID\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$appId\fP The Application ID
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBBaseFacebook\fP 
+.RE
+.PP
+
+.SS "setAppSecret ($appSecret)"
+Set the App Secret\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$appSecret\fP The App Secret
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBBaseFacebook\fP 
+.RE
+.PP
+
+.SS "setExtendedAccessToken ()"
+Extend an access token, while removing the short-lived token that might have been generated via client-side flow\&. Thanks to http://bit.ly/b0Pt0H for the workaround\&. 
+.SS "setFileUploadSupport ($fileUploadSupport)"
+Set the file upload support status\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$fileUploadSupport\fP The file upload support status\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBBaseFacebook\fP 
+.RE
+.PP
+
+.SS "setPersistentData ($key, $value)\fC [abstract]\fP, \fC [protected]\fP"
+Each of the following four methods should be overridden in a concrete subclass, as they are in the provided \fBFacebook\fP class\&. The \fBFacebook\fP class uses PHP sessions to provide a primitive persistent store, but another subclass--one that you implement-- might use a database, memcache, or an in-memory cache\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBFacebook\fP Stores the given ($key, $value) pair, so that future calls to \fBgetPersistentData\fP($key) return $value\&. This call may be in another request\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP 
+.br
+\fI$value\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.SS "shouldRetainParam ($param)\fC [protected]\fP"
+Returns true if and only if the key or key/value pair should be retained as part of the query string\&. This amounts to a brute-force search of the very small list of Facebook-specific params that should be stripped out\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$param\fP A key or key/value pair within a URL's query (e\&.g\&. 'foo=a', 'foo=', or 'foo'\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+boolean 
+.RE
+.PP
+
+.SS "throwAPIException ($result)\fC [protected]\fP"
+Analyzes the supplied result to see if it was thrown because the access token is no longer valid\&. If that is the case, then we destroy the session\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$result\fP A record storing the error message returned by a failed API call\&. 
+.RE
+.PP
+
+.SS "useFileUploadSupport ()"
+Get the file upload support status\&.
+.PP
+\fBReturns:\fP
+.RS 4
+boolean true if and only if the server supports file upload\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use getFileUploadSupport instead\&. 
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBgetFileUploadSupport()\fP 
+.RE
+.PP
+.RE
+.PP
+
+.SH "Field Documentation"
+.PP 
+.SS "$CURL_OPTS\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+    CURLOPT_CONNECTTIMEOUT => 10,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_TIMEOUT        => 60,
+    CURLOPT_USERAGENT      => 'facebook-php-3\&.2',
+  )
+.fi
+.SS "$DOMAIN_MAP\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+    'api'         => 'https://api\&.facebook\&.com/',
+    'api_video'   => 'https://api-video\&.facebook\&.com/',
+    'api_read'    => 'https://api-read\&.facebook\&.com/',
+    'graph'       => 'https://graph\&.facebook\&.com/',
+    'graph_video' => 'https://graph-video\&.facebook\&.com/',
+    'www'         => 'https://www\&.facebook\&.com/',
+  )
+.fi
+.SS "$DROP_QUERY_PARAMS\fC [static]\fP, \fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+    'code',
+    'state',
+    'signed_request',
+  )
+.fi
+.SS "const SIGNED_REQUEST_ALGORITHM = 'HMAC-SHA256'"
+Signed Request Algorithm\&. 
+.SS "const VERSION = '3\&.2\&.3'"
+Version\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

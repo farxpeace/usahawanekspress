@@ -1,0 +1,90 @@
+.TH "ZeroClipboard" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ZeroClipboard \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Sprite\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "n \fBZeroClipboard\fP \fBdispatch\fP (event, args)"
+.br
+.ti -1c
+.RI "else \fBif\fP (cjsModuleId)"
+.br
+.ti -1c
+.RI "\fBif\fP (event)"
+.br
+.ti -1c
+.RI "\fBfor\fP (var i:String in extra)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBn\fP"
+.br
+.ti -1c
+.RI "\fBclipText\fP = ''"
+.br
+.ti -1c
+.RI "function setSize(width:Number, 
+.br
+height:Number) button \fBheight\fP = height"
+.br
+.ti -1c
+.RI "\fBelse\fP"
+.br
+.ti -1c
+.RI "return \fBnormalOptions\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "var \fBargs\fP"
+.br
+.ti -1c
+.RI "var \fBamdModuleId\fP"
+.br
+.ti -1c
+.RI "var \fBcjsModuleId\fP"
+.br
+.in -1c
+.SH "Field Documentation"
+.PP 
+.SS "var amdModuleId\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+{\n" +
+      "  require([amdModuleId], function (ZeroClipboard) {\n" +
+      "    ZeroClipboard\&.dispatch(event, args);\n" +
+      "  })
+.fi
+.SS "var cjsModuleId\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+{\n" +
+      "  var ZeroClipboard = require(cjsModuleId)
+.fi
+.SS "else"
+\fBInitial value:\fP
+.PP
+.nf
+{
+        ExternalInterface\&.call(ZeroClipboard\&.normalDispatcher, eventName, eventArgs)
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

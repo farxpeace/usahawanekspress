@@ -1,0 +1,161 @@
+.TH "NexmoAccount" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NexmoAccount \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($api_key, $api_secret)"
+.br
+.ti -1c
+.RI "\fBbalance\fP ()"
+.br
+.ti -1c
+.RI "\fBsmsPricing\fP ($country_code)"
+.br
+.ti -1c
+.RI "\fBgetCountryDialingCode\fP ($country_code)"
+.br
+.ti -1c
+.RI "\fBnumbersList\fP ()"
+.br
+.ti -1c
+.RI "\fBnumbersSearch\fP ($country_code, $pattern)"
+.br
+.ti -1c
+.RI "\fBnumbersBuy\fP ($country_code, $msisdn)"
+.br
+.ti -1c
+.RI "\fBnumbersCancel\fP ($country_code, $msisdn)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB$rest_base_url\fP = 'https://rest\&.nexmo\&.com/'"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class \fBNexmoAccount\fP handles interaction with your Nexmo account
+.PP
+Usage: $var = new \fBNexmoAccount\fP ( $account_key, $account_secret ); Methods: balance () smsPricing ( $country_code ) getCountryDialingCode ( $country_code ) numbersList () numbersSearch ( $country_code, $pattern ) numbersBuy ( $country_code, $msisdn ) numbersCancel ( $country_code, $msisdn ) 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ($api_key, $api_secret)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$nx_key\fP Your Nexmo account key 
+.br
+\fI$nx_secret\fP Your Nexmo secret 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "balance ()"
+Return your account balance in Euros 
+.PP
+\fBReturns:\fP
+.RS 4
+float|bool 
+.RE
+.PP
+
+.SS "getCountryDialingCode ($country_code)"
+Return a countries international dialing code 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$country_code\fP Country code to return the dialing code for 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string|bool 
+.RE
+.PP
+
+.SS "numbersBuy ($country_code, $msisdn)"
+Purchase an available number to your account 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$country_code\fP Country code for your desired number 
+.br
+\fI$msisdn\fP Full number which you wish to purchase 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.SS "numbersCancel ($country_code, $msisdn)"
+Cancel an existing number on your account 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$country_code\fP Country code for which the number is for 
+.br
+\fI$msisdn\fP The number to cancel 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.SS "numbersList ()"
+Get an array of all purchased numbers for your account 
+.PP
+\fBReturns:\fP
+.RS 4
+array|bool 
+.RE
+.PP
+
+.SS "numbersSearch ($country_code, $pattern)"
+Search available numbers to purchase for your account 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$country_code\fP Country code to search available numbers in 
+.br
+\fI$pattern\fP Number pattern to search for 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.SS "smsPricing ($country_code)"
+Find out the price to send a message to a country 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$country_code\fP Country code to return the SMS price for 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+float|bool 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

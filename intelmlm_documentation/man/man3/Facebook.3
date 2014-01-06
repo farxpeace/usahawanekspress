@@ -1,0 +1,188 @@
+.TH "Facebook" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Facebook \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBBaseFacebook\fP\&.
+.PP
+Inherited by \fBFBCode\fP, \fBFBRewrite\fP, and \fBPersistentFBPublic\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($config)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBFBSS_COOKIE_NAME\fP = 'fbss'"
+.br
+.ti -1c
+.RI "const \fBFBSS_COOKIE_EXPIRE\fP = 31556926"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBinitSharedSession\fP ()"
+.br
+.ti -1c
+.RI "\fBsetPersistentData\fP ($key, $value)"
+.br
+.ti -1c
+.RI "\fBgetPersistentData\fP ($key, $default=false)"
+.br
+.ti -1c
+.RI "\fBclearPersistentData\fP ($key)"
+.br
+.ti -1c
+.RI "\fBclearAllPersistentData\fP ()"
+.br
+.ti -1c
+.RI "\fBdeleteSharedSessionCookie\fP ()"
+.br
+.ti -1c
+.RI "\fBgetSharedSessionCookieName\fP ()"
+.br
+.ti -1c
+.RI "\fBconstructSessionVariableName\fP ($key)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$sharedSessionID\fP"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$kSupportedKeys\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+Copyright 2011 \fBFacebook\fP, Inc\&.
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at 
+.PP
+.nf
+http://www.apache.org/licenses/LICENSE-2.0
+
+.fi
+.PP
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. Extends the \fBBaseFacebook\fP class with the intent of using PHP sessions to store user ids and access tokens\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ($config)"
+Identical to the parent constructor, except that we start a PHP session to store the user ID and access token if during the course of execution we discover them\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$config\fP the application configuration\&. Additionally accepts 'sharedSession' as a boolean to turn on a secondary cookie for environments with a shared session (that is, your app shares the domain with other apps)\&.
+.RE
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBBaseFacebook::__construct\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "clearAllPersistentData ()\fC [protected]\fP"
+{}
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBBaseFacebook::clearAllPersistentData()\fP 
+.RE
+.PP
+
+.SS "clearPersistentData ($key)\fC [protected]\fP"
+{}
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBBaseFacebook::clearPersistentData()\fP 
+.RE
+.PP
+
+.SS "constructSessionVariableName ($key)\fC [protected]\fP"
+Constructs and returns the name of the session key\&.
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBsetPersistentData()\fP 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$key\fP The key for which the session variable name to construct\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string The name of the session key\&. 
+.RE
+.PP
+
+.SS "deleteSharedSessionCookie ()\fC [protected]\fP"
+Deletes Shared session cookie 
+.SS "getPersistentData ($key, $default = \fCfalse\fP)\fC [protected]\fP"
+{}
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBBaseFacebook::getPersistentData()\fP 
+.RE
+.PP
+
+.SS "getSharedSessionCookieName ()\fC [protected]\fP"
+Returns the Shared session cookie name
+.PP
+\fBReturns:\fP
+.RS 4
+string The Shared session cookie name 
+.RE
+.PP
+
+.SS "initSharedSession ()\fC [protected]\fP"
+Initiates Shared \fBSession\fP 
+.SS "setPersistentData ($key, $value)\fC [protected]\fP"
+Provides the implementations of the inherited abstract methods\&. The implementation uses PHP sessions to maintain a store for authorization codes, user ids, CSRF states, and access tokens\&. {}
+.PP
+\fBSee Also:\fP
+.RS 4
+\fBBaseFacebook::setPersistentData()\fP 
+.RE
+.PP
+
+.SH "Field Documentation"
+.PP 
+.SS "$kSupportedKeys\fC [static]\fP, \fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+=
+    array('state', 'code', 'access_token', 'user_id')
+.fi
+.SS "const FBSS_COOKIE_EXPIRE = 31556926"
+We can set this to a high number because the main session expiration will trump this\&. 
+.SS "const FBSS_COOKIE_NAME = 'fbss'"
+Cookie prefix 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

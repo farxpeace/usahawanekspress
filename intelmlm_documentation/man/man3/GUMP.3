@@ -1,0 +1,1124 @@
+.TH "GUMP" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GUMP \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.ti -1c
+.RI "\fBvalidation_rules\fP (array $rules=array())"
+.br
+.ti -1c
+.RI "\fBfilter_rules\fP (array $rules=array())"
+.br
+.ti -1c
+.RI "\fBrun\fP (array $data, $check_fields=false)"
+.br
+.ti -1c
+.RI "\fBsanitize\fP (array $input, $fields=NULL, $utf8_encode=true)"
+.br
+.ti -1c
+.RI "\fBerrors\fP ()"
+.br
+.ti -1c
+.RI "\fBvalidate\fP (array $input, array $ruleset)"
+.br
+.ti -1c
+.RI "\fBget_readable_errors\fP ($convert_to_string=false, $field_class='field', $error_class='error-message')"
+.br
+.ti -1c
+.RI "\fBfilter\fP (array $input, array $filterset)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBis_valid\fP (array $data, array $validators)"
+.br
+.ti -1c
+.RI "static \fBfilter_input\fP (array $data, array $filters)"
+.br
+.ti -1c
+.RI "static \fBxss_clean\fP (array $data)"
+.br
+.ti -1c
+.RI "static \fBadd_validator\fP ($rule, $callback)"
+.br
+.ti -1c
+.RI "static \fBadd_filter\fP ($rule, $callback)"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$basic_tags\fP = '<br><p><a><strong><b><i><em><img><blockquote><code><dd><dl><hr><h1><h2><h3><h4><h5><h6><label><ul><li><span><sub><sup>'"
+.br
+.ti -1c
+.RI "static \fB$en_noise_words\fP"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfilter_noise_words\fP ($value, $params=NULL)"
+.br
+.ti -1c
+.RI "\fBfilter_rmpunctuation\fP ($value, $params=NULL)"
+.br
+.ti -1c
+.RI "\fBfilter_sanitize_string\fP ($value, $params=NULL)"
+.br
+.ti -1c
+.RI "\fBfilter_urlencode\fP ($value, $params=NULL)"
+.br
+.ti -1c
+.RI "\fBfilter_htmlencode\fP ($value, $params=NULL)"
+.br
+.ti -1c
+.RI "\fBfilter_sanitize_email\fP ($value, $params=NULL)"
+.br
+.ti -1c
+.RI "\fBfilter_sanitize_numbers\fP ($value, $params=NULL)"
+.br
+.ti -1c
+.RI "\fBfilter_basic_tags\fP ($value, $params=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_contains\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_required\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_valid_email\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_max_len\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_min_len\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_exact_len\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_alpha\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_alpha_numeric\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_alpha_dash\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_numeric\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_integer\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_boolean\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_float\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_valid_url\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_url_exists\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_valid_ip\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_valid_ipv4\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_valid_ipv6\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_valid_cc\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_valid_name\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_street_address\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_iban\fP ($field, $input, $param=NULL)"
+.br
+.ti -1c
+.RI "\fBvalidate_date\fP ($field, $input, $param=null)"
+.br
+.ti -1c
+.RI "\fBvalidate_max_numeric\fP ($field, $input, $param=null)"
+.br
+.ti -1c
+.RI "\fBvalidate_min_numeric\fP ($field, $input, $param=null)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$validation_rules\fP = array()"
+.br
+.ti -1c
+.RI "\fB$filter_rules\fP = array()"
+.br
+.ti -1c
+.RI "\fB$errors\fP = array()"
+.br
+.in -1c
+.SS "Static Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fB$validation_methods\fP = array()"
+.br
+.ti -1c
+.RI "static \fB$filter_methods\fP = array()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBGUMP\fP - A fast, extensible PHP input validation class
+.PP
+\fBAuthor:\fP
+.RS 4
+Sean Nieuwoudt (http://twitter.com/SeanNieuwoudt) 
+.RE
+.PP
+\fBCopyright:\fP
+.RS 4
+Copyright (c) 2011 Wixel\&.net \fB1\&.0 \fP
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "__toString ()"
+Magic method to generate the validation error messages
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.SS "static add_filter ($rule, $callback)\fC [static]\fP"
+Adds a custom filter using a callback function
+.PP
+public 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rule\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.SS "static add_validator ($rule, $callback)\fC [static]\fP"
+Adds a custom validation rule using a callback function
+.PP
+public 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rule\fP 
+.br
+\fI$callback\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+bool 
+.RE
+.PP
+
+.SS "errors ()"
+Return the error array from the last validation run
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.SS "filter (array$input, array$filterset)"
+Filter the input data according to the specified filter set
+.PP
+public 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP 
+.br
+\fI$filterset\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "filter_basic_tags ($value, $params = \fCNULL\fP)\fC [protected]\fP"
+Filter out all HTML tags except the defined basic tags
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$params\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.SS "filter_htmlencode ($value, $params = \fCNULL\fP)\fC [protected]\fP"
+Sanitize the string by converting HTML characters to their HTML entities
+.PP
+Usage: '<index>' => 'htmlencode'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$params\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.SS "static filter_input (array$data, array$filters)\fC [static]\fP"
+Shorthand method for running only the data filters
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.br
+\fI$filters\fP 
+.RE
+.PP
+
+.SS "filter_noise_words ($value, $params = \fCNULL\fP)\fC [protected]\fP"
+Replace noise words in a string (http://tax.cchgroup.com/help/Avoiding_noise_words_in_your_search.htm)
+.PP
+Usage: '<index>' => 'noise_words'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$params\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.SS "filter_rmpunctuation ($value, $params = \fCNULL\fP)\fC [protected]\fP"
+Remove all known punctuation from a string
+.PP
+Usage: '<index>' => 'rmpunctuataion'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$params\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.SS "filter_rules (array$rules = \fCarray()\fP)"
+Getter/Setter for the filter rules
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rules\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.SS "filter_sanitize_email ($value, $params = \fCNULL\fP)\fC [protected]\fP"
+Sanitize the string by removing illegal characters from emails
+.PP
+Usage: '<index>' => 'sanitize_email'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$params\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.SS "filter_sanitize_numbers ($value, $params = \fCNULL\fP)\fC [protected]\fP"
+Sanitize the string by removing illegal characters from numbers
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$params\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.SS "filter_sanitize_string ($value, $params = \fCNULL\fP)\fC [protected]\fP"
+Translate an input string to a desired language [DEPRECIATED]
+.PP
+Any ISO 639-1 2 character language code may be used
+.PP
+See: http://www.science.co.il/language/Codes.asp?s=code2
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$params\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string Sanitize the string by removing any script tags
+.RE
+.PP
+Usage: '<index>' => 'sanitize_string'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$params\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.SS "filter_urlencode ($value, $params = \fCNULL\fP)\fC [protected]\fP"
+Sanitize the string by urlencoding characters
+.PP
+Usage: '<index>' => 'urlencode'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$value\fP 
+.br
+\fI$params\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+.SS "get_readable_errors ($convert_to_string = \fCfalse\fP, $field_class = \fC'field'\fP, $error_class = \fC'error-message'\fP)"
+Process the validation errors and return human readable error messages
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$convert_to_string\fP = false 
+.br
+\fI$field_class\fP 
+.br
+\fI$error_class\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.PP
+string 
+.RE
+.PP
+
+.SS "static is_valid (array$data, array$validators)\fC [static]\fP"
+Shorthand method for inline validation
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP The data to be validated 
+.br
+\fI$validators\fP The \fBGUMP\fP validators 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed True(boolean) or the array of error messages 
+.RE
+.PP
+
+.SS "run (array$data, $check_fields = \fCfalse\fP)"
+Run the filtering and validation after each other
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.PP
+boolean 
+.RE
+.PP
+
+.SS "sanitize (array$input, $fields = \fCNULL\fP, $utf8_encode = \fCtrue\fP)"
+Sanitize the input data
+.PP
+public 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.SS "validate (array$input, array$ruleset)"
+Perform data validation against the provided ruleset
+.PP
+public 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$input\fP 
+.br
+\fI$ruleset\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_alpha ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided value contains only alpha characters
+.PP
+Usage: '<index>' => 'alpha'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_alpha_dash ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided value contains only alpha characters with dashed and underscores
+.PP
+Usage: '<index>' => 'alpha_dash'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_alpha_numeric ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided value contains only alpha-numeric characters
+.PP
+Usage: '<index>' => 'alpha_numeric'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_boolean ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided value is a PHP accepted boolean
+.PP
+Usage: '<index>' => 'boolean'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_contains ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Verify that a value is contained within the pre-defined value set
+.PP
+Usage: '<index>' => 'contains,value value value'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_date ($field, $input, $param = \fCnull\fP)\fC [protected]\fP"
+Determine if the provided input is a valid date (ISO 8601)
+.PP
+Usage: '<index>' => 'date'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP date ('Y-m-d') or datetime ('Y-m-d H:i:s') 
+.br
+\fI$param\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_exact_len ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided value length matches a specific value
+.PP
+Usage: '<index>' => 'exact_len,5'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_float ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided value is a valid float
+.PP
+Usage: '<index>' => 'float'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_iban ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided value is a valid IBAN
+.PP
+Usage: '<index>' => 'iban'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_integer ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided value is a valid integer
+.PP
+Usage: '<index>' => 'integer'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_max_len ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided value length is less or equal to a specific value
+.PP
+Usage: '<index>' => 'max_len,240'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_max_numeric ($field, $input, $param = \fCnull\fP)\fC [protected]\fP"
+Determine if the provided numeric value is lower or equal to a specific value
+.PP
+Usage: '<index>' => 'max_numeric,50'
+.PP
+protected
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.br
+\fI$param\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_min_len ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided value length is more or equal to a specific value
+.PP
+Usage: '<index>' => 'min_len,4'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_min_numeric ($field, $input, $param = \fCnull\fP)\fC [protected]\fP"
+Determine if the provided numeric value is higher or equal to a specific value
+.PP
+Usage: '<index>' => 'min_numeric,1'
+.PP
+protected
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.br
+\fI$param\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_numeric ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided value is a valid number or numeric string
+.PP
+Usage: '<index>' => 'numeric'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_required ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Check if the specified key is present and not empty
+.PP
+Usage: '<index>' => 'required'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_street_address ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided input is likely to be a street address using weak detection
+.PP
+Usage: '<index>' => 'street_address'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_url_exists ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if a URL exists & is accessible
+.PP
+Usage: '<index>' => 'url_exists'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_valid_cc ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the input is a valid credit card number
+.PP
+See: http://stackoverflow.com/questions/174730/what-is-the-best-way-to-validate-a-credit-card-in-php Usage: '<index>' => 'valid_cc'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_valid_email ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided email is valid
+.PP
+Usage: '<index>' => 'valid_email'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_valid_ip ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided value is a valid IP address
+.PP
+Usage: '<index>' => 'valid_ip'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_valid_ipv4 ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided value is a valid IPv4 address
+.PP
+Usage: '<index>' => 'valid_ipv4'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_valid_ipv6 ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided value is a valid IPv6 address
+.PP
+Usage: '<index>' => 'valid_ipv6'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_valid_name ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the input is a valid human name [Credits to http://github.com/ben-s]
+.PP
+See: https://github.com/Wixel/GUMP/issues/5 Usage: '<index>' => 'valid_name'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validate_valid_url ($field, $input, $param = \fCNULL\fP)\fC [protected]\fP"
+Determine if the provided value is a valid URL
+.PP
+Usage: '<index>' => 'valid_url'
+.PP
+protected 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$field\fP 
+.br
+\fI$input\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+mixed 
+.RE
+.PP
+
+.SS "validation_rules (array$rules = \fCarray()\fP)"
+Getter/Setter for the validation rules
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$rules\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.SS "static xss_clean (array$data)\fC [static]\fP"
+Perform XSS clean to prevent cross site scripting
+.PP
+public 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$data\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+array 
+.RE
+.PP
+
+.SH "Field Documentation"
+.PP 
+.SS "$en_noise_words\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= "about,after,all,also,an,and,another,any,are,as,at,be,because,been,before,
+                                     being,between,both,but,by,came,can,come,could,did,do,each,for,from,get,
+                                     got,has,had,he,have,her,here,him,himself,his,how,if,in,into,is,it,its,it's,like,
+                                     make,many,me,might,more,most,much,must,my,never,now,of,on,only,or,other,
+                                     our,out,over,said,same,see,should,since,some,still,such,take,than,that,
+                                     the,their,them,then,there,these,they,this,those,through,to,too,under,up,
+                                     very,was,way,we,well,were,what,where,which,while,who,with,would,you,your,a,
+                                     b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,$,1,2,3,4,5,6,7,8,9,0,_"
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

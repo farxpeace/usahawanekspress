@@ -1,0 +1,90 @@
+.TH "NexmoMessage" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NexmoMessage \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBNexmoMessage\fP ($api_key, $api_secret)"
+.br
+.ti -1c
+.RI "\fBsendText\fP ($to, $from, $message, $unicode=null)"
+.br
+.ti -1c
+.RI "\fBsendBinary\fP ($to, $from, $body, $udh)"
+.br
+.ti -1c
+.RI "\fBpushWap\fP ($to, $from, $title, $url, $validity=172800000)"
+.br
+.ti -1c
+.RI "\fBdisplayOverview\fP ($nexmo_response=null)"
+.br
+.ti -1c
+.RI "\fBinboundText\fP ($data=null)"
+.br
+.ti -1c
+.RI "\fBreply\fP ($message)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB$nx_uri\fP = 'https://rest\&.nexmo\&.com/sms/json'"
+.br
+.ti -1c
+.RI "\fB$inbound_message\fP = false"
+.br
+.ti -1c
+.RI "\fB$to\fP = ''"
+.br
+.ti -1c
+.RI "\fB$from\fP = ''"
+.br
+.ti -1c
+.RI "\fB$text\fP = ''"
+.br
+.ti -1c
+.RI "\fB$network\fP = ''"
+.br
+.ti -1c
+.RI "\fB$message_id\fP = ''"
+.br
+.ti -1c
+.RI "\fB$ssl_verify\fP = false"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class \fBNexmoMessage\fP handles the methods and properties of sending an SMS message\&.
+.PP
+Usage: $var = new NexoMessage ( $account_key, $account_password ); Methods: sendText ( $to, $from, $message, $unicode = null ) sendBinary ( $to, $from, $body, $udh ) pushWap ( $to, $from, $title, $url, $validity = 172800000 ) displayOverview( $nexmo_response=null )
+.PP
+inboundText ( $data=null ) reply ( $text ) 
+.SH "Member Function Documentation"
+.PP 
+.SS "displayOverview ($nexmo_response = \fCnull\fP)"
+Display a brief overview of a sent message\&. Useful for debugging and quick-start purposes\&. 
+.SS "inboundText ($data = \fCnull\fP)"
+Inbound text methods Check for any inbound messages, using $_GET by default\&.
+.PP
+This will set the current message to the inbound message allowing for a future \fBreply()\fP call\&. 
+.SS "pushWap ($to, $from, $title, $url, $validity = \fC172800000\fP)"
+Prepare new binary message\&. 
+.SS "reply ($message)"
+Reply the current message if one is set\&. 
+.SS "sendBinary ($to, $from, $body, $udh)"
+Prepare new WAP message\&. 
+.SS "sendText ($to, $from, $message, $unicode = \fCnull\fP)"
+Prepare new text message\&.
+.PP
+If $unicode is not provided we will try to detect the message type\&. Otherwise set to TRUE if you require unicode characters\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

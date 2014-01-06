@@ -1,0 +1,42 @@
+.TH "Mailer" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Mailer \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsendWelcome\fP ($user, $email, $pass, $userid)"
+.br
+.ti -1c
+.RI "\fBsendConfirmation\fP ($user, $userid, $email)"
+.br
+.ti -1c
+.RI "\fBsendNewPass\fP ($user, $email, $pass)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Mailer\&.php
+.PP
+The \fBMailer\fP class is meant to simplify the task of sending emails to users\&. Note: this email system will not work if your server is not setup to send mail\&.
+.PP
+If you are running Windows and want a mail server, check out this website to see a list of freeware programs: http://www.snapfiles.com/freeware/server/fwmailserver.html
+.PP
+Written by: Jpmaster77 a\&.k\&.a\&. The Grandmaster of C++ (GMC) Last Updated: June 15, 2011 by Ivan Novak 
+.SH "Member Function Documentation"
+.PP 
+.SS "sendConfirmation ($user, $userid, $email)"
+sendConfirmation - Sends a confirmation to users who click a 'Send confirmation' button\&. This only needs to be used if the EMAIL_WELCOME constant is changed to true and the user's 'valid' field is 0 
+.SS "sendNewPass ($user, $email, $pass)"
+sendNewPass - Sends the newly generated password to the user's email address that was specified at sign-up\&. 
+.SS "sendWelcome ($user, $email, $pass, $userid)"
+sendWelcome - Sends a welcome message to the newly registered user, also supplying the username and password\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

@@ -1,0 +1,163 @@
+\hypertarget{class_nexmo_account}{\section{Nexmo\-Account Class Reference}
+\label{class_nexmo_account}\index{Nexmo\-Account@{Nexmo\-Account}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_nexmo_account_a7d426b1d1f3cd445dc97589d1e84f893}{\-\_\-\-\_\-construct} (\$api\-\_\-key, \$api\-\_\-secret)
+\item 
+\hyperlink{class_nexmo_account_a34eb355a99d1b2b84c43b6029a27d0bf}{balance} ()
+\item 
+\hyperlink{class_nexmo_account_a9b4ce828a395f91bcef9318e9ce7b77a}{sms\-Pricing} (\$country\-\_\-code)
+\item 
+\hyperlink{class_nexmo_account_ade84cd59a69533f1970926e32467f1dd}{get\-Country\-Dialing\-Code} (\$country\-\_\-code)
+\item 
+\hyperlink{class_nexmo_account_ab4afbcbe17c89bb4ed1ea8b2da0054e5}{numbers\-List} ()
+\item 
+\hyperlink{class_nexmo_account_aa502abbcb730c72facf31b208001f7f6}{numbers\-Search} (\$country\-\_\-code, \$pattern)
+\item 
+\hyperlink{class_nexmo_account_a208d64d12310cdb4fb31c1d0a2f50db1}{numbers\-Buy} (\$country\-\_\-code, \$msisdn)
+\item 
+\hyperlink{class_nexmo_account_a37333c4010c4491c02bedd04f74f45f8}{numbers\-Cancel} (\$country\-\_\-code, \$msisdn)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_nexmo_account_a4e84295667725019564d9fdbb651c607}{{\bfseries \$rest\-\_\-base\-\_\-url} = 'https\-://rest.\-nexmo.\-com/'}\label{class_nexmo_account_a4e84295667725019564d9fdbb651c607}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class \hyperlink{class_nexmo_account}{Nexmo\-Account} handles interaction with your Nexmo account
+
+Usage\-: \$var = new \hyperlink{class_nexmo_account}{Nexmo\-Account} ( \$account\-\_\-key, \$account\-\_\-secret ); Methods\-: balance () sms\-Pricing ( \$country\-\_\-code ) get\-Country\-Dialing\-Code ( \$country\-\_\-code ) numbers\-List () numbers\-Search ( \$country\-\_\-code, \$pattern ) numbers\-Buy ( \$country\-\_\-code, \$msisdn ) numbers\-Cancel ( \$country\-\_\-code, \$msisdn ) 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_nexmo_account_a7d426b1d1f3cd445dc97589d1e84f893}{\index{Nexmo\-Account@{Nexmo\-Account}!\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}}
+\index{\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}!NexmoAccount@{Nexmo\-Account}}
+\subsubsection[{\-\_\-\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$api\-\_\-key, }
+\item[{}]{\$api\-\_\-secret}
+\end{DoxyParamCaption}
+)}}\label{class_nexmo_account_a7d426b1d1f3cd445dc97589d1e84f893}
+
+\begin{DoxyParams}{Parameters}
+{\em \$nx\-\_\-key} & Your Nexmo account key \\
+\hline
+{\em \$nx\-\_\-secret} & Your Nexmo secret \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_nexmo_account_a34eb355a99d1b2b84c43b6029a27d0bf}{\index{Nexmo\-Account@{Nexmo\-Account}!balance@{balance}}
+\index{balance@{balance}!NexmoAccount@{Nexmo\-Account}}
+\subsubsection[{balance}]{\setlength{\rightskip}{0pt plus 5cm}balance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_nexmo_account_a34eb355a99d1b2b84c43b6029a27d0bf}
+Return your account balance in Euros \begin{DoxyReturn}{Returns}
+float$\vert$bool 
+\end{DoxyReturn}
+\hypertarget{class_nexmo_account_ade84cd59a69533f1970926e32467f1dd}{\index{Nexmo\-Account@{Nexmo\-Account}!get\-Country\-Dialing\-Code@{get\-Country\-Dialing\-Code}}
+\index{get\-Country\-Dialing\-Code@{get\-Country\-Dialing\-Code}!NexmoAccount@{Nexmo\-Account}}
+\subsubsection[{get\-Country\-Dialing\-Code}]{\setlength{\rightskip}{0pt plus 5cm}get\-Country\-Dialing\-Code (
+\begin{DoxyParamCaption}
+\item[{}]{\$country\-\_\-code}
+\end{DoxyParamCaption}
+)}}\label{class_nexmo_account_ade84cd59a69533f1970926e32467f1dd}
+Return a countries international dialing code 
+\begin{DoxyParams}{Parameters}
+{\em \$country\-\_\-code} & Country code to return the dialing code for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string$\vert$bool 
+\end{DoxyReturn}
+\hypertarget{class_nexmo_account_a208d64d12310cdb4fb31c1d0a2f50db1}{\index{Nexmo\-Account@{Nexmo\-Account}!numbers\-Buy@{numbers\-Buy}}
+\index{numbers\-Buy@{numbers\-Buy}!NexmoAccount@{Nexmo\-Account}}
+\subsubsection[{numbers\-Buy}]{\setlength{\rightskip}{0pt plus 5cm}numbers\-Buy (
+\begin{DoxyParamCaption}
+\item[{}]{\$country\-\_\-code, }
+\item[{}]{\$msisdn}
+\end{DoxyParamCaption}
+)}}\label{class_nexmo_account_a208d64d12310cdb4fb31c1d0a2f50db1}
+Purchase an available number to your account 
+\begin{DoxyParams}{Parameters}
+{\em \$country\-\_\-code} & Country code for your desired number \\
+\hline
+{\em \$msisdn} & Full number which you wish to purchase \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\hypertarget{class_nexmo_account_a37333c4010c4491c02bedd04f74f45f8}{\index{Nexmo\-Account@{Nexmo\-Account}!numbers\-Cancel@{numbers\-Cancel}}
+\index{numbers\-Cancel@{numbers\-Cancel}!NexmoAccount@{Nexmo\-Account}}
+\subsubsection[{numbers\-Cancel}]{\setlength{\rightskip}{0pt plus 5cm}numbers\-Cancel (
+\begin{DoxyParamCaption}
+\item[{}]{\$country\-\_\-code, }
+\item[{}]{\$msisdn}
+\end{DoxyParamCaption}
+)}}\label{class_nexmo_account_a37333c4010c4491c02bedd04f74f45f8}
+Cancel an existing number on your account 
+\begin{DoxyParams}{Parameters}
+{\em \$country\-\_\-code} & Country code for which the number is for \\
+\hline
+{\em \$msisdn} & The number to cancel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\hypertarget{class_nexmo_account_ab4afbcbe17c89bb4ed1ea8b2da0054e5}{\index{Nexmo\-Account@{Nexmo\-Account}!numbers\-List@{numbers\-List}}
+\index{numbers\-List@{numbers\-List}!NexmoAccount@{Nexmo\-Account}}
+\subsubsection[{numbers\-List}]{\setlength{\rightskip}{0pt plus 5cm}numbers\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_nexmo_account_ab4afbcbe17c89bb4ed1ea8b2da0054e5}
+Get an array of all purchased numbers for your account \begin{DoxyReturn}{Returns}
+array$\vert$bool 
+\end{DoxyReturn}
+\hypertarget{class_nexmo_account_aa502abbcb730c72facf31b208001f7f6}{\index{Nexmo\-Account@{Nexmo\-Account}!numbers\-Search@{numbers\-Search}}
+\index{numbers\-Search@{numbers\-Search}!NexmoAccount@{Nexmo\-Account}}
+\subsubsection[{numbers\-Search}]{\setlength{\rightskip}{0pt plus 5cm}numbers\-Search (
+\begin{DoxyParamCaption}
+\item[{}]{\$country\-\_\-code, }
+\item[{}]{\$pattern}
+\end{DoxyParamCaption}
+)}}\label{class_nexmo_account_aa502abbcb730c72facf31b208001f7f6}
+Search available numbers to purchase for your account 
+\begin{DoxyParams}{Parameters}
+{\em \$country\-\_\-code} & Country code to search available numbers in \\
+\hline
+{\em \$pattern} & Number pattern to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\hypertarget{class_nexmo_account_a9b4ce828a395f91bcef9318e9ce7b77a}{\index{Nexmo\-Account@{Nexmo\-Account}!sms\-Pricing@{sms\-Pricing}}
+\index{sms\-Pricing@{sms\-Pricing}!NexmoAccount@{Nexmo\-Account}}
+\subsubsection[{sms\-Pricing}]{\setlength{\rightskip}{0pt plus 5cm}sms\-Pricing (
+\begin{DoxyParamCaption}
+\item[{}]{\$country\-\_\-code}
+\end{DoxyParamCaption}
+)}}\label{class_nexmo_account_a9b4ce828a395f91bcef9318e9ce7b77a}
+Find out the price to send a message to a country 
+\begin{DoxyParams}{Parameters}
+{\em \$country\-\_\-code} & Country code to return the S\-M\-S price for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float$\vert$bool 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/xampp/htdocs/usahawanekspress.\-com/intelmlm\-\_\-include/\-Nexmo-\/\-P\-H\-P-\/lib/Nexmo\-Account.\-php\end{DoxyCompactItemize}

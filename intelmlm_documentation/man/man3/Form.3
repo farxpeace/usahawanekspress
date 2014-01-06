@@ -1,0 +1,66 @@
+.TH "Form" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Form \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBForm\fP ()"
+.br
+.ti -1c
+.RI "\fBsetValue\fP ($field, $\fBvalue\fP)"
+.br
+.ti -1c
+.RI "\fBsetError\fP ($field, $errmsg)"
+.br
+.ti -1c
+.RI "\fBvalue\fP ($field)"
+.br
+.ti -1c
+.RI "\fBerror\fP ($field)"
+.br
+.ti -1c
+.RI "\fBgetErrorArray\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB$values\fP = array()"
+.br
+.ti -1c
+.RI "\fB$errors\fP = array()"
+.br
+.ti -1c
+.RI "\fB$num_errors\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Form\&.php
+.PP
+The \fBForm\fP class is meant to simplify the task of keeping track of errors in user submitted forms and the form field values that were entered correctly\&.
+.PP
+Written by: Jpmaster77 a\&.k\&.a\&. The Grandmaster of C++ (GMC) Last Updated: August 19, 2004 
+.SH "Member Function Documentation"
+.PP 
+.SS "error ($field)"
+error - Returns the error message attached to the given field, if none exists, the empty string is returned\&. 
+.SS "\fBForm\fP ()"
+Get form value and error arrays, used when there is an error with a user-submitted form\&.
+.SS "setError ($field, $errmsg)"
+setError - Records new form error given the form field name and the error message attached to it\&. 
+.SS "setValue ($field, $value)"
+setValue - Records the value typed into the given form field by the user\&. 
+.SS "value ($field)"
+value - Returns the value attached to the given field, if none exists, the empty string is returned\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

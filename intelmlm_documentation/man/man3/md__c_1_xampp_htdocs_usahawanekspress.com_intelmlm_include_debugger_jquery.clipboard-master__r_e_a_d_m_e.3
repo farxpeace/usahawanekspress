@@ -1,0 +1,36 @@
+.TH "md__c_1_xampp_htdocs_usahawanekspress.com_intelmlm_include_debugger_jquery.clipboard-master__r_e_a_d_m_e" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__c_1_xampp_htdocs_usahawanekspress.com_intelmlm_include_debugger_jquery.clipboard-master__r_e_a_d_m_e \- jQuery Clipboard 
+jQuery Clipboard plugin: copy any text to the user's clipboard\&. Implements \fBZeroClipboard\fP over the jQuery plugin layer\&.
+.PP
+.SS "Usage"
+.PP
+.SS "1\&. Include Scripts"
+.PP
+```html <script type='text/javascript' src='/path/to/javascripts/jquery\&.js'></script> <script type='text/javascript' src='/path/to/javascripts/jquery\&.clipboard\&.js'></script> ```
+.PP
+\fBImportant: please check that you are using at least jQuery 1\&.7 - jQuery Clipboard won't work with versions below!\fP
+.PP
+.SS "2\&. Apply On An Element"
+.PP
+```javascript \&.ready(function() { var copy_sel = $('\&.code-block a\&.code-copy');
+.PP
+// Disables other default handlers on click (avoid issues) copy_sel\&.on('click', function(e) { e\&.preventDefault(); });
+.PP
+// Apply clipboard click event copy_sel\&.clipboard({ path: '/path/to/flashes/jquery\&.clipboard\&.swf',
+.PP
+copy: function() { var this_sel = ;
+.PP
+// Hide 'Copy' and show 'Copied, copy again?' message in link this_sel\&.find('\&.code-copy-first')\&.hide(); this_sel\&.find('\&.code-copy-done')\&.show();
+.PP
+// Return text in closest element (useful when you have multiple boxes that can be copied) return this_sel\&.closest('\&.code-block')\&.text(); } }); }); ```
+.PP
+.SS "3\&. More Docs"
+.PP
+More docs can be found on http://www.steamdev.com/zclip/
+.PP
+I wrote a tutorial about jQuery Clipboard at https://waaave.com/tutorial/jquery/copy-text-to-clipboard-using-jquery/
+.PP
+jQuery Clipboard is mostly based on jQuery\&.zClip, the plugin APIs remain barely the same\&. 

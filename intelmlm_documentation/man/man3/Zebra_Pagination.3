@@ -1,0 +1,41 @@
+.TH "Zebra_Pagination" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Zebra_Pagination \- 
+.SH SYNOPSIS
+.br
+.PP
+.SH "Detailed Description"
+.PP 
+A generic pagination script that automatically generates navigation links as well as next/previous page links, given the total number of records and the number of records to be shown per page\&. Useful for breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving readability, aesthetics and usability\&.
+.PP
+Adheres to pagination best practices (provides large clickable areas, doesn't use underlines, the selected page is clearly highlighted, page links are spaced out, provides 'previous page' and 'next page' links, provides 'first page' and 'last page' links - as outlined in an article by Faruk Ates from 2007, which can now be found \fBhere\fP), can generate links both in natural as well as in reverse order, can be easily, localized, supports different positions for next/previous page buttons, supports page propagation via GET or via URL rewriting, is SEO-friendly, and the appearance is easily customizable through CSS\&.
+.PP
+Please note that this is a \fIgeneric\fP pagination script, meaning that it does not display any records and it does not have any dependencies on database connections or SQL queries, making it very flexible! It is up to the developer to fetch the actual data and display it based on the information returned by this pagination script\&. The advantage is that it can be used to paginate over records coming from any source like arrays or databases\&.
+.PP
+The code is heavily commented and generates no warnings/errors/notices when PHP's error reporting level is set to E_ALL\&.
+.PP
+Visit \fBhttp://stefangabos\&.ro/php-libraries/zebra-pagination/\fP for more information\&.
+.PP
+For more resources visit \fBhttp://stefangabos\&.ro/\fP
+.PP
+\fBAuthor:\fP
+.RS 4
+Stefan Gabos contact@stefangabos.ro 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+2\&.1\&.1 (last revision: July 15, 2013) 
+.RE
+.PP
+\fBCopyright:\fP
+.RS 4
+(c) 2009 - 2013 Stefan Gabos  http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

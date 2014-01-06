@@ -1,0 +1,119 @@
+\hypertarget{class_nexmo_message}{\section{Nexmo\-Message Class Reference}
+\label{class_nexmo_message}\index{Nexmo\-Message@{Nexmo\-Message}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_nexmo_message_a3a3e2d918e19107bb3039d9b76e767f3}{{\bfseries Nexmo\-Message} (\$api\-\_\-key, \$api\-\_\-secret)}\label{class_nexmo_message_a3a3e2d918e19107bb3039d9b76e767f3}
+
+\item 
+\hyperlink{class_nexmo_message_a695b9593c4f45a97f220815ccaadc86f}{send\-Text} (\$to, \$from, \$message, \$unicode=null)
+\item 
+\hyperlink{class_nexmo_message_abe32265395a044dc6c4d282b2fb37602}{send\-Binary} (\$to, \$from, \$body, \$udh)
+\item 
+\hyperlink{class_nexmo_message_a305b569184e17ace603f698da0bd7e56}{push\-Wap} (\$to, \$from, \$title, \$url, \$validity=172800000)
+\item 
+\hyperlink{class_nexmo_message_a7285f781df3fe85d8f40d9d76860a7eb}{display\-Overview} (\$nexmo\-\_\-response=null)
+\item 
+\hyperlink{class_nexmo_message_abf6a501d78da977b11ec78aa91b98edb}{inbound\-Text} (\$data=null)
+\item 
+\hyperlink{class_nexmo_message_adadbb1f0b565148fb0c6f400a7e99ad6}{reply} (\$message)
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_nexmo_message_af0f09cbe026631e5bc05ef4d66c357f9}{{\bfseries \$nx\-\_\-uri} = 'https\-://rest.\-nexmo.\-com/sms/json'}\label{class_nexmo_message_af0f09cbe026631e5bc05ef4d66c357f9}
+
+\item 
+\hypertarget{class_nexmo_message_a910225fcba72e3e8602ad13b23fcc5dc}{{\bfseries \$inbound\-\_\-message} = false}\label{class_nexmo_message_a910225fcba72e3e8602ad13b23fcc5dc}
+
+\item 
+\hypertarget{class_nexmo_message_ac19f839b525d6d99d063fe56bf2a6d3b}{{\bfseries \$to} = ''}\label{class_nexmo_message_ac19f839b525d6d99d063fe56bf2a6d3b}
+
+\item 
+\hypertarget{class_nexmo_message_a0bb7e2b3d541598cc9c9e3b11bee859c}{{\bfseries \$from} = ''}\label{class_nexmo_message_a0bb7e2b3d541598cc9c9e3b11bee859c}
+
+\item 
+\hypertarget{class_nexmo_message_adf95f30eaafccead90ab5e2cdb55e9b9}{{\bfseries \$text} = ''}\label{class_nexmo_message_adf95f30eaafccead90ab5e2cdb55e9b9}
+
+\item 
+\hypertarget{class_nexmo_message_ae4ae20f4cdfc7cd4445756bf74c289dc}{{\bfseries \$network} = ''}\label{class_nexmo_message_ae4ae20f4cdfc7cd4445756bf74c289dc}
+
+\item 
+\hypertarget{class_nexmo_message_ab658319503f3b25fb0f3dadac3ce00d4}{{\bfseries \$message\-\_\-id} = ''}\label{class_nexmo_message_ab658319503f3b25fb0f3dadac3ce00d4}
+
+\item 
+\hypertarget{class_nexmo_message_a2d6c91b6095163eae650dc785087a7ba}{{\bfseries \$ssl\-\_\-verify} = false}\label{class_nexmo_message_a2d6c91b6095163eae650dc785087a7ba}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class \hyperlink{class_nexmo_message}{Nexmo\-Message} handles the methods and properties of sending an S\-M\-S message.
+
+Usage\-: \$var = new Nexo\-Message ( \$account\-\_\-key, \$account\-\_\-password ); Methods\-: send\-Text ( \$to, \$from, \$message, \$unicode = null ) send\-Binary ( \$to, \$from, \$body, \$udh ) push\-Wap ( \$to, \$from, \$title, \$url, \$validity = 172800000 ) display\-Overview( \$nexmo\-\_\-response=null )
+
+inbound\-Text ( \$data=null ) reply ( \$text ) 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_nexmo_message_a7285f781df3fe85d8f40d9d76860a7eb}{\index{Nexmo\-Message@{Nexmo\-Message}!display\-Overview@{display\-Overview}}
+\index{display\-Overview@{display\-Overview}!NexmoMessage@{Nexmo\-Message}}
+\subsubsection[{display\-Overview}]{\setlength{\rightskip}{0pt plus 5cm}display\-Overview (
+\begin{DoxyParamCaption}
+\item[{}]{\$nexmo\-\_\-response = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}\label{class_nexmo_message_a7285f781df3fe85d8f40d9d76860a7eb}
+Display a brief overview of a sent message. Useful for debugging and quick-\/start purposes. \hypertarget{class_nexmo_message_abf6a501d78da977b11ec78aa91b98edb}{\index{Nexmo\-Message@{Nexmo\-Message}!inbound\-Text@{inbound\-Text}}
+\index{inbound\-Text@{inbound\-Text}!NexmoMessage@{Nexmo\-Message}}
+\subsubsection[{inbound\-Text}]{\setlength{\rightskip}{0pt plus 5cm}inbound\-Text (
+\begin{DoxyParamCaption}
+\item[{}]{\$data = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}\label{class_nexmo_message_abf6a501d78da977b11ec78aa91b98edb}
+Inbound text methods Check for any inbound messages, using \$\-\_\-\-G\-E\-T by default.
+
+This will set the current message to the inbound message allowing for a future \hyperlink{class_nexmo_message_adadbb1f0b565148fb0c6f400a7e99ad6}{reply()} call. \hypertarget{class_nexmo_message_a305b569184e17ace603f698da0bd7e56}{\index{Nexmo\-Message@{Nexmo\-Message}!push\-Wap@{push\-Wap}}
+\index{push\-Wap@{push\-Wap}!NexmoMessage@{Nexmo\-Message}}
+\subsubsection[{push\-Wap}]{\setlength{\rightskip}{0pt plus 5cm}push\-Wap (
+\begin{DoxyParamCaption}
+\item[{}]{\$to, }
+\item[{}]{\$from, }
+\item[{}]{\$title, }
+\item[{}]{\$url, }
+\item[{}]{\$validity = {\ttfamily 172800000}}
+\end{DoxyParamCaption}
+)}}\label{class_nexmo_message_a305b569184e17ace603f698da0bd7e56}
+Prepare new binary message. \hypertarget{class_nexmo_message_adadbb1f0b565148fb0c6f400a7e99ad6}{\index{Nexmo\-Message@{Nexmo\-Message}!reply@{reply}}
+\index{reply@{reply}!NexmoMessage@{Nexmo\-Message}}
+\subsubsection[{reply}]{\setlength{\rightskip}{0pt plus 5cm}reply (
+\begin{DoxyParamCaption}
+\item[{}]{\$message}
+\end{DoxyParamCaption}
+)}}\label{class_nexmo_message_adadbb1f0b565148fb0c6f400a7e99ad6}
+Reply the current message if one is set. \hypertarget{class_nexmo_message_abe32265395a044dc6c4d282b2fb37602}{\index{Nexmo\-Message@{Nexmo\-Message}!send\-Binary@{send\-Binary}}
+\index{send\-Binary@{send\-Binary}!NexmoMessage@{Nexmo\-Message}}
+\subsubsection[{send\-Binary}]{\setlength{\rightskip}{0pt plus 5cm}send\-Binary (
+\begin{DoxyParamCaption}
+\item[{}]{\$to, }
+\item[{}]{\$from, }
+\item[{}]{\$body, }
+\item[{}]{\$udh}
+\end{DoxyParamCaption}
+)}}\label{class_nexmo_message_abe32265395a044dc6c4d282b2fb37602}
+Prepare new W\-A\-P message. \hypertarget{class_nexmo_message_a695b9593c4f45a97f220815ccaadc86f}{\index{Nexmo\-Message@{Nexmo\-Message}!send\-Text@{send\-Text}}
+\index{send\-Text@{send\-Text}!NexmoMessage@{Nexmo\-Message}}
+\subsubsection[{send\-Text}]{\setlength{\rightskip}{0pt plus 5cm}send\-Text (
+\begin{DoxyParamCaption}
+\item[{}]{\$to, }
+\item[{}]{\$from, }
+\item[{}]{\$message, }
+\item[{}]{\$unicode = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}\label{class_nexmo_message_a695b9593c4f45a97f220815ccaadc86f}
+Prepare new text message.
+
+If \$unicode is not provided we will try to detect the message type. Otherwise set to T\-R\-U\-E if you require unicode characters. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/xampp/htdocs/usahawanekspress.\-com/intelmlm\-\_\-include/\-Nexmo-\/\-P\-H\-P-\/lib/Nexmo\-Message.\-php\end{DoxyCompactItemize}

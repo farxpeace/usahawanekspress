@@ -1,0 +1,421 @@
+.TH "UploadHandler" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UploadHandler \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBCustomUploadHandler\fP, and \fBCustomUploadHandler\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($options=null, $initialize=true, $error_messages=null)"
+.br
+.ti -1c
+.RI "\fBget_config_bytes\fP ($val)"
+.br
+.ti -1c
+.RI "\fBhead\fP ()"
+.br
+.ti -1c
+.RI "\fBget\fP ($print_response=true)"
+.br
+.ti -1c
+.RI "\fBpost\fP ($print_response=true)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($print_response=true)"
+.br
+.ti -1c
+.RI "\fB__construct\fP ($options=null, $initialize=true, $error_messages=null)"
+.br
+.ti -1c
+.RI "\fBget_config_bytes\fP ($val)"
+.br
+.ti -1c
+.RI "\fBhead\fP ()"
+.br
+.ti -1c
+.RI "\fBget\fP ($print_response=true)"
+.br
+.ti -1c
+.RI "\fBpost\fP ($print_response=true)"
+.br
+.ti -1c
+.RI "\fBdelete\fP ($print_response=true)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBinitialize\fP ()"
+.br
+.ti -1c
+.RI "\fBget_full_url\fP ()"
+.br
+.ti -1c
+.RI "\fBget_user_id\fP ()"
+.br
+.ti -1c
+.RI "\fBget_user_path\fP ()"
+.br
+.ti -1c
+.RI "\fBget_upload_path\fP ($file_name=null, $version=null)"
+.br
+.ti -1c
+.RI "\fBget_query_separator\fP ($url)"
+.br
+.ti -1c
+.RI "\fBget_download_url\fP ($file_name, $version=null, $direct=false)"
+.br
+.ti -1c
+.RI "\fBset_additional_file_properties\fP ($file)"
+.br
+.ti -1c
+.RI "\fBfix_integer_overflow\fP ($size)"
+.br
+.ti -1c
+.RI "\fBget_file_size\fP ($file_path, $clear_stat_cache=false)"
+.br
+.ti -1c
+.RI "\fBis_valid_file_object\fP ($file_name)"
+.br
+.ti -1c
+.RI "\fBget_file_object\fP ($file_name)"
+.br
+.ti -1c
+.RI "\fBget_file_objects\fP ($iteration_method= 'get_file_object')"
+.br
+.ti -1c
+.RI "\fBcount_file_objects\fP ()"
+.br
+.ti -1c
+.RI "\fBget_error_message\fP ($error)"
+.br
+.ti -1c
+.RI "\fBvalidate\fP ($uploaded_file, $file, $error, $index)"
+.br
+.ti -1c
+.RI "\fBupcount_name_callback\fP ($matches)"
+.br
+.ti -1c
+.RI "\fBupcount_name\fP ($name)"
+.br
+.ti -1c
+.RI "\fBget_unique_filename\fP ($file_path, $name, $size, $type, $error, $index, $content_range)"
+.br
+.ti -1c
+.RI "\fBtrim_file_name\fP ($file_path, $name, $size, $type, $error, $index, $content_range)"
+.br
+.ti -1c
+.RI "\fBget_file_name\fP ($file_path, $name, $size, $type, $error, $index, $content_range)"
+.br
+.ti -1c
+.RI "\fBhandle_form_data\fP ($file, $index)"
+.br
+.ti -1c
+.RI "\fBget_scaled_image_file_paths\fP ($file_name, $version)"
+.br
+.ti -1c
+.RI "\fBgd_get_image_object\fP ($file_path, $func, $no_cache=false)"
+.br
+.ti -1c
+.RI "\fBgd_set_image_object\fP ($file_path, $image)"
+.br
+.ti -1c
+.RI "\fBgd_destroy_image_object\fP ($file_path)"
+.br
+.ti -1c
+.RI "\fBgd_imageflip\fP ($image, $mode)"
+.br
+.ti -1c
+.RI "\fBgd_orient_image\fP ($file_path, $src_img)"
+.br
+.ti -1c
+.RI "\fBgd_create_scaled_image\fP ($file_name, $version, $options)"
+.br
+.ti -1c
+.RI "\fBimagick_get_image_object\fP ($file_path, $no_cache=false)"
+.br
+.ti -1c
+.RI "\fBimagick_set_image_object\fP ($file_path, $image)"
+.br
+.ti -1c
+.RI "\fBimagick_destroy_image_object\fP ($file_path)"
+.br
+.ti -1c
+.RI "\fBimagick_orient_image\fP ($image)"
+.br
+.ti -1c
+.RI "\fBimagick_create_scaled_image\fP ($file_name, $version, $options)"
+.br
+.ti -1c
+.RI "\fBimagemagick_create_scaled_image\fP ($file_name, $version, $options)"
+.br
+.ti -1c
+.RI "\fBget_image_size\fP ($file_path)"
+.br
+.ti -1c
+.RI "\fBcreate_scaled_image\fP ($file_name, $version, $options)"
+.br
+.ti -1c
+.RI "\fBdestroy_image_object\fP ($file_path)"
+.br
+.ti -1c
+.RI "\fBis_valid_image_file\fP ($file_path)"
+.br
+.ti -1c
+.RI "\fBhandle_image_file\fP ($file_path, $file)"
+.br
+.ti -1c
+.RI "\fBhandle_file_upload\fP ($uploaded_file, $name, $size, $type, $error, $index=null, $content_range=null)"
+.br
+.ti -1c
+.RI "\fBreadfile\fP ($file_path)"
+.br
+.ti -1c
+.RI "\fBbody\fP ($str)"
+.br
+.ti -1c
+.RI "\fBheader\fP ($str)"
+.br
+.ti -1c
+.RI "\fBget_server_var\fP ($id)"
+.br
+.ti -1c
+.RI "\fBgenerate_response\fP ($content, $print_response=true)"
+.br
+.ti -1c
+.RI "\fBget_version_param\fP ()"
+.br
+.ti -1c
+.RI "\fBget_singular_param_name\fP ()"
+.br
+.ti -1c
+.RI "\fBget_file_name_param\fP ()"
+.br
+.ti -1c
+.RI "\fBget_file_names_params\fP ()"
+.br
+.ti -1c
+.RI "\fBget_file_type\fP ($file_path)"
+.br
+.ti -1c
+.RI "\fBdownload\fP ()"
+.br
+.ti -1c
+.RI "\fBsend_content_type_header\fP ()"
+.br
+.ti -1c
+.RI "\fBsend_access_control_headers\fP ()"
+.br
+.ti -1c
+.RI "\fBinitialize\fP ()"
+.br
+.ti -1c
+.RI "\fBget_full_url\fP ()"
+.br
+.ti -1c
+.RI "\fBget_user_id\fP ()"
+.br
+.ti -1c
+.RI "\fBget_user_path\fP ()"
+.br
+.ti -1c
+.RI "\fBget_upload_path\fP ($file_name=null, $version=null)"
+.br
+.ti -1c
+.RI "\fBget_query_separator\fP ($url)"
+.br
+.ti -1c
+.RI "\fBget_download_url\fP ($file_name, $version=null, $direct=false)"
+.br
+.ti -1c
+.RI "\fBset_additional_file_properties\fP ($file)"
+.br
+.ti -1c
+.RI "\fBfix_integer_overflow\fP ($size)"
+.br
+.ti -1c
+.RI "\fBget_file_size\fP ($file_path, $clear_stat_cache=false)"
+.br
+.ti -1c
+.RI "\fBis_valid_file_object\fP ($file_name)"
+.br
+.ti -1c
+.RI "\fBget_file_object\fP ($file_name)"
+.br
+.ti -1c
+.RI "\fBget_file_objects\fP ($iteration_method= 'get_file_object')"
+.br
+.ti -1c
+.RI "\fBcount_file_objects\fP ()"
+.br
+.ti -1c
+.RI "\fBget_error_message\fP ($error)"
+.br
+.ti -1c
+.RI "\fBvalidate\fP ($uploaded_file, $file, $error, $index)"
+.br
+.ti -1c
+.RI "\fBupcount_name_callback\fP ($matches)"
+.br
+.ti -1c
+.RI "\fBupcount_name\fP ($name)"
+.br
+.ti -1c
+.RI "\fBget_unique_filename\fP ($file_path, $name, $size, $type, $error, $index, $content_range)"
+.br
+.ti -1c
+.RI "\fBtrim_file_name\fP ($file_path, $name, $size, $type, $error, $index, $content_range)"
+.br
+.ti -1c
+.RI "\fBget_file_name\fP ($file_path, $name, $size, $type, $error, $index, $content_range)"
+.br
+.ti -1c
+.RI "\fBhandle_form_data\fP ($file, $index)"
+.br
+.ti -1c
+.RI "\fBget_scaled_image_file_paths\fP ($file_name, $version)"
+.br
+.ti -1c
+.RI "\fBgd_get_image_object\fP ($file_path, $func, $no_cache=false)"
+.br
+.ti -1c
+.RI "\fBgd_set_image_object\fP ($file_path, $image)"
+.br
+.ti -1c
+.RI "\fBgd_destroy_image_object\fP ($file_path)"
+.br
+.ti -1c
+.RI "\fBgd_imageflip\fP ($image, $mode)"
+.br
+.ti -1c
+.RI "\fBgd_orient_image\fP ($file_path, $src_img)"
+.br
+.ti -1c
+.RI "\fBgd_create_scaled_image\fP ($file_name, $version, $options)"
+.br
+.ti -1c
+.RI "\fBimagick_get_image_object\fP ($file_path, $no_cache=false)"
+.br
+.ti -1c
+.RI "\fBimagick_set_image_object\fP ($file_path, $image)"
+.br
+.ti -1c
+.RI "\fBimagick_destroy_image_object\fP ($file_path)"
+.br
+.ti -1c
+.RI "\fBimagick_orient_image\fP ($image)"
+.br
+.ti -1c
+.RI "\fBimagick_create_scaled_image\fP ($file_name, $version, $options)"
+.br
+.ti -1c
+.RI "\fBimagemagick_create_scaled_image\fP ($file_name, $version, $options)"
+.br
+.ti -1c
+.RI "\fBget_image_size\fP ($file_path)"
+.br
+.ti -1c
+.RI "\fBcreate_scaled_image\fP ($file_name, $version, $options)"
+.br
+.ti -1c
+.RI "\fBdestroy_image_object\fP ($file_path)"
+.br
+.ti -1c
+.RI "\fBis_valid_image_file\fP ($file_path)"
+.br
+.ti -1c
+.RI "\fBhandle_image_file\fP ($file_path, $file)"
+.br
+.ti -1c
+.RI "\fBhandle_file_upload\fP ($uploaded_file, $name, $size, $type, $error, $index=null, $content_range=null)"
+.br
+.ti -1c
+.RI "\fBreadfile\fP ($file_path)"
+.br
+.ti -1c
+.RI "\fBbody\fP ($str)"
+.br
+.ti -1c
+.RI "\fBheader\fP ($str)"
+.br
+.ti -1c
+.RI "\fBget_server_var\fP ($id)"
+.br
+.ti -1c
+.RI "\fBgenerate_response\fP ($content, $print_response=true)"
+.br
+.ti -1c
+.RI "\fBget_version_param\fP ()"
+.br
+.ti -1c
+.RI "\fBget_singular_param_name\fP ()"
+.br
+.ti -1c
+.RI "\fBget_file_name_param\fP ()"
+.br
+.ti -1c
+.RI "\fBget_file_names_params\fP ()"
+.br
+.ti -1c
+.RI "\fBget_file_type\fP ($file_path)"
+.br
+.ti -1c
+.RI "\fBdownload\fP ()"
+.br
+.ti -1c
+.RI "\fBsend_content_type_header\fP ()"
+.br
+.ti -1c
+.RI "\fBsend_access_control_headers\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$options\fP"
+.br
+.ti -1c
+.RI "\fB$error_messages\fP"
+.br
+.ti -1c
+.RI "\fB$image_objects\fP = array()"
+.br
+.in -1c
+.SH "Field Documentation"
+.PP 
+.SS "$error_messages\fC [protected]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= array(
+        1 => 'The uploaded file exceeds the upload_max_filesize directive in php\&.ini',
+        2 => 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form',
+        3 => 'The uploaded file was only partially uploaded',
+        4 => 'No file was uploaded',
+        6 => 'Missing a temporary folder',
+        7 => 'Failed to write file to disk',
+        8 => 'A PHP extension stopped the file upload',
+        'post_max_size' => 'The uploaded file exceeds the post_max_size directive in php\&.ini',
+        'max_file_size' => 'File is too big',
+        'min_file_size' => 'File is too small',
+        'accept_file_types' => 'Filetype not allowed',
+        'max_number_of_files' => 'Maximum number of files exceeded',
+        'max_width' => 'Image exceeds maximum width',
+        'min_width' => 'Image requires a minimum width',
+        'max_height' => 'Image exceeds maximum height',
+        'min_height' => 'Image requires a minimum height'
+    )
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

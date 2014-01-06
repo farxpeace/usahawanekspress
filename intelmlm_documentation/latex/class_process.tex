@@ -1,0 +1,94 @@
+\hypertarget{class_process}{\section{Process Class Reference}
+\label{class_process}\index{Process@{Process}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_process_ad7463a1ff9396bfdf6f11cf8dce44ded}{Process} ()
+\item 
+\hyperlink{class_process_af8ad635cb32feec7dcf8fdefe9d67522}{proc\-Login} (\$user=null, \$pass=null, \$remember=null)
+\item 
+\hypertarget{class_process_a9bf01d584caadb8b412c8b7128b6bce8}{{\bfseries proc\-Login\-Fb} ()}\label{class_process_a9bf01d584caadb8b412c8b7128b6bce8}
+
+\item 
+\hyperlink{class_process_a467c1d15e6cb47060d4bcc912323d6cd}{proc\-Logout} ()
+\item 
+\hyperlink{class_process_a2cb0b7d799df56ee15a45684b1fd2623}{proc\-Register} ()
+\item 
+\hyperlink{class_process_a87a3f17ae4a46b17c382af3a2b941d21}{proc\-Forgot\-Pass} ()
+\item 
+\hyperlink{class_process_af9535bd1808749999db55aa9fe1d625f}{proc\-Edit\-Account} ()
+\item 
+\hyperlink{class_process_a352ebfbee83dedb3e1b65c1c50509c6b}{proc\-Send\-Confirm} ()
+\item 
+\hypertarget{class_process_a97783e91b1b1fce68870006b5366b6fa}{{\bfseries proc\-Hash\-Login} (\$hash)}\label{class_process_a97783e91b1b1fce68870006b5366b6fa}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Process.\-php
+
+The \hyperlink{class_process}{Process} class is meant to simplify the task of processing user submitted forms, redirecting the user to the correct pages if errors are found, or if form is successful, either way. Also handles the logout procedure.
+
+Written by\-: Jpmaster77 a.\-k.\-a. The Grandmaster of C++ (G\-M\-C) Last Updated\-: June 15, 2011 by Ivan Novak 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_process_af9535bd1808749999db55aa9fe1d625f}{\index{Process@{Process}!proc\-Edit\-Account@{proc\-Edit\-Account}}
+\index{proc\-Edit\-Account@{proc\-Edit\-Account}!Process@{Process}}
+\subsubsection[{proc\-Edit\-Account}]{\setlength{\rightskip}{0pt plus 5cm}proc\-Edit\-Account (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_process_af9535bd1808749999db55aa9fe1d625f}
+proc\-Edit\-Account -\/ Attempts to edit the user's account information, including the password, which must be verified before a change is made. \hypertarget{class_process_ad7463a1ff9396bfdf6f11cf8dce44ded}{\index{Process@{Process}!Process@{Process}}
+\index{Process@{Process}!Process@{Process}}
+\subsubsection[{Process}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Process} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_process_ad7463a1ff9396bfdf6f11cf8dce44ded}
+The only other reason user should be directed here is if he wants to logout, which means user is logged in currently.
+
+Should not get here, which means user is viewing this page by mistake and therefore is redirected.\hypertarget{class_process_a87a3f17ae4a46b17c382af3a2b941d21}{\index{Process@{Process}!proc\-Forgot\-Pass@{proc\-Forgot\-Pass}}
+\index{proc\-Forgot\-Pass@{proc\-Forgot\-Pass}!Process@{Process}}
+\subsubsection[{proc\-Forgot\-Pass}]{\setlength{\rightskip}{0pt plus 5cm}proc\-Forgot\-Pass (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_process_a87a3f17ae4a46b17c382af3a2b941d21}
+proc\-Forgot\-Pass -\/ Validates the given username then if everything is fine, a new password is generated and emailed to the address the user gave on sign up. \hypertarget{class_process_af8ad635cb32feec7dcf8fdefe9d67522}{\index{Process@{Process}!proc\-Login@{proc\-Login}}
+\index{proc\-Login@{proc\-Login}!Process@{Process}}
+\subsubsection[{proc\-Login}]{\setlength{\rightskip}{0pt plus 5cm}proc\-Login (
+\begin{DoxyParamCaption}
+\item[{}]{\$user = {\ttfamily null}, }
+\item[{}]{\$pass = {\ttfamily null}, }
+\item[{}]{\$remember = {\ttfamily null}}
+\end{DoxyParamCaption}
+)}}\label{class_process_af8ad635cb32feec7dcf8fdefe9d67522}
+proc\-Login -\/ Processes the user submitted login form, if errors are found, the user is redirected to correct the information, if not, the user is effectively logged in to the system. \hypertarget{class_process_a467c1d15e6cb47060d4bcc912323d6cd}{\index{Process@{Process}!proc\-Logout@{proc\-Logout}}
+\index{proc\-Logout@{proc\-Logout}!Process@{Process}}
+\subsubsection[{proc\-Logout}]{\setlength{\rightskip}{0pt plus 5cm}proc\-Logout (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_process_a467c1d15e6cb47060d4bcc912323d6cd}
+proc\-Logout -\/ Simply attempts to log the user out of the system given that there is no logout form to process. \hypertarget{class_process_a2cb0b7d799df56ee15a45684b1fd2623}{\index{Process@{Process}!proc\-Register@{proc\-Register}}
+\index{proc\-Register@{proc\-Register}!Process@{Process}}
+\subsubsection[{proc\-Register}]{\setlength{\rightskip}{0pt plus 5cm}proc\-Register (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_process_a2cb0b7d799df56ee15a45684b1fd2623}
+proc\-Register -\/ Processes the user submitted registration form, if errors are found, the user is redirected to correct the information, if not, the user is effectively registered with the system and an email is (optionally) sent to the newly created user. \hypertarget{class_process_a352ebfbee83dedb3e1b65c1c50509c6b}{\index{Process@{Process}!proc\-Send\-Confirm@{proc\-Send\-Confirm}}
+\index{proc\-Send\-Confirm@{proc\-Send\-Confirm}!Process@{Process}}
+\subsubsection[{proc\-Send\-Confirm}]{\setlength{\rightskip}{0pt plus 5cm}proc\-Send\-Confirm (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_process_a352ebfbee83dedb3e1b65c1c50509c6b}
+proc\-Send\-Confirm -\/ only needs to be used if the administrator changes the E\-M\-A\-I\-L\-\_\-\-W\-E\-L\-C\-O\-M\-E from false to true and wants the users to confirm themselves. (why not?!) 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/xampp/htdocs/usahawanekspress.\-com/process.\-php\end{DoxyCompactItemize}

@@ -1,0 +1,58 @@
+\hyperlink{class_facebook}{Facebook} P\-H\-P S\-D\-K (v.\-3.\-2.\-3)
+
+The \href{http://developers.facebook.com/}{\tt Facebook Platform} is a set of A\-P\-Is that make your app more social.
+
+This repository contains the open source P\-H\-P S\-D\-K that allows you to access \hyperlink{class_facebook}{Facebook} Platform from your P\-H\-P app. Except as otherwise noted, the \hyperlink{class_facebook}{Facebook} P\-H\-P S\-D\-K is licensed under the Apache Licence, Version 2.\-0 (\href{http://www.apache.org/licenses/LICENSE-2.0.html}{\tt http\-://www.\-apache.\-org/licenses/\-L\-I\-C\-E\-N\-S\-E-\/2.\-0.\-html}).
+
+\subsection*{Usage }
+
+The \href{/examples/example.php}{\tt examples} are a good place to start. The minimal you'll need to have is\-: ```php require 'facebook-\/php-\/sdk/src/facebook.\-php';
+
+\$facebook = new \hyperlink{class_facebook}{Facebook}(array( 'app\-Id' =$>$ 'Y\-O\-U\-R\-\_\-\-A\-P\-P\-\_\-\-I\-D', 'secret' =$>$ 'Y\-O\-U\-R\-\_\-\-A\-P\-P\-\_\-\-S\-E\-C\-R\-E\-T', ));
+
+// Get User I\-D \$user = \$facebook-\/$>$get\-User(); ```
+
+To make \href{http://developers.facebook.com/docs/api}{\tt A\-P\-I} calls\-: ```php if (\$user) \{ try \{ // Proceed knowing you have a logged in user who's authenticated. \$user\-\_\-profile = \$facebook-\/$>$api('/me'); \} catch (\hyperlink{class_facebook_api_exception}{Facebook\-Api\-Exception} \$e) \{ error\-\_\-log(\$e); \$user = null; \} \} ```
+
+You can make api calls by choosing the {\ttfamily H\-T\-T\-P method} and setting optional {\ttfamily parameters}\-: ```php \$facebook-\/$>$api('/me/feed/', 'post', array( 'message' =$>$ 'I want to display this message on my wall' )); ```
+
+Login or logout url will be needed depending on current user state. ```php if (\$user) \{ \$logout\-Url = \$facebook-\/$>$get\-Logout\-Url(); \} else \{ \$login\-Url = \$facebook-\/$>$get\-Login\-Url(); \} ```
+
+With Composer\-:
+
+
+\begin{DoxyItemize}
+\item Add the {\ttfamily \char`\"{}facebook/php-\/sdk\char`\"{}\-: \char`\"{}\textbackslash{}@stable\char`\"{}} into the {\ttfamily require} section of your {\ttfamily composer.\-json}.
+\item Run {\ttfamily composer install}.
+\item The example will look like
+\end{DoxyItemize}
+
+```php if ((\$loader = require\-\_\-once {\bfseries D\-I\-R} . '/vendor/autoload.php') == null) \{ die('Vendor directory not found, Please run composer install.'); \}
+
+\$facebook = new \hyperlink{class_facebook}{Facebook}(array( 'app\-Id' =$>$ 'Y\-O\-U\-R\-\_\-\-A\-P\-P\-\_\-\-I\-D', 'secret' =$>$ 'Y\-O\-U\-R\-\_\-\-A\-P\-P\-\_\-\-S\-E\-C\-R\-E\-T', ));
+
+// Get User I\-D \$user = \$facebook-\/$>$get\-User(); ```
+
+T$<$h2$>$ests 
+
+In order to keep us nimble and allow us to bring you new functionality, without compromising on stability, we have ensured full test coverage of the S\-D\-K. We are including this in the open source repository to assure you of our commitment to quality, but also with the hopes that you will contribute back to help keep it stable. The easiest way to do so is to file bugs and include a test case.
+
+The tests can be executed by using this command from the base directory\-: \begin{DoxyVerb}phpunit --stderr --bootstrap tests/bootstrap.php tests/tests.php
+\end{DoxyVerb}
+
+
+\section*{Contributing }
+
+For us to accept contributions you will have to first have signed the \href{https://developers.facebook.com/opensource/cla}{\tt Contributor License Agreement}.
+
+When commiting, keep all lines to less than 80 characters, and try to follow the existing style.
+
+Before creating a pull request, squash your commits into a single commit.
+
+Add the comments where needed, and provide ample explanation in the commit message.
+
+\section*{Report Issues/\-Bugs }
+
+\href{https://developers.facebook.com/bugs}{\tt Bugs}
+
+\href{http://facebook.stackoverflow.com}{\tt Questions} 

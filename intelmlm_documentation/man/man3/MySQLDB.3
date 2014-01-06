@@ -1,0 +1,260 @@
+.TH "MySQLDB" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MySQLDB \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMySQLDB\fP ()"
+.br
+.ti -1c
+.RI "\fBprocess_level_constants\fP ()"
+.br
+.ti -1c
+.RI "\fBprocess_db_active_users\fP ()"
+.br
+.ti -1c
+.RI "\fBgetAllMetaValueByRef\fP ($ref)"
+.br
+.ti -1c
+.RI "\fBgetAllIdMetaValueByRef\fP ($ref)"
+.br
+.ti -1c
+.RI "\fBgetAllValueByRef\fP ($ref)"
+.br
+.ti -1c
+.RI "\fBgetAllValueByRefAndMeta\fP ($ref, $meta)"
+.br
+.ti -1c
+.RI "\fBgetSingleValueByMetaAndRef\fP ($ref, $meta)"
+.br
+.ti -1c
+.RI "\fBgetSingleColumnById\fP ($userid, $column)"
+.br
+.ti -1c
+.RI "\fBgetSingleIdByMetaAndRef\fP ($ref, $meta)"
+.br
+.ti -1c
+.RI "\fBgetSingleMetaByRefAndValue\fP ($ref, $value)"
+.br
+.ti -1c
+.RI "\fBprocess_db_users\fP ()"
+.br
+.ti -1c
+.RI "\fBprocess_db_active_guest\fP ()"
+.br
+.ti -1c
+.RI "\fBprocess_db_banned_users\fP ()"
+.br
+.ti -1c
+.RI "\fBprocess_db_mail\fP ()"
+.br
+.ti -1c
+.RI "\fBprocess_track_visitors\fP ()"
+.br
+.ti -1c
+.RI "\fBprocess_user_timeout\fP ()"
+.br
+.ti -1c
+.RI "\fBprocess_db_ads\fP ()"
+.br
+.ti -1c
+.RI "\fBconfirmUserPass\fP ($username, $password)"
+.br
+.ti -1c
+.RI "\fBconfirmUserID\fP ($username, $userid)"
+.br
+.ti -1c
+.RI "\fBusernameTaken\fP ($username)"
+.br
+.ti -1c
+.RI "\fBemailTaken\fP ($email)"
+.br
+.ti -1c
+.RI "\fBusernameBanned\fP ($username)"
+.br
+.ti -1c
+.RI "\fBaddNewUserByEmail\fP ($email, $password)"
+.br
+.ti -1c
+.RI "\fBaddNewUser\fP ($username, $password, $email, $userid, $name)"
+.br
+.ti -1c
+.RI "\fBupdateUserField\fP ($username, $field, $value)"
+.br
+.ti -1c
+.RI "\fBupdateUserFieldById\fP ($user_id, $field, $value)"
+.br
+.ti -1c
+.RI "\fBgetUserInfo\fP ($username)"
+.br
+.ti -1c
+.RI "\fBgetUserInfoById\fP ($uid)"
+.br
+.ti -1c
+.RI "\fBgetSingleUserDetailById\fP ($uid, $column)"
+.br
+.ti -1c
+.RI "\fBgetUserInfo_by_id\fP ($id)"
+.br
+.ti -1c
+.RI "\fBinsert\fP ($tbl_name, $array)"
+.br
+.ti -1c
+.RI "\fBupdate\fP ($tbl_name, $array)"
+.br
+.ti -1c
+.RI "\fBgetSingle\fP ($tbl_name, $statement)"
+.br
+.ti -1c
+.RI "\fBgetUserInfoFromHash\fP ($hash)"
+.br
+.ti -1c
+.RI "\fBget_allvalue_by_ref\fP ($ref)"
+.br
+.ti -1c
+.RI "\fBget_all_role_by_roleid\fP ($roleid)"
+.br
+.ti -1c
+.RI "\fBgetNumMembers\fP ()"
+.br
+.ti -1c
+.RI "\fBgetNumMembersVerified\fP ()"
+.br
+.ti -1c
+.RI "\fBcalcNumActiveUsers\fP ()"
+.br
+.ti -1c
+.RI "\fBcalcNumActiveGuests\fP ()"
+.br
+.ti -1c
+.RI "\fBaddActiveUser\fP ($username, $time)"
+.br
+.ti -1c
+.RI "\fBaddActiveGuest\fP ($ip, $time)"
+.br
+.ti -1c
+.RI "\fBremoveActiveUser\fP ($username)"
+.br
+.ti -1c
+.RI "\fBremoveActiveGuest\fP ($ip)"
+.br
+.ti -1c
+.RI "\fBremoveInactiveUsers\fP ()"
+.br
+.ti -1c
+.RI "\fBremoveInactiveGuests\fP ()"
+.br
+.ti -1c
+.RI "\fBquery\fP ($query)"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB$connection\fP"
+.br
+.ti -1c
+.RI "\fB$num_active_users\fP"
+.br
+.ti -1c
+.RI "\fB$num_active_guests\fP"
+.br
+.ti -1c
+.RI "\fB$num_members\fP"
+.br
+.ti -1c
+.RI "\fB$tbl_settings\fP"
+.br
+.ti -1c
+.RI "\fB$tbl_users_name\fP"
+.br
+.ti -1c
+.RI "\fB$tbl_active_users_name\fP"
+.br
+.ti -1c
+.RI "\fB$tbl_active_guest_name\fP"
+.br
+.ti -1c
+.RI "\fB$tbl_banned_users_name\fP"
+.br
+.ti -1c
+.RI "\fB$tbl_mail_name\fP"
+.br
+.ti -1c
+.RI "\fB$tbl_transaction\fP"
+.br
+.ti -1c
+.RI "\fB$tbl_transaction_meta\fP"
+.br
+.ti -1c
+.RI "\fB$const_track_visitors\fP"
+.br
+.ti -1c
+.RI "\fB$const_user_timeout\fP"
+.br
+.ti -1c
+.RI "\fB$const_thm_img\fP"
+.br
+.ti -1c
+.RI "\fB$admin_name\fP"
+.br
+.ti -1c
+.RI "\fB$guest_name\fP"
+.br
+.ti -1c
+.RI "\fB$level_constants\fP = array()"
+.br
+.ti -1c
+.RI "\fB$login_using\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Database\&.php
+.PP
+The Database class is meant to simplify the task of accessing information from the website's database\&.
+.PP
+Written by: Jpmaster77 a\&.k\&.a\&. The Grandmaster of C++ (GMC) Last Updated: June 15, 2011 by Ivan Novak 
+.SH "Member Function Documentation"
+.PP 
+.SS "addActiveUser ($username, $time)"
+addActiveUser - Updates username's last active timestamp in the database, and also adds him to the table of active users, or updates timestamp if already there\&. 
+.SS "addNewUser ($username, $password, $email, $userid, $name)"
+addNewUser - Inserts the given (username, password, email) info into the database\&. Appropriate user level is set\&. Returns true on success, false otherwise\&. 
+.SS "calcNumActiveGuests ()"
+calcNumActiveGuests - Finds out how many active guests are viewing site and sets class variable accordingly\&. 
+.SS "calcNumActiveUsers ()"
+calcNumActiveUsers - Finds out how many active users are viewing site and sets class variable accordingly\&. 
+.SS "confirmUserID ($username, $userid)"
+confirmUserID - Checks whether or not the given username is in the database, if so it checks if the given userid is the same userid in the database for that user\&. If the user doesn't exist or if the userids don't match up, it returns an error code (1 or 2)\&. On success it returns 0\&. 
+.SS "confirmUserPass ($username, $password)"
+confirmUserPass - Checks whether or not the given username is in the database, if so it checks if the given password is the same password in the database for that user\&. If the user doesn't exist or if the passwords don't match up, it returns an error code (1 or 2)\&. On success it returns 0\&. 
+.SS "emailTaken ($email)"
+emailTaken - Returns true if the email has been taken by another user, false otherwise\&. 
+.SS "getNumMembers ()"
+getNumMembers - Returns the number of signed-up users of the website, banned members not included\&. The first time the function is called on page load, the database is queried, on subsequent calls, the stored result is returned\&. This is to improve efficiency, effectively not querying the database when no call is made\&. 
+.SS "getUserInfo ($username)"
+getUserInfo - Returns the result array from a mysql query asking for all information stored regarding the given username\&. If query fails, NULL is returned\&. 
+.SS "\fBMySQLDB\fP ()"
+Only query database to find out number of members when \fBgetNumMembers()\fP is called for the first time, until then, default value set\&.
+.SS "query ($query)"
+query - Performs the given query on the database and returns the result, which may be false, true or a resource identifier\&. 
+.SS "updateUserField ($username, $field, $value)"
+updateUserField - Updates a field, specified by the field parameter, in the user's row of the database\&. 
+.SS "updateUserFieldById ($user_id, $field, $value)"
+updateUserFieldById - Updates a field, specified by the field parameter, in the user's row of the database\&. 
+.SS "usernameBanned ($username)"
+usernameBanned - Returns true if the username has been banned by the administrator\&. 
+.SS "usernameTaken ($username)"
+usernameTaken - Returns true if the username has been taken by another user, false otherwise\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

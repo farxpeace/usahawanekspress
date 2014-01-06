@@ -1,0 +1,25 @@
+We try our best to keep \hyperlink{class_zero_clipboard}{Zero\-Clipboard} secure but there are some rules that you should follow to keep your site safe.
+
+\paragraph*{Rules}
+
+Basically, if an attacker gets access to the main window/global object via an X\-S\-S exploit, it's pretty much an instant \char`\"{}\-G\-A\-M\-E O\-V\-E\-R\char`\"{} unless {\bfseries A\-L\-L} of the following are true\-:
+\begin{DoxyEnumerate}
+\item The {\ttfamily \hyperlink{class_zero_clipboard}{Zero\-Clipboard}} object itself is not globally accessible.
+\item The {\ttfamily Zero\-Clipboard.\-prototype} object itself is not globally accessible.
+\item No {\ttfamily \hyperlink{class_zero_clipboard}{Zero\-Clipboard}} instances are globally accessible.
+\item No callback functions for dispatched \hyperlink{class_zero_clipboard}{Zero\-Clipboard} events are globally accessible.
+\item If a variable is used to set the path to the S\-W\-F via {\ttfamily Zero\-Clipboard\-::set\-Defaults}, that variable must not be globally accessible.
+\end{DoxyEnumerate}
+
+\paragraph*{Examples}
+
+
+\begin{DoxyEnumerate}
+\item Having {\ttfamily \hyperlink{class_zero_clipboard}{Zero\-Clipboard}} instances globally accessible (versus encapsulated in a closure). This allows an attacker to manually call a client's {\ttfamily set\-Text} method and inject their own text.
+\item As with all globally accessible functions in Java\-Script, any globally accessible callback functions (hooked to events) can be overridden by an attacker. This isn't terribly dangerous but could be annoying.
+\item Overriding any of the {\ttfamily \hyperlink{class_zero_clipboard}{Zero\-Clipboard}} or {\ttfamily Zero\-Clipboard.\-prototype} properties or methods, if globally accessible.
+\end{DoxyEnumerate}
+
+\subsubsection*{Responsible Disclosure}
+
+If you find any security holes, please submit a pull request, or file an issue. We will be very appreciative. 

@@ -1,0 +1,31 @@
+j\-Query Clipboard plugin\-: copy any text to the user's clipboard. Implements \hyperlink{class_zero_clipboard}{Zero\-Clipboard} over the j\-Query plugin layer.
+
+\subsection*{Usage}
+
+\subsubsection*{1. Include Scripts}
+
+```html $<$script type=\char`\"{}text/javascript\char`\"{} src=\char`\"{}/path/to/javascripts/jquery.\-js\char`\"{}$>$$<$/script$>$ $<$script type=\char`\"{}text/javascript\char`\"{} src=\char`\"{}/path/to/javascripts/jquery.\-clipboard.\-js\char`\"{}$>$$<$/script$>$ ```
+
+{\bfseries Important\-: please check that you are using at least j\-Query 1.\-7 -\/ j\-Query Clipboard won't work with versions below!}
+
+\subsubsection*{2. Apply On An Element}
+
+```javascript .ready(function() \{ var copy\-\_\-sel = \$('.code-\/block a.\-code-\/copy');
+
+// Disables other default handlers on click (avoid issues) copy\-\_\-sel.\-on('click', function(e) \{ e.\-prevent\-Default(); \});
+
+// Apply clipboard click event copy\-\_\-sel.\-clipboard(\{ path\-: '/path/to/flashes/jquery.clipboard.\-swf',
+
+copy\-: function() \{ var this\-\_\-sel = ;
+
+// Hide \char`\"{}\-Copy\char`\"{} and show \char`\"{}\-Copied, copy again?\char`\"{} message in link this\-\_\-sel.\-find('.code-\/copy-\/first').hide(); this\-\_\-sel.\-find('.code-\/copy-\/done').show();
+
+// Return text in closest element (useful when you have multiple boxes that can be copied) return this\-\_\-sel.\-closest('.code-\/block').text(); \} \}); \}); ```
+
+\subsubsection*{3. More Docs}
+
+More docs can be found on \href{http://www.steamdev.com/zclip/}{\tt http\-://www.\-steamdev.\-com/zclip/}
+
+I wrote a tutorial about j\-Query Clipboard at \href{https://waaave.com/tutorial/jquery/copy-text-to-clipboard-using-jquery/}{\tt https\-://waaave.\-com/tutorial/jquery/copy-\/text-\/to-\/clipboard-\/using-\/jquery/}
+
+j\-Query Clipboard is mostly based on j\-Query.\-z\-Clip, the plugin A\-P\-Is remain barely the same. 

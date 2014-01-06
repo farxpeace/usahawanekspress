@@ -1,0 +1,57 @@
+\hypertarget{class_mailer}{\section{Mailer Class Reference}
+\label{class_mailer}\index{Mailer@{Mailer}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_mailer_a1636e334cc144b77045a4211825b1108}{send\-Welcome} (\$user, \$email, \$pass, \$userid)
+\item 
+\hyperlink{class_mailer_a54ab908230a26d272d9ec0544c94703b}{send\-Confirmation} (\$user, \$userid, \$email)
+\item 
+\hyperlink{class_mailer_a97be2ba9193174f321abba5581711717}{send\-New\-Pass} (\$user, \$email, \$pass)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Mailer.\-php
+
+The \hyperlink{class_mailer}{Mailer} class is meant to simplify the task of sending emails to users. Note\-: this email system will not work if your server is not setup to send mail.
+
+If you are running Windows and want a mail server, check out this website to see a list of freeware programs\-: \href{http://www.snapfiles.com/freeware/server/fwmailserver.html}{\tt http\-://www.\-snapfiles.\-com/freeware/server/fwmailserver.\-html}
+
+Written by\-: Jpmaster77 a.\-k.\-a. The Grandmaster of C++ (G\-M\-C) Last Updated\-: June 15, 2011 by Ivan Novak 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_mailer_a54ab908230a26d272d9ec0544c94703b}{\index{Mailer@{Mailer}!send\-Confirmation@{send\-Confirmation}}
+\index{send\-Confirmation@{send\-Confirmation}!Mailer@{Mailer}}
+\subsubsection[{send\-Confirmation}]{\setlength{\rightskip}{0pt plus 5cm}send\-Confirmation (
+\begin{DoxyParamCaption}
+\item[{}]{\$user, }
+\item[{}]{\$userid, }
+\item[{}]{\$email}
+\end{DoxyParamCaption}
+)}}\label{class_mailer_a54ab908230a26d272d9ec0544c94703b}
+send\-Confirmation -\/ Sends a confirmation to users who click a \char`\"{}\-Send confirmation\char`\"{} button. This only needs to be used if the E\-M\-A\-I\-L\-\_\-\-W\-E\-L\-C\-O\-M\-E constant is changed to true and the user's 'valid' field is 0 \hypertarget{class_mailer_a97be2ba9193174f321abba5581711717}{\index{Mailer@{Mailer}!send\-New\-Pass@{send\-New\-Pass}}
+\index{send\-New\-Pass@{send\-New\-Pass}!Mailer@{Mailer}}
+\subsubsection[{send\-New\-Pass}]{\setlength{\rightskip}{0pt plus 5cm}send\-New\-Pass (
+\begin{DoxyParamCaption}
+\item[{}]{\$user, }
+\item[{}]{\$email, }
+\item[{}]{\$pass}
+\end{DoxyParamCaption}
+)}}\label{class_mailer_a97be2ba9193174f321abba5581711717}
+send\-New\-Pass -\/ Sends the newly generated password to the user's email address that was specified at sign-\/up. \hypertarget{class_mailer_a1636e334cc144b77045a4211825b1108}{\index{Mailer@{Mailer}!send\-Welcome@{send\-Welcome}}
+\index{send\-Welcome@{send\-Welcome}!Mailer@{Mailer}}
+\subsubsection[{send\-Welcome}]{\setlength{\rightskip}{0pt plus 5cm}send\-Welcome (
+\begin{DoxyParamCaption}
+\item[{}]{\$user, }
+\item[{}]{\$email, }
+\item[{}]{\$pass, }
+\item[{}]{\$userid}
+\end{DoxyParamCaption}
+)}}\label{class_mailer_a1636e334cc144b77045a4211825b1108}
+send\-Welcome -\/ Sends a welcome message to the newly registered user, also supplying the username and password. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/xampp/htdocs/usahawanekspress.\-com/intelmlm\-\_\-include/mailer.\-php\end{DoxyCompactItemize}

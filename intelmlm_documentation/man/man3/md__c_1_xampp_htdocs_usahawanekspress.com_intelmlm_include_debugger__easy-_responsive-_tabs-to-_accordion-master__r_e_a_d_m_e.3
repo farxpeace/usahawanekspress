@@ -1,0 +1,95 @@
+.TH "md__c_1_xampp_htdocs_usahawanekspress.com_intelmlm_include_debugger__easy-_responsive-_tabs-to-_accordion-master__r_e_a_d_m_e" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__c_1_xampp_htdocs_usahawanekspress.com_intelmlm_include_debugger__easy-_responsive-_tabs-to-_accordion-master__r_e_a_d_m_e \- Easy Responsive Tabs to Accordion 
+Easy responsive tabs - is a lightweight jQuery plugin which optimizes normal horizontal or vertical tabs to accordion on multi devices like: web, tablets, Mobile (IPad & IPhone)\&. This plugin adapts the screen size and changes its form accordingly\&.
+.PP
+.SH "Features "
+.PP
+.PP
+.IP "\(bu" 2
+Horizontal / Vertical Tabs to Accordion
+.IP "\(bu" 2
+Tabs and accordion are created entirely with jQuery
+.IP "\(bu" 2
+Supports multiple sets of tabs on same page
+.IP "\(bu" 2
+Cross browser compatibility (IE7+, Chrome, Firefox, Safari and Opera)
+.IP "\(bu" 2
+Multi device support (Web, Tablets & Mobile)
+.IP "\(bu" 2
+Link directly to specified tab (works with multiple instances)
+.IP "\(bu" 2
+Maintains state of tabs when navigating away from page and then returning using back or forward (if browser supports the History API)
+.PP
+.PP
+.SH "Demo "
+.PP
+.PP
+http://webtrendset.com/demo/easy-responsive-tabs/Index.html
+.PP
+.SH "How to use "
+.PP
+.PP
+=> Included jQuery file (minimum jQuery-1\&.5\&.1\&.min\&.js) => Included easyResponsiveTabs\&.js => Include responsive-tabs\&.css
+.PP
+=> Here is the Markup for Tabs structure: 
+.PP
+.nf
+    <div id="demoTab">          
+        <ul class="resp-tabs-list">
+            <li> .... </li>
+            <li> .... </li>
+            <li> .... </li>
+        </ul> 
+
+        <div class="resp-tabs-container">                                                        
+            <div> ....... </div>
+            <div> ....... </div>
+            <div> ....... </div>
+        </div>
+    </div>    
+
+.fi
+.PP
+.PP
+=> Call the easyResponsiveTabs function: 
+.PP
+.nf
+    $('#demoTab').easyResponsiveTabs();
+
+.fi
+.PP
+.PP
+=> With optional parameters: 
+.PP
+.nf
+    $("#demoTab").easyResponsiveTabs({
+        type: 'default', //Types: default, vertical, accordion           
+        width: 'auto', //auto or any custom width
+        fit: true,   // 100% fits in a container
+        closed: false, // Close the panels on start, the options 'accordion' and 'tabs' keep them closed in there respective view types
+        activate: function() {}  // Callback function, gets called if tab is switched
+    });
+
+.fi
+.PP
+.PP
+=> Linking to Tabs: 
+.PP
+.nf
+    http://yoursite.com/tabs.html#{TAB ID}{TAB NUM}
+    http://yoursite.com/tabs.html#demoTab2
+
+    Multiple Instances:
+    http://yoursite.com/tabs.html#{TAB ID 1}{TAB NUM}|{TAB ID 2}{TAB NUM}
+    http://yoursite.com/tabs.html#demoTab2|demoTwo3
+
+.fi
+.PP
+.PP
+.SH "For any support "
+.PP
+.PP
+Samson Email: samson3d@gmail.com 

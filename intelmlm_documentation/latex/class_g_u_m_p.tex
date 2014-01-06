@@ -1,0 +1,1205 @@
+\hypertarget{class_g_u_m_p}{\section{G\-U\-M\-P Class Reference}
+\label{class_g_u_m_p}\index{G\-U\-M\-P@{G\-U\-M\-P}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_g_u_m_p_a7516ca30af0db3cdbf9a7739b48ce91d}{\-\_\-\-\_\-to\-String} ()
+\item 
+\hyperlink{class_g_u_m_p_a354d3acca966ef3024c232c5407be5b3}{validation\-\_\-rules} (array \$rules=array())
+\item 
+\hyperlink{class_g_u_m_p_a2bd0648ee20d7e3ea6724aca14b13688}{filter\-\_\-rules} (array \$rules=array())
+\item 
+\hyperlink{class_g_u_m_p_a20339b554173f073411416cfe873bd2f}{run} (array \$data, \$check\-\_\-fields=false)
+\item 
+\hyperlink{class_g_u_m_p_ae55245a7180563ac0eabf7d2552280dc}{sanitize} (array \$input, \$fields=N\-U\-L\-L, \$utf8\-\_\-encode=true)
+\item 
+\hyperlink{class_g_u_m_p_adab0d6dea21cca5e7097732c8a33b8a5}{errors} ()
+\item 
+\hyperlink{class_g_u_m_p_afd88d3b44353ca2e3d0e2098272b2f3d}{validate} (array \$input, array \$ruleset)
+\item 
+\hyperlink{class_g_u_m_p_a1a958b3553dca2bf4e0e29b66c7c6b2d}{get\-\_\-readable\-\_\-errors} (\$convert\-\_\-to\-\_\-string=false, \$field\-\_\-class=\char`\"{}field\char`\"{}, \$error\-\_\-class=\char`\"{}error-\/message\char`\"{})
+\item 
+\hyperlink{class_g_u_m_p_ae620ae79028fbb2399ff6db7b61cf12c}{filter} (array \$input, array \$filterset)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_g_u_m_p_a1608cd606864586829918c70548b531c}{is\-\_\-valid} (array \$data, array \$validators)
+\item 
+static \hyperlink{class_g_u_m_p_a35f9134929dd4ce61ac865324fa868d3}{filter\-\_\-input} (array \$data, array \$filters)
+\item 
+static \hyperlink{class_g_u_m_p_adb599644af08c8de6f4421138d92ade8}{xss\-\_\-clean} (array \$data)
+\item 
+static \hyperlink{class_g_u_m_p_a07f63e88d5bce265215d0559dbe22f72}{add\-\_\-validator} (\$rule, \$callback)
+\item 
+static \hyperlink{class_g_u_m_p_a77515383df8e2a43b5e9e55051c54369}{add\-\_\-filter} (\$rule, \$callback)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_g_u_m_p_a47bde685875ba3eb99b7c6a7faa9da8d}{static {\bfseries \$basic\-\_\-tags} = \char`\"{}$<$br$>$$<$p$>$$<$a$>$$<$strong$>$$<$b$>$$<$i$>$$<$em$>$$<$img$>$$<$blockquote$>$$<$code$>$$<$dd$>$$<$dl$>$$<$hr$>$$<$h1$>$$<$h2$>$$<$h3$>$$<$h4$>$$<$h5$>$$<$h6$>$$<$label$>$$<$ul$>$$<$li$>$$<$span$>$$<$sub$>$$<$sup$>$\char`\"{}}\label{class_g_u_m_p_a47bde685875ba3eb99b7c6a7faa9da8d}
+
+\item 
+static {\bfseries \$en\-\_\-noise\-\_\-words}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_g_u_m_p_ad17dfb17c7854c7928a488a7768de3d9}{filter\-\_\-noise\-\_\-words} (\$value, \$params=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_ac8f9390932361b18cfd33caac8d294bb}{filter\-\_\-rmpunctuation} (\$value, \$params=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_af05bd442cf962980f42bfa2280711829}{filter\-\_\-sanitize\-\_\-string} (\$value, \$params=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_a760dff939f058032c57e192ae5dce5c7}{filter\-\_\-urlencode} (\$value, \$params=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_ae4920dc6dcf3928104f5c1fb129227eb}{filter\-\_\-htmlencode} (\$value, \$params=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_a87b49affe006c13c092fe46c19c19fce}{filter\-\_\-sanitize\-\_\-email} (\$value, \$params=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_ad5a9851c54274c5feba157f7b5f8274a}{filter\-\_\-sanitize\-\_\-numbers} (\$value, \$params=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_a60946b61ddadd75e9b96fd87a5d9c9f9}{filter\-\_\-basic\-\_\-tags} (\$value, \$params=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_aefa3a07356a551afae8157880be7b091}{validate\-\_\-contains} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_ae7562d5f80c9d0870152758ad7b5b8d7}{validate\-\_\-required} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_af50c6ccf44e78f9be3d3087d93c02db0}{validate\-\_\-valid\-\_\-email} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_a3f433ecd7837ef40aee72eefbba49982}{validate\-\_\-max\-\_\-len} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_a9527495bc292ed914e75cf2da2a7ce99}{validate\-\_\-min\-\_\-len} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_a49a48d0c0c679a723c98f62358bb3e8a}{validate\-\_\-exact\-\_\-len} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_ae18d0fcc69a69683098fb268bacce9f1}{validate\-\_\-alpha} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_a2c8437ead80cdfaf822d69c899760c56}{validate\-\_\-alpha\-\_\-numeric} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_ae2288498543d9fa45bcad7931133f420}{validate\-\_\-alpha\-\_\-dash} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_ac294310c0d1f05c47c01e896cb5b7130}{validate\-\_\-numeric} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_a093380fa4d38a7b942be48d8b43472ab}{validate\-\_\-integer} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_a420118dfbc59681712850e7c293f2fce}{validate\-\_\-boolean} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_a9c7ee13511fe8b60e6b7c8e3ab16b4b1}{validate\-\_\-float} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_aba0f1c60a73a4f9f242048fe3f3c9859}{validate\-\_\-valid\-\_\-url} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_a5fe0a5f166d8868564f95510bfa8af99}{validate\-\_\-url\-\_\-exists} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_a46ec7eab7a2de1ee6a4fb2d0e4871e12}{validate\-\_\-valid\-\_\-ip} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_a634d833eced310a670e330d83ae21940}{validate\-\_\-valid\-\_\-ipv4} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_aa5461994d5742b9b9e2465af704a1fee}{validate\-\_\-valid\-\_\-ipv6} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_ab7930d08a9d5494f44c815ad2c1f4cec}{validate\-\_\-valid\-\_\-cc} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_a0625128cf72a54300069e498de114c0b}{validate\-\_\-valid\-\_\-name} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_aa8f20d01a255ec01907394b07de13560}{validate\-\_\-street\-\_\-address} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_afee5d55818fce5886d26847adc4b2d3c}{validate\-\_\-iban} (\$field, \$input, \$param=N\-U\-L\-L)
+\item 
+\hyperlink{class_g_u_m_p_aab474d17925a66f0ac3a07186dd04cbb}{validate\-\_\-date} (\$field, \$input, \$param=null)
+\item 
+\hyperlink{class_g_u_m_p_aea65bcdfce3803560ffe8e90461e518d}{validate\-\_\-max\-\_\-numeric} (\$field, \$input, \$param=null)
+\item 
+\hyperlink{class_g_u_m_p_a53e9a196911a50a1ea5aa70f689d4d19}{validate\-\_\-min\-\_\-numeric} (\$field, \$input, \$param=null)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_g_u_m_p_abd46aadb9310cf380929cc59082e09c8}{{\bfseries \$validation\-\_\-rules} = array()}\label{class_g_u_m_p_abd46aadb9310cf380929cc59082e09c8}
+
+\item 
+\hypertarget{class_g_u_m_p_abaadef9a387318e61f818d346abc5f96}{{\bfseries \$filter\-\_\-rules} = array()}\label{class_g_u_m_p_abaadef9a387318e61f818d346abc5f96}
+
+\item 
+\hypertarget{class_g_u_m_p_ab24faf4aa647cdcee494fc48524ad4ff}{{\bfseries \$errors} = array()}\label{class_g_u_m_p_ab24faf4aa647cdcee494fc48524ad4ff}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_g_u_m_p_aa52e18a78acb26d7e319bc57c75ed60c}{static {\bfseries \$validation\-\_\-methods} = array()}\label{class_g_u_m_p_aa52e18a78acb26d7e319bc57c75ed60c}
+
+\item 
+\hypertarget{class_g_u_m_p_ab8407a187bf76a61832f6bcb11e3d8a7}{static {\bfseries \$filter\-\_\-methods} = array()}\label{class_g_u_m_p_ab8407a187bf76a61832f6bcb11e3d8a7}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_g_u_m_p}{G\-U\-M\-P} -\/ A fast, extensible P\-H\-P input validation class
+
+\begin{DoxyAuthor}{Author}
+Sean Nieuwoudt (\href{http://twitter.com/SeanNieuwoudt}{\tt http\-://twitter.\-com/\-Sean\-Nieuwoudt}) 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2011 Wixel.\-net \hyperlink{}{1.\-0 }
+\end{DoxyCopyright}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_g_u_m_p_a7516ca30af0db3cdbf9a7739b48ce91d}{\index{G\-U\-M\-P@{G\-U\-M\-P}!\-\_\-\-\_\-to\-String@{\-\_\-\-\_\-to\-String}}
+\index{\-\_\-\-\_\-to\-String@{\-\_\-\-\_\-to\-String}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{\-\_\-\-\_\-to\-String}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-to\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_u_m_p_a7516ca30af0db3cdbf9a7739b48ce91d}
+Magic method to generate the validation error messages
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a77515383df8e2a43b5e9e55051c54369}{\index{G\-U\-M\-P@{G\-U\-M\-P}!add\-\_\-filter@{add\-\_\-filter}}
+\index{add\-\_\-filter@{add\-\_\-filter}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{add\-\_\-filter}]{\setlength{\rightskip}{0pt plus 5cm}static add\-\_\-filter (
+\begin{DoxyParamCaption}
+\item[{}]{\$rule, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_g_u_m_p_a77515383df8e2a43b5e9e55051c54369}
+Adds a custom filter using a callback function
+
+public 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$rule} & \\
+\hline
+callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a07f63e88d5bce265215d0559dbe22f72}{\index{G\-U\-M\-P@{G\-U\-M\-P}!add\-\_\-validator@{add\-\_\-validator}}
+\index{add\-\_\-validator@{add\-\_\-validator}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{add\-\_\-validator}]{\setlength{\rightskip}{0pt plus 5cm}static add\-\_\-validator (
+\begin{DoxyParamCaption}
+\item[{}]{\$rule, }
+\item[{}]{\$callback}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_g_u_m_p_a07f63e88d5bce265215d0559dbe22f72}
+Adds a custom validation rule using a callback function
+
+public 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$rule} & \\
+\hline
+callable & {\em \$callback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_adab0d6dea21cca5e7097732c8a33b8a5}{\index{G\-U\-M\-P@{G\-U\-M\-P}!errors@{errors}}
+\index{errors@{errors}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{errors}]{\setlength{\rightskip}{0pt plus 5cm}errors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_g_u_m_p_adab0d6dea21cca5e7097732c8a33b8a5}
+Return the error array from the last validation run
+
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_ae620ae79028fbb2399ff6db7b61cf12c}{\index{G\-U\-M\-P@{G\-U\-M\-P}!filter@{filter}}
+\index{filter@{filter}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{filter}]{\setlength{\rightskip}{0pt plus 5cm}filter (
+\begin{DoxyParamCaption}
+\item[{array}]{\$input, }
+\item[{array}]{\$filterset}
+\end{DoxyParamCaption}
+)}}\label{class_g_u_m_p_ae620ae79028fbb2399ff6db7b61cf12c}
+Filter the input data according to the specified filter set
+
+public 
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$input} & \\
+\hline
+array & {\em \$filterset} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a60946b61ddadd75e9b96fd87a5d9c9f9}{\index{G\-U\-M\-P@{G\-U\-M\-P}!filter\-\_\-basic\-\_\-tags@{filter\-\_\-basic\-\_\-tags}}
+\index{filter\-\_\-basic\-\_\-tags@{filter\-\_\-basic\-\_\-tags}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{filter\-\_\-basic\-\_\-tags}]{\setlength{\rightskip}{0pt plus 5cm}filter\-\_\-basic\-\_\-tags (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$params = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_a60946b61ddadd75e9b96fd87a5d9c9f9}
+Filter out all H\-T\-M\-L tags except the defined basic tags
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & \\
+\hline
+array & {\em \$params} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_ae4920dc6dcf3928104f5c1fb129227eb}{\index{G\-U\-M\-P@{G\-U\-M\-P}!filter\-\_\-htmlencode@{filter\-\_\-htmlencode}}
+\index{filter\-\_\-htmlencode@{filter\-\_\-htmlencode}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{filter\-\_\-htmlencode}]{\setlength{\rightskip}{0pt plus 5cm}filter\-\_\-htmlencode (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$params = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_ae4920dc6dcf3928104f5c1fb129227eb}
+Sanitize the string by converting H\-T\-M\-L characters to their H\-T\-M\-L entities
+
+Usage\-: '$<$index$>$' =$>$ 'htmlencode'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & \\
+\hline
+array & {\em \$params} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a35f9134929dd4ce61ac865324fa868d3}{\index{G\-U\-M\-P@{G\-U\-M\-P}!filter\-\_\-input@{filter\-\_\-input}}
+\index{filter\-\_\-input@{filter\-\_\-input}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{filter\-\_\-input}]{\setlength{\rightskip}{0pt plus 5cm}static filter\-\_\-input (
+\begin{DoxyParamCaption}
+\item[{array}]{\$data, }
+\item[{array}]{\$filters}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_g_u_m_p_a35f9134929dd4ce61ac865324fa868d3}
+Shorthand method for running only the data filters
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$data} & \\
+\hline
+array & {\em \$filters} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_g_u_m_p_ad17dfb17c7854c7928a488a7768de3d9}{\index{G\-U\-M\-P@{G\-U\-M\-P}!filter\-\_\-noise\-\_\-words@{filter\-\_\-noise\-\_\-words}}
+\index{filter\-\_\-noise\-\_\-words@{filter\-\_\-noise\-\_\-words}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{filter\-\_\-noise\-\_\-words}]{\setlength{\rightskip}{0pt plus 5cm}filter\-\_\-noise\-\_\-words (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$params = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_ad17dfb17c7854c7928a488a7768de3d9}
+Replace noise words in a string (\href{http://tax.cchgroup.com/help/Avoiding_noise_words_in_your_search.htm}{\tt http\-://tax.\-cchgroup.\-com/help/\-Avoiding\-\_\-noise\-\_\-words\-\_\-in\-\_\-your\-\_\-search.\-htm})
+
+Usage\-: '$<$index$>$' =$>$ 'noise\-\_\-words'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & \\
+\hline
+array & {\em \$params} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_ac8f9390932361b18cfd33caac8d294bb}{\index{G\-U\-M\-P@{G\-U\-M\-P}!filter\-\_\-rmpunctuation@{filter\-\_\-rmpunctuation}}
+\index{filter\-\_\-rmpunctuation@{filter\-\_\-rmpunctuation}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{filter\-\_\-rmpunctuation}]{\setlength{\rightskip}{0pt plus 5cm}filter\-\_\-rmpunctuation (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$params = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_ac8f9390932361b18cfd33caac8d294bb}
+Remove all known punctuation from a string
+
+Usage\-: '$<$index$>$' =$>$ 'rmpunctuataion'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & \\
+\hline
+array & {\em \$params} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a2bd0648ee20d7e3ea6724aca14b13688}{\index{G\-U\-M\-P@{G\-U\-M\-P}!filter\-\_\-rules@{filter\-\_\-rules}}
+\index{filter\-\_\-rules@{filter\-\_\-rules}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{filter\-\_\-rules}]{\setlength{\rightskip}{0pt plus 5cm}filter\-\_\-rules (
+\begin{DoxyParamCaption}
+\item[{array}]{\$rules = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}}\label{class_g_u_m_p_a2bd0648ee20d7e3ea6724aca14b13688}
+Getter/\-Setter for the filter rules
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$rules} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a87b49affe006c13c092fe46c19c19fce}{\index{G\-U\-M\-P@{G\-U\-M\-P}!filter\-\_\-sanitize\-\_\-email@{filter\-\_\-sanitize\-\_\-email}}
+\index{filter\-\_\-sanitize\-\_\-email@{filter\-\_\-sanitize\-\_\-email}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{filter\-\_\-sanitize\-\_\-email}]{\setlength{\rightskip}{0pt plus 5cm}filter\-\_\-sanitize\-\_\-email (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$params = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_a87b49affe006c13c092fe46c19c19fce}
+Sanitize the string by removing illegal characters from emails
+
+Usage\-: '$<$index$>$' =$>$ 'sanitize\-\_\-email'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & \\
+\hline
+array & {\em \$params} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_ad5a9851c54274c5feba157f7b5f8274a}{\index{G\-U\-M\-P@{G\-U\-M\-P}!filter\-\_\-sanitize\-\_\-numbers@{filter\-\_\-sanitize\-\_\-numbers}}
+\index{filter\-\_\-sanitize\-\_\-numbers@{filter\-\_\-sanitize\-\_\-numbers}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{filter\-\_\-sanitize\-\_\-numbers}]{\setlength{\rightskip}{0pt plus 5cm}filter\-\_\-sanitize\-\_\-numbers (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$params = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_ad5a9851c54274c5feba157f7b5f8274a}
+Sanitize the string by removing illegal characters from numbers
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & \\
+\hline
+array & {\em \$params} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_af05bd442cf962980f42bfa2280711829}{\index{G\-U\-M\-P@{G\-U\-M\-P}!filter\-\_\-sanitize\-\_\-string@{filter\-\_\-sanitize\-\_\-string}}
+\index{filter\-\_\-sanitize\-\_\-string@{filter\-\_\-sanitize\-\_\-string}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{filter\-\_\-sanitize\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}filter\-\_\-sanitize\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$params = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_af05bd442cf962980f42bfa2280711829}
+Translate an input string to a desired language \mbox{[}D\-E\-P\-R\-E\-C\-I\-A\-T\-E\-D\mbox{]}
+
+Any I\-S\-O 639-\/1 2 character language code may be used
+
+See\-: \href{http://www.science.co.il/language/Codes.asp?s=code2}{\tt http\-://www.\-science.\-co.\-il/language/\-Codes.\-asp?s=code2}
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & \\
+\hline
+array & {\em \$params} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Sanitize the string by removing any script tags
+\end{DoxyReturn}
+Usage\-: '$<$index$>$' =$>$ 'sanitize\-\_\-string'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & \\
+\hline
+array & {\em \$params} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a760dff939f058032c57e192ae5dce5c7}{\index{G\-U\-M\-P@{G\-U\-M\-P}!filter\-\_\-urlencode@{filter\-\_\-urlencode}}
+\index{filter\-\_\-urlencode@{filter\-\_\-urlencode}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{filter\-\_\-urlencode}]{\setlength{\rightskip}{0pt plus 5cm}filter\-\_\-urlencode (
+\begin{DoxyParamCaption}
+\item[{}]{\$value, }
+\item[{}]{\$params = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_a760dff939f058032c57e192ae5dce5c7}
+Sanitize the string by urlencoding characters
+
+Usage\-: '$<$index$>$' =$>$ 'urlencode'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$value} & \\
+\hline
+array & {\em \$params} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a1a958b3553dca2bf4e0e29b66c7c6b2d}{\index{G\-U\-M\-P@{G\-U\-M\-P}!get\-\_\-readable\-\_\-errors@{get\-\_\-readable\-\_\-errors}}
+\index{get\-\_\-readable\-\_\-errors@{get\-\_\-readable\-\_\-errors}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{get\-\_\-readable\-\_\-errors}]{\setlength{\rightskip}{0pt plus 5cm}get\-\_\-readable\-\_\-errors (
+\begin{DoxyParamCaption}
+\item[{}]{\$convert\-\_\-to\-\_\-string = {\ttfamily false}, }
+\item[{}]{\$field\-\_\-class = {\ttfamily \char`\"{}field\char`\"{}}, }
+\item[{}]{\$error\-\_\-class = {\ttfamily \char`\"{}error-\/message\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{class_g_u_m_p_a1a958b3553dca2bf4e0e29b66c7c6b2d}
+Process the validation errors and return human readable error messages
+
+
+\begin{DoxyParams}[1]{Parameters}
+bool & {\em \$convert\-\_\-to\-\_\-string} & = false \\
+\hline
+string & {\em \$field\-\_\-class} & \\
+\hline
+string & {\em \$error\-\_\-class} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+
+string 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a1608cd606864586829918c70548b531c}{\index{G\-U\-M\-P@{G\-U\-M\-P}!is\-\_\-valid@{is\-\_\-valid}}
+\index{is\-\_\-valid@{is\-\_\-valid}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{is\-\_\-valid}]{\setlength{\rightskip}{0pt plus 5cm}static is\-\_\-valid (
+\begin{DoxyParamCaption}
+\item[{array}]{\$data, }
+\item[{array}]{\$validators}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_g_u_m_p_a1608cd606864586829918c70548b531c}
+Shorthand method for inline validation
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$data} & The data to be validated \\
+\hline
+array & {\em \$validators} & The \hyperlink{class_g_u_m_p}{G\-U\-M\-P} validators \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed True(boolean) or the array of error messages 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a20339b554173f073411416cfe873bd2f}{\index{G\-U\-M\-P@{G\-U\-M\-P}!run@{run}}
+\index{run@{run}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}run (
+\begin{DoxyParamCaption}
+\item[{array}]{\$data, }
+\item[{}]{\$check\-\_\-fields = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{class_g_u_m_p_a20339b554173f073411416cfe873bd2f}
+Run the filtering and validation after each other
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+
+boolean 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_ae55245a7180563ac0eabf7d2552280dc}{\index{G\-U\-M\-P@{G\-U\-M\-P}!sanitize@{sanitize}}
+\index{sanitize@{sanitize}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{sanitize}]{\setlength{\rightskip}{0pt plus 5cm}sanitize (
+\begin{DoxyParamCaption}
+\item[{array}]{\$input, }
+\item[{}]{\$fields = {\ttfamily NULL}, }
+\item[{}]{\$utf8\-\_\-encode = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}}\label{class_g_u_m_p_ae55245a7180563ac0eabf7d2552280dc}
+Sanitize the input data
+
+public 
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_afd88d3b44353ca2e3d0e2098272b2f3d}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate@{validate}}
+\index{validate@{validate}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate}]{\setlength{\rightskip}{0pt plus 5cm}validate (
+\begin{DoxyParamCaption}
+\item[{array}]{\$input, }
+\item[{array}]{\$ruleset}
+\end{DoxyParamCaption}
+)}}\label{class_g_u_m_p_afd88d3b44353ca2e3d0e2098272b2f3d}
+Perform data validation against the provided ruleset
+
+public 
+\begin{DoxyParams}[1]{Parameters}
+mixed & {\em \$input} & \\
+\hline
+array & {\em \$ruleset} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_ae18d0fcc69a69683098fb268bacce9f1}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-alpha@{validate\-\_\-alpha}}
+\index{validate\-\_\-alpha@{validate\-\_\-alpha}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-alpha}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-alpha (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_ae18d0fcc69a69683098fb268bacce9f1}
+Determine if the provided value contains only alpha characters
+
+Usage\-: '$<$index$>$' =$>$ 'alpha'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_ae2288498543d9fa45bcad7931133f420}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-alpha\-\_\-dash@{validate\-\_\-alpha\-\_\-dash}}
+\index{validate\-\_\-alpha\-\_\-dash@{validate\-\_\-alpha\-\_\-dash}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-alpha\-\_\-dash}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-alpha\-\_\-dash (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_ae2288498543d9fa45bcad7931133f420}
+Determine if the provided value contains only alpha characters with dashed and underscores
+
+Usage\-: '$<$index$>$' =$>$ 'alpha\-\_\-dash'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a2c8437ead80cdfaf822d69c899760c56}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-alpha\-\_\-numeric@{validate\-\_\-alpha\-\_\-numeric}}
+\index{validate\-\_\-alpha\-\_\-numeric@{validate\-\_\-alpha\-\_\-numeric}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-alpha\-\_\-numeric}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-alpha\-\_\-numeric (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_a2c8437ead80cdfaf822d69c899760c56}
+Determine if the provided value contains only alpha-\/numeric characters
+
+Usage\-: '$<$index$>$' =$>$ 'alpha\-\_\-numeric'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a420118dfbc59681712850e7c293f2fce}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-boolean@{validate\-\_\-boolean}}
+\index{validate\-\_\-boolean@{validate\-\_\-boolean}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-boolean}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-boolean (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_a420118dfbc59681712850e7c293f2fce}
+Determine if the provided value is a P\-H\-P accepted boolean
+
+Usage\-: '$<$index$>$' =$>$ 'boolean'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_aefa3a07356a551afae8157880be7b091}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-contains@{validate\-\_\-contains}}
+\index{validate\-\_\-contains@{validate\-\_\-contains}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-contains}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-contains (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_aefa3a07356a551afae8157880be7b091}
+Verify that a value is contained within the pre-\/defined value set
+
+Usage\-: '$<$index$>$' =$>$ 'contains,value value value'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_aab474d17925a66f0ac3a07186dd04cbb}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-date@{validate\-\_\-date}}
+\index{validate\-\_\-date@{validate\-\_\-date}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-date}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-date (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_aab474d17925a66f0ac3a07186dd04cbb}
+Determine if the provided input is a valid date (I\-S\-O 8601)
+
+Usage\-: '$<$index$>$' =$>$ 'date'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+string & {\em \$input} & date ('Y-\/m-\/d') or datetime ('Y-\/m-\/d H\-:i\-:s') \\
+\hline
+null & {\em \$param} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a49a48d0c0c679a723c98f62358bb3e8a}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-exact\-\_\-len@{validate\-\_\-exact\-\_\-len}}
+\index{validate\-\_\-exact\-\_\-len@{validate\-\_\-exact\-\_\-len}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-exact\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-exact\-\_\-len (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_a49a48d0c0c679a723c98f62358bb3e8a}
+Determine if the provided value length matches a specific value
+
+Usage\-: '$<$index$>$' =$>$ 'exact\-\_\-len,5'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a9c7ee13511fe8b60e6b7c8e3ab16b4b1}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-float@{validate\-\_\-float}}
+\index{validate\-\_\-float@{validate\-\_\-float}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-float}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-float (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_a9c7ee13511fe8b60e6b7c8e3ab16b4b1}
+Determine if the provided value is a valid float
+
+Usage\-: '$<$index$>$' =$>$ 'float'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_afee5d55818fce5886d26847adc4b2d3c}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-iban@{validate\-\_\-iban}}
+\index{validate\-\_\-iban@{validate\-\_\-iban}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-iban}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-iban (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_afee5d55818fce5886d26847adc4b2d3c}
+Determine if the provided value is a valid I\-B\-A\-N
+
+Usage\-: '$<$index$>$' =$>$ 'iban'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a093380fa4d38a7b942be48d8b43472ab}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-integer@{validate\-\_\-integer}}
+\index{validate\-\_\-integer@{validate\-\_\-integer}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-integer}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-integer (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_a093380fa4d38a7b942be48d8b43472ab}
+Determine if the provided value is a valid integer
+
+Usage\-: '$<$index$>$' =$>$ 'integer'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a3f433ecd7837ef40aee72eefbba49982}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-max\-\_\-len@{validate\-\_\-max\-\_\-len}}
+\index{validate\-\_\-max\-\_\-len@{validate\-\_\-max\-\_\-len}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-max\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-max\-\_\-len (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_a3f433ecd7837ef40aee72eefbba49982}
+Determine if the provided value length is less or equal to a specific value
+
+Usage\-: '$<$index$>$' =$>$ 'max\-\_\-len,240'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_aea65bcdfce3803560ffe8e90461e518d}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-max\-\_\-numeric@{validate\-\_\-max\-\_\-numeric}}
+\index{validate\-\_\-max\-\_\-numeric@{validate\-\_\-max\-\_\-numeric}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-max\-\_\-numeric}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-max\-\_\-numeric (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_aea65bcdfce3803560ffe8e90461e518d}
+Determine if the provided numeric value is lower or equal to a specific value
+
+Usage\-: '$<$index$>$' =$>$ 'max\-\_\-numeric,50'
+
+protected
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+null & {\em \$param} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a9527495bc292ed914e75cf2da2a7ce99}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-min\-\_\-len@{validate\-\_\-min\-\_\-len}}
+\index{validate\-\_\-min\-\_\-len@{validate\-\_\-min\-\_\-len}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-min\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-min\-\_\-len (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_a9527495bc292ed914e75cf2da2a7ce99}
+Determine if the provided value length is more or equal to a specific value
+
+Usage\-: '$<$index$>$' =$>$ 'min\-\_\-len,4'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a53e9a196911a50a1ea5aa70f689d4d19}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-min\-\_\-numeric@{validate\-\_\-min\-\_\-numeric}}
+\index{validate\-\_\-min\-\_\-numeric@{validate\-\_\-min\-\_\-numeric}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-min\-\_\-numeric}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-min\-\_\-numeric (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily null}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_a53e9a196911a50a1ea5aa70f689d4d19}
+Determine if the provided numeric value is higher or equal to a specific value
+
+Usage\-: '$<$index$>$' =$>$ 'min\-\_\-numeric,1'
+
+protected
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+null & {\em \$param} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_ac294310c0d1f05c47c01e896cb5b7130}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-numeric@{validate\-\_\-numeric}}
+\index{validate\-\_\-numeric@{validate\-\_\-numeric}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-numeric}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-numeric (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_ac294310c0d1f05c47c01e896cb5b7130}
+Determine if the provided value is a valid number or numeric string
+
+Usage\-: '$<$index$>$' =$>$ 'numeric'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_ae7562d5f80c9d0870152758ad7b5b8d7}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-required@{validate\-\_\-required}}
+\index{validate\-\_\-required@{validate\-\_\-required}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-required}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-required (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_ae7562d5f80c9d0870152758ad7b5b8d7}
+Check if the specified key is present and not empty
+
+Usage\-: '$<$index$>$' =$>$ 'required'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_aa8f20d01a255ec01907394b07de13560}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-street\-\_\-address@{validate\-\_\-street\-\_\-address}}
+\index{validate\-\_\-street\-\_\-address@{validate\-\_\-street\-\_\-address}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-street\-\_\-address}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-street\-\_\-address (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_aa8f20d01a255ec01907394b07de13560}
+Determine if the provided input is likely to be a street address using weak detection
+
+Usage\-: '$<$index$>$' =$>$ 'street\-\_\-address'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a5fe0a5f166d8868564f95510bfa8af99}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-url\-\_\-exists@{validate\-\_\-url\-\_\-exists}}
+\index{validate\-\_\-url\-\_\-exists@{validate\-\_\-url\-\_\-exists}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-url\-\_\-exists}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-url\-\_\-exists (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_a5fe0a5f166d8868564f95510bfa8af99}
+Determine if a U\-R\-L exists \& is accessible
+
+Usage\-: '$<$index$>$' =$>$ 'url\-\_\-exists'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_ab7930d08a9d5494f44c815ad2c1f4cec}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-valid\-\_\-cc@{validate\-\_\-valid\-\_\-cc}}
+\index{validate\-\_\-valid\-\_\-cc@{validate\-\_\-valid\-\_\-cc}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-valid\-\_\-cc}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-valid\-\_\-cc (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_ab7930d08a9d5494f44c815ad2c1f4cec}
+Determine if the input is a valid credit card number
+
+See\-: \href{http://stackoverflow.com/questions/174730/what-is-the-best-way-to-validate-a-credit-card-in-php}{\tt http\-://stackoverflow.\-com/questions/174730/what-\/is-\/the-\/best-\/way-\/to-\/validate-\/a-\/credit-\/card-\/in-\/php} Usage\-: '$<$index$>$' =$>$ 'valid\-\_\-cc'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_af50c6ccf44e78f9be3d3087d93c02db0}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-valid\-\_\-email@{validate\-\_\-valid\-\_\-email}}
+\index{validate\-\_\-valid\-\_\-email@{validate\-\_\-valid\-\_\-email}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-valid\-\_\-email}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-valid\-\_\-email (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_af50c6ccf44e78f9be3d3087d93c02db0}
+Determine if the provided email is valid
+
+Usage\-: '$<$index$>$' =$>$ 'valid\-\_\-email'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a46ec7eab7a2de1ee6a4fb2d0e4871e12}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-valid\-\_\-ip@{validate\-\_\-valid\-\_\-ip}}
+\index{validate\-\_\-valid\-\_\-ip@{validate\-\_\-valid\-\_\-ip}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-valid\-\_\-ip}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-valid\-\_\-ip (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_a46ec7eab7a2de1ee6a4fb2d0e4871e12}
+Determine if the provided value is a valid I\-P address
+
+Usage\-: '$<$index$>$' =$>$ 'valid\-\_\-ip'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a634d833eced310a670e330d83ae21940}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-valid\-\_\-ipv4@{validate\-\_\-valid\-\_\-ipv4}}
+\index{validate\-\_\-valid\-\_\-ipv4@{validate\-\_\-valid\-\_\-ipv4}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-valid\-\_\-ipv4}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-valid\-\_\-ipv4 (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_a634d833eced310a670e330d83ae21940}
+Determine if the provided value is a valid I\-Pv4 address
+
+Usage\-: '$<$index$>$' =$>$ 'valid\-\_\-ipv4'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_aa5461994d5742b9b9e2465af704a1fee}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-valid\-\_\-ipv6@{validate\-\_\-valid\-\_\-ipv6}}
+\index{validate\-\_\-valid\-\_\-ipv6@{validate\-\_\-valid\-\_\-ipv6}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-valid\-\_\-ipv6}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-valid\-\_\-ipv6 (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_aa5461994d5742b9b9e2465af704a1fee}
+Determine if the provided value is a valid I\-Pv6 address
+
+Usage\-: '$<$index$>$' =$>$ 'valid\-\_\-ipv6'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a0625128cf72a54300069e498de114c0b}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-valid\-\_\-name@{validate\-\_\-valid\-\_\-name}}
+\index{validate\-\_\-valid\-\_\-name@{validate\-\_\-valid\-\_\-name}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-valid\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-valid\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_a0625128cf72a54300069e498de114c0b}
+Determine if the input is a valid human name \mbox{[}Credits to \href{http://github.com/ben-s}{\tt http\-://github.\-com/ben-\/s}\mbox{]}
+
+See\-: \href{https://github.com/Wixel/GUMP/issues/5}{\tt https\-://github.\-com/\-Wixel/\-G\-U\-M\-P/issues/5} Usage\-: '$<$index$>$' =$>$ 'valid\-\_\-name'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_aba0f1c60a73a4f9f242048fe3f3c9859}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validate\-\_\-valid\-\_\-url@{validate\-\_\-valid\-\_\-url}}
+\index{validate\-\_\-valid\-\_\-url@{validate\-\_\-valid\-\_\-url}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validate\-\_\-valid\-\_\-url}]{\setlength{\rightskip}{0pt plus 5cm}validate\-\_\-valid\-\_\-url (
+\begin{DoxyParamCaption}
+\item[{}]{\$field, }
+\item[{}]{\$input, }
+\item[{}]{\$param = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_g_u_m_p_aba0f1c60a73a4f9f242048fe3f3c9859}
+Determine if the provided value is a valid U\-R\-L
+
+Usage\-: '$<$index$>$' =$>$ 'valid\-\_\-url'
+
+protected 
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$field} & \\
+\hline
+array & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mixed 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_a354d3acca966ef3024c232c5407be5b3}{\index{G\-U\-M\-P@{G\-U\-M\-P}!validation\-\_\-rules@{validation\-\_\-rules}}
+\index{validation\-\_\-rules@{validation\-\_\-rules}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{validation\-\_\-rules}]{\setlength{\rightskip}{0pt plus 5cm}validation\-\_\-rules (
+\begin{DoxyParamCaption}
+\item[{array}]{\$rules = {\ttfamily array()}}
+\end{DoxyParamCaption}
+)}}\label{class_g_u_m_p_a354d3acca966ef3024c232c5407be5b3}
+Getter/\-Setter for the validation rules
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$rules} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+\hypertarget{class_g_u_m_p_adb599644af08c8de6f4421138d92ade8}{\index{G\-U\-M\-P@{G\-U\-M\-P}!xss\-\_\-clean@{xss\-\_\-clean}}
+\index{xss\-\_\-clean@{xss\-\_\-clean}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{xss\-\_\-clean}]{\setlength{\rightskip}{0pt plus 5cm}static xss\-\_\-clean (
+\begin{DoxyParamCaption}
+\item[{array}]{\$data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_g_u_m_p_adb599644af08c8de6f4421138d92ade8}
+Perform X\-S\-S clean to prevent cross site scripting
+
+public 
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array 
+\end{DoxyReturn}
+
+
+\subsection{Field Documentation}
+\hypertarget{class_g_u_m_p_a719fbfaae9d368e2966f725b793a0485}{\index{G\-U\-M\-P@{G\-U\-M\-P}!\$en\-\_\-noise\-\_\-words@{\$en\-\_\-noise\-\_\-words}}
+\index{\$en\-\_\-noise\-\_\-words@{\$en\-\_\-noise\-\_\-words}!GUMP@{G\-U\-M\-P}}
+\subsubsection[{\$en\-\_\-noise\-\_\-words}]{\setlength{\rightskip}{0pt plus 5cm}\$en\-\_\-noise\-\_\-words\hspace{0.3cm}{\ttfamily [static]}}}\label{class_g_u_m_p_a719fbfaae9d368e2966f725b793a0485}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{stringliteral}{"about,after,all,also,an,and,another,any,are,as,at,be,because,been,before,}
+\textcolor{stringliteral}{                                    
+       being,between,both,but,by,came,can,come,could,did,do,each,for,from,get,}
+\textcolor{stringliteral}{                                    
+       got,has,had,he,have,her,here,him,himself,his,how,if,in,into,is,it,its,it's,like,}
+\textcolor{stringliteral}{                                    
+       make,many,me,might,more,most,much,must,my,never,now,of,on,only,or,other,}
+\textcolor{stringliteral}{                                    
+       our,out,over,said,same,see,should,since,some,still,such,take,than,that,}
+\textcolor{stringliteral}{                                    
+       the,their,them,then,there,these,they,this,those,through,to,too,under,up,}
+\textcolor{stringliteral}{                                    
+       very,was,way,we,well,were,what,where,which,while,who,with,would,you,your,a,}
+\textcolor{stringliteral}{                                    
+       b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,$,1,2,3,4,5,6,7,8,9,0,\_"}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/xampp/htdocs/usahawanekspress.\-com/intelmlm\-\_\-include/gump.\-class.\-php\end{DoxyCompactItemize}

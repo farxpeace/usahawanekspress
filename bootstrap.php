@@ -25,5 +25,7 @@ function prevent_direct_access()
         exit;
     }
 }
+require_once(FOLDER_INCLUDE.'/MDB2-2.5.0b5/MDB2.php');
+require_once(FOLDER_INCLUDE.'/Library.Database.php');
 include(FOLDER_INCLUDE."/session.php");
 ?>

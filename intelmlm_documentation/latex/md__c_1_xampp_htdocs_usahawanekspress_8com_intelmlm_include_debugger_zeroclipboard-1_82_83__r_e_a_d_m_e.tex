@@ -1,0 +1,47 @@
+The \hyperlink{class_zero_clipboard}{Zero\-Clipboard} library provides an easy way to copy text to the clipboard using an invisible \href{http://en.wikipedia.org/wiki/Adobe_Flash}{\tt Adobe Flash} movie and a \href{http://en.wikipedia.org/wiki/JavaScript}{\tt Java\-Script} interface. The \char`\"{}\-Zero\char`\"{} signifies that the library is invisible and the user interface is left entirely up to you.
+
+\subsection*{Simple Example}
+
+``` html $<$html$>$ $<$body$>$ $<$button id=\char`\"{}copy-\/button\char`\"{} data-\/clipboard-\/text=\char`\"{}\-Copy Me!\char`\"{} title=\char`\"{}\-Click to copy me.\char`\"{}$>$Copy to Clipboard$<$/button$>$ $<$script src=\char`\"{}\-Zero\-Clipboard.\-js\char`\"{}$>$$<$/script$>$ $<$script src=\char`\"{}main.\-js\char`\"{}$>$$<$/script$>$ $<$/body$>$ $<$/html$>$ ```
+
+``` js // main.\-js var clip = new \hyperlink{class_zero_clipboard}{Zero\-Clipboard}( document.\-get\-Element\-By\-Id(\char`\"{}copy-\/button\char`\"{}), \{ movie\-Path\-: \char`\"{}/path/to/\-Zero\-Clipboard.\-swf\char`\"{} \} );
+
+clip.\-on( \char`\"{}load\char`\"{}, function(client) \{ // alert( \char`\"{}movie is loaded\char`\"{} );
+
+client.\-on( \char`\"{}complete\char`\"{}, function(client, args) \{ // {\ttfamily this} is the element that was clicked this.\-style.\-display = \char`\"{}none\char`\"{}; alert(\char`\"{}\-Copied text to clipboard\-: \char`\"{} + args.\-text ); \} ); \} ); ```
+
+See the instructions for more advanced options in using the library on your site.
+
+Here is a working \href{http://zeroclipboard.org/#demo}{\tt test page} where you can try out \hyperlink{class_zero_clipboard}{Zero\-Clipboard} in your browser.
+
+\subsection*{Testing Zero\-Clipboard.\-swf Locally}
+
+To test the page \href{http://zeroclipboard.org/#demo}{\tt demo page} locally. checkout the {\ttfamily gh-\/pages} branch and run {\ttfamily make}. This should open \href{http://localhost:3000/}{\tt localhost\-:3000}
+
+``` git checkout gh-\/pages make ``{\ttfamily  add}B\-R\-A\-N\-C\-H=my-\/dev-\/branch` to get the assets from a certain branch
+
+``` git checkout gh-\/pages make B\-R\-A\-N\-C\-H=my-\/dev-\/branch ```
+
+\subsection*{Support}
+
+This library is fully compatible with Flash Player 10, which requires that the clipboard copy operation be initiated by a user click event inside the Flash movie. This is achieved by automatically floating the invisible movie on top of a \href{http://en.wikipedia.org/wiki/Document_Object_Model}{\tt D\-O\-M} element of your choice. Standard mouse events are even propagated out to your D\-O\-M element, so you can still have rollover and mouse down effects.
+
+Works in I\-E7+ and all of the evergreen browsers.
+
+\subsection*{Contributing}
+
+see C\-O\-N\-T\-R\-I\-B\-U\-T\-I\-N\-G.md
+
+\subsection*{Releases}
+
+Starting with version \href{https://github.com/zeroclipboard/zeroclipboard/releases/tag/v1.1.7}{\tt 1.\-1.\-7}, \hyperlink{class_zero_clipboard}{Zero\-Clipboard} uses \href{http://semver.org/}{\tt semantic versioning}.
+
+see \href{https://github.com/zeroclipboard/zeroclipboard/releases}{\tt releases}
+
+\subsection*{Roadmap}
+
+see roadmap.md
+
+\subsection*{Last Build}
+
+\href{https://travis-ci.org/zeroclipboard/zeroclipboard}{\tt !\mbox{[}Build Status\mbox{]}(https\-://secure.\-travis-\/ci.\-org/zeroclipboard/zeroclipboard.\-png?branch=master)} 

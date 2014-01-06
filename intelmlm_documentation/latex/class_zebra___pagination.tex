@@ -1,0 +1,513 @@
+\hypertarget{class_zebra___pagination}{\section{Zebra\-\_\-\-Pagination Class Reference}
+\label{class_zebra___pagination}\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_zebra___pagination_a095c5d389db211932136b53f25f39685}{\-\_\-\-\_\-construct} ()
+\item 
+\hyperlink{class_zebra___pagination_a3b3cf621dab4a4e6f00ddb5dcaef1af9}{always\-\_\-show\-\_\-navigation} (\$show=true)
+\item 
+\hyperlink{class_zebra___pagination_adb7cd4f670151333a244c5690d5f0d23}{avoid\-\_\-duplicate\-\_\-content} (\$avoid\-\_\-duplicate\-\_\-content=true)
+\item 
+\hyperlink{class_zebra___pagination_a003c98f1ba5115a987e5c9dc2459f653}{base\-\_\-url} (\$base\-\_\-url= '', \$preserve\-\_\-query\-\_\-string=true)
+\item 
+\hyperlink{class_zebra___pagination_a423dbb0b90b8237501d1cd7f521cd67b}{get\-\_\-page} ()
+\item 
+\hyperlink{class_zebra___pagination_a460eab97d7f45178ec01bff9f3472d29}{get\-\_\-pages} ()
+\item 
+\hyperlink{class_zebra___pagination_aa3e239a76fb291708d38413af2eafc1b}{labels} (\$previous= 'Previous page', \$next= 'Next page')
+\item 
+\hyperlink{class_zebra___pagination_a93a61d5a2937ad62c9aeb3ccfc61692f}{method} (\$method= 'get')
+\item 
+\hyperlink{class_zebra___pagination_ab20862d0884572d8c6d2f832d811b455}{navigation\-\_\-position} (\$position)
+\item 
+\hyperlink{class_zebra___pagination_a0a308692b68e9639dda6715a1edcd06f}{padding} (\$enabled=true)
+\item 
+\hyperlink{class_zebra___pagination_adf76b0634438239971561df892dacca6}{records} (\$records)
+\item 
+\hyperlink{class_zebra___pagination_a9e6acc2e7fb8311fbf8d14cc229f2a24}{records\-\_\-per\-\_\-page} (\$records\-\_\-per\-\_\-page)
+\item 
+\hyperlink{class_zebra___pagination_a61d392ba1582c75e718e44c6c03cfc16}{render} (\$return\-\_\-output=false)
+\item 
+\hyperlink{class_zebra___pagination_aea98908e6be2001b77fc49115e9d482f}{reverse} (\$reverse=false)
+\item 
+\hyperlink{class_zebra___pagination_ace52360746469630001605dd9b09a95e}{selectable\-\_\-pages} (\$selectable\-\_\-pages)
+\item 
+\hyperlink{class_zebra___pagination_a4202fc920bd53b48c883b513aaac8c12}{set\-\_\-page} (\$page)
+\item 
+\hyperlink{class_zebra___pagination_aaca41b2a1f1e996a66a536c9e86421d7}{trailing\-\_\-slash} (\$enabled)
+\item 
+\hyperlink{class_zebra___pagination_af1e77b3f2c7c052d66345e9e801aef4d}{variable\-\_\-name} (\$variable\-\_\-name)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_zebra___pagination_a095c5d389db211932136b53f25f39685}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}}
+\index{\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{\-\_\-\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-construct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_a095c5d389db211932136b53f25f39685}
+Constructor of the class.
+
+Initializes the class and the default properties.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_zebra___pagination_a3b3cf621dab4a4e6f00ddb5dcaef1af9}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!always\-\_\-show\-\_\-navigation@{always\-\_\-show\-\_\-navigation}}
+\index{always\-\_\-show\-\_\-navigation@{always\-\_\-show\-\_\-navigation}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{always\-\_\-show\-\_\-navigation}]{\setlength{\rightskip}{0pt plus 5cm}always\-\_\-show\-\_\-navigation (
+\begin{DoxyParamCaption}
+\item[{}]{\$show = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_a3b3cf621dab4a4e6f00ddb5dcaef1af9}
+By default, the \char`\"{}previous page\char`\"{} and \char`\"{}next page\char`\"{} links are always shown.
+
+By disabling this feature the \char`\"{}previous page\char`\"{} and \char`\"{}next page\char`\"{} links will only be shown if there are more pages than set through \hyperlink{class_zebra___pagination_ace52360746469630001605dd9b09a95e}{selectable\-\_\-pages()}.
+
+{\ttfamily  // show \char`\"{}previous page\char`\"{} / \char`\"{}next page\char`\"{} only if there are more pages // than there are selectable pages \$pagination-\/$>$always\-\_\-show\-\_\-navigation(false); }
+
+
+\begin{DoxyParams}[1]{Parameters}
+boolean & {\em \$show} & (Optional) If set to F\-A\-L\-S\-E, the \char`\"{}previous page\char`\"{} and \char`\"{}next page\char`\"{} links will only be shown if there are more pages than set through \hyperlink{class_zebra___pagination_ace52360746469630001605dd9b09a95e}{selectable\-\_\-pages()}.\\
+\hline
+\end{DoxyParams}
+Default is T\-R\-U\-E.
+
+\begin{DoxySince}{Since}
+2.\-0
+\end{DoxySince}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_zebra___pagination_adb7cd4f670151333a244c5690d5f0d23}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!avoid\-\_\-duplicate\-\_\-content@{avoid\-\_\-duplicate\-\_\-content}}
+\index{avoid\-\_\-duplicate\-\_\-content@{avoid\-\_\-duplicate\-\_\-content}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{avoid\-\_\-duplicate\-\_\-content}]{\setlength{\rightskip}{0pt plus 5cm}avoid\-\_\-duplicate\-\_\-content (
+\begin{DoxyParamCaption}
+\item[{}]{\$avoid\-\_\-duplicate\-\_\-content = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_adb7cd4f670151333a244c5690d5f0d23}
+When you first access a page with navigation you have the same content as you have when you access the first page from navigation. For example \href{http://www.mywebsite.com/list}{\tt http\-://www.\-mywebsite.\-com/list} will have the same content as \href{http://www.mywebsite.com/list?page=1}{\tt http\-://www.\-mywebsite.\-com/list?page=1}.
+
+From a search engine's point of view these are 2 distinct U\-R\-Ls having the same content and your pages will be penalized for that.
+
+So, by default, in order to avoid this, the library will have for the first page (or last, if you are displaying links in \hyperlink{class_zebra___pagination_aea98908e6be2001b77fc49115e9d482f}{reverse} order) the same path as you have for when you are accessing the page for the first (unpaginated) time.
+
+If you want to disable this behaviour call this method with its argument set to F\-A\-L\-S\-E.
+
+{\ttfamily  // don't avoid duplicate content \$pagination-\/$>$avoid\-\_\-duplicate\-\_\-content(false); }
+
+
+\begin{DoxyParams}[1]{Parameters}
+boolean & {\em \$avoid\-\_\-duplicate\-\_\-content} & (Optional) If set to F\-A\-L\-S\-E, the library will have for the first page (or last, if you are displaying links in \hyperlink{class_zebra___pagination_aea98908e6be2001b77fc49115e9d482f}{reverse} order) a different path than the one you have when you are accessing the page for the first (unpaginated) time.\\
+\hline
+\end{DoxyParams}
+Default is T\-R\-U\-E.
+
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+2.\-0 
+\end{DoxySince}
+\hypertarget{class_zebra___pagination_a003c98f1ba5115a987e5c9dc2459f653}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!base\-\_\-url@{base\-\_\-url}}
+\index{base\-\_\-url@{base\-\_\-url}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{base\-\_\-url}]{\setlength{\rightskip}{0pt plus 5cm}base\-\_\-url (
+\begin{DoxyParamCaption}
+\item[{}]{\$base\-\_\-url = {\ttfamily ''}, }
+\item[{}]{\$preserve\-\_\-query\-\_\-string = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_a003c98f1ba5115a987e5c9dc2459f653}
+The base U\-R\-L to be used when generating the navigation links.
+
+This is helpful for the case when, for example, the U\-R\-L where the records are paginated may have parameters that are needed only once and need to be removed for any subsequent requests generated by pagination.
+
+For example, suppose some records are paginated at {\itshape \href{http://yourwebsite/mypage/}{\tt http\-://yourwebsite/mypage/}}. When a record from the list is updated, the U\-R\-L could become something like {\itshape \href{http://youwebsite/mypage/?action=updated}{\tt http\-://youwebsite/mypage/?action=updated}}. Based on the value of {\itshape action} a message would be shown to the user.
+
+Because of the way this script works, the pagination links would become\-:
+
+
+\begin{DoxyItemize}
+\item {\itshape \href{http://youwebsite/mypage/?action=updated&page=}{\tt http\-://youwebsite/mypage/?action=updated\&page=}\mbox{[}page number\mbox{]}} when \hyperlink{class_zebra___pagination_a93a61d5a2937ad62c9aeb3ccfc61692f}{method()} is \char`\"{}get\char`\"{} and \hyperlink{class_zebra___pagination_af1e77b3f2c7c052d66345e9e801aef4d}{variable\-\_\-name()} is \char`\"{}page\char`\"{};
+\item {\itshape \href{http://youwebsite/mypage/page}{\tt http\-://youwebsite/mypage/page}\mbox{[}page number\mbox{]}/?action=updated} when \hyperlink{class_zebra___pagination_a93a61d5a2937ad62c9aeb3ccfc61692f}{method()} is \char`\"{}url\char`\"{} and \hyperlink{class_zebra___pagination_af1e77b3f2c7c052d66345e9e801aef4d}{variable\-\_\-name()} is \char`\"{}page\char`\"{}).
+\end{DoxyItemize}
+
+Because of this, whenever the user would paginate, the message would be shown to him again and again because {\itshape action} will be preserved in the U\-R\-L!
+
+The solution is to set the {\itshape base\-\_\-url} to {\itshape \href{http://youwebsite/mypage/}{\tt http\-://youwebsite/mypage/}} and in this way, regardless of however will the U\-R\-L be changed, the pagination links will always be in the form of
+
+
+\begin{DoxyItemize}
+\item {\itshape \href{http://youwebsite/mypage/?page=}{\tt http\-://youwebsite/mypage/?page=}\mbox{[}page number\mbox{]}} when \hyperlink{class_zebra___pagination_a93a61d5a2937ad62c9aeb3ccfc61692f}{method()} is \char`\"{}get\char`\"{} and \hyperlink{class_zebra___pagination_af1e77b3f2c7c052d66345e9e801aef4d}{variable\-\_\-name()} is \char`\"{}page\char`\"{};
+\item {\itshape \href{http://youwebsite/mypage/page}{\tt http\-://youwebsite/mypage/page}\mbox{[}page number\mbox{]}/} when \hyperlink{class_zebra___pagination_a93a61d5a2937ad62c9aeb3ccfc61692f}{method()} is \char`\"{}url\char`\"{} and \hyperlink{class_zebra___pagination_af1e77b3f2c7c052d66345e9e801aef4d}{variable\-\_\-name()} is \char`\"{}page\char`\"{}).
+\end{DoxyItemize}
+
+Of course, you may still have query strings in the value of the \$base\-\_\-url if you wish so, and these will be preserved when paginating.
+
+$<$samp$>$If you want to preserve the hash in the U\-R\-L, make sure you load the zebra\-\_\-pagination.\-js file!$<$/samp$>$
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$base\-\_\-url} & (Optional) The base U\-R\-L to be used when generating the navigation links\\
+\hline
+\end{DoxyParams}
+Defaults is whatever returned by \hyperlink{}{\$\-\_\-\-S\-E\-R\-V\-E\-R\mbox{[}'R\-E\-Q\-U\-E\-S\-T\-\_\-\-U\-R\-I'\mbox{]}}
+
+
+\begin{DoxyParams}[1]{Parameters}
+boolean & {\em \$preserve\-\_\-query\-\_\-string} & (Optional) Indicates whether values in query strings, other than those set in \$base\-\_\-url, should be preserved\\
+\hline
+\end{DoxyParams}
+Default is T\-R\-U\-E
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_zebra___pagination_a423dbb0b90b8237501d1cd7f521cd67b}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!get\-\_\-page@{get\-\_\-page}}
+\index{get\-\_\-page@{get\-\_\-page}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{get\-\_\-page}]{\setlength{\rightskip}{0pt plus 5cm}get\-\_\-page (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_a423dbb0b90b8237501d1cd7f521cd67b}
+Returns the current page's number.
+
+{\ttfamily  // echoes the current page echo \$pagination-\/$>$\hyperlink{class_zebra___pagination_a423dbb0b90b8237501d1cd7f521cd67b}{get\-\_\-page()}; }
+
+\begin{DoxyReturn}{Returns}
+integer Returns the current page's number 
+\end{DoxyReturn}
+make the current page be the last page \hypertarget{class_zebra___pagination_a460eab97d7f45178ec01bff9f3472d29}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!get\-\_\-pages@{get\-\_\-pages}}
+\index{get\-\_\-pages@{get\-\_\-pages}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{get\-\_\-pages}]{\setlength{\rightskip}{0pt plus 5cm}get\-\_\-pages (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_a460eab97d7f45178ec01bff9f3472d29}
+Returns the total number of pages, based on the total number of records and the number of records to be shown per page.
+
+{\ttfamily  // get the total number of pages echo \$pagination-\/$>$\hyperlink{class_zebra___pagination_a460eab97d7f45178ec01bff9f3472d29}{get\-\_\-pages()}; }
+
+\begin{DoxySince}{Since}
+2.\-1
+\end{DoxySince}
+\begin{DoxyReturn}{Returns}
+integer Returns the total number of pages, based on the total number of records and the number of records to be shown per page. 
+\end{DoxyReturn}
+\hypertarget{class_zebra___pagination_aa3e239a76fb291708d38413af2eafc1b}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!labels@{labels}}
+\index{labels@{labels}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{labels}]{\setlength{\rightskip}{0pt plus 5cm}labels (
+\begin{DoxyParamCaption}
+\item[{}]{\$previous = {\ttfamily 'Previous~page'}, }
+\item[{}]{\$next = {\ttfamily 'Next~page'}}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_aa3e239a76fb291708d38413af2eafc1b}
+Change the labels for the \char`\"{}previous page\char`\"{} and \char`\"{}next page\char`\"{} links.
+
+{\ttfamily  // change the default labels \$pagination-\/$>$labels('Previous', 'Next'); }
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$previous} & (Optional) The label for the \char`\"{}previous page\char`\"{} link. \begin{DoxyVerb}                        Default is "Previous page".
+\end{DoxyVerb}
+\\
+\hline
+string & {\em \$next} & (Optional) The label for the \char`\"{}next page\char`\"{} link. \begin{DoxyVerb}                        Default is "Next page".
+\end{DoxyVerb}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+2.\-0 
+\end{DoxySince}
+\hypertarget{class_zebra___pagination_a93a61d5a2937ad62c9aeb3ccfc61692f}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!method@{method}}
+\index{method@{method}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{method}]{\setlength{\rightskip}{0pt plus 5cm}method (
+\begin{DoxyParamCaption}
+\item[{}]{\$method = {\ttfamily 'get'}}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_a93a61d5a2937ad62c9aeb3ccfc61692f}
+Set the method to be used for page propagation.
+
+{\ttfamily  // set the method to the S\-E\-O friendly way \$pagination-\/$>$method('url'); }
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$method} & (Optional) The method to be used for page propagation. \begin{DoxyVerb}                        Values can be:
+
+                        - <b>url</b> - page propagation is done in a SEO friendly way;
+
+                        This method requires the {@link http://httpd.apache.org/docs/current/mod/mod_rewrite.html mod_rewrite}
+                        module to be enabled on your Apache server (or the equivalent for other web servers);
+
+                        When using this method, the current page will be passed in the URL as
+                        <i>http://youwebsite.com/yourpage/[variable name][page number]/</i> where
+                        <i>[variable name]</i> is set by {@link variable_name()} and <i>[page number]</i>
+                        represents the current page.
+
+                        - <b>get</b> - page propagation is done through GET;
+
+                        When using this method, the current page will be passed in the URL as
+                        <i>http://youwebsite.com/yourpage?[variable name]=[page number]</i> where
+                        <i>[variable name]</i> is set by {@link variable_name()} and <i>[page number]</i>
+                        represents the current page.
+
+                        Default is "get".
+\end{DoxyVerb}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_zebra___pagination_ab20862d0884572d8c6d2f832d811b455}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!navigation\-\_\-position@{navigation\-\_\-position}}
+\index{navigation\-\_\-position@{navigation\-\_\-position}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{navigation\-\_\-position}]{\setlength{\rightskip}{0pt plus 5cm}navigation\-\_\-position (
+\begin{DoxyParamCaption}
+\item[{}]{\$position}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_ab20862d0884572d8c6d2f832d811b455}
+By default, next/previous page links are shown on the outside of the links to individual pages.
+
+These links can also be shown both on the left or on the right of the links to individual pages by setting the method's argument to \char`\"{}left\char`\"{} or \char`\"{}right\char`\"{} respectively.
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$position} & Setting this argument to \char`\"{}left\char`\"{} or \char`\"{}right\char`\"{} will instruct the script to show next/previous page links on the left or on the right of the links to individual pages.\\
+\hline
+\end{DoxyParams}
+Allowed values are \char`\"{}left\char`\"{}, \char`\"{}right\char`\"{} and \char`\"{}outside\char`\"{}.
+
+Default is \char`\"{}outside\char`\"{}.
+
+\begin{DoxySince}{Since}
+2.\-1
+\end{DoxySince}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_zebra___pagination_a0a308692b68e9639dda6715a1edcd06f}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!padding@{padding}}
+\index{padding@{padding}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{padding}]{\setlength{\rightskip}{0pt plus 5cm}padding (
+\begin{DoxyParamCaption}
+\item[{}]{\$enabled = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_a0a308692b68e9639dda6715a1edcd06f}
+Sets whether page numbers should be prefixed by zeroes.
+
+This is useful to keep the layout consistent by having the same number of characters for each page number.
+
+{\ttfamily  // disable padding numbers with zeroes \$pagination-\/$>$padding(false); }
+
+
+\begin{DoxyParams}[1]{Parameters}
+boolean & {\em \$enabled} & (Optional) Setting this property to F\-A\-L\-S\-E will disable padding rather than enabling it.\\
+\hline
+\end{DoxyParams}
+Default is T\-R\-U\-E.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_zebra___pagination_adf76b0634438239971561df892dacca6}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!records@{records}}
+\index{records@{records}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{records}]{\setlength{\rightskip}{0pt plus 5cm}records (
+\begin{DoxyParamCaption}
+\item[{}]{\$records}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_adf76b0634438239971561df892dacca6}
+Sets the total number of records that need to be paginated.
+
+Based on this and on the value of \hyperlink{class_zebra___pagination_a9e6acc2e7fb8311fbf8d14cc229f2a24}{records\-\_\-per\-\_\-page()}, the script will know how many pages there are.
+
+The total number of pages is given by the fraction between the total number records (set through \hyperlink{class_zebra___pagination_adf76b0634438239971561df892dacca6}{records()}) and the number of records that are shown on a page (set through \hyperlink{class_zebra___pagination_a9e6acc2e7fb8311fbf8d14cc229f2a24}{records\-\_\-per\-\_\-page()}).
+
+{\ttfamily  // tell the script that there are 100 total records \$pagination-\/$>$records(100); }
+
+
+\begin{DoxyParams}[1]{Parameters}
+integer & {\em \$records} & The total number of records that need to be paginated\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_zebra___pagination_a9e6acc2e7fb8311fbf8d14cc229f2a24}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!records\-\_\-per\-\_\-page@{records\-\_\-per\-\_\-page}}
+\index{records\-\_\-per\-\_\-page@{records\-\_\-per\-\_\-page}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{records\-\_\-per\-\_\-page}]{\setlength{\rightskip}{0pt plus 5cm}records\-\_\-per\-\_\-page (
+\begin{DoxyParamCaption}
+\item[{}]{\$records\-\_\-per\-\_\-page}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_a9e6acc2e7fb8311fbf8d14cc229f2a24}
+Sets the number of records that are displayed on one page.
+
+Based on this and on the value of \hyperlink{class_zebra___pagination_adf76b0634438239971561df892dacca6}{records()}, the script will know how many pages there are\-: the total number of pages is given by the fraction between the total number of records and the number of records that are shown on one page.
+
+{\ttfamily  // tell the class that there are 20 records displayed on one page \$pagination-\/$>$records\-\_\-per\-\_\-page(20); }
+
+
+\begin{DoxyParams}[1]{Parameters}
+integer & {\em \$records\-\_\-per\-\_\-page} & The number of records displayed on one page. \begin{DoxyVerb}                Default is 10.
+\end{DoxyVerb}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_zebra___pagination_a61d392ba1582c75e718e44c6c03cfc16}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!render@{render}}
+\index{render@{render}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{render}]{\setlength{\rightskip}{0pt plus 5cm}render (
+\begin{DoxyParamCaption}
+\item[{}]{\$return\-\_\-output = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_a61d392ba1582c75e718e44c6c03cfc16}
+Generates the output.
+
+{\itshape Make sure your script references the C\-S\-S file!}
+
+{\ttfamily  // generate output but don't echo it // but return it instead \$output = \$pagination-\/$>$render(true); }
+
+
+\begin{DoxyParams}[1]{Parameters}
+boolean & {\em \$return\-\_\-output} & (Optional) Setting this argument to T\-R\-U\-E will instruct the script to return the generated output rather than outputting it to the screen.\\
+\hline
+\end{DoxyParams}
+Default is F\-A\-L\-S\-E.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_zebra___pagination_aea98908e6be2001b77fc49115e9d482f}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!reverse@{reverse}}
+\index{reverse@{reverse}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{reverse}]{\setlength{\rightskip}{0pt plus 5cm}reverse (
+\begin{DoxyParamCaption}
+\item[{}]{\$reverse = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_aea98908e6be2001b77fc49115e9d482f}
+By default, pagination links are shown in natural order, from 1 to the number of total pages.
+
+Calling this method with the argument set to T\-R\-U\-E will generate links in reverse order, from the number of total pages to 1.
+
+{\ttfamily  // show pagination links in reverse order rather than in natural order \$pagination-\/$>$reverse(true); }
+
+
+\begin{DoxyParams}[1]{Parameters}
+boolean & {\em \$reverse} & (Optional) Set it to T\-R\-U\-E to generate navigation links in reverse order. \begin{DoxyVerb}                            Default is FALSE.
+\end{DoxyVerb}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+2.\-0 
+\end{DoxySince}
+\hypertarget{class_zebra___pagination_ace52360746469630001605dd9b09a95e}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!selectable\-\_\-pages@{selectable\-\_\-pages}}
+\index{selectable\-\_\-pages@{selectable\-\_\-pages}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{selectable\-\_\-pages}]{\setlength{\rightskip}{0pt plus 5cm}selectable\-\_\-pages (
+\begin{DoxyParamCaption}
+\item[{}]{\$selectable\-\_\-pages}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_ace52360746469630001605dd9b09a95e}
+Sets the number of links to be displayed at once (besides the \char`\"{}previous page\char`\"{} and \char`\"{}next page\char`\"{} links)
+
+{\ttfamily  // display links to 15 pages \$pagination-\/$>$selectable\-\_\-pages(15); }
+
+
+\begin{DoxyParams}[1]{Parameters}
+integer & {\em \$selectable\-\_\-pages} & The number of links to be displayed at once (besides the \char`\"{}previous page\char`\"{} and \char`\"{}next page\char`\"{} links).\\
+\hline
+\end{DoxyParams}
+{\itshape You should set this to an odd number so that the same number of links will be shown to the left and to the right of the current page.}
+
+Default is 11.
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_zebra___pagination_a4202fc920bd53b48c883b513aaac8c12}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!set\-\_\-page@{set\-\_\-page}}
+\index{set\-\_\-page@{set\-\_\-page}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{set\-\_\-page}]{\setlength{\rightskip}{0pt plus 5cm}set\-\_\-page (
+\begin{DoxyParamCaption}
+\item[{}]{\$page}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_a4202fc920bd53b48c883b513aaac8c12}
+Sets the current page.
+
+{\ttfamily  // sets the fifth page as the current page \$pagination-\/$>$set\-\_\-page(5); }
+
+
+\begin{DoxyParams}[1]{Parameters}
+integer & {\em \$page} & The page's number. \begin{DoxyVerb}                                A number lower than <b>1</b> will be interpreted as <b>1</b>, while a number
+                                greater than the total number of pages will be interpreted as the last page.
+
+                                The total number of pages is given by the fraction between the total number
+                                records (set through {@link records()}) and the number of records that are
+                                shown on one page (set through {@link records_per_page()}).
+\end{DoxyVerb}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_zebra___pagination_aaca41b2a1f1e996a66a536c9e86421d7}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!trailing\-\_\-slash@{trailing\-\_\-slash}}
+\index{trailing\-\_\-slash@{trailing\-\_\-slash}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{trailing\-\_\-slash}]{\setlength{\rightskip}{0pt plus 5cm}trailing\-\_\-slash (
+\begin{DoxyParamCaption}
+\item[{}]{\$enabled}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_aaca41b2a1f1e996a66a536c9e86421d7}
+Enables or disabled trailing slash on the generated U\-R\-Ls when \hyperlink{class_zebra___pagination_a93a61d5a2937ad62c9aeb3ccfc61692f}{method} is \char`\"{}url\char`\"{}.
+
+Read more on the subject on \hyperlink{}{Google Webmasters's official blog}.
+
+{\ttfamily  // disables trailing slashes on generated U\-R\-Ls \$pagination-\/$>$trailing\-\_\-slash(false); }
+
+
+\begin{DoxyParams}[1]{Parameters}
+boolean & {\em \$enabled} & (Optional) Setting this property to F\-A\-L\-S\-E will disable trailing slashes on generated U\-R\-Ls when \hyperlink{class_zebra___pagination_a93a61d5a2937ad62c9aeb3ccfc61692f}{method} is \char`\"{}url\char`\"{}.\\
+\hline
+\end{DoxyParams}
+Default is T\-R\-U\-E (trailing slashes are enabled by default).
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{class_zebra___pagination_af1e77b3f2c7c052d66345e9e801aef4d}{\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}!variable\-\_\-name@{variable\-\_\-name}}
+\index{variable\-\_\-name@{variable\-\_\-name}!Zebra_Pagination@{Zebra\-\_\-\-Pagination}}
+\subsubsection[{variable\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}variable\-\_\-name (
+\begin{DoxyParamCaption}
+\item[{}]{\$variable\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{class_zebra___pagination_af1e77b3f2c7c052d66345e9e801aef4d}
+Sets the variable name to be used for page propagation.
+
+{\ttfamily  // sets the variable name to \char`\"{}foo\char`\"{} // now, in the U\-R\-L, the current page will be passed either as \char`\"{}foo=\mbox{[}page number\mbox{]}\char`\"{} (if method is \char`\"{}get\char`\"{}) or // as \char`\"{}/foo\mbox{[}page number\mbox{]}\char`\"{} (if method is \char`\"{}url\char`\"{}) \$pagination-\/$>$variable\-\_\-name('foo'); }
+
+
+\begin{DoxyParams}[1]{Parameters}
+string & {\em \$variable\-\_\-name} & A string representing the variable name to be used for page propagation. \begin{DoxyVerb}                                Default is "page".
+\end{DoxyVerb}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/xampp/htdocs/usahawanekspress.\-com/intelmlm\-\_\-modules/\-Main/\-Zebra\-\_\-\-Pagination-\/master/Zebra\-\_\-\-Pagination.\-php\end{DoxyCompactItemize}

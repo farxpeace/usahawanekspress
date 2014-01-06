@@ -1,0 +1,52 @@
+.TH "md__c_1_xampp_htdocs_usahawanekspress.com_intelmlm_include_debugger_zeroclipboard-1.2.3__r_e_a_d_m_e" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__c_1_xampp_htdocs_usahawanekspress.com_intelmlm_include_debugger_zeroclipboard-1.2.3__r_e_a_d_m_e \- \fBZeroClipboard\fP 
+The \fBZeroClipboard\fP library provides an easy way to copy text to the clipboard using an invisible \fCAdobe Flash\fP movie and a \fCJavaScript\fP interface\&. The 'Zero' signifies that the library is invisible and the user interface is left entirely up to you\&.
+.PP
+.SS "Simple Example"
+.PP
+``` html <html> <body> <button id='copy-button' data-clipboard-text='Copy Me!' title='Click to copy me\&.'>Copy to Clipboard</button> <script src='ZeroClipboard\&.js'></script> <script src='main\&.js'></script> </body> </html> ```
+.PP
+``` js // main\&.js var clip = new \fBZeroClipboard\fP( document\&.getElementById('copy-button'), { moviePath: '/path/to/ZeroClipboard\&.swf' } );
+.PP
+clip\&.on( 'load', function(client) { // alert( 'movie is loaded' );
+.PP
+client\&.on( 'complete', function(client, args) { // \fCthis\fP is the element that was clicked this\&.style\&.display = 'none'; alert('Copied text to clipboard: ' + args\&.text ); } ); } ); ```
+.PP
+See the \fBinstructions\fP for more advanced options in using the library on your site\&.
+.PP
+Here is a working \fCtest page\fP where you can try out \fBZeroClipboard\fP in your browser\&.
+.PP
+.SS "Testing ZeroClipboard\&.swf Locally"
+.PP
+To test the page \fCdemo page\fP locally\&. checkout the \fCgh-pages\fP branch and run \fCmake\fP\&. This should open \fClocalhost:3000\fP
+.PP
+``` git checkout gh-pages make ``\fC add\fPBRANCH=my-dev-branch` to get the assets from a certain branch
+.PP
+``` git checkout gh-pages make BRANCH=my-dev-branch ```
+.PP
+.SS "Support"
+.PP
+This library is fully compatible with Flash Player 10, which requires that the clipboard copy operation be initiated by a user click event inside the Flash movie\&. This is achieved by automatically floating the invisible movie on top of a \fCDOM\fP element of your choice\&. Standard mouse events are even propagated out to your DOM element, so you can still have rollover and mouse down effects\&.
+.PP
+Works in IE7+ and all of the evergreen browsers\&.
+.PP
+.SS "Contributing"
+.PP
+see \fBCONTRIBUTING\&.md\fP
+.PP
+.SS "Releases"
+.PP
+Starting with version \fC1\&.1\&.7\fP, \fBZeroClipboard\fP uses \fCsemantic versioning\fP\&.
+.PP
+see \fCreleases\fP
+.PP
+.SS "Roadmap"
+.PP
+see \fBroadmap\&.md\fP
+.PP
+.SS "Last Build"
+.PP
+\fC![Build Status](https://secure\&.travis-ci\&.org/zeroclipboard/zeroclipboard\&.png?branch=master)\fP 

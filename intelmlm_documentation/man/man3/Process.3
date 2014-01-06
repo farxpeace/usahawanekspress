@@ -1,0 +1,68 @@
+.TH "Process" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Process \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBProcess\fP ()"
+.br
+.ti -1c
+.RI "\fBprocLogin\fP ($user=null, $pass=null, $remember=null)"
+.br
+.ti -1c
+.RI "\fBprocLoginFb\fP ()"
+.br
+.ti -1c
+.RI "\fBprocLogout\fP ()"
+.br
+.ti -1c
+.RI "\fBprocRegister\fP ()"
+.br
+.ti -1c
+.RI "\fBprocForgotPass\fP ()"
+.br
+.ti -1c
+.RI "\fBprocEditAccount\fP ()"
+.br
+.ti -1c
+.RI "\fBprocSendConfirm\fP ()"
+.br
+.ti -1c
+.RI "\fBprocHashLogin\fP ($hash)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Process\&.php
+.PP
+The \fBProcess\fP class is meant to simplify the task of processing user submitted forms, redirecting the user to the correct pages if errors are found, or if form is successful, either way\&. Also handles the logout procedure\&.
+.PP
+Written by: Jpmaster77 a\&.k\&.a\&. The Grandmaster of C++ (GMC) Last Updated: June 15, 2011 by Ivan Novak 
+.SH "Member Function Documentation"
+.PP 
+.SS "procEditAccount ()"
+procEditAccount - Attempts to edit the user's account information, including the password, which must be verified before a change is made\&. 
+.SS "\fBProcess\fP ()"
+The only other reason user should be directed here is if he wants to logout, which means user is logged in currently\&.
+.PP
+Should not get here, which means user is viewing this page by mistake and therefore is redirected\&.
+.SS "procForgotPass ()"
+procForgotPass - Validates the given username then if everything is fine, a new password is generated and emailed to the address the user gave on sign up\&. 
+.SS "procLogin ($user = \fCnull\fP, $pass = \fCnull\fP, $remember = \fCnull\fP)"
+procLogin - Processes the user submitted login form, if errors are found, the user is redirected to correct the information, if not, the user is effectively logged in to the system\&. 
+.SS "procLogout ()"
+procLogout - Simply attempts to log the user out of the system given that there is no logout form to process\&. 
+.SS "procRegister ()"
+procRegister - Processes the user submitted registration form, if errors are found, the user is redirected to correct the information, if not, the user is effectively registered with the system and an email is (optionally) sent to the newly created user\&. 
+.SS "procSendConfirm ()"
+procSendConfirm - only needs to be used if the administrator changes the EMAIL_WELCOME from false to true and wants the users to confirm themselves\&. (why not?!) 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

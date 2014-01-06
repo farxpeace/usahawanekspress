@@ -1,0 +1,40 @@
+.TH "md__c_1_xampp_htdocs_usahawanekspress.com_intelmlm_include_facebook-php-sdk-master_changelog" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__c_1_xampp_htdocs_usahawanekspress.com_intelmlm_include_facebook-php-sdk-master_changelog \- \fBFacebook\fP PHP SDK (v\&.3\&.0\&.0) 
+The new PHP SDK (v3\&.0\&.0) is a major upgrade to the older one (v2\&.2\&.x):
+.PP
+.IP "\(bu" 2
+Uses OAuth authentication flows instead of our legacy authentication flow
+.IP "\(bu" 2
+Consists of two classes\&. The first (class \fBBaseFacebook\fP) maintains the core of the upgrade, and the second one (class \fBFacebook\fP) is a small subclass that uses PHP sessions to store the user id and access token\&.
+.PP
+.PP
+If you’re currently using the PHP SDK (v2\&.2\&.x) for authentication, you will recall that the login code looked like this: 
+.PP
+.nf
+ $facebook = new Facebook(…);
+ $session = $facebook->getSession();
+ if ($session) {
+   // proceed knowing you have a valid user session
+ } else {
+   // proceed knowing you require user login and/or authentication
+ }
+
+.fi
+.PP
+.PP
+The login code is now: 
+.PP
+.nf
+ $facebook = new Facebook(…);
+ $user = $facebook->getUser();
+ if ($user) {
+   // proceed knowing you have a logged in user who's authenticated
+ } else {
+   // proceed knowing you require user login and/or authentication
+
+.fi
+.PP
+ 

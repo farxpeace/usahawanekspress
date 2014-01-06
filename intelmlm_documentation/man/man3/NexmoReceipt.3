@@ -1,0 +1,68 @@
+.TH "NexmoReceipt" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NexmoReceipt \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($data=false)"
+.br
+.ti -1c
+.RI "\fBexists\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBSTATUS_DELIVERED\fP = 'DELIVERED'"
+.br
+.ti -1c
+.RI "const \fBSTATUS_EXPIRED\fP = 'EXPIRED'"
+.br
+.ti -1c
+.RI "const \fBSTATUS_FAILED\fP = 'FAILED'"
+.br
+.ti -1c
+.RI "const \fBSTATUS_BUFFERED\fP = 'BUFFERED'"
+.br
+.ti -1c
+.RI "\fB$from\fP = ''"
+.br
+.ti -1c
+.RI "\fB$to\fP = ''"
+.br
+.ti -1c
+.RI "\fB$network\fP = ''"
+.br
+.ti -1c
+.RI "\fB$message_id\fP = ''"
+.br
+.ti -1c
+.RI "\fB$status\fP = ''"
+.br
+.ti -1c
+.RI "\fB$received_time\fP = 0"
+.br
+.ti -1c
+.RI "\fB$found\fP = false"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class \fBNexmoReceipt\fP handles and incoming message receipts sent by Nexmo
+.PP
+Usage: $var = new \fBNexmoReceipt\fP (); Methods: exists ( ) 
+.SH "Member Function Documentation"
+.PP 
+.SS "exists ()"
+Returns true if a valid receipt is found 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

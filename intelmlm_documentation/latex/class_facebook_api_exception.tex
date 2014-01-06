@@ -1,0 +1,101 @@
+\hypertarget{class_facebook_api_exception}{\section{Facebook\-Api\-Exception Class Reference}
+\label{class_facebook_api_exception}\index{Facebook\-Api\-Exception@{Facebook\-Api\-Exception}}
+}
+Inheritance diagram for Facebook\-Api\-Exception\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_facebook_api_exception}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_facebook_api_exception_aa7d9da69694e5a4bf2f0c1d7e85eb0f1}{\-\_\-\-\_\-construct} (\$result)
+\item 
+\hyperlink{class_facebook_api_exception_ae077eb8a032a325ceb939bfabfa5f472}{get\-Result} ()
+\item 
+\hyperlink{class_facebook_api_exception_a830b5c75df72b32396701bc563fbe3c7}{get\-Type} ()
+\item 
+\hyperlink{class_facebook_api_exception_a7516ca30af0db3cdbf9a7739b48ce91d}{\-\_\-\-\_\-to\-String} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_facebook_api_exception_a112ef069ddc0454086e3d1e6d8d55d07}{{\bfseries \$result}}\label{class_facebook_api_exception_a112ef069ddc0454086e3d1e6d8d55d07}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Copyright 2011 \hyperlink{class_facebook}{Facebook}, Inc.
+
+Licensed under the Apache License, Version 2.\-0 (the \char`\"{}\-License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at \begin{DoxyVerb}http://www.apache.org/licenses/LICENSE-2.0
+\end{DoxyVerb}
+
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\-A\-S I\-S\char`\"{} B\-A\-S\-I\-S, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-R C\-O\-N\-D\-I\-T\-I\-O\-N\-S O\-F A\-N\-Y K\-I\-N\-D, either express or implied. See the License for the specific language governing permissions and limitations under the License. Thrown when an A\-P\-I call returns an exception.
+
+\begin{DoxyAuthor}{Author}
+Naitik Shah \href{mailto:naitik@facebook.com}{\tt naitik@facebook.\-com} 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_facebook_api_exception_aa7d9da69694e5a4bf2f0c1d7e85eb0f1}{\index{Facebook\-Api\-Exception@{Facebook\-Api\-Exception}!\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}}
+\index{\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}!FacebookApiException@{Facebook\-Api\-Exception}}
+\subsubsection[{\-\_\-\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$result}
+\end{DoxyParamCaption}
+)}}\label{class_facebook_api_exception_aa7d9da69694e5a4bf2f0c1d7e85eb0f1}
+Make a new A\-P\-I Exception with the given result.
+
+
+\begin{DoxyParams}[1]{Parameters}
+array & {\em \$result} & The result from the A\-P\-I server \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_facebook_api_exception_a7516ca30af0db3cdbf9a7739b48ce91d}{\index{Facebook\-Api\-Exception@{Facebook\-Api\-Exception}!\-\_\-\-\_\-to\-String@{\-\_\-\-\_\-to\-String}}
+\index{\-\_\-\-\_\-to\-String@{\-\_\-\-\_\-to\-String}!FacebookApiException@{Facebook\-Api\-Exception}}
+\subsubsection[{\-\_\-\-\_\-to\-String}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-to\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_facebook_api_exception_a7516ca30af0db3cdbf9a7739b48ce91d}
+To make debugging easier.
+
+\begin{DoxyReturn}{Returns}
+string The string representation of the error 
+\end{DoxyReturn}
+\hypertarget{class_facebook_api_exception_ae077eb8a032a325ceb939bfabfa5f472}{\index{Facebook\-Api\-Exception@{Facebook\-Api\-Exception}!get\-Result@{get\-Result}}
+\index{get\-Result@{get\-Result}!FacebookApiException@{Facebook\-Api\-Exception}}
+\subsubsection[{get\-Result}]{\setlength{\rightskip}{0pt plus 5cm}get\-Result (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_facebook_api_exception_ae077eb8a032a325ceb939bfabfa5f472}
+Return the associated result object returned by the A\-P\-I server.
+
+\begin{DoxyReturn}{Returns}
+array The result from the A\-P\-I server 
+\end{DoxyReturn}
+\hypertarget{class_facebook_api_exception_a830b5c75df72b32396701bc563fbe3c7}{\index{Facebook\-Api\-Exception@{Facebook\-Api\-Exception}!get\-Type@{get\-Type}}
+\index{get\-Type@{get\-Type}!FacebookApiException@{Facebook\-Api\-Exception}}
+\subsubsection[{get\-Type}]{\setlength{\rightskip}{0pt plus 5cm}get\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_facebook_api_exception_a830b5c75df72b32396701bc563fbe3c7}
+Returns the associated type for the error. This will default to 'Exception' when a type is not available.
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/xampp/htdocs/usahawanekspress.\-com/intelmlm\-\_\-include/facebook-\/php-\/sdk-\/master/src/base\-\_\-facebook.\-php\end{DoxyCompactItemize}

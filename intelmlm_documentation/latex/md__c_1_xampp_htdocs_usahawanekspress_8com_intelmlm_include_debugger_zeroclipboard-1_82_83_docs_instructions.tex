@@ -1,0 +1,385 @@
+The {\itshape \hyperlink{class_zero_clipboard}{Zero\-Clipboard}} Java\-Script library provides an easy way to copy text to the clipboard using an invisible Adobe Flash movie. The \char`\"{}\-Zero\char`\"{} signifies that the library is invisible and the user interface is left entirely up to you.
+
+Browsers won't let you access the clipboard directly. So this library puts a flash object on the page to proxy the clipboard for you. The library will move and resize over all the glued objects.
+
+\subsection*{Installation}
+
+If you are installing for Node\-:
+
+```shell npm install zeroclipboard ```
+
+If you are installing for the web, you can use Bower\-:
+
+```shell bower install zeroclipboard ```
+
+\subsection*{Setup}
+
+To use the library, simply include the following Java\-Script file in your page\-:
+
+```html $<$script type=\char`\"{}text/javascript\char`\"{} src=\char`\"{}\-Zero\-Clipboard.\-js\char`\"{}$>$$<$/script$>$ ```
+
+You also need to have the \char`\"{}`\-Zero\-Clipboard.\-swf`\char`\"{} file available to the browser. If this file is located in the same directory as your web page, then it will work out of the box. However, if the S\-W\-F file is hosted elsewhere, you need to set the U\-R\-L like this (place this code {\itshape after} the script tag)\-:
+
+```js Zero\-Clipboard.\-set\-Defaults( \{ movie\-Path\-: '\href{http://YOURSERVER/path/ZeroClipboard.swf'}{\tt http\-://\-Y\-O\-U\-R\-S\-E\-R\-V\-E\-R/path/\-Zero\-Clipboard.\-swf'} \} ); ```
+
+\subsection*{Clients}
+
+Now you are ready to create one or more {\itshape Clients}. A client is a single instance of the clipboard library on the page, linked to one or more D\-O\-M elements. Here is how to create a client instance\-:
+
+```js var clip = new \hyperlink{class_zero_clipboard}{Zero\-Clipboard()}; ```
+
+You can also include an element or array of elements in the new client. $\ast$ This example uses j\-Query to find the button.
+
+```js var clip = new \hyperlink{class_zero_clipboard}{Zero\-Clipboard}(\$(\char`\"{}\#my-\/button\char`\"{})); ```
+
+Next, you can set some options.
+
+\subsection*{Setting Options}
+
+There are default options you can set before, or when you create a new client.
+
+```js var {\itshape defaults = \{ movie\-Path\-: \char`\"{}\-Zero\-Clipboard.\-swf\char`\"{}, // U\-R\-L to movie trusted\-Origins\-: null, // Page origins that the S\-W\-F should trust (single string or array of strings) hover\-Class\-: \char`\"{}zeroclipboard-\/is-\/hover\char`\"{}, // The class used to hover over the object active\-Class\-: \char`\"{}zeroclipboard-\/is-\/active\char`\"{}, // The class used to set object active allow\-Script\-Access\-: \char`\"{}same\-Domain\char`\"{}, // S\-W\-F outbound scripting policy use\-No\-Cache\-: true, // Include a nocache query parameter on requests for the S\-W\-F force\-Hand\-Cursor\-: false // Forcibly set the hand cursor (\char`\"{}pointer\char`\"{}) for all glued elements \}; ``{\ttfamily  You can override the defaults using}Zero\-Clipboard.\-set\-Defaults(\{ movie\-Path\-: \char`\"{}new/path\char`\"{} \})` before you create any clients.}
+
+{\itshape You can also set the options when creating a new client by passing an optional json object {\ttfamily new \hyperlink{class_zero_clipboard}{Zero\-Clipboard}(\$(\char`\"{}\#d\-\_\-clip\-\_\-button\char`\"{}), \{ movie\-Path\-: \char`\"{}new/path\char`\"{}, text\-: \char`\"{}\-Copy me!\char`\"{} \})}}
+
+{\itshape \subsubsection*{A note on the {\ttfamily trusted\-Origins} option}}
+
+{\itshape }
+
+{\itshape If your \hyperlink{class_zero_clipboard}{Zero\-Clipboard} S\-W\-F is served from a different origin/domain than your page, you need to tell the S\-W\-F that it's O\-K to trust your page. The following is almost \-\_\-$\ast$$\ast$always$\ast$$\ast$} how you want to do this\-:
+
+```js Zero\-Clipboard.\-set\-Defaults(\{ trusted\-Origins\-: \mbox{[}window.\-location.\-protocol + \char`\"{}//\char`\"{} + window.\-location.\-host\mbox{]} \}); ```
+
+\subsubsection*{A note on the {\ttfamily allow\-Script\-Access} option}
+
+For version 1.\-1.\-7 and below, the {\ttfamily embed} tag had the {\ttfamily allow\-Script\-Access} parameter hard-\/coded to {\ttfamily always}. This allowed the \char`\"{}`\-Zero\-Clipboard.\-swf`\char`\"{} file to be hosted on an external domain. However, to enhance security, versions after 1.\-1.\-7 have an option for {\ttfamily allow\-Script\-Access} with a default of {\ttfamily same\-Domain}, which only allows \char`\"{}`\-Zero\-Clipboard.\-swf`\char`\"{} to be served from the same domain as the hosting page.
+
+If you hosted \char`\"{}`\-Zero\-Clipboard.\-swf`\char`\"{} on a different domain than the hosting page on version 1.\-1.\-7 or below, when you upgrade to a version above 1.\-1.\-7, you should either move \char`\"{}`\-Zero\-Clipboard.\-swf`\char`\"{} to the same domain as the hosting page or set the {\ttfamily allow\-Script\-Access} option to {\ttfamily always}.
+
+For more information about {\ttfamily allow\-Script\-Access}, consult the $\ast$\href{http://helpx.adobe.com/flash/kb/control-access-scripts-host-web.html}{\tt official Flash documentation}$\ast$.
+
+\subsubsection*{Cross-\/\-Protocol Limitations}
+
+\hyperlink{class_zero_clipboard}{Zero\-Clipboard} was intentionally configured to {\itshape not} allow the S\-W\-F to be served from a secure domain (H\-T\-T\-P\-S) but scripted by an insecure domain (H\-T\-T\-P).
+
+If you find yourself in this situation (as in \href{https://github.com/zeroclipboard/ZeroClipboard/issues/170}{\tt Issue \#170}), please consider the following options\-:
+\begin{DoxyEnumerate}
+\item Serve the S\-W\-F over H\-T\-T\-P instead of H\-T\-T\-P\-S. If the page's protocol can vary (e.\-g. authorized/unauthorized, staging/production, etc.), you should include add the S\-W\-F with a relative protocol ({\ttfamily //s3.amazonaws.\-com/blah/\-Zero\-Clipboard.swf}) instead of an absolute protocol ({\ttfamily \href{https://s3.amazonaws.com/blah/ZeroClipboard.swf}{\tt https\-://s3.\-amazonaws.\-com/blah/\-Zero\-Clipboard.\-swf}}).
+\item Serve the page over H\-T\-T\-P\-S instead of H\-T\-T\-P. If the page's protocol can vary, see the note on the previous option (1).
+\item Update \hyperlink{class_zero_clipboard}{Zero\-Clipboard}'s Action\-Script codebase to call the \href{http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/system/Security.html#allowInsecureDomain\(\}{\tt `allow\-Insecure\-Domain`}) method, then recompile the S\-W\-F with your custom changes.
+\end{DoxyEnumerate}
+
+\subsubsection*{Text To Copy}
+
+Setting the clipboard text can be done in 4 ways\-:
+
+
+\begin{DoxyEnumerate}
+\item Add a {\ttfamily data\-Requested} event handler in which you call {\ttfamily clip.\-set\-Text} to set the appropriate text. This event is triggered every time \hyperlink{class_zero_clipboard}{Zero\-Clipboard} tries to inject into the clipboard. Example\-:
+
+```js clip.\-on( 'data\-Requested', function (client, args) \{ client.\-set\-Text( \char`\"{}\-Copy me!\char`\"{} ); \}); ```
+\item Set the text via {\ttfamily data-\/clipboard-\/target} attribute on the button. \hyperlink{class_zero_clipboard}{Zero\-Clipboard} will look for the target element via I\-D and try and get the text value via {\ttfamily .value} or {\ttfamily .text\-Content} or {\ttfamily .inner\-Text}.
+
+```html $<$button id=\char`\"{}my-\/button\char`\"{} data-\/clipboard-\/target=\char`\"{}clipboard\-\_\-text\char`\"{}$>$Copy to Clipboard$<$/button$>$
+
+$<$input type=\char`\"{}text\char`\"{} id=\char`\"{}clipboard\-\_\-text\char`\"{} value=\char`\"{}\-Clipboard Text\char`\"{}$>$ $<$textarea id=\char`\"{}clipboard\-\_\-textarea\char`\"{}$>$Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.$<$/textarea$>$ 
+\begin{DoxyPre}Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\end{DoxyPre}
+ ```
+\item Set the text via {\ttfamily data-\/clipboard-\/text} attribute on the button. Doing this will let \hyperlink{class_zero_clipboard}{Zero\-Clipboard} take care of the rest.
+
+```html $<$button id=\char`\"{}my-\/button\char`\"{} data-\/clipboard-\/text=\char`\"{}\-Copy me!\char`\"{}$>$Copy to Clipboard$<$/button$>$ ```
+\item Set the text via {\ttfamily clip.\-set\-Text} property. You can call this function at any time; when the page first loads, or later like in a {\ttfamily data\-Requested} event handler. Example\-:
+
+```js clip.\-set\-Text( \char`\"{}\-Copy me!\char`\"{} ); ```
+
+The important caveat of using {\ttfamily clip.\-set\-Text} is that the text it sets is {\bfseries transient} and {\itshape will only be used for a single copy operation}. As such, we do not particularly recommend using {\ttfamily clip.\-set\-Text} other than inside of a {\ttfamily data\-Requested} event handler; however, the A\-P\-I will not prevent you from using it in other ways.
+\end{DoxyEnumerate}
+
+\subsubsection*{Gluing}
+
+Gluing refers to the process of \char`\"{}linking\char`\"{} the Flash movie to a D\-O\-M element on the page. Since the Flash movie is completely transparent, the user sees nothing out of the ordinary.
+
+The Flash movie receives the click event and copies the text to the clipboard. Also, mouse actions like hovering and mouse-\/down generate events that you can capture (see $\ast$\href{#event-handlers}{\tt Event Handlers}$\ast$ below).
+
+To glue elements, you must pass an element, or array of elements to the glue function.
+
+Here is how to glue your clip library instance to a D\-O\-M element\-:
+
+```js clip.\-glue( document.\-get\-Element\-By\-Id('d\-\_\-clip\-\_\-button') ); ```
+
+You can pass in a reference to the actual D\-O\-M element object itself or an array of D\-O\-M objects. The rest all happens automatically -- the movie is created, all your options set, and it is floated above the element, awaiting clicks from the user.
+
+\subsubsection*{Example Implementation}
+
+```html $<$button id=\char`\"{}my-\/button\char`\"{} data-\/clipboard-\/text=\char`\"{}\-Copy me!\char`\"{} title=\char`\"{}\-Click to copy to clipboard.\char`\"{}$>$Copy to Clipboard$<$/button$>$ ```
+
+And the code\-:
+
+```js var clip = new \hyperlink{class_zero_clipboard}{Zero\-Clipboard}( \$(\char`\"{}button\#my-\/button\char`\"{}) ); ```
+
+\subsection*{C\-S\-S Effects}
+
+Since the Flash movie is floating on top of your D\-O\-M element, it will receive all the mouse events before the browser has a chance to catch them. However, for convenience these events are passed through to your clipboard client which you can capture (see {\itshape Event Handlers} below). But in addition to this, the Flash movie can also activate C\-S\-S classes on your D\-O\-M element to simulate the \char`\"{}\-:hover\char`\"{} and \char`\"{}\-:active\char`\"{} pseudo-\/classes.
+
+If this feature is enabled, the C\-S\-S classes \char`\"{}hover\char`\"{} and \char`\"{}active\char`\"{} are added / removed to your D\-O\-M element as the mouse hovers over and clicks the Flash movie. This essentially allows your button to behave normally, even though the floating Flash movie is receiving all the mouse events. Please note that the actual C\-S\-S pseudo-\/classes \char`\"{}\-:hover\char`\"{} and \char`\"{}\-:active\char`\"{} are not used -- these cannot be programmatically activated with current browser software. Instead, sub-\/classes named \char`\"{}zeroclipboard-\/is-\/hover\char`\"{} and \char`\"{}zeroclipboard-\/is-\/active\char`\"{} are used. Example C\-S\-S\-:
+
+```css \#d\-\_\-clip\-\_\-button \{ width\-:150px; text-\/align\-:center; border\-:1px solid black; background-\/color\-:\#ccc; margin\-:10px; padding\-:10px; \} \#d\-\_\-clip\-\_\-button.\-zeroclipboard-\/is-\/hover \{ background-\/color\-:\#eee; \} \#d\-\_\-clip\-\_\-button.\-zeroclipboard-\/is-\/active \{ background-\/color\-:\#aaa; \} ```
+
+These classes are for a D\-O\-M element with an I\-D\-: \char`\"{}d\-\_\-clip\-\_\-button\char`\"{}. The \char`\"{}zeroclipboard-\/is-\/hover\char`\"{} and \char`\"{}zeroclipboard-\/is-\/active\char`\"{} sub-\/classes would automatically be activated as the user hovers over, and clicks down on the Flash movie, respectively. They behave exactly like C\-S\-S pseudo-\/classes of the same names.
+
+\subsection*{Event Handlers}
+
+The clipboard library allows you set a number of different event handlers. These are all set by calling the {\ttfamily on()} method, as in this example\-:
+
+```js clip.\-on( 'load', my\-\_\-load\-\_\-handler ); ```
+
+The first argument is the name of the event, and the second is a reference to your function. The function may be passed by name (string) or an actual reference to the function object
+
+Your custom function will be passed at least one argument -- a reference to the clipboard client object. However, certain events pass additional arguments, which are described in each section below. The following subsections describe all the available events you can hook.
+
+Event handlers can be removed by calling the {\ttfamily off()} method, which has the same method signature as {\ttfamily on()}\-:
+
+```js clip.\-off( 'load', my\-\_\-load\-\_\-handler ); ```
+
+\paragraph*{load}
+
+The {\ttfamily load} event is fired when the Flash movie completes loading and is ready for action. Please note that you don't need to listen for this event to set options -- those are automatically passed to the movie if you call them before it loads. Example use\-:
+
+```js clip.\-on( 'load', function ( client, args ) \{ alert( \char`\"{}movie has loaded\char`\"{} ); \}); ```
+
+The handler is passed these options to the {\ttfamily args}
+
+
+\begin{DoxyDescription}
+\item[this ]The current element that is being provoked. if null this will be the window 
+\item[flash\-Version ]This property contains the users' flash version 
+\end{DoxyDescription}
+
+\paragraph*{mouseover}
+
+The {\ttfamily mouseover} event is fired when the user's mouse pointer enters the Flash movie. You can use this to simulate a rollover effect on your D\-O\-M element, however see {\itshape C\-S\-S Effects} for an easier way to do this. Example use\-:
+
+```js clip.\-on( 'mouseover', function ( client, args ) \{ alert( \char`\"{}mouse is over movie\char`\"{} ); \}); ```
+
+The handler is passed these options to the {\ttfamily args}
+
+
+\begin{DoxyDescription}
+\item[this ]The current element that is being provoked. if null this will be the window 
+\item[flash\-Version ]This property contains the users' flash version 
+\item[alt\-Key ]{\ttfamily true} if the Alt key is active 
+\item[ctrl\-Key ]{\ttfamily true} on Windows and Linux if the Ctrl key is active. {\ttfamily true} on Mac if either the Ctrl key or the Command key is active. Otherwise, {\ttfamily false}. 
+\item[shift\-Key ]{\ttfamily true} if the Shift key is active; {\ttfamily false} if it is inactive. 
+\end{DoxyDescription}
+
+\paragraph*{mouseout}
+
+The {\ttfamily mouseout} event is fired when the user's mouse pointer leaves the Flash movie. You can use this to simulate a rollover effect on your D\-O\-M element, however see {\itshape C\-S\-S Effects} for an easier way to do this. Example use\-:
+
+```js clip.\-on( 'mouseout', function ( client, args ) \{ alert( \char`\"{}mouse has left movie\char`\"{} ); \} ); ```
+
+The handler is passed these options to the {\ttfamily args}
+
+
+\begin{DoxyDescription}
+\item[this ]The current element that is being provoked. if null this will be the window 
+\item[flash\-Version ]This property contains the users' flash version 
+\item[alt\-Key ]{\ttfamily true} if the Alt key is active 
+\item[ctrl\-Key ]{\ttfamily true} on Windows and Linux if the Ctrl key is active. {\ttfamily true} on Mac if either the Ctrl key or the Command key is active. Otherwise, {\ttfamily false}. 
+\item[shift\-Key ]{\ttfamily true} if the Shift key is active; {\ttfamily false} if it is inactive. 
+\end{DoxyDescription}
+
+\paragraph*{mousedown}
+
+The {\ttfamily mousedown} event is fired when the user clicks on the Flash movie. Please note that this does not guarantee that the user will release the mouse button while still over the movie (i.\-e. resulting in a click). You can use this to simulate a click effect on your D\-O\-M element, however see {\itshape C\-S\-S Effects} for an easier way to do this. Example use\-:
+
+```js clip.\-on( 'mousedown', function ( client, args ) \{ alert( \char`\"{}mouse button is down\char`\"{} ); \} ); ```
+
+The handler is passed these options to the {\ttfamily args}
+
+
+\begin{DoxyDescription}
+\item[this ]The current element that is being provoked. if null this will be the window 
+\item[flash\-Version ]This property contains the users' flash version 
+\item[alt\-Key ]{\ttfamily true} if the Alt key is active 
+\item[ctrl\-Key ]{\ttfamily true} on Windows and Linux if the Ctrl key is active. {\ttfamily true} on Mac if either the Ctrl key or the Command key is active. Otherwise, {\ttfamily false}. 
+\item[shift\-Key ]{\ttfamily true} if the Shift key is active; {\ttfamily false} if it is inactive. 
+\end{DoxyDescription}
+
+\paragraph*{mouseup}
+
+The {\ttfamily mouseup} event is fired when the user releases the mouse button (having first pressed the mouse button while hovering over the movie). Please note that this does not guarantee that the mouse cursor is still over the movie (i.\-e. resulting in a click). You can use this to simulate a click effect on your D\-O\-M element, however see {\itshape C\-S\-S Effects} for an easier way to do this. Example use\-:
+
+```js clip.\-on( 'mouseup', function ( client, args ) \{ alert( \char`\"{}mouse button is up\char`\"{} ); \} ); ```
+
+The handler is passed these options to the {\ttfamily args}
+
+
+\begin{DoxyDescription}
+\item[this ]The current element that is being provoked. if null this will be the window 
+\item[flash\-Version ]This property contains the users' flash version 
+\item[alt\-Key ]{\ttfamily true} if the Alt key is active 
+\item[ctrl\-Key ]{\ttfamily true} on Windows and Linux if the Ctrl key is active. {\ttfamily true} on Mac if either the Ctrl key or the Command key is active. Otherwise, {\ttfamily false}. 
+\item[shift\-Key ]{\ttfamily true} if the Shift key is active; {\ttfamily false} if it is inactive. 
+\end{DoxyDescription}
+
+\paragraph*{complete}
+
+The {\ttfamily complete} event is fired when the text is successfully copied to the clipboard. Example use\-:
+
+```js clip.\-on( 'complete', function ( client, args ) \{ alert(\char`\"{}\-Copied text to clipboard\-: \char`\"{} + args.\-text ); \} ); ```
+
+The handler is passed these options to the {\ttfamily args}
+
+
+\begin{DoxyDescription}
+\item[this ]The current element that is being provoked. if null this will be the window 
+\item[flash\-Version ]This property contains the users' flash version 
+\item[alt\-Key ]{\ttfamily true} if the Alt key is active 
+\item[ctrl\-Key ]{\ttfamily true} on Windows and Linux if the Ctrl key is active. {\ttfamily true} on Mac if either the Ctrl key or the Command key is active. Otherwise, {\ttfamily false}. 
+\item[shift\-Key ]{\ttfamily true} if the Shift key is active; {\ttfamily false} if it is inactive. 
+\item[text ]The copied text. 
+\end{DoxyDescription}
+
+\paragraph*{noflash}
+
+The {\ttfamily noflash} event is fired when the user doesn't have flash installed on their system
+
+```js clip.\-on( 'noflash', function ( client, args ) \{ alert(\char`\"{}\-You don't support flash\char`\"{}); \} ); ```
+
+The handler is passed these options to the {\ttfamily args}
+
+
+\begin{DoxyDescription}
+\item[this ]The current element that is being provoked. if null this will be the window 
+\item[flash\-Version ]This property contains the users' flash version 
+\end{DoxyDescription}
+
+\paragraph*{wrongflash}
+
+The {\ttfamily wrongflash} event is fired when the user has the wrong version of flash. \hyperlink{class_zero_clipboard}{Zero\-Clipboard} supports version 10 and up.
+
+```js clip.\-on( 'wrongflash', function ( client, args ) \{ alert(\char`\"{}\-Your flash is too old \char`\"{} + args.\-flash\-Version); \} ); ```
+
+The handler is passed these options to the {\ttfamily args}
+
+
+\begin{DoxyDescription}
+\item[this ]The current element that is being provoked. if null this will be the window 
+\item[flash\-Version ]This property contains the users' flash version 
+\end{DoxyDescription}
+
+\paragraph*{data\-Requested}
+
+On mousedown, the flash object will check and see if the {\ttfamily clip\-Text} has been set. If it hasn't, then it will fire off a {\ttfamily data\-Requested} event. If the html object has {\ttfamily data-\/clipboard-\/text} or {\ttfamily data-\/clipboard-\/target} then \hyperlink{class_zero_clipboard}{Zero\-Clipboard} will take care of getting the data. However if it hasn't been set, then it will be up to you to {\ttfamily clip.\-set\-Text} from that method. Which will complete the loop.
+
+```js clip.\-on( 'data\-Requested', function ( client, args ) \{ clip.\-set\-Text( 'Copied to clipboard.' ); \} ); ```
+
+The handler is passed these options to the {\ttfamily args}
+
+
+\begin{DoxyDescription}
+\item[this ]The current element that is being provoked. if null this will be the window 
+\item[flash\-Version ]This property contains the users' flash version 
+\end{DoxyDescription}
+
+\subsection*{Examples}
+
+The following are complete, working examples of using the clipboard client library in H\-T\-M\-L pages.
+
+\subsubsection*{Minimal Example}
+
+Here is a quick example using as few calls as possible\-:
+
+```html $<$html$>$ $<$body$>$
+
+Copy To Clipboard
+
+$<$script type=\char`\"{}text/javascript\char`\"{} src=\char`\"{}\-Zero\-Clipboard.\-js\char`\"{}$>$$<$/script$>$ $<$script type=\char`\"{}text/javascript\char`\"{}$>$ var clip = new \hyperlink{class_zero_clipboard}{Zero\-Clipboard}( document.\-get\-Element\-By\-Id('d\-\_\-clip\-\_\-button') ); $<$/script$>$ $<$/body$>$ $<$/html$>$ ```
+
+When clicked, the text \char`\"{}\-Copy me!\char`\"{} will be copied to the clipboard.
+
+\subsubsection*{Complete Example}
+
+Here is a complete example which exercises every option and event handler\-:
+
+```html $<$html$>$ $<$head$>$ $<$style type=\char`\"{}text/css\char`\"{}$>$ \#d\-\_\-clip\-\_\-button \{ text-\/align\-: center; border\-: 1px solid black; background-\/color\-: \#ccc; margin\-: 10px; padding\-: 10px; \} \#d\-\_\-clip\-\_\-button.\-zeroclipboard-\/is-\/hover \{ background-\/color\-: \#eee; \} \#d\-\_\-clip\-\_\-button.\-zeroclipboard-\/is-\/active \{ background-\/color\-: \#aaa; \} $<$/style$>$ $<$/head$>$ $<$body$>$ $<$script type=\char`\"{}text/javascript\char`\"{} src=\char`\"{}\-Zero\-Clipboard.\-js\char`\"{}$>$$<$/script$>$
+
+Copy To Clipboard
+
+$<$script type=\char`\"{}text/javascript\char`\"{}$>$ var clip = new \hyperlink{class_zero_clipboard}{Zero\-Clipboard}( \$('\#d\-\_\-clip\-\_\-button') );
+
+clip.\-on( 'load', function(client) \{ // alert( \char`\"{}movie is loaded\char`\"{} ); \} );
+
+clip.\-on( 'complete', function(client, args) \{ alert(\char`\"{}\-Copied text to clipboard\-: \char`\"{} + args.\-text ); \} );
+
+clip.\-on( 'mouseover', function(client) \{ // alert(\char`\"{}mouse over\char`\"{}); \} );
+
+clip.\-on( 'mouseout', function(client) \{ // alert(\char`\"{}mouse out\char`\"{}); \} );
+
+clip.\-on( 'mousedown', function(client) \{
+
+// alert(\char`\"{}mouse down\char`\"{}); \} );
+
+clip.\-on( 'mouseup', function(client) \{ // alert(\char`\"{}mouse up\char`\"{}); \} );
+
+$<$/script$>$ $<$/body$>$ $<$/html$>$ ```
+
+\subsection*{A\-M\-D}
+
+If using \href{https://github.com/amdjs/amdjs-api/wiki/AMD}{\tt A\-M\-D} with a library such as \href{http://requirejs.org/}{\tt Require\-J\-S}, etc., you shouldn't need to do any special configuration for \hyperlink{class_zero_clipboard}{Zero\-Clipboard} to work correctly as an A\-M\-D module.
+
+However, in order to correctly dispatch events while using A\-M\-D, \hyperlink{class_zero_clipboard}{Zero\-Clipboard} expects a \href{https://github.com/amdjs/amdjs-api/wiki/require}{\tt global `require` function} to exist. If you are using an A\-M\-D loader that does {\itshape not} expose a global {\ttfamily require} function (e.\-g. curl.\-js), then you will need to add that function yourself. For example, with curl.\-js\-:
+
+```js window.\-require = curl; ```
+
+\subsection*{Browser Support}
+
+Works in I\-E7+ and all of the evergreen browsers.
+
+\subsection*{O\-S Considerations}
+
+Because \hyperlink{class_zero_clipboard}{Zero\-Clipboard} will be interacting with your users' system clipboards, there are some special considerations specific to the users' operating systems that you should be aware of. With this information, you can make informed decisions of how {\itshape your} site should handle each of these situations.
+
+
+\begin{DoxyItemize}
+\item {\bfseries Windows\-:}
+\begin{DoxyItemize}
+\item If you want to ensure that your Windows users will be able to paste their copied text into Windows Notepad and have it honor line breaks, you'll need to ensure that the text uses the sequence {\ttfamily \textbackslash{}r\textbackslash{}n} instead of just {\ttfamily \textbackslash{}n} for line breaks. If the text to copy is based on user input (e.\-g. a {\ttfamily textarea}), then you can achieve this transformation by utilizing the {\ttfamily data\-Requested} event handler, e.\-g.
+
+```js clip.\-on('data\-Requested', function(client, args) \{ var text = document.\-get\-Element\-By\-Id('your\-Text\-Area').value; var windows\-Text = text.\-replace(/\par
+/g, '\par
+'); client.\-set\-Text(windows\-Text); \}); ```
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\section*{Deprecations}
+
+The current list of deprecations includes\-:
+\begin{DoxyItemize}
+\item {\ttfamily Zero\-Clipboard.\-prototype.\-set\-Hand\-Cursor} {$\rightarrow$} as of \mbox{[}v1.\-2.\-0\mbox{]}, removing in \mbox{[}v2.\-0.\-0\mbox{]}
+\begin{DoxyItemize}
+\item Use the {\ttfamily force\-Hand\-Cursor} config option instead!
+\end{DoxyItemize}
+\item {\ttfamily Zero\-Clipboard.\-prototype.\-reposition} {$\rightarrow$} as of \mbox{[}v1.\-2.\-0\mbox{]}, removing in \mbox{[}v2.\-0.\-0\mbox{]}
+\begin{DoxyItemize}
+\item Repositioning is now handled more intelligently internally, so this method is simply no longer needed by users.
+\end{DoxyItemize}
+\item The {\ttfamily trusted\-Domains} config option {$\rightarrow$} as of \mbox{[}v1.\-2.\-0\mbox{]}, removing in \mbox{[}v2.\-0.\-0\mbox{]}
+\begin{DoxyItemize}
+\item Use the {\ttfamily trusted\-Origins} config option instead!
+\end{DoxyItemize}
+\item The {\ttfamily Zero\-Clipboard.\-prototype.\-receive\-Event} {$\rightarrow$} as of \mbox{[}v1.\-2.\-0\mbox{]}, removing in \mbox{[}v2.\-0.\-0\mbox{]}
+\begin{DoxyItemize}
+\item This should only be used internally, so this method will be removed from the public A\-P\-I.
+\end{DoxyItemize}
+\item The {\ttfamily Zero\-Clipboard.\-detect\-Flash\-Support} {$\rightarrow$} as of \mbox{[}v1.\-2.\-0\mbox{]}, removing in \mbox{[}v2.\-0.\-0\mbox{]}
+\begin{DoxyItemize}
+\item This should only be used internally, so this method will be removed from the public A\-P\-I. 
+\end{DoxyItemize}
+\end{DoxyItemize}

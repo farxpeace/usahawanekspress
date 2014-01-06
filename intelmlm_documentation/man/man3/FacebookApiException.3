@@ -1,0 +1,97 @@
+.TH "FacebookApiException" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FacebookApiException \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Exception\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__construct\fP ($result)"
+.br
+.ti -1c
+.RI "\fBgetResult\fP ()"
+.br
+.ti -1c
+.RI "\fBgetType\fP ()"
+.br
+.ti -1c
+.RI "\fB__toString\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB$result\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Copyright 2011 \fBFacebook\fP, Inc\&.
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at 
+.PP
+.nf
+http://www.apache.org/licenses/LICENSE-2.0
+
+.fi
+.PP
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. Thrown when an API call returns an exception\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Naitik Shah naitik@facebook.com 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "__construct ($result)"
+Make a new API Exception with the given result\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$result\fP The result from the API server 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "__toString ()"
+To make debugging easier\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string The string representation of the error 
+.RE
+.PP
+
+.SS "getResult ()"
+Return the associated result object returned by the API server\&.
+.PP
+\fBReturns:\fP
+.RS 4
+array The result from the API server 
+.RE
+.PP
+
+.SS "getType ()"
+Returns the associated type for the error\&. This will default to 'Exception' when a type is not available\&.
+.PP
+\fBReturns:\fP
+.RS 4
+string 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

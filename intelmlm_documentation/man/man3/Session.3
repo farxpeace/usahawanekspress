@@ -1,0 +1,143 @@
+.TH "Session" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Session \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSession\fP ()"
+.br
+.ti -1c
+.RI "\fBparse_signed_request\fP ($signed_request)"
+.br
+.ti -1c
+.RI "\fBbase64_url_decode\fP ($input)"
+.br
+.ti -1c
+.RI "\fBstartSession\fP ()"
+.br
+.ti -1c
+.RI "\fBgetUIDbyUsernameAndUserid\fP ($username, $userid)"
+.br
+.ti -1c
+.RI "\fBcheckLogin\fP ()"
+.br
+.ti -1c
+.RI "\fBfb_isIdRegistered\fP ($fb_id)"
+.br
+.ti -1c
+.RI "\fBfb_checkToken\fP ($fb_token)"
+.br
+.ti -1c
+.RI "\fBfb_check_login\fP ($fb_id, $fb_email)"
+.br
+.ti -1c
+.RI "\fBfb_login\fP ($fb_id, $fb_email, $fb_token)"
+.br
+.ti -1c
+.RI "\fBfb_register\fP ($fb_id, $fb_email, $fb_token)"
+.br
+.ti -1c
+.RI "\fBlogin\fP ($subuser, $subpass, $subremember, $login_using=NULL)"
+.br
+.ti -1c
+.RI "\fBlogout\fP ()"
+.br
+.ti -1c
+.RI "\fBregisterByEmail\fP ($email, $subpass)"
+.br
+.ti -1c
+.RI "\fBregister\fP ($subuser, $subpass, $subemail, $subname)"
+.br
+.ti -1c
+.RI "\fBeditAccount\fP ($subcurpass, $subnewpass, $subemail, $subname)"
+.br
+.ti -1c
+.RI "\fBisAdmin\fP ()"
+.br
+.ti -1c
+.RI "\fBisAuthor\fP ()"
+.br
+.ti -1c
+.RI "\fBgenerateRandID\fP ()"
+.br
+.ti -1c
+.RI "\fBgenerateRandStr\fP ($length)"
+.br
+.ti -1c
+.RI "\fBcleanInput\fP ($post=array())"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB$uid\fP"
+.br
+.ti -1c
+.RI "\fB$username\fP"
+.br
+.ti -1c
+.RI "\fB$email\fP"
+.br
+.ti -1c
+.RI "\fB$userid\fP"
+.br
+.ti -1c
+.RI "\fB$userlevel\fP"
+.br
+.ti -1c
+.RI "\fB$time\fP"
+.br
+.ti -1c
+.RI "\fB$logged_in\fP"
+.br
+.ti -1c
+.RI "\fB$userinfo\fP = array()"
+.br
+.ti -1c
+.RI "\fB$url\fP"
+.br
+.ti -1c
+.RI "\fB$referrer\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "editAccount ($subcurpass, $subnewpass, $subemail, $subname)"
+editAccount - Attempts to edit the user's account information including the password, which it first makes sure is correct if entered, if so and the new password is in the right format, the change is made\&. All other fields are changed automatically\&. 
+.SS "generateRandID ()"
+generateRandID - Generates a string made up of randomized letters (lower and upper case) and digits and returns the md5 hash of it to be used as a userid\&. 
+.SS "generateRandStr ($length)"
+generateRandStr - Generates a string made up of randomized letters (lower and upper case) and digits, the length is a specified parameter\&. 
+.SS "getUIDbyUsernameAndUserid ($username, $userid)"
+checkLogin - Checks if the user has already previously logged in, and a session with the user has already been established\&. Also checks to see if user has been remembered\&. If so, the database is queried to make sure of the user's authenticity\&. Returns true if the user has logged in\&. 
+.SS "isAdmin ()"
+isAdmin - Returns true if currently logged in user is an administrator, false otherwise\&. 
+.SS "isAuthor ()"
+isAuthor - Returns true if currently logged in user is an author or an administrator, false otherwise\&. 
+.SS "login ($subuser, $subpass, $subremember, $login_using = \fCNULL\fP)"
+login - The user has submitted his username and password through the login form, this function checks the authenticity of that information in the database and creates the session\&. Effectively logging in the user if all goes well\&. This is the cool part: the user has requested that we remember that he's logged in, so we set two cookies\&. One to hold his username, and one to hold his random value userid\&. It expires by the time specified in constants\&.php\&. Now, next time he comes to our site, we will log him in automatically, but only if he didn't log out before he left\&.
+.SS "logout ()"
+logout - Gets called when the user wants to be logged out of the website\&. It deletes any cookies that were stored on the users computer as a result of him wanting to be remembered, and also unsets session variables and demotes his user level to guest\&. Delete cookies - the time must be in the past, so just negate what you added when creating the cookie\&.
+.PP
+Remove from active users table and add to active guests tables\&.
+.SS "register ($subuser, $subpass, $subemail, $subname)"
+register - Gets called when the user has just submitted the registration form\&. Determines if there were any errors with the entry fields, if so, it records the errors and returns
+.IP "1." 4
+If no errors were found, it registers the new user and returns 0\&. Returns 2 if registration failed\&. 
+.PP
+Note: I trimmed the password only after I checked the length because if you fill the password field up with spaces it looks like a lot more characters than 4, so it looks kind of stupid to report 'password too short'\&.
+.SS "\fBSession\fP ()"
+Note: referrer should really only be considered the actual page referrer in process\&.php, any other time it may be inaccurate\&. 
+.SS "startSession ()"
+startSession - Performs all the actions necessary to initialize this session object\&. Tries to determine if the the user has logged in already, and sets the variables accordingly\&. Also takes advantage of this page load to update the active visitors tables\&. Set guest value to users not logged in, and update active guests table accordingly\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

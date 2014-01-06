@@ -1,0 +1,425 @@
+.TH "PHPSDKTestCase" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PHPSDKTestCase \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits PHPUnit_Framework_TestCase\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtestConstructor\fP ()"
+.br
+.ti -1c
+.RI "\fBtestConstructorWithFileUpload\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSetAppId\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSetAPISecret\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSetAPPSecret\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSetAccessToken\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSetFileUploadSupport\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGetCurrentURL\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGetLoginURL\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGetLoginURLWithExtraParams\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGetLoginURLWithScopeParamsAsArray\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGetCodeWithValidCSRFState\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGetCodeWithInvalidCSRFState\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGetCodeWithMissingCSRFState\fP ()"
+.br
+.ti -1c
+.RI "\fBtestPersistentCSRFState\fP ()"
+.br
+.ti -1c
+.RI "\fBtestPersistentCSRFStateWithSharedSession\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGetUserFromSignedRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBtestDisallowSignedRequest\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSignedRequestRewrite\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGetSignedRequestFromCookie\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGetSignedRequestWithIncorrectSignature\fP ()"
+.br
+.ti -1c
+.RI "\fBtestNonUserAccessToken\fP ()"
+.br
+.ti -1c
+.RI "\fBtestMissingMetadataCookie\fP ()"
+.br
+.ti -1c
+.RI "\fBtestEmptyMetadataCookie\fP ()"
+.br
+.ti -1c
+.RI "\fBtestMetadataCookie\fP ()"
+.br
+.ti -1c
+.RI "\fBtestQuotedMetadataCookie\fP ()"
+.br
+.ti -1c
+.RI "\fBtestAPIForLoggedOutUsers\fP ()"
+.br
+.ti -1c
+.RI "\fBtestAPIWithBogusAccessToken\fP ()"
+.br
+.ti -1c
+.RI "\fBtestAPIGraphPublicData\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGraphAPIWithBogusAccessToken\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGraphAPIWithExpiredAccessToken\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGraphAPIOAuthSpecError\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGraphAPIMethodOAuthSpecError\fP ()"
+.br
+.ti -1c
+.RI "\fBtestCurlFailure\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGraphAPIWithOnlyParams\fP ()"
+.br
+.ti -1c
+.RI "\fBtestLoginURLDefaults\fP ()"
+.br
+.ti -1c
+.RI "\fBtestLoginURLDefaultsDropStateQueryParam\fP ()"
+.br
+.ti -1c
+.RI "\fBtestLoginURLDefaultsDropCodeQueryParam\fP ()"
+.br
+.ti -1c
+.RI "\fBtestLoginURLDefaultsDropSignedRequestParamButNotOthers\fP ()"
+.br
+.ti -1c
+.RI "\fBtestLoginURLCustomNext\fP ()"
+.br
+.ti -1c
+.RI "\fBtestLogoutURLDefaults\fP ()"
+.br
+.ti -1c
+.RI "\fBtestLoginStatusURLDefaults\fP ()"
+.br
+.ti -1c
+.RI "\fBtestLoginStatusURLCustom\fP ()"
+.br
+.ti -1c
+.RI "\fBtestNonDefaultPort\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSecureCurrentUrl\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSecureCurrentUrlWithNonDefaultPort\fP ()"
+.br
+.ti -1c
+.RI "\fBtestBase64UrlEncode\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSignedToken\fP ()"
+.br
+.ti -1c
+.RI "\fBtestNonTossedSignedtoken\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSignedRequestWithEmptyValue\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSignedRequestWithWrongAlgo\fP ()"
+.br
+.ti -1c
+.RI "\fBtestMakeAndParse\fP ()"
+.br
+.ti -1c
+.RI "\fBtestMakeSignedRequestExpectsArray\fP ()"
+.br
+.ti -1c
+.RI "\fBtestBundledCACert\fP ()"
+.br
+.ti -1c
+.RI "\fBtestVideoUpload\fP ()"
+.br
+.ti -1c
+.RI "\fBtestVideoUploadGraph\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGetUserAndAccessTokenFromSession\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGetUserAndAccessTokenFromSignedRequestNotSession\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGetUserWithoutCodeOrSignedRequestOrSession\fP ()"
+.br
+.ti -1c
+.RI "\fBtestGetAccessTokenUsingCodeInJsSdkCookie\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSignedRequestWithoutAuthClearsData\fP ()"
+.br
+.ti -1c
+.RI "\fBtestInvalidCodeInSignedRequestWillClearData\fP ()"
+.br
+.ti -1c
+.RI "\fBtestInvalidCodeWillClearData\fP ()"
+.br
+.ti -1c
+.RI "\fBtestValidCodeToToken\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSignedRequestWithoutAuthClearsDataInAvailData\fP ()"
+.br
+.ti -1c
+.RI "\fBtestFailedToGetUserFromAccessTokenClearsData\fP ()"
+.br
+.ti -1c
+.RI "\fBtestUserFromAccessTokenIsStored\fP ()"
+.br
+.ti -1c
+.RI "\fBtestUserFromAccessTokenPullsID\fP ()"
+.br
+.ti -1c
+.RI "\fBtestUserFromAccessTokenResetsOnApiException\fP ()"
+.br
+.ti -1c
+.RI "\fBtestEmptyCodeReturnsFalse\fP ()"
+.br
+.ti -1c
+.RI "\fBtestNullRedirectURIUsesCurrentURL\fP ()"
+.br
+.ti -1c
+.RI "\fBtestNullRedirectURIAllowsEmptyStringForCookie\fP ()"
+.br
+.ti -1c
+.RI "\fBtestAPIExceptionDuringCodeExchangeIsIgnored\fP ()"
+.br
+.ti -1c
+.RI "\fBtestEmptyResponseInCodeExchangeIsIgnored\fP ()"
+.br
+.ti -1c
+.RI "\fBtestExistingStateRestoredInConstructor\fP ()"
+.br
+.ti -1c
+.RI "\fBtestMissingAccessTokenInCodeExchangeIsIgnored\fP ()"
+.br
+.ti -1c
+.RI "\fBtestExceptionConstructorWithErrorCode\fP ()"
+.br
+.ti -1c
+.RI "\fBtestExceptionConstructorWithInvalidErrorCode\fP ()"
+.br
+.ti -1c
+.RI "\fBtestExceptionTypeFalse\fP ()"
+.br
+.ti -1c
+.RI "\fBtestExceptionTypeMixedDraft00\fP ()"
+.br
+.ti -1c
+.RI "\fBtestExceptionTypeDraft00\fP ()"
+.br
+.ti -1c
+.RI "\fBtestExceptionTypeDraft10\fP ()"
+.br
+.ti -1c
+.RI "\fBtestExceptionTypeDefault\fP ()"
+.br
+.ti -1c
+.RI "\fBtestExceptionToString\fP ()"
+.br
+.ti -1c
+.RI "\fBtestDestroyClearsCookie\fP ()"
+.br
+.ti -1c
+.RI "\fBtestAuthExpireSessionDestroysSession\fP ()"
+.br
+.ti -1c
+.RI "\fBtestLowercaseAuthRevokeAuthDestroysSession\fP ()"
+.br
+.ti -1c
+.RI "\fBtestErrorCodeFromRestAPIThrowsException\fP ()"
+.br
+.ti -1c
+.RI "\fBtestJsonEncodeOfNonStringParams\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSessionBackedFacebook\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSessionBackedFacebookIgnoresUnsupportedKey\fP ()"
+.br
+.ti -1c
+.RI "\fBtestClearSessionBackedFacebook\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSessionBackedFacebookIgnoresUnsupportedKeyInClear\fP ()"
+.br
+.ti -1c
+.RI "\fBtestClearAllSessionBackedFacebook\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSharedSessionBackedFacebook\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSharedSessionBackedFacebookIgnoresUnsupportedKey\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSharedClearSessionBackedFacebook\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSharedSessionBackedFacebookIgnoresUnsupportedKeyInClear\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSharedClearAllSessionBackedFacebook\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSharedSessionBackedFacebookIsRestored\fP ()"
+.br
+.ti -1c
+.RI "\fBtestSharedSessionBackedFacebookIsNotRestoredWhenCorrupt\fP ()"
+.br
+.ti -1c
+.RI "\fBtestHttpHost\fP ()"
+.br
+.ti -1c
+.RI "\fBtestHttpProtocol\fP ()"
+.br
+.ti -1c
+.RI "\fBtestHttpHostForwarded\fP ()"
+.br
+.ti -1c
+.RI "\fBtestHttpProtocolForwarded\fP ()"
+.br
+.ti -1c
+.RI "\fBtestHttpProtocolForwardedSecure\fP ()"
+.br
+.ti -1c
+.RI "\fBtestEndsWith\fP ($big, $small, $result)"
+.br
+.ti -1c
+.RI "\fBprovideEndsWith\fP ()"
+.br
+.ti -1c
+.RI "\fBtestIsAllowedDomain\fP ($big, $small, $result)"
+.br
+.ti -1c
+.RI "\fBprovideIsAllowedDomain\fP ()"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "const \fBAPP_ID\fP = '117743971608120'"
+.br
+.ti -1c
+.RI "const \fBSECRET\fP = '9c8ea2071859659bea1246d33a9207cf'"
+.br
+.ti -1c
+.RI "const \fBMIGRATED_APP_ID\fP = '174236045938435'"
+.br
+.ti -1c
+.RI "const \fBMIGRATED_SECRET\fP = '0073dce2d95c4a5c2922d1827ea0cca6'"
+.br
+.ti -1c
+.RI "const \fBTEST_USER\fP = 499834690"
+.br
+.ti -1c
+.RI "const \fBTEST_USER_2\fP = 499835484"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBgenerateMD5HashOfRandomValue\fP ()"
+.br
+.ti -1c
+.RI "\fBsetUp\fP ()"
+.br
+.ti -1c
+.RI "\fBtearDown\fP ()"
+.br
+.ti -1c
+.RI "\fBclearSuperGlobals\fP ()"
+.br
+.ti -1c
+.RI "\fBassertIsSubset\fP ($correct, $actual, $msg='')"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Copyright 2011 \fBFacebook\fP, Inc\&.
+.PP
+Licensed under the Apache License, Version 2\&.0 (the 'License'); you may not use this file except in compliance with the License\&. You may obtain a copy of the License at 
+.PP
+.nf
+http://www.apache.org/licenses/LICENSE-2.0
+
+.fi
+.PP
+.PP
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied\&. See the License for the specific language governing permissions and limitations under the License\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "assertIsSubset ($correct, $actual, $msg = \fC''\fP)\fC [protected]\fP"
+Checks that the correct args are a subset of the returned obj 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI$correct\fP The correct array values 
+.br
+\fI$actual\fP The values in practice 
+.br
+\fI$message\fP to be shown on failure 
+.RE
+.PP
+
+.SS "testEndsWith ($big, $small, $result)"
+provideEndsWith 
+.SS "testErrorCodeFromRestAPIThrowsException ()"
+FacebookAPIException 
+.SS "testIsAllowedDomain ($big, $small, $result)"
+provideIsAllowedDomain 
+.SS "testMakeSignedRequestExpectsArray ()"
+InvalidArgumentException 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for intelMLM from the source code\&.

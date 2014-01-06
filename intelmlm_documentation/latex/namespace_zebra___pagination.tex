@@ -1,0 +1,27 @@
+\hypertarget{namespace_zebra___pagination}{\section{Zebra\-\_\-\-Pagination Namespace Reference}
+\label{namespace_zebra___pagination}\index{Zebra\-\_\-\-Pagination@{Zebra\-\_\-\-Pagination}}
+}
+
+
+\subsection{Detailed Description}
+A generic pagination script that automatically generates navigation links as well as next/previous page links, given the total number of records and the number of records to be shown per page. Useful for breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving readability, aesthetics and usability.
+
+Adheres to pagination best practices (provides large clickable areas, doesn't use underlines, the selected page is clearly highlighted, page links are spaced out, provides \char`\"{}previous page\char`\"{} and \char`\"{}next page\char`\"{} links, provides \char`\"{}first page\char`\"{} and \char`\"{}last page\char`\"{} links -\/ as outlined in an article by Faruk Ates from 2007, which can now be found \hyperlink{}{here}), can generate links both in natural as well as in reverse order, can be easily, localized, supports different positions for next/previous page buttons, supports page propagation via G\-E\-T or via U\-R\-L rewriting, is S\-E\-O-\/friendly, and the appearance is easily customizable through C\-S\-S.
+
+Please note that this is a {\itshape generic} pagination script, meaning that it does not display any records and it does not have any dependencies on database connections or S\-Q\-L queries, making it very flexible! It is up to the developer to fetch the actual data and display it based on the information returned by this pagination script. The advantage is that it can be used to paginate over records coming from any source like arrays or databases.
+
+The code is heavily commented and generates no warnings/errors/notices when P\-H\-P's error reporting level is set to E\-\_\-\-A\-L\-L.
+
+Visit \hyperlink{}{http\-://stefangabos.\-ro/php-\/libraries/zebra-\/pagination/} for more information.
+
+For more resources visit \hyperlink{}{http\-://stefangabos.\-ro/}
+
+\begin{DoxyAuthor}{Author}
+Stefan Gabos \href{mailto:contact@stefangabos.ro}{\tt contact@stefangabos.\-ro} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\-1.\-1 (last revision\-: July 15, 2013) 
+\end{DoxyVersion}
+\begin{DoxyCopyright}{Copyright}
+(c) 2009 -\/ 2013 Stefan Gabos  \href{http://www.gnu.org/licenses/lgpl-3.0.txt}{\tt http\-://www.\-gnu.\-org/licenses/lgpl-\/3.\-0.\-txt} G\-N\-U L\-E\-S\-S\-E\-R G\-E\-N\-E\-R\-A\-L P\-U\-B\-L\-I\-C L\-I\-C\-E\-N\-S\-E 
+\end{DoxyCopyright}

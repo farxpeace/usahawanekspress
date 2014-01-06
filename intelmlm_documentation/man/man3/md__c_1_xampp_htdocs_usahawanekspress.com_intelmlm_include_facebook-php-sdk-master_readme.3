@@ -1,0 +1,70 @@
+.TH "md__c_1_xampp_htdocs_usahawanekspress.com_intelmlm_include_facebook-php-sdk-master_readme" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__c_1_xampp_htdocs_usahawanekspress.com_intelmlm_include_facebook-php-sdk-master_readme \- readme 
+\fBFacebook\fP PHP SDK (v\&.3\&.2\&.3)
+.PP
+The \fCFacebook Platform\fP is a set of APIs that make your app more social\&.
+.PP
+This repository contains the open source PHP SDK that allows you to access \fBFacebook\fP Platform from your PHP app\&. Except as otherwise noted, the \fBFacebook\fP PHP SDK is licensed under the Apache Licence, Version 2\&.0 (http://www.apache.org/licenses/LICENSE-2.0.html)\&.
+.PP
+.SS "Usage "
+.PP
+The \fCexamples\fP are a good place to start\&. The minimal you'll need to have is: ```php require 'facebook-php-sdk/src/facebook\&.php';
+.PP
+$facebook = new \fBFacebook\fP(array( 'appId' => 'YOUR_APP_ID', 'secret' => 'YOUR_APP_SECRET', ));
+.PP
+// Get User ID $user = $facebook->getUser(); ```
+.PP
+To make \fCAPI\fP calls: ```php if ($user) { try { // Proceed knowing you have a logged in user who's authenticated\&. $user_profile = $facebook->api('/me'); } catch (\fBFacebookApiException\fP $e) { error_log($e); $user = null; } } ```
+.PP
+You can make api calls by choosing the \fCHTTP method\fP and setting optional \fCparameters\fP: ```php $facebook->api('/me/feed/', 'post', array( 'message' => 'I want to display this message on my wall' )); ```
+.PP
+Login or logout url will be needed depending on current user state\&. ```php if ($user) { $logoutUrl = $facebook->getLogoutUrl(); } else { $loginUrl = $facebook->getLoginUrl(); } ```
+.PP
+With Composer:
+.PP
+.IP "\(bu" 2
+Add the \fC'facebook/php-sdk': '\\@stable'\fP into the \fCrequire\fP section of your \fCcomposer\&.json\fP\&.
+.IP "\(bu" 2
+Run \fCcomposer install\fP\&.
+.IP "\(bu" 2
+The example will look like
+.PP
+.PP
+```php if (($loader = require_once \fBDIR\fP \&. '/vendor/autoload\&.php') == null) { die('Vendor directory not found, Please run composer install\&.'); }
+.PP
+$facebook = new \fBFacebook\fP(array( 'appId' => 'YOUR_APP_ID', 'secret' => 'YOUR_APP_SECRET', ));
+.PP
+// Get User ID $user = $facebook->getUser(); ```
+.PP
+T<h2>ests 
+.PP
+In order to keep us nimble and allow us to bring you new functionality, without compromising on stability, we have ensured full test coverage of the SDK\&. We are including this in the open source repository to assure you of our commitment to quality, but also with the hopes that you will contribute back to help keep it stable\&. The easiest way to do so is to file bugs and include a test case\&.
+.PP
+The tests can be executed by using this command from the base directory: 
+.PP
+.nf
+phpunit --stderr --bootstrap tests/bootstrap.php tests/tests.php
+
+.fi
+.PP
+.PP
+.SH "Contributing "
+.PP
+.PP
+For us to accept contributions you will have to first have signed the \fCContributor License Agreement\fP\&.
+.PP
+When commiting, keep all lines to less than 80 characters, and try to follow the existing style\&.
+.PP
+Before creating a pull request, squash your commits into a single commit\&.
+.PP
+Add the comments where needed, and provide ample explanation in the commit message\&.
+.PP
+.SH "Report Issues/Bugs "
+.PP
+.PP
+\fCBugs\fP
+.PP
+\fCQuestions\fP 

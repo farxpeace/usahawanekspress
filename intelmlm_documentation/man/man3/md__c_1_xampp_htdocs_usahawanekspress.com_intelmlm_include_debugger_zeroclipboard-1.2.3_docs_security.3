@@ -1,0 +1,35 @@
+.TH "md__c_1_xampp_htdocs_usahawanekspress.com_intelmlm_include_debugger_zeroclipboard-1.2.3_docs_security" 3 "Mon Jan 6 2014" "Version 1" "intelMLM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__c_1_xampp_htdocs_usahawanekspress.com_intelmlm_include_debugger_zeroclipboard-1.2.3_docs_security \- \fBZeroClipboard\fP Security 
+We try our best to keep \fBZeroClipboard\fP secure but there are some rules that you should follow to keep your site safe\&.
+.PP
+.SS "Rules"
+.PP
+Basically, if an attacker gets access to the main window/global object via an XSS exploit, it's pretty much an instant 'GAME OVER' unless \fBALL\fP of the following are true:
+.IP "1." 4
+The \fC\fBZeroClipboard\fP\fP object itself is not globally accessible\&.
+.IP "2." 4
+The \fCZeroClipboard\&.prototype\fP object itself is not globally accessible\&.
+.IP "3." 4
+No \fC\fBZeroClipboard\fP\fP instances are globally accessible\&.
+.IP "4." 4
+No callback functions for dispatched \fBZeroClipboard\fP events are globally accessible\&.
+.IP "5." 4
+If a variable is used to set the path to the SWF via \fCZeroClipboard::setDefaults\fP, that variable must not be globally accessible\&.
+.PP
+.PP
+.SS "Examples"
+.PP
+.IP "1." 4
+Having \fC\fBZeroClipboard\fP\fP instances globally accessible (versus encapsulated in a closure)\&. This allows an attacker to manually call a client's \fCsetText\fP method and inject their own text\&.
+.IP "2." 4
+As with all globally accessible functions in JavaScript, any globally accessible callback functions (hooked to events) can be overridden by an attacker\&. This isn't terribly dangerous but could be annoying\&.
+.IP "3." 4
+Overriding any of the \fC\fBZeroClipboard\fP\fP or \fCZeroClipboard\&.prototype\fP properties or methods, if globally accessible\&.
+.PP
+.PP
+.SS "Responsible Disclosure"
+.PP
+If you find any security holes, please submit a pull request, or file an issue\&. We will be very appreciative\&. 

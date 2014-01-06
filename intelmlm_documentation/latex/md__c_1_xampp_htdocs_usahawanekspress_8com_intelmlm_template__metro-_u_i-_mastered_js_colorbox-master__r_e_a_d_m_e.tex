@@ -1,0 +1,856 @@
+A customizable lightbox plugin for j\-Query. See the \href{http://jacklmoore.com/colorbox/}{\tt project page} for documentation and a demonstration, and the \href{http://jacklmoore.com/colorbox/faq/}{\tt F\-A\-Q} for solutions and examples to common issues. Released under the \href{http://www.opensource.org/licenses/mit-license.php}{\tt M\-I\-T license}.
+
+\subsection*{Changelog\-:}
+
+\subsubsection*{Version 1.\-4.\-33 -\/ 2013/10/31}
+
+
+\begin{DoxyItemize}
+\item Fixed an issue where private events propagated to the document in versions of j\-Query prior to 1.\-7. Fixes \#525, Fixes \#526
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-32 -\/ 2013/10/16}
+
+
+\begin{DoxyItemize}
+\item Updated stylesheets to avoid issue with using {\ttfamily div \{max-\/width\-:100\%\}} (Fixes \#520)
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-31 -\/ 2013/9/25}
+
+
+\begin{DoxyItemize}
+\item Used set\-Attribute to set londesc, so that the value is accessible via D\-O\-M Node long\-Desc property \#508
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-30 -\/ 2013/9/24}
+
+
+\begin{DoxyItemize}
+\item Added longdesc and aria-\/describedby attributes to photos. Fixes \#508
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-29 -\/ 2013/9/10}
+
+
+\begin{DoxyItemize}
+\item Fixed a slideshow regression from 1.\-4.\-27
+\item Fixed a potential issue with the starting size of \#cbox\-Loaded\-Content
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-28 -\/ 2013/9/4}
+
+
+\begin{DoxyItemize}
+\item Fixed a potential issue with using the open property with mixed slideshow and non-\/slideshow groups
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-27 -\/ 2013/7/16}
+
+
+\begin{DoxyItemize}
+\item Fixed a width calculation issue relating to using margin\-:auto on \#cbox\-Loaded\-Content.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-26 -\/ 2013/6/30}
+
+
+\begin{DoxyItemize}
+\item Fixed a regression in I\-E7 and I\-E8 that was causing an error.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-25 -\/ 2013/6/28}
+
+
+\begin{DoxyItemize}
+\item Use an animation speed of zero between same-\/sized content (fixed).
+\item Removed temporary fix for j\-Query U\-I 1.\-8
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-24 -\/ 2013/6/24}
+
+
+\begin{DoxyItemize}
+\item Added close\-Button option. Set to false to remove the close button.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-23 -\/ 2013/6/23}
+
+
+\begin{DoxyItemize}
+\item Bugfix loading overlay/graphic append order
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-22 -\/ 2013/6/19}
+
+
+\begin{DoxyItemize}
+\item Updated manifest files for the j\-Query plugin repository and Bower (no changes to plugin)
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-21 -\/ 2013/6/6}
+
+
+\begin{DoxyItemize}
+\item Replaced new Image() with document.\-create\-Element('img') to avoid a potential bug in Chrome 27.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-20 -\/ 2013/6/5}
+
+
+\begin{DoxyItemize}
+\item Fixing bug/typo from last update.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-19 -\/ 2013/6/3}
+
+
+\begin{DoxyItemize}
+\item Fixed bug where Colorbox was capturing ctrl+click on assigned links on windows browsers with j\-Query 1.\-7+, rather than ignoring.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-18 -\/ 2013/5/30}
+
+
+\begin{DoxyItemize}
+\item Fixed a scroll position issue when using \$.colorbox.\-resize()
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-17 -\/ 2013/5/23}
+
+
+\begin{DoxyItemize}
+\item Possible fix for a Chrome 27 issue (\href{https://github.com/jackmoore/colorbox/pull/438#issuecomment-18334804}{\tt https\-://github.\-com/jackmoore/colorbox/pull/438\#issuecomment-\/18334804})
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-16 -\/ 2013/5/20}
+
+
+\begin{DoxyItemize}
+\item Added trap\-Focus setting to allow disabling of focus trapping
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-15 -\/ 2013/4/22}
+
+
+\begin{DoxyItemize}
+\item Added .webp to list of recognized image extensions
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-14 -\/ 2013/4/16}
+
+
+\begin{DoxyItemize}
+\item Added fade\-Out property to control the closing fade\-Out speed.
+\item Removed longdesc attribute for now.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-13 -\/ 2013/4/11}
+
+
+\begin{DoxyItemize}
+\item Fixed an error involving I\-E7/\-I\-E8 and legacy versions of j\-Query
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-12 -\/ 2013/4/9}
+
+
+\begin{DoxyItemize}
+\item Fixed a potential conflict with Twitter Bootstrap default img styles.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-11 -\/ 2013/4/9}
+
+
+\begin{DoxyItemize}
+\item Added {\ttfamily type='button'} to buttons to prevent accidental form submission
+\item Added alt and longdesc attributes to photo content if they are present on the calling element.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-10 -\/ 2013/4/2}
+
+
+\begin{DoxyItemize}
+\item Better 'old I\-E' feature detection that fixes an error with j\-Query 2.\-0.\-0pre.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-9 -\/ 2013/4/2}
+
+
+\begin{DoxyItemize}
+\item Fixes bug introduced in previous version.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-8 -\/ 2013/4/2}
+
+
+\begin{DoxyItemize}
+\item Dropped I\-E6 support.
+\item Fixed other issues with \$.colorbox.\-remove.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-7 -\/ 2013/4/1}
+
+
+\begin{DoxyItemize}
+\item Prevented an error if \$.colorbox.\-remove is called during the transition.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-6 -\/ 2013/3/19}
+
+
+\begin{DoxyItemize}
+\item Minor change to work around a j\-Query 1.\-4.\-2 bug for legacy users.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-5 -\/ 2013/3/10}
+
+
+\begin{DoxyItemize}
+\item Minor change to apply the close and class\-Name properties sooner.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-4 -\/ 2013/3/10}
+
+
+\begin{DoxyItemize}
+\item Fixed an issue with percent-\/based heights in i\-O\-S
+\item Fixed an issue with ajax requests being applied at the wrong time.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-3 -\/ 2013/2/18}
+
+
+\begin{DoxyItemize}
+\item Made image preloading aware of retina settings.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-2 -\/ 2013/2/18}
+
+
+\begin{DoxyItemize}
+\item Removed \$.contains for compatibility with j\-Query 1.\-3.\-x
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-1 -\/ 2013/2/14}
+
+
+\begin{DoxyItemize}
+\item Ignored left and right arrow keypresses if combined with the alt key.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-4.\-0 -\/ 2013/2/12}
+
+
+\begin{DoxyItemize}
+\item Better accessibility\-:
+\begin{DoxyItemize}
+\item Replaced div controls with buttons
+\item Tabbed navigation confined to modal window
+\item Added aria role
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-34 -\/ 2013/2/4}
+
+
+\begin{DoxyItemize}
+\item Updated manifest for plugins.\-jquery.\-com
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-33 -\/ 2013/2/4}
+
+
+\begin{DoxyItemize}
+\item Added retina display properties\-: retina\-Image, retina\-Url, retina\-Suffix
+\item Fixed iframe scrolling on i\-O\-S devices.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-32 -\/ 2013/1/31}
+
+
+\begin{DoxyItemize}
+\item Improved internal event subscribing \& fixed event bug introduced in v1.\-3.\-21
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-31 -\/ 2013/1/28}
+
+
+\begin{DoxyItemize}
+\item Fixed a size-\/calculation bug introduced in the previous commit.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-30 -\/ 2013/1/25}
+
+
+\begin{DoxyItemize}
+\item Delayed border-\/width calculations until after opening, to avoid a bug in F\-F when using Colorbox in a hidden iframe.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-29 -\/ 2013/1/24}
+
+
+\begin{DoxyItemize}
+\item Fixes bug with bubbling delegated events, introduced in the previous commit.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-28 -\/ 2013/1/24}
+
+
+\begin{DoxyItemize}
+\item Fixed compatibility issue with old versions of j\-Query (1.\-3.\-2-\/1.\-4.\-2)
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-27 -\/ 2013/1/23}
+
+
+\begin{DoxyItemize}
+\item Added class\-Name property.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-26 -\/ 2013/1/23}
+
+
+\begin{DoxyItemize}
+\item Minor bugfix\-: clear the onload event handler after photo has loaded.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-25 -\/ 2013/1/23}
+
+
+\begin{DoxyItemize}
+\item Removed grunt file \& added Bower component.\-json.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-24 -\/ 2013/1/22}
+
+
+\begin{DoxyItemize}
+\item Added generated files (jquery.\-colorbox.\-js / jquery.\-colorbox-\/min.\-js) back to the repository.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-23 -\/ 2013/1/18}
+
+
+\begin{DoxyItemize}
+\item Minor bugfix for calling Colorbox on empty j\-Query collections without a selector.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-22 -\/ 2013/1/17}
+
+
+\begin{DoxyItemize}
+\item Recommit for plugins.\-jquery.\-com
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-21 -\/ 2013/1/15}
+
+Files Changed\-: $\ast$.js
+
+
+\begin{DoxyItemize}
+\item Fixed compatibility issues with j\-Query 1.\-9
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-20 -\/ August 15 2012}
+
+Files Changed\-:jquery.\-colorbox.\-js
+
+
+\begin{DoxyItemize}
+\item Added temporary workaround for j\-Query-\/\-U\-I 1.\-8 bug (\href{http://bugs.jquery.com/ticket/12273}{\tt http\-://bugs.\-jquery.\-com/ticket/12273})
+\item Added $\ast$.jpe extension to the list of image types.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-19 -\/ December 08 2011}
+
+Files Changed\-:jquery.\-colorbox.\-js, colorbox.\-css (all)
+
+
+\begin{DoxyItemize}
+\item Fixed bug related to using the 'fixed' property.
+\item Optimized the setup procedure to be more efficient.
+\item Removed \$.colorbox.\-init() as it will no longer be needed (will self-\/init when called).
+\item Removed use of \$.browser.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-18 -\/ October 07 2011}
+
+Files Changed\-:jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js, colorbox.\-css (all) and example 1's controls.\-png
+
+
+\begin{DoxyItemize}
+\item Fixed a regression where Flash content displayed in Colorbox would be reloaded if the browser window was resized.
+\item Added safety check to make sure that Colorbox's markup is only added to the D\-O\-M a single time, even if \$.colorbox.\-init() is called multiple times. This will allow site owners to manually initialize Colorbox if they need it before the D\-O\-M has finished loading.
+\item Updated the example index.\-html files to be H\-T\-M\-L5 compliant.
+\item Changed the slideshow behavior so that it immediately moves to the next slide when the slideshow is started.
+\item Minor regex bugfix to allow automatic detection of image U\-R\-Ls that include fragments.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-17 -\/ May 11 2011}
+
+Files Changed\-:jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Added properties \char`\"{}top\char`\"{}, \char`\"{}bottom\char`\"{}, \char`\"{}left\char`\"{} and \char`\"{}right\char`\"{} to specify a position relative to the viewport, rather than using the default centering.
+\item Added property \char`\"{}data\char`\"{} to specify G\-E\-T or P\-O\-S\-T data when using Ajax. Colorbox's ajax functionality is handled by j\-Query's .load() method, so the data property works the same way as it does with .load().
+\item Added property \char`\"{}fixed\char`\"{} which can provide fixed positioning for Colorbox, rather than absolute positioning. This will allow Colorbox to remain in a fixed position within the visitors viewport, despite scrolling. I\-E6 support for this was not added, it will continue to use the default absolute positioning.
+\item Fixed Clear\-Type problem with I\-E7.
+\item Minor fixes.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-16 -\/ March 01 2011}
+
+Files Changed\-:jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js, colorbox.\-css (all) and example 4 background png files
+
+
+\begin{DoxyItemize}
+\item Better I\-E related transparency workarounds. I\-E7 and up now uses the same background image sprite as other browsers.
+\item Added error handling for broken image links. A message will be displayed telling the user that the image could not be loaded.
+\item Added new property\-: 'fast\-Iframe' and set it to true by default. Setting to fast\-Iframe\-:false will delay the loading graphic removal and on\-Complete event until iframe has completely loaded.
+\item Ability to redefine \$.colorbox.\-close (or prev, or next) at any time.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-15 -\/ October 27 2010}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Minor fixes for specific cases.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-14 -\/ October 27 2010}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item In I\-E6, closing an iframe when using H\-T\-T\-P\-S no longer generates a security warning.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-13 -\/ October 22 2010}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Changed the index.\-html example files to use You\-Tube's new embedded link format.
+\item By default, Colorbox returns focus to the element it was launched from once it closes. This can now be disabled by setting the 'return\-Focus' property to false. Focus was causing problems for some users who had their anchor elements inside animated containers.
+\item Minor bug fix involved in using a combination of slideshow and non-\/slideshow content.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-12 -\/ October 20 2010}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Minor bug fix involved in preloading images when using a function as a value for the href property.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-11 -\/ October 19 2010}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Fixed the slideshow functionality that broke with 1.\-3.\-10
+\item The slideshow now respects the loop property.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-10 -\/ October 16 2010}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Fixed compatibility with j\-Query 1.\-4.\-3
+\item The 'open' property now accepts a function as a value, like all of the other properties.
+\item Preloading now loads the correct href for images when using a dynamic (function) value for the href property.
+\item Fixed bug in Safari 3 for Win where Colorbox centered on the document, rather than the visitor's viewport.
+\item May have fixed an issue in Opera 10.\-6+ where Colorbox would rarely/randomly freeze up while switching between photos in a group.
+\item Some functionality better encapsulated \& minor performance improvements.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-9 -\/ July 7 2010}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js/ all colorbox.\-css (the core styles)
+
+
+\begin{DoxyItemize}
+\item Fixed a problem where iframed youtube videos would cause a security alert in I\-E.
+\item More code is event driven now, making the source easier to grasp.
+\item Removed some unnecessary style from the core C\-S\-S.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-8 -\/ June 21 2010}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Fixed a bug in Chrome where it would sometimes render photos at 0 by 0 width and height (behavior introduced in recent update to Chrome).
+\item Fixed a bug where the on\-Closed callback would fire twice (only affected 1.\-3.\-7).
+\item Fixed a bug in I\-E7 that existed with some iframed websites that use J\-S to reposition the viewport caused Colorbox to move out of position.
+\item Abstracted the identifiers (H\-T\-M\-L ids \& classes, and J\-S plugin name, method, and events) so that the plugin can be easily rebranded.
+\item Small changes to improve either code readability or compression.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-7 -\/ June 13 2010}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js/index.html
+
+
+\begin{DoxyItemize}
+\item \$.colorbox can now be used for direct calls and accessing public methods. Example\-: \$.colorbox.\-close();
+\item Resize now accepts 'width', 'inner\-Width', 'height' and 'inner\-Height'. Example\-: \$.colorbox.\-resize(\{width\-:\char`\"{}100\%\char`\"{}\})
+\item Added option (loop\-:false) to disable looping in a group.
+\item Added options (esc\-Key\-:false, arrow\-Key\-:false) to disable esc-\/key and arrow-\/key bindings.
+\item Added method for removing Colorbox from a document\-: \$.colorbox.\-remove();
+\item Fixed a bug where iframed U\-R\-Ls would be truncated if they contained an unencoded apostrophe.
+\item Now uses the exact href specified on an anchor, rather than the version returned by 'this.\-href'. This was causing \char`\"{}\#example\char`\"{} to be normalized to \char`\"{}http\-://domain/\#example\char`\"{} which interfered with how some users were setting up links to inline content.
+\item Changed example documents over to H\-T\-M\-L5.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-6 -\/ Jan 13 2010}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Small change to make Colorbox compatible with j\-Query 1.\-4
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-5 -\/ December 15 2009}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Fixed a bug introduced in 1.\-3.\-4 with I\-E7's display of example 2 and 3, and auto-\/width in Opera.
+\item Fixed a bug introduced in 1.\-3.\-4 where colorbox could not be launched by triggering an element's click event through Java\-Script.
+\item Minor refinements.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-4 -\/ December 5 2009}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Event delegation is now used for elements that Colorbox is assigned to, rather than individual click events.
+\item Additional callbacks have been added to represent other stages of Colorbox's lifecycle. Available callbacks, in order of their execution\-: on\-Open, on\-Load, on\-Complete, on\-Cleanup, on\-Closed These take place at the same time as the event hooks, but will be better suited than the hooks for targeting specific instances of Colorbox.
+\item Ajax content is now immediately added to the D\-O\-M to be more compatible if that content contains script tags.
+\item Focus is now returned to the calling element on closing.
+\item Fixed a bug where max\-Height and max\-Width did not work for non-\/photo content.
+\item Direct calls no longer need 'open\-:true', it is assumed. Example\-: `\$.colorbox(\{html\-:'
+\end{DoxyItemize}
+
+Hi
+
+'\});`
+
+\subsubsection*{Version 1.\-3.\-3 -\/ November 7 2009}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Changed \$.colorbox.\-element() to return a j\-Query object rather the D\-O\-M element.
+\item j\-Query.\-colorbox-\/min.\-js is compressed with Google's Closure Compiler rather than Y\-U\-I Compressor.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-2 -\/ October 27 2009}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Added 'inner\-Width' and 'inner\-Height' options to allow people to easily set the size dimensions for Colorbox, without having to anticipate the size of the borders and buttons.
+\item Renamed 'scrollbars' option to 'scrolling' to be in keeping with the existing H\-T\-M\-L attribute. The option now also applies to iframes.
+\item Bug fix\-: In Safari, positioning occassionally incorrect when using '100' dimensions.
+\item Bug fix\-: In I\-E6, the background overlay is briefly not full size when first viewing.
+\item Bug fix\-: In Firefox, opening Colorbox causes a split second shift with a small minority of webpage layouts.
+\item Simplified code in a few areas.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-1 -\/ September 16 2009}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js/colorbox.css/colorbox-\/ie.\-css(removed)
+
+
+\begin{DoxyItemize}
+\item Removed the I\-E-\/only stylesheets and conditional comments for example styles 1 \& 4. All C\-S\-S is handled by a single C\-S\-S file for all examples.
+\item Removed user-\/agent sniffing from the js and replaced it with feature detection. This will allow correct rendering for visitors masking their agent type.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-3.\-0 -\/ September 15 2009}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js/colorbox.css
+
+
+\begin{DoxyItemize}
+\item Added \$.colorbox.\-resize() method to allow Colorbox to resize it's height if it's contents change.
+\item Added 'scrollbars' option to allow users to turn off scrollbars when using the resize() method.
+\item Renamed the 'resize' option to be less ambiguous. It's now 'scale\-Photos'.
+\item Renamed the 'cbox\-\_\-close' event to be less ambiguous. It's now 'cbox\-\_\-cleanup'. It is the first thing to happen in the close method while the 'cbox\-\_\-closed' event is the last to happen.
+\item Fixed a bug with the slideshow mouseover graphics that appeared after Colorbox is opened a 2nd time.
+\item Fixed a bug where Clear\-Type may not work in I\-E6\&7 if using the fade transition.
+\item Minor code optimizations to increase compression.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-2.\-9 -\/ August 7 2009}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Minor change to enable use with \$.get\-Script();
+\item Minor change to the timing of the 'cbox\-\_\-load' event so that it is more useful.
+\item Added a direct link to a You\-Tube video to the examples.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-2.\-8 -\/ August 5 2009}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Fixed a bug with the overlay in I\-E6
+\item Fixed a bug where left \& right keypress events might be prematurely unbound.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-2.\-7 -\/ July 31 2009}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js, example stylesheets and background images (core styles have not changed and the updates will not affect existing user themes / old example themes)
+
+
+\begin{DoxyItemize}
+\item Code cleanup and reduction, better organization and documentation in the full source.
+\item Added ability to use functions in place of static values for Colorbox's options (thanks Ken!).
+\item Added an option for straight H\-T\-M\-L. Example\-: `\$.colorbox(\{html\-:'
+\end{DoxyItemize}
+
+Howdy
+
+', open\-:true\})`
+\begin{DoxyItemize}
+\item Added an event for the beginning of the closing process. This is in addition to the event that already existed for when Colorbox had completely closed. 'cbox\-\_\-close' and 'cbox\-\_\-closed' respectively.
+\item Fixed a minor bug in I\-E6 that would cause a brief content shift in the parent document when opening Colorbox.
+\item Fixed a minor bug in I\-E6 that would reveal select elements that had a hidden visibility after closing Colorbox.
+\item The 'esc' key is unbound now when Colorbox is not open, to avoid any potential conflicts.
+\item Used background sprites for examples 1 \& 4. Put I\-E-\/only (non-\/sprite) background images in a separate folder.
+\item Example themes 1, 3, \& 4 received slight visual tweaks.
+\item Optimized pngs for smaller file size.
+\item Added slices, grid, and correct sizing to the Adobe Illustrator file, all theme files are now export ready!
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-2.\-6 -\/ July 15 2009}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Fixed a bug with fixed width/height images in Opera 9.\-64.
+\item Fixed a bug with trying to set a value for rel during a direct call to Colorbox. Example\-: `\$.colorbox(\{rel\-:'foo', open\-:true\});`
+\item Changed how href/rel/title settings are determined to avoid users having to manually update Colorbox settings if they use Java\-Script to update any of those attributes, after Colorbox has been defined.
+\item Fixed a F\-F3 bug where the back button was disabled after closing an iframe.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-2.\-5 -\/ June 23 2009}
+
+Files Changed\-: jquery.\-colorbox.\-js/jquery.colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Changed the point at which iframe srcs are set (to eliminate the need to refresh the iframe once it has been added to the D\-O\-M).
+\item Removed unnecessary return values for a very slight code reduction.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-2.\-4 -\/ June 9 2009}
+
+Files Changed\-: jquery.\-colorbox.\-js, jquery.\-colorbox-\/min.\-js
+
+
+\begin{DoxyItemize}
+\item Fixed an issue where Colorbox may not close completely if it is closed during a transition animation.
+\item Minor code reduction.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-2.\-3 -\/ June 4 2009}
+
+
+\begin{DoxyItemize}
+\item Fixed a png transparency stacking issue in I\-E.
+\item More accurate Ajax auto-\/sizing if the user was depending on the \#cbox\-Loaded\-Content I\-D for C\-S\-S styling.
+\item Added a public function for returning the current html element that Colorbox is associated with. Example use\-: var that = \$.colorbox.\-element();
+\item Added bicubic scaling for resized images in the original I\-E7.
+\item Removed the I\-E6 stylesheet and png files from Example 3. It now uses the same png file for the controls that the rest of the browsers use (an alpha transparency P\-N\-G8). This example now only has 2 graphics files and 1 stylesheet.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-2.\-2 -\/ May 28 2009}
+
+
+\begin{DoxyItemize}
+\item Fixed an issue with the 'resize' option.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-2.\-1 -\/ May 28 2009}
+
+
+\begin{DoxyItemize}
+\item Note\-: If you are upgrading, update your jquery.\-colorbox.\-js and colorbox.\-css files.
+\item Added photo resizing.
+\item Added a maximum width and maximum height. Example\-: \{height\-:800, max\-Height\-:'100'\}, would allow the box to be a maximum potential height of 800px, instead of a fixed height of 800px. With max\-Height of 100\% the height of Colorbox cannot exceed the height of the browser window.
+\item Added 'rel' setting to add the ability to set an alternative rel for any Colorbox call. This allows the user to group any combination of elements together for a gallery, or to override an existing rel. attribute so those element are not grouped together, without having to alter their rel in the H\-T\-M\-L.
+\item Added a 'photo' setting to force Colorbox to display a link as a photo. Use this when automatic photo detection fails (such as using a url like 'photo.\-php' instead of 'photo.\-jpg', 'photo.\-jpg\#1', or 'photo.\-jpg?pic=1')
+\item Removed the need to ever create disposable elements to call colorbox on. Colorbox can now be called directly, without being associated with any existing element, by using the following format\-: `\$.colorbox(\{open\-:true, href\-:'your\-Link.\-xxx'\});`
+\item Colorbox settings are now persistent and unique for each element. This allows for extremely flexible options for individual elements. You could use this to create a gallery in which each page in the gallery has different settings. One could be a photo with a fade transition, next could be an inline element with an elastic transition with a set width and height, etc.
+\item For user callbacks, 'this' now refers to the element colorbox was opened from.
+\item Fixed a minor grouping issue with I\-E6, when transition type is set to 'none'.
+\item Added an Adobe Illustrator file that contains the borders and buttons used in the various examples.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-2 -\/ May 13 2009}
+
+
+\begin{DoxyItemize}
+\item Added a slideshow feature.
+\item Added re-\/positioning on browser resize. If the browser is resized, Colorbox will recenter itself onscreen.
+\item Added hooks for key events\-: cbox\-\_\-open, cbox\-\_\-load, cbox\-\_\-complete, cbox\-\_\-closed.
+\item Fixed an I\-E transparency-\/stacking problem, where transparent P\-N\-Gs would show through to the background overlay.
+\item Fixed an I\-E iframe issue where the ifame might shift up and to the left under certain circumstances.
+\item Fixed an I\-E6 bug where the loading overlay was not at full height.
+\item Removed the delay in switching between same-\/sized gallery content when using transitions.
+\item Changed how iframes are loaded to make it more compatible with iframed pages that use D\-O\-M dependent Java\-Script.
+\item Changed how the J\-S is structured to be better organized and increase compression. Increased documentation.
+\item Changed C\-S\-S \-:hover states to a .hover class. This sidesteps a minor I\-E8 bug with css hover states and allows easier access to hover state user styles from the Java\-Script.
+\item Changed\-: elements added to the D\-O\-M have new I\-D's. The naming is more consistent and less likely to cause conflicts with existing website stylesheets. All stylesheets have been updated.
+\item Changed the behavior for prev/next links so that Colorbox does not get hung up on broken links. A visitor can now skip through broken or long-\/loading links by clicking prev/next buttons.
+\item Changed the naming of variables in the parameter map to be more concise and intuitive.
+\item Removed colorbox.\-css. Combined the colorbox.\-css styles with jquery.\-colorbox.\-js\-: the css file was not large enough to warrant being a separate file.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-1.\-6 -\/ April 28 2009}
+
+
+\begin{DoxyItemize}
+\item Prevented the default action of the next \& previous anchors and the left and right keys for gallery mode.
+\item Fixed a bug where the title element was being added back to the D\-O\-M when closing Colorbox while using inline content.
+\item Fixed a bug where I\-E7 would crash for example 2.
+\item Smaller filesize\-: removed a small amount of unused code and rewrote the H\-T\-M\-L injection with less syntax.
+\item Added a public method for closing Colorbox\-: \$.colorbox.\-close(). This will allow iframe users to add an event to close Colorbox without having to create an additional function.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-1.\-5 -\/ April 11 2009}
+
+
+\begin{DoxyItemize}
+\item Fixed minor issues with exiting Colorbox.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-1.\-4 -\/ April 08 2009}
+
+
+\begin{DoxyItemize}
+\item Fixed a bug in the fade transition where Colorbox not close completely if instructed to close during the fade-\/in portion of the transition.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-1.\-3 -\/ April 06 2009}
+
+
+\begin{DoxyItemize}
+\item Fixed an I\-E6\&7 issue with using Colorbox to display animated G\-I\-Fs.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-1.\-2 -\/ April 05 2009}
+
+
+\begin{DoxyItemize}
+\item Added ability to change content when Colorbox is already open.
+\item Added vertical photo centering now works for all browsers (this feature previously excluded I\-E6\&7).
+\item Added namespacing to the esc-\/key keydown event for people who want to disable it\-: \char`\"{}keydown.\-color\-Close\char`\"{}
+\item Added 'title' setting to add the ability to set an alternative title for any Colorbox call.
+\item Fixed rollover navigation issue with I\-E8. (Added J\-S-\/based rollover state due to a browser-\/bug.)
+\item Fixed an overflow issue for when the fixed width/height is smaller than the size of a photo.
+\item Fixed a bug in the fade transition where the border would still come up if Colorbox was closed mid-\/transition.
+\item Switch from J\-S\-Min to Yui Compressor for minification. Minified code now under 7\-K\-B.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-1.\-1 -\/ March 31 2009}
+
+
+\begin{DoxyItemize}
+\item More robust image detection regex. Now detects image file types with url fragments and/or query strings.
+\item Added 'nofollow' exception to rel grouping.
+\item Changed how images are loaded into the D\-O\-M to prevent premature size calculation by Colorbox.
+\item Added timestamp to iframe name to prevent caching -\/ this was a problem in some browsers if the user had multiple iframes and the visitor left the page and came back, or if they refreshed the page.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-1.\-0 -\/ March 21 2009}
+
+
+\begin{DoxyItemize}
+\item Animation is now much smoother and less resource intensive.
+\item Added support for \% sizing.
+\item Callback option added.
+\item Inline content now preserves Java\-Script events, and changes made while Colorbox is open are also preserved.
+\item Added 'href' setting to add the ability to set an alternative href for any anchor, or to assign the Colorbox event to non-\/anchors. Example\-: \$('button').colorbox(\{'href'\-:'process.\-php'\}) Example\-: \$('a\mbox{[}href='\href{http://msn.com'}{\tt http\-://msn.\-com'}\mbox{]}).colorbox(\{'href'\-:'\href{http://google.com',}{\tt http\-://google.\-com',} iframe\-:true\});
+\item Photos are now horizontally centered if they are smaller than the lightbox size. Also vertically centered for browsers newer than I\-E7.
+\item Buttons in the examples are now included in the 'protected zone'. The lightbox will never expand it's borders or buttons beyond an accessible area of the screen.
+\item Keypress events don't queue up by holding down the arrow keys.
+\item Added option to close Colorbox by clicking on the background overlay.
+\item Added 'none' transition setting.
+\item Changed 'content\-Iframe' and 'content\-Inline' to 'inline' and 'iframe'. Removed 'content\-Ajax' because it is automatically assumed for non-\/image file types.
+\item Changed 'content\-Width' and 'content\-Height' to 'fixed\-Width' and 'fixed\-Height'. These sizes now reflect the total size of the lightbox, not just the inner content. This is so users can accurately anticipate \% sizes without fear of creating scrollbars.
+\item Clicking on a photo will now switch to the next photo in a set.
+\item Loading.\-gif is more stable in it's position.
+\item Added a minified version.
+\item Code passes J\-S\-Lint.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-0.\-5 -\/ March 11 2009}
+
+
+\begin{DoxyItemize}
+\item Redo\-: Fixed a bug where I\-E would cut off the bottom portion of a photo, if the photo was larger than the document dimensions.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-0.\-4 -\/ March 10 2009}
+
+
+\begin{DoxyItemize}
+\item Added an option to allow users to automatically open the lightbox. Example usage\-: \$(\char`\"{}.\-colorbox\char`\"{}).colorbox(\{open\-:true\});
+\item Fixed a bug where I\-E would cut off the bottom portion of a photo, if the photo was larger than the document dimensions.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-0.\-3 -\/ March 09 2009}
+
+
+\begin{DoxyItemize}
+\item Fixed vertical centering for Safari 3.\-0.\-x.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-0.\-2 -\/ March 06 2009}
+
+
+\begin{DoxyItemize}
+\item Corrected a typo.
+\item Changed the content-\/type check so that it does not assume all links to photos should actually display photos. This allows for Ajax/inline/and iframe calls on anchors linking to picture file types.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-0.\-1 -\/ March 05 2009}
+
+
+\begin{DoxyItemize}
+\item Fixed keydown events (esc, left arrow, right arrow) for Webkit browsers.
+\end{DoxyItemize}
+
+\subsubsection*{Version 1.\-0 -\/ March 03 2009}
+
+
+\begin{DoxyItemize}
+\item First release 
+\end{DoxyItemize}

@@ -1,0 +1,82 @@
+j\-Query U\-I provides interactions like Drag and Drop and widgets like Autocomplete, Tabs and Slider and makes these as easy to use as j\-Query itself.
+
+If you want to use j\-Query U\-I, go to \href{http://jqueryui.com}{\tt jqueryui.\-com} to get started. Or visit the \href{http://forum.jquery.com/using-jquery-ui}{\tt Using j\-Query U\-I Forum} for discussions and questions.
+
+If you are interested in helping develop j\-Query U\-I, you are in the right place. To discuss development with team members and the community, visit the \href{http://forum.jquery.com/developing-jquery-ui}{\tt Developing j\-Query U\-I Forum} or in \#jquery on irc.\-freednode.\-net.
+
+\subsection*{For contributors }
+
+If you want to help and provide a patch for a bugfix or new feature, please take a few minutes and look at \href{http://wiki.jqueryui.com/w/page/35263114/Getting-Involved}{\tt our Getting Involved guide}. In particular check out the \href{http://wiki.jqueryui.com/w/page/12137737/Coding-standards}{\tt Coding standards} and \href{http://wiki.jqueryui.com/w/page/25941597/Commit-Message-Style-Guide}{\tt Commit Message Style Guide}.
+
+In general, fork the project, create a branch for a specific change and send a pull request for that branch. Don't mix unrelated changes. You can use the commit message as the description for the pull request.
+
+\subsection*{Running the Unit Tests }
+
+Run the unit tests with a local server that supports P\-H\-P. No database is required. Pre-\/configured php local servers are availabel for Windows and Mac. Here are some options\-:
+
+
+\begin{DoxyItemize}
+\item Windows\-: \href{http://www.wampserver.com/en/}{\tt W\-A\-M\-P download}
+\item Mac\-: \href{http://www.mamp.info/en/index.html}{\tt M\-A\-M\-P download}
+\item Linux\-: \href{https://www.linux.com/learn/tutorials/288158-easy-lamp-server-installation}{\tt Setting up L\-A\-M\-P}
+\item \href{http://code.google.com/p/mongoose/}{\tt Mongoose (most platforms)}
+\end{DoxyItemize}
+
+\subsection*{Building j\-Query U\-I }
+
+j\-Query U\-I uses the \href{http://github.com/cowboy/grunt}{\tt grunt} build system. Building j\-Query U\-I requires node.\-js and a command line zip program.
+
+Install grunt.
+
+{\ttfamily npm install grunt -\/g}
+
+Clone the j\-Query U\-I git repo.
+
+{\ttfamily git clone git\-://github.com/jquery/jquery-\/ui.\-git}
+
+{\ttfamily cd jquery-\/ui}
+
+Install node modules.
+
+{\ttfamily npm install}
+
+Run grunt.
+
+{\ttfamily grunt build}
+
+There are many other tasks that can be run through grunt. For a list of all tasks\-:
+
+{\ttfamily grunt -\/-\/help}
+
+\subsection*{For committers }
+
+When looking at pull requests, first check for \href{http://wiki.jqueryui.com/w/page/12137724/Bug-Fixing-Guide}{\tt proper commit messages}.
+
+Do not merge pull requests directly through Git\-Hub's interface. Most pull requests are a single commit; cherry-\/picking will avoid creating a merge commit. It's also common for contributors to make minor fixes in an additional one or two commits. These should be squashed before landing in master.
+
+{\bfseries Make sure the author has a valid name and email address associated with the commit.}
+
+Fetch the remote first\-: \begin{DoxyVerb}git fetch [their-fork.git] [their-branch]
+\end{DoxyVerb}
+
+
+Then cherry-\/pick the commit(s)\-: \begin{DoxyVerb}git cherry-pick [sha-of-commit]
+\end{DoxyVerb}
+
+
+If you need to edit the commit message\-: \begin{DoxyVerb}git cherry-pick -e [sha-of-commit]
+\end{DoxyVerb}
+
+
+If you need to edit the changes\-: \begin{DoxyVerb}git cherry-pick -n [sha-of-commit]
+# make changes
+git commit --author="[author-name-and-email]"
+\end{DoxyVerb}
+
+
+If it should go to the stable brach, cherry-\/pick it to stable\-: \begin{DoxyVerb}git checkout 1-8-stable
+git cherry-pick -x [sha-of-commit-from-master]
+\end{DoxyVerb}
+
+
+{\itshape N\-O\-T\-E\-: Do not cherry-\/pick into 1-\/8-\/stable until you have pushed the commit from master upstream.} 
