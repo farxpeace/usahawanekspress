@@ -1,4 +1,4 @@
-<table name="intelmlm_test">
+<table name="intelmlm_users">
     <column name="id" type="int" length="" autoincrement="true" primarykey="true"></column>
     <column name="username" type="varchar" length="100"></column>
 </table>
