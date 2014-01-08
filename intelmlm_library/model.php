@@ -9,6 +9,8 @@ class Model {
         $this->db->Connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
         $this->db->SetFetchMode(ADODB_FETCH_ASSOC);
     }
+    
+    
 
 }
 

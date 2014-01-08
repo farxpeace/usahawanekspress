@@ -8,7 +8,7 @@ class User_Model extends Model {
     }
     
     public function selectOne_by_userid($userid){
-        $res = $this->db->Execute("SELECT * FROM ".$this->tablename." LIMIT 1");
+        $res = $this->db->GetOne("SELECT * FROM ".$this->tablename);
         if ($res === false) die("failed"); 
     }
     

@@ -49,6 +49,11 @@ function __autoload($className) {
         if (file_exists(FOLDER_MODULES.'/'.$module.'/'.$className . '.php')) {
             require_once(FOLDER_MODULES.'/'.$module.'/'.$className . '.php');        
         }
+    }else if(substr($className, -6) == '_Model'){
+        $module = substr($className, 0,-6);
+        if (file_exists(FOLDER_MODULES.'/'.$module.'/'.$className . '.php')) {
+            require_once(FOLDER_MODULES.'/'.$module.'/'.$className . '.php');        
+        }
     }else{
         //fetch file
         if (file_exists('intelmlm_library/'.$className . '.php')) {

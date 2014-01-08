@@ -5,6 +5,7 @@ class Main_Controller extends Controller {
     }
     
     function guest_index(){
+        $this->Load_Model('User');
         
     }
 }
