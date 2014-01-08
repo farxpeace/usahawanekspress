@@ -8,7 +8,7 @@
  * Written by: Jpmaster77 a.k.a. The Grandmaster of C++ (GMC)
  * Last Updated: June 15, 2011 by Ivan Novak
  */
-include("constants.php");
+
 include("gump.class.php");
 include("Class.Mx.php");
 include("database.php");

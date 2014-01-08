@@ -25,7 +25,42 @@ function prevent_direct_access()
         exit;
     }
 }
+
+
+include(FOLDER_INCLUDE."/constants.php");
+include(FOLDER_INCLUDE."/adodb5/adodb.inc.php");
+
+
+
+ //Automatically includes files containing classes that are called
+function __autoload($className) {
+	
+    //fetch file
+    if (file_exists('intelmlm_library/'.$className . '.php')) {
+        require_once('intelmlm_library/'.$className . '.php');        
+    }
+    else if (file_exists('intelmlm_library/'.$className . '.php')) {
+        require_once('intelmlm_library/'.$className . '.php');        
+    }
+    else if (file_exists('intelmlm_library/'.$className . '.php')) {
+        require_once('intelmlm_library/'.$className . '.php');        
+    }
+    else {
+	
+		// Error: Controller Class not found
+		die("Error: Class not found.");
+	}
+}
+
+
+
+$model = new Model(array('User'));
+
+
 //require_once(FOLDER_INCLUDE.'/MDB2-2.5.0b5/MDB2.php');
 //require_once(FOLDER_INCLUDE.'/Library.Database.php');
+
+
+
 include(FOLDER_INCLUDE."/session.php");
 ?>
