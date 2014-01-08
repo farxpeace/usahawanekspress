@@ -1,0 +1,8 @@
+<controller name="Main_Controller">
+    <function name="guest_index">
+        <userlevel>all</userlevel>
+        <view>
+            <filename>guest_index.html</filename>
+        </view>
+    </function>
+</controller>

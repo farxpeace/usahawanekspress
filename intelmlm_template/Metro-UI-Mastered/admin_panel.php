@@ -11,6 +11,7 @@
             <ul class="dropdown-menu drop-up" data-role='dropdown' data-effect='slide' data-show="click" style="top: auto !important; bottom: 100%">
                 <li><a href="#">Main</a></li>
                 <li><a href="#">Page Editor</a></li>
+                <li><a href="#">Database Editor</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Print...</a></li>
                 <li class="divider"></li>

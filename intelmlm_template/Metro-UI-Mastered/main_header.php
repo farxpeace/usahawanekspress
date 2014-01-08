@@ -24,7 +24,7 @@
 </style>
 </head>
 <body class="metro">
-<?php if($session->isAdmin()){ ?>
+<?php if($debug){  ?>
 <?php include_once(THEME_LOC.'/admin_panel.php'); ?>
 <?php } ?>
 <nav class="navigation-bar">

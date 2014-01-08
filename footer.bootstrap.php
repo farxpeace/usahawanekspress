@@ -1,3 +1,8 @@
+<script type="text/javascript" src="./js/jquery.db.v1/jquery.db.js"></script>
+<script type="text/javascript" src="./js/intelmlm_database.js"></script>
+<script type="text/javascript">
+//$.database.create('usahawanekspress');
+</script>
 <?php
 if($Settings->const_debug_mode == 'yes'){
     
