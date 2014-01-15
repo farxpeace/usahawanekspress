@@ -163,7 +163,7 @@ clear: right;
         	<div class="plan_box_shadow"></div>
         </div><!-- end a Plan -->
         <div style="float: left;">
-        Setiap pakej merangkumi
+        <div style="text-align: center;">Setiap pakej merangkumi</div>
             <div class="plan_box_content">
                 
                 <ul style="list-style: none;">

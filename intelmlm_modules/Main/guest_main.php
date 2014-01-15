@@ -64,6 +64,9 @@ cache.session = session;
                     
                     <div class="frame" id="_langkah_pertama">
                         Anda dikehendaki memilih pakej salah satu pakej yang disediakan. Setiap pakej mempunyai nilai yang berbeza. Selepas akaun anda aktif, anda akan berupaya untuk mempromosikan URL Affiliate anda dan sekaligus membuat penjualan E-Book secara automatik dan berterusan.
+                        <p class="padding10" <?php echo ($session->userinfo['pakej'] != '' ? 'style="display: block"' : 'style="display: none;"'); ?>>
+                        Anda telah memilih pakej <?php echo $session->userinfo['pakej']; ?> E-Books. 
+                        </p>
                         <?php //include('choose_product.php'); ?>
                         <?php include('tab_choose_package.php'); ?>
                     </div>
