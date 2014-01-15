@@ -22,7 +22,7 @@ cache.session = session;
              
                 <div class="frames">
                     <div class="frame" id="_pengenalan">
-                        <h3>Selamat datang ke Program Galakan Usahawan 1Malaysia</h3>
+                        <p>Selamat datang ke Program Galakan Usahawan dan Perniagaan</p>
                         <p>Program ini menawarkan kepelbagaian jenis perniagaan yang boleh menjana pendapatan dikala kenaikan kos sara diri ketika ini.</p>
                         <p>Kami komited dalam menggalakkan perniagaan di kalangan rakyat Malaysia terutamanya.</p>
                     </div>
@@ -46,22 +46,35 @@ cache.session = session;
                                 </div>
                             </div>
                         </div>
+                        <p>
+                        Dimana anda sebagai Ahli Biasa diberi pilihan untuk membeli dari beberapa orang peniaga E-Book. Akan tetapi kami telah mempakejkan sistem ini menjadi 2 Pakej.<br />
+                        <dl>
+                          <dt>Pakej 10 E-Books</dt>
+                          <dd>Dengan memilih pakej ini, anda akan menerima 5 Kumpulan Promosi dimana terdapat 5 peniaga lain yang turut akan membantu anda mempromosikan penjualan E-Book anda.</dd>
+                        </dl>
+                        <dl>
+                          <dt>Pakej 20 E-Books</dt>
+                          <dd>10 Kumpulan Promosi dalam pakej ini menjadikan promosi anda lebih mudah. Juga menambahkan lebih peluang untuk menambah pendapatan.</dd>
+                        </dl> 
+                        </p>
+                        Dengan menyertai program ini sebagai Ahli Verified, anda akan menerima sistem Promosi dan Jualan secara automatik* yang boleh diibaratkan sebagai sebuah kedai buku Maya anda sendiri.
+                        
                         
                     </div>
                     
                     <div class="frame" id="_langkah_pertama">
-                        <h3>Pilih Pakej Pendaftaran</h3>
+                        Anda dikehendaki memilih pakej salah satu pakej yang disediakan. Setiap pakej mempunyai nilai yang berbeza. Selepas akaun anda aktif, anda akan berupaya untuk mempromosikan URL Affiliate anda dan sekaligus membuat penjualan E-Book secara automatik dan berterusan.
                         <?php //include('choose_product.php'); ?>
                         <?php include('tab_choose_package.php'); ?>
                     </div>
                     <div class="frame" id="_langkah_kedua" data-userrole="<?php echo $session->userinfo['userlevel']; ?>">
-                        <h3>Promosikan E-Book yang terdapat disini kepada rakan-rakan anda</h3>
+                        
                         <?php //include('step_kemudian.php') ?>
                         <?php include('tab_choose_and_payment.php'); ?>
                     </div>
                     <div class="frame" id="_kemudian">
-                        <h3>Promosikan E-Book yang terdapat disini kepada rakan-rakan anda</h3>
-                        <?php include('step_calculator.php') ?>
+                        
+                        <?php include('step_promosi.php') ?>
                     </div>
                     <div class="frame" id="_dan_seterusnya">
                         <?php include('step_seterusnya.php') ?>
@@ -267,7 +280,7 @@ $(function(){
         var frameId = $(frame).attr('id');
         if(frameId == '_langkah_kedua'){
             if(cache.session.pakej){
-                $(frame).load('?modules=Main&op=tab_choose_and_payment');
+                //$(frame).load('?modules=Main&op=tab_choose_and_payment');
             }
             
             /*

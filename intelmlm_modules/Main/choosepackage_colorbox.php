@@ -1,6 +1,7 @@
 <div id="choosepackage_colorbox" style="display: none;">
     <div id="colorbox_choosepackage">
         <h3>Anda memilih pakej <span class="pakej_selected">pakej</span> E-Books. Adakah anda pasti?</h3>
+        <div id="choosepackage_error"></div>
         <div class="grid fluid">
             <div class="row">
                 <div class="span6">
@@ -28,7 +29,7 @@
                     <li>10 Kumpulan Promosi</li>
                     
                 </ul>
-           <h6><a href="#" class="plans_button">pilih pakej ini</a></h6>
+           
            	</div>
         	<div class="plan_box_shadow"></div>
         </div><!-- end a Plan -->
@@ -163,7 +164,22 @@ $(function(){
             console.log(data);
             if(data.status == 'success'){
                 $("#status_pakej_pilih").data('package', data.pakej);
+                $("#status_pakej_pilih").addClass('selected');
+                set_package(data.pakej);
                 cache.session.pakej = data.pakej;
+                $.colorbox({
+                    html: 'Tahniah, anda telah memilih pakej '+ data.pakej +' E-Book, sila teruskan dengan langkah seterusnya',
+                    onClosed: function(){
+                        window.location.reload();
+                    } 
+                });
+            }else{
+                if(data.error){
+                    $.each(data.error,function(i, el){
+                        console.log(el)
+                        $('<div class="text-alert"></div>').html(el).appendTo("#choosepackage_error")
+                    });
+                }
             }
         }
     })

@@ -1,6 +1,3 @@
-<br />
-
-
 <style>
 /*--------- Hosting plans ---------*/
 
@@ -147,7 +144,7 @@ clear: right;
                     <li>5 Kumpulan Promosi</li>
                     
                 </ul>
-           <h6><a href="javascript: void(0);" onclick="open_colorbox_choosepackage(10);" class="plans_button">pilih pakej ini</a></h6>
+           <h6><a href="javascript: void(0);" <?php echo ($session->userinfo['pakej'] == '' ? 'onclick="open_colorbox_choosepackage(10);"' : ''); ?> class="plans_button">pilih pakej ini</a></h6>
            	</div>
         	<div class="plan_box_shadow"></div>
         </div><!-- end a Plan --> 
@@ -161,10 +158,22 @@ clear: right;
                     <li>10 Kumpulan Promosi</li>
                     
                 </ul>
-           <h6><a href="javascript: void(0);" onclick="open_colorbox_choosepackage(20);" class="plans_button">pilih pakej ini</a></h6>
+           <h6><a href="javascript: void(0);" <?php echo ($session->userinfo['pakej'] == '' ? 'onclick="open_colorbox_choosepackage(20);"' : ''); ?> class="plans_button">pilih pakej ini</a></h6>
            	</div>
         	<div class="plan_box_shadow"></div>
         </div><!-- end a Plan -->
+        <div style="float: left;">
+        Setiap pakej merangkumi
+            <div class="plan_box_content">
+                
+                <ul style="list-style: none;">
+                    <li>Affilite URL Promosi</li>
+                    <li>Unlimited E-Book Download</li>
+                    
+                </ul>
+           
+           	</div>
+        </div>
         <div style="clear: both;"></div>
     </div>
 </div>

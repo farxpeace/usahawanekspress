@@ -535,7 +535,7 @@ function open_colorbox_select_ebook_for_purchase_number(number){
     });
 }
 </script>
-<pre>
+
 <?php
 $selected_package = ($session->userinfo['pakej'] ? $session->userinfo['pakej'] : '0');
 if(($session->userinfo['upline'] == '10') || $session->userinfo['upline'] == ''){
@@ -545,25 +545,18 @@ if(($session->userinfo['upline'] == '10') || $session->userinfo['upline'] == '')
 ?>
 
 
-</pre>
+
 
 <div id="frame2_logged_out" class="display" <?php echo ($session->logged_in ? 'data-display="hide"' : 'data-display="show"') ?>>
 <h3>Sila login</h3>
 </div>
 
 <div id="frame2_logged_in" class="display" <?php echo ($session->logged_in ? 'data-display="show"' : 'data-display="hide"') ?>>
-<h3>Buat pesanan dan pembayaran kepada semua penjual</h3>
-
-
-
-
-<!--
-<div>Sila pilih E-Book dan buat pembayaran.Sebaik sahaja semua pembayaran selesai, akaun anda akan aktif secara automatik dan anda boleh mula mempromosikan produk anda.</div>
--->
+Sila pilih 2 E-Book dari setiap peniaga yang tertera. Anda juga perlu membuat pembayaran kepada para peniaga dan isikan maklumat pembayaran diruangan yang disediakan. 
 <div class="grid" style="margin-bottom: 0px;">
     <div class="row">
         <div class="span12">
-            <table style="width: 100%;">
+            <table style="width: 100%; display: none;">
                 <tr>
                     <td valign="center" style="width: 100px;">
                         <div class="input-control text" style="margin-bottom: 0px; width: 100px; padding-top: 5px;">
