@@ -42,7 +42,7 @@
             });
 
             $(menu).find('li.disabled a').on(this.options.show, function(e){
-                e.preventDefault();
+                //e.preventDefault();
             });
 
             $('html').on('click', function(e){

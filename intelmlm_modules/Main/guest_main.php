@@ -262,7 +262,7 @@ $(function(){
         var frame = frame;
         var frameId = $(frame).attr('id');
         if(frameId == '_langkah_kedua'){
-            $(frame).load('?modules=Main&op=tab_choose_and_payment');
+            //$(frame).load('?modules=Main&op=tab_choose_and_payment');
             /*
             getUserInfo(function(data){    
                 console.log(data)

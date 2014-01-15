@@ -46,11 +46,7 @@ include(FOLDER_INCLUDE."/adodb5/adodb.inc.php");
 //include(FOLDER_INCLUDE."/schemecreator/SchemeCreator.class.php");
 //include(FOLDER_INCLUDE."/schemecreator/SchemeReader.class.php");
 
-include_once(FOLDER_LIBRARY. DS .'router.php');
-
 
 include(FOLDER_INCLUDE."/session.php");
-
-Controller();
 
 ?>
