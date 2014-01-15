@@ -147,7 +147,7 @@ clear: right;
                     <li>5 Kumpulan Promosi</li>
                     
                 </ul>
-           <h6><a href="javascript: void(0);" onclick="open_colorbox_choosepackage(10);" class="plans_button">pilih pakej ini</a></h6>
+           <h6><a href="javascript: void(0);" <?php echo ($session->logged_in ? 'onclick="open_colorbox_choosepackage(10);"' : 'onclick="window_login_register();"'); ?> class="plans_button">pilih pakej ini</a></h6>
            	</div>
         	<div class="plan_box_shadow"></div>
         </div><!-- end a Plan --> 
@@ -161,10 +161,18 @@ clear: right;
                     <li>10 Kumpulan Promosi</li>
                     
                 </ul>
-           <h6><a href="javascript: void(0);" onclick="open_colorbox_choosepackage(20);" class="plans_button">pilih pakej ini</a></h6>
+           <h6><a href="javascript: void(0);" <?php echo ($session->logged_in ? 'onclick="open_colorbox_choosepackage(20);"' : 'onclick="window_login_register();"'); ?> class="plans_button">pilih pakej ini</a></h6>
            	</div>
         	<div class="plan_box_shadow"></div>
         </div><!-- end a Plan -->
+        
+        <div style="float: left; list-style: none;" class="plan_box_content">
+            Setiap pakej juga merangkumi<br />
+            <ul>
+                <li>SMS Notifikasi PERCUMA</li>
+                <li>Email Notifikasi</li>
+            </ul>
+        </div>
         <div style="clear: both;"></div>
     </div>
 </div>

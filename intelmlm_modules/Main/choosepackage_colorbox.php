@@ -1,6 +1,7 @@
 <div id="choosepackage_colorbox" style="display: none;">
     <div id="colorbox_choosepackage">
         <h3>Anda memilih pakej <span class="pakej_selected">pakej</span> E-Books. Adakah anda pasti?</h3>
+        <form id="form_choose_package" method="post" action="?modules=Main&op=process_choose_package">
         <div class="grid fluid">
             <div class="row">
                 <div class="span6">
@@ -28,7 +29,7 @@
                     <li>10 Kumpulan Promosi</li>
                     
                 </ul>
-           <h6><a href="#" class="plans_button">pilih pakej ini</a></h6>
+           
            	</div>
         	<div class="plan_box_shadow"></div>
         </div><!-- end a Plan -->
@@ -37,7 +38,7 @@
 </div>
                 </div>
                 <div class="span6">
-                <form id="form_choose_package" method="post" action="?modules=Main&op=process_choose_package">
+                
         
             <select name="package[package]" id="choose_package_dropdown" data-selected="10">
                 <option value="10" selected="selected">10 ebook (RM 100) - Pilih 10 ebook dari 5 orang penjual</option>
@@ -45,9 +46,19 @@
             </select>
         
             
-            <br />
             
             
+            
+            
+            
+        
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid fluid">
+            <div class="row">
+            Sila masukkan no telefon bimbit anda. Kami akan memberikan notifikasi berkaitan program ini secara PERCUMA!.
             <fieldset>
                                        
                                         <label>No Tel Bimbit</label>
@@ -61,12 +72,9 @@
             <input type="submit" value="Submit" />
                                     </fieldset>
             
-            
-        </form>
-                </div>
             </div>
         </div>
-    
+        </form>
         
     </div>
 </div>
@@ -156,11 +164,17 @@ $(function(){
                 alert('Please put your mobile number');
                 return false;
             }
+            if(tel.match(/^(?:\+|01)(?:[.()-]*\d){8,11}[. ()-]*$/) == null){
+                alert('Please put your mobile number using correct format');
+                return false;
+            }
             
         },
         success: function(data){
             if(data.status == 'success'){
-                $("#status_pakej_pilih").data('package', data.pakej)
+                $("#status_pakej_pilih").data('package', data.pakej);
+                
+                
             }
         }
     })

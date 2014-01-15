@@ -3,6 +3,7 @@
   display: block;
 }
 </style>
+
 <nav class="navigation-bar dark fixed-bottom">
     <nav class="navigation-bar-content">
         
@@ -38,6 +39,7 @@
 </nav>
 
 <script>
+
 	$(function() {
 		var cache = {};
 		$( "#search_anything" ).autocomplete({

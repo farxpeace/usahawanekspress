@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<database name="employees">
+    <table name="departments" phpName="Departments" engine="InnoDB" type="BaseTable" collation="utf8_general_ci" comment="">
+        <column name="dept_no" type="char" length="4" required="true" primary_key="true" privileges="select,insert,update,references" phpName="DeptNoOfDepartmentsInEmployees"/>
+        <column name="dept_name" type="varchar" length="40" required="true" unique="true" privileges="select,insert,update,references" phpName="DeptNameOfDepartmentsInEmployees"/>
+    </table>
+    <table name="dept_emp" phpName="DeptEmp" engine="InnoDB" type="BaseTable" collation="utf8_general_ci" comment="">
+        <column name="emp_no" type="int" length="11" required="true" primary_key="true" privileges="select,insert,update,references" phpName="EmpNoOfDeptEmpInEmployees"/>
+        <column name="dept_no" type="char" length="4" required="true" primary_key="true" privileges="select,insert,update,references" phpName="DeptNoOfDeptEmpInEmployees"/>
+        <column name="from_date" type="date" required="true" privileges="select,insert,update,references" phpName="FromDateOfDeptEmpInEmployees"/>
+        <column name="to_date" type="date" required="true" privileges="select,insert,update,references" phpName="ToDateOfDeptEmpInEmployees"/>
+        <foreignkey type="constraint" localKey="employees.dept_emp.emp_no" referenceKey="employees.employees.emp_no" constraintName="dept_emp_ibfk_1" onUpdate="RESTRICT" onDelete="CASCADE" matchOption="NONE"/>
+        <foreignkey type="constraint" localKey="employees.dept_emp.emp_no" referenceKey="employees.departments.emp_no" constraintName="dept_emp_ibfk_2" onUpdate="RESTRICT" onDelete="CASCADE" matchOption="NONE"/>
+    </table>
+    <table name="dept_manager" phpName="DeptManager" engine="InnoDB" type="BaseTable" collation="utf8_general_ci" comment="">
+        <column name="dept_no" type="char" length="4" required="true" primary_key="true" privileges="select,insert,update,references" phpName="DeptNoOfDeptManagerInEmployees"/>
+        <column name="emp_no" type="int" length="11" required="true" primary_key="true" privileges="select,insert,update,references" phpName="EmpNoOfDeptManagerInEmployees"/>
+        <column name="from_date" type="date" required="true" privileges="select,insert,update,references" phpName="FromDateOfDeptManagerInEmployees"/>
+        <column name="to_date" type="date" required="true" privileges="select,insert,update,references" phpName="ToDateOfDeptManagerInEmployees"/>
+        <foreignkey type="constraint" localKey="employees.dept_manager.emp_no" referenceKey="employees.employees.emp_no" constraintName="dept_manager_ibfk_1" onUpdate="RESTRICT" onDelete="CASCADE" matchOption="NONE"/>
+        <foreignkey type="constraint" localKey="employees.dept_manager.emp_no" referenceKey="employees.departments.emp_no" constraintName="dept_manager_ibfk_2" onUpdate="RESTRICT" onDelete="CASCADE" matchOption="NONE"/>
+    </table>
+    <table name="employees" phpName="Employees" engine="InnoDB" type="BaseTable" collation="utf8_general_ci" comment="">
+        <column name="emp_no" type="int" length="11" required="true" primary_key="true" privileges="select,insert,update,references" phpName="EmpNoOfEmployeesInEmployees"/>
+        <column name="birth_date" type="date" required="true" privileges="select,insert,update,references" phpName="BirthDateOfEmployeesInEmployees"/>
+        <column name="first_name" type="varchar" length="14" required="true" privileges="select,insert,update,references" phpName="FirstNameOfEmployeesInEmployees"/>
+        <column name="last_name" type="varchar" length="16" required="true" privileges="select,insert,update,references" phpName="LastNameOfEmployeesInEmployees"/>
+        <column name="gender" type="enum" default="'M','F'" required="true" privileges="select,insert,update,references" phpName="GenderOfEmployeesInEmployees"/>
+        <column name="hire_date" type="date" required="true" privileges="select,insert,update,references" phpName="HireDateOfEmployeesInEmployees"/>
+    </table>
+    <table name="salaries" phpName="Salaries" engine="InnoDB" type="BaseTable" collation="utf8_general_ci" comment="">
+        <column name="emp_no" type="int" length="11" required="true" primary_key="true" privileges="select,insert,update,references" phpName="EmpNoOfSalariesInEmployees"/>
+        <column name="salary" type="int" length="11" required="true" privileges="select,insert,update,references" phpName="SalaryOfSalariesInEmployees"/>
+        <column name="from_date" type="date" required="true" primary_key="true" privileges="select,insert,update,references" phpName="FromDateOfSalariesInEmployees"/>
+        <column name="to_date" type="date" required="true" privileges="select,insert,update,references" phpName="ToDateOfSalariesInEmployees"/>
+        <foreignkey type="constraint" localKey="employees.salaries.emp_no" referenceKey="employees.employees.emp_no" constraintName="salaries_ibfk_1" onUpdate="RESTRICT" onDelete="CASCADE" matchOption="NONE"/>
+    </table>
+    <table name="titles" phpName="Titles" engine="InnoDB" type="BaseTable" collation="utf8_general_ci" comment="">
+        <column name="emp_no" type="int" length="11" required="true" primary_key="true" privileges="select,insert,update,references" phpName="EmpNoOfTitlesInEmployees"/>
+        <column name="title" type="varchar" length="50" required="true" primary_key="true" privileges="select,insert,update,references" phpName="TitleOfTitlesInEmployees"/>
+        <column name="from_date" type="date" required="true" primary_key="true" privileges="select,insert,update,references" phpName="FromDateOfTitlesInEmployees"/>
+        <column name="to_date" type="date" privileges="select,insert,update,references" phpName="ToDateOfTitlesInEmployees"/>
+        <foreignkey type="constraint" localKey="employees.titles.emp_no" referenceKey="employees.employees.emp_no" constraintName="titles_ibfk_1" onUpdate="RESTRICT" onDelete="CASCADE" matchOption="NONE"/>
+    </table>
+</database>

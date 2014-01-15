@@ -2,7 +2,7 @@
     <function name="guest_index">
         <userlevel>all</userlevel>
         <view>
-            <filename>guest_index.html</filename>
+            <filename>guest_index.php</filename>
         </view>
     </function>
 </controller>

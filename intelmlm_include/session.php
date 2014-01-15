@@ -210,6 +210,13 @@ class Session
 	         $database->updateUserField($this->userinfobyid['username'], 'hash_generated', time());
          }
          
+         $jqinfoArr = array('username', 'uplineid','upline_arr','userlevel', 'pakej');
+         foreach($jqinfoArr as $a => $b){
+            $this->jqinfo[$b] = $this->userinfo[$b];
+         }
+         $this->jqinfo['userid'] = $this->userinfo['id'];
+         
+         
          //print_r($this->userinfobyid);
          //exit();
          return true;

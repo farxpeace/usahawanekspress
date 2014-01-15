@@ -7,20 +7,38 @@ class Controller
 	protected $model;
 	protected $view_name;
     protected $child_class;
-    
+    protected $controller_name;
+    public $action;
+    public static $modules_name;
     protected $function;
+    
 
     public function __construct() {
-        //check for xml controller
+        global $router;
+        $this->Load_Model('User');
+        $this->Load_Model('Main');
         $this->child_class = get_class($this);
+		$this->modules_name = $this->getModuleName();
+        $this->view = new View($this);
+        //$this->controller = $this;
+        
+        //check for xml controller
+        
         $classdir = $this->getDir();
 		if(file_exists($classdir . DS .$this->child_class.'.xml')){
             $xml = simplexml_load_file($classdir . DS .$this->child_class.'.xml');
             $array = json_decode(json_encode((array)simplexml_load_file($classdir . DS .$this->child_class.'.xml')),1);
             
+            //controller name
+            $this->controller_name = $this->getAttr($array, 'name');
+            //echo '<pre>';
+            //print_r($this);
+            //echo '</pre>';
+            
+            $this->view->Assign('controller_name', $this->controller_name);
             
             
-
+            
             //$this->function = new stdClass();
             //$this->function->{$array['function']['@attributes']['name']} = '';
             //echo '<pre>';
@@ -29,11 +47,38 @@ class Controller
             //print_r($this->function);
             //echo '</pre>';
 		}
+        
+        //echo '<pre>';
+        //print_r($router);
+        //echo '</pre>';
+        
+        $data = array(
+            'modules_name' => $this->modules_name,
+            'function_name' => $router['action']
+        );
+        $this->view->Assign('admin', $data);
+        //$this->view->Render(FOLDER_INCLUDE. DS . 'debugger' . DS . 'admin_panel'. DS .'admin_panel.php');
+        
+        //$this->view->Render(FOLDER_INCLUDE. DS . 'jquery.database.php');
+        
+        
+    }
+    
+    public function getModuleName(){
+        return substr($this->child_class, 0,-11);
     }
     
     protected function getDir() {
         $rc = new ReflectionClass(get_class($this));
         return dirname($rc->getFileName());
+    }
+    
+    private function listFunction($array){
+        
+    }
+    
+    private function getAttr($array, $name){
+        return $array['@attributes'][$name];
     }
     
     private function search($array, $key, $value) 
@@ -78,13 +123,15 @@ class Controller
 	
 	function Load_Model($name){
 		$modelName = $name . '_Model';
-		$this->model = new $modelName();
+		$this->model->$modelName = new $modelName();
 	}
 	
 	function Load_View($name){
-		if(file_exists( ROOT . DS . 'views' . DS . strtolower($name) . '.php')){
-			$this->view_name = $name;
-		}
+		//if(file_exists( ROOT . DS . 'views' . DS . strtolower($name) . '.php')){
+		$this->view_name = $name;
+        $this->modules_name = $this->getModuleName();
+        //$name->modules_name = 'sdf';
+		//}
 	}
 	
 
@@ -92,6 +139,7 @@ class Controller
 		if(!empty($this->view_name)){
 			$this->view->Render($this->view_name);
 		}
+        
 	}
 	
 }

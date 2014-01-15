@@ -1,3 +1,4 @@
+
 <script src="intelmlm_modules/Main/make_payment2.js"></script>
 <script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/Print-Specified-Area-Of-A-Page-PrintArea/demo/jquery.PrintArea.metro.js"></script>
 <style>
@@ -543,12 +544,19 @@ if(($session->userinfo['upline'] == '10') || $session->userinfo['upline'] == '')
 
 
 </pre>
-
+<?php $user_package = ($session->userinfo['pakej'] ? $session->userinfo['pakej'] : 'notselected'); ?>
 <div id="frame2_logged_out" class="display" <?php echo ($session->logged_in ? 'data-display="hide"' : 'data-display="show"') ?>>
-<h3>Sila login</h3>
+
+<?php $user_package = ($session->userinfo['pakej'] ? $session->userinfo['pakej'] : 'notselected'); ?>
+<img src="<?php echo FOLDER_IMAGES.'/langkah2ebook.png'; ?>" />
+
+
 </div>
 
 <div id="frame2_logged_in" class="display" <?php echo ($session->logged_in ? 'data-display="show"' : 'data-display="hide"') ?>>
+<?php if($user_package == 'notselected'){ include_once('tab_choose_package.php'); ?>
+    
+<?php }elseif($user_package == '10' || $user_package == '20'){ ?>
 <h3>Buat pesanan dan pembayaran kepada semua penjual</h3>
 
 
@@ -786,5 +794,5 @@ if(($session->userinfo['upline'] == '10') || $session->userinfo['upline'] == '')
     
     
 </div>
-
+<?php } ?>
 </div>

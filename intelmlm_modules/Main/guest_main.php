@@ -50,7 +50,7 @@ include(THEME_LOC."/main_header.php");
                         <?php include('tab_choose_package.php'); ?>
                     </div>
                     <div class="frame" id="_langkah_kedua" data-userrole="<?php echo $session->userinfo['userlevel']; ?>">
-                        <h3>Promosikan E-Book yang terdapat disini kepada rakan-rakan anda</h3>
+                        
                         <?php //include('step_kemudian.php') ?>
                         <?php include('tab_choose_and_payment.php'); ?>
                     </div>

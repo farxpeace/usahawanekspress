@@ -24,8 +24,8 @@
 </style>
 </head>
 <body class="metro">
-<?php if($debug){  ?>
-<?php include_once(THEME_LOC.'/admin_panel.php'); ?>
+<?php if(DEVELOPER_TOOL == TRUE){  ?>
+<?php //include_once(THEME_LOC.'/admin_panel.php'); ?>
 <?php } ?>
 <nav class="navigation-bar">
 <nav class="navigation-bar-content">
@@ -46,7 +46,7 @@
         
 		
 		<li class="divider"></li>
-		<li><a href="#">Terma dan syarat</a></li>
+		<li><a href="terma.php">Terma dan syarat</a></li>
 		<li class="divider"></li>
 		<li><a href="#">Keluar</a></li>
 	</ul>

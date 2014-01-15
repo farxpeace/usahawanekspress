@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<database name="intelmlm">
+  <table name="intelmlm_users" phpName="IntelmlmUsers" engine="MyISAM" type="BaseTable" collation="latin1_swedish_ci" comment="">
+    <column name="id" type="int" length="11" required="true" primary_key="true" auto_increment="true" privileges="select,insert,update,references" phpName="IdOfIntelmlmUsersInIntelmlm"/>
+    <column name="uplineid" type="int" length="11" privileges="select,insert,update,references" phpName="UplineidOfIntelmlmUsersInIntelmlm"/>
+    <column name="upline_arr" type="varchar" length="100" privileges="select,insert,update,references" phpName="UplineArrOfIntelmlmUsersInIntelmlm"/>
+    <column name="username" type="varchar" length="30" privileges="select,insert,update,references" phpName="UsernameOfIntelmlmUsersInIntelmlm"/>
+    <column name="password" type="varchar" length="32" privileges="select,insert,update,references" phpName="PasswordOfIntelmlmUsersInIntelmlm"/>
+    <column name="bpassword" type="varchar" length="100" privileges="select,insert,update,references" phpName="BpasswordOfIntelmlmUsersInIntelmlm"/>
+    <column name="userid" type="varchar" length="32" privileges="select,insert,update,references" phpName="UseridOfIntelmlmUsersInIntelmlm"/>
+    <column name="userrole" type="varchar" length="32" privileges="select,insert,update,references" phpName="UserroleOfIntelmlmUsersInIntelmlm"/>
+    <column name="userlevel" type="tinyint" length="1" privileges="select,insert,update,references" phpName="UserlevelOfIntelmlmUsersInIntelmlm"/>
+    <column name="email" type="varchar" length="50" privileges="select,insert,update,references" phpName="EmailOfIntelmlmUsersInIntelmlm"/>
+    <column name="timestamp" type="int" length="11" privileges="select,insert,update,references" phpName="TimestampOfIntelmlmUsersInIntelmlm"/>
+    <column name="valid" type="tinyint" length="1" default="1" privileges="select,insert,update,references" phpName="ValidOfIntelmlmUsersInIntelmlm"/>
+    <column name="fullname" type="varchar" length="50" privileges="select,insert,update,references" phpName="FullnameOfIntelmlmUsersInIntelmlm"/>
+    <column name="hash" type="varchar" length="32" privileges="select,insert,update,references" phpName="HashOfIntelmlmUsersInIntelmlm"/>
+    <column name="hash_generated" type="int" length="11" privileges="select,insert,update,references" phpName="HashGeneratedOfIntelmlmUsersInIntelmlm"/>
+    <column name="fb_id" type="varchar" length="100" privileges="select,insert,update,references" phpName="FbIdOfIntelmlmUsersInIntelmlm"/>
+    <column name="fb_token" type="varchar" length="300" privileges="select,insert,update,references" phpName="FbTokenOfIntelmlmUsersInIntelmlm"/>
+    <column name="fb_array" max_length="4294967295" type="longtext" privileges="select,insert,update,references" phpName="FbArrayOfIntelmlmUsersInIntelmlm"/>
+    <column name="bank_acc" type="varchar" length="100" privileges="select,insert,update,references" phpName="BankAccOfIntelmlmUsersInIntelmlm"/>
+    <column name="bank_holder" type="varchar" length="100" privileges="select,insert,update,references" phpName="BankHolderOfIntelmlmUsersInIntelmlm"/>
+    <column name="pakej" type="varchar" length="100" privileges="select,insert,update,references" phpName="PakejOfIntelmlmUsersInIntelmlm"/>
+    <column name="phone" type="varchar" length="100" privileges="select,insert,update,references" phpName="PhoneOfIntelmlmUsersInIntelmlm"/>
+  </table>
+</database>
+
