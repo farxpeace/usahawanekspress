@@ -149,6 +149,7 @@ function open_colorbox_choosepackage(pakej){ //0 mean no selected
 }
 $(function(){
     $("#form_choose_package").ajaxForm({
+        dataType: 'json',
         beforeSubmit: function(data, $form, options){
             //check mobile;
             var tel = $("#package_tel").val();
@@ -159,8 +160,10 @@ $(function(){
             
         },
         success: function(data){
+            console.log(data);
             if(data.status == 'success'){
-                $("#status_pakej_pilih").data('package', data.pakej)
+                $("#status_pakej_pilih").data('package', data.pakej);
+                cache.session.pakej = data.pakej;
             }
         }
     })

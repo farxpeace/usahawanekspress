@@ -143,7 +143,8 @@ function invoice_show(number){
 }
 
 function choose_pakej(){
-    var pakej = $("#order_pakej").val();
+    //var pakej = $("#order_pakej").val();
+    var pakej = '<?php echo $session->userinfo['pakej']; ?>';
     if(pakej == '10'){
         $(".mainframe_purchase_pakej_10").show();
         $(".mainframe_purchase_pakej_20").hide();
@@ -313,7 +314,8 @@ function check_order_by_ebook(el){
     var input = $(el).children('input.input_select_single_ebook');
     var isSelected = $(el).hasClass('selected');
     var selected = $(frame).find('a.selected').length;
-    var pakej = $("#order_pakej").val();
+    //var pakej = $("#order_pakej").val();
+    var pakej = '<?php echo $session->userinfo['pakej']; ?>';
     var frameId = $(frame).attr('id');
     var number = frameId.split('_')[3];
     console.log('pakej: '+pakej);
@@ -365,7 +367,8 @@ function check_order_by_ebook(el){
 
 function check_frame_by_id(number){
     var frame = $("#_ebook_pilih_"+number);
-    var pakej = $("#order_pakej").val();
+    //var pakej = $("#order_pakej").val();
+    var pakej = '<?php echo $session->userinfo['pakej']; ?>';
     var selected = $(frame).find('a.selected').length;
     
     if(pakej == '10'){
@@ -416,7 +419,8 @@ foreach($uplineList as $a => $b){
 ?>
 
 function submit_form_checkout(number){
-    var pakej = $("#order_pakej").val();
+    //var pakej = $("#order_pakej").val();
+    var pakej = '<?php echo $session->userinfo['pakej']; ?>';
     //var upline_arr = '<?php echo implode(',', $uplineList_x); ?>';
     $("#form_checkout_"+number).ajaxSubmit({
         dataType: 'json',
@@ -537,7 +541,6 @@ $selected_package = ($session->userinfo['pakej'] ? $session->userinfo['pakej'] :
 if(($session->userinfo['upline'] == '10') || $session->userinfo['upline'] == ''){
     $uplineList = $Class_unilevel->getAllUplineIdByUplineId2($session->userinfo['uplineid'], ($selected_package/2));
 }
-
 //print_r($Class_unilevel->randomUpline(5));
 ?>
 

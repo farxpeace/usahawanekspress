@@ -1,6 +1,11 @@
 <?php
 include(THEME_LOC."/main_header.php");
 ?>
+<script type="text/javascript">
+var cache = {}
+var session = $.parseJSON('<?php echo json_encode($session); ?>');
+cache.session = session;
+</script>
 <div class="grid fluid" style="padding: 10px;">
 	<div class="row">
 		<div class="span9">
@@ -191,7 +196,6 @@ include(THEME_LOC."/main_header.php");
 
 <script type="text/javascript">
 
-
 function update_right_status(){
     var frame = $(".right_status");
     var data = frame.data();
@@ -262,7 +266,10 @@ $(function(){
         var frame = frame;
         var frameId = $(frame).attr('id');
         if(frameId == '_langkah_kedua'){
-            $(frame).load('?modules=Main&op=tab_choose_and_payment');
+            if(cache.session.pakej){
+                $(frame).load('?modules=Main&op=tab_choose_and_payment');
+            }
+            
             /*
             getUserInfo(function(data){    
                 console.log(data)
