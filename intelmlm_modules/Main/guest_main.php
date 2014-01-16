@@ -16,7 +16,7 @@ cache.session = session;
                     <li><a href="#_langkah_pertama">Langkah Pertama</a></li>
                     <li><a href="#_langkah_kedua">Langkah Kedua</a></li>
                     <li><a href="#_kemudian">Kemudian</a></li>
-                    <li><a href="#_dan_seterusnya">Dan Seterusnya</a></li>
+                    
 
                 </ul>
              
@@ -48,14 +48,24 @@ cache.session = session;
                         </div>
                         <p>
                         Dimana anda sebagai Ahli Biasa diberi pilihan untuk membeli dari beberapa orang peniaga E-Book. Akan tetapi kami telah mempakejkan sistem ini menjadi 2 Pakej.<br />
-                        <dl>
-                          <dt>Pakej 10 E-Books</dt>
-                          <dd>Dengan memilih pakej ini, anda akan menerima 5 Kumpulan Promosi dimana terdapat 5 peniaga lain yang turut akan membantu anda mempromosikan penjualan E-Book anda.</dd>
-                        </dl>
-                        <dl>
+                        <div class="grid">
+                            <div class="row">
+                                <div class="span6 padding10 shadow">
+                                    <dl>
+                                      <dt>Pakej 10 E-Books</dt>
+                                      <dd>Dengan memilih pakej ini, anda akan menerima 5 Kumpulan Promosi dimana terdapat 5 peniaga lain yang turut akan membantu anda mempromosikan penjualan E-Book anda.</dd>
+                                    </dl>
+                                </div>
+                                <div class="span6 padding10 shadow">
+                                <dl>
                           <dt>Pakej 20 E-Books</dt>
                           <dd>10 Kumpulan Promosi dalam pakej ini menjadikan promosi anda lebih mudah. Juga menambahkan lebih peluang untuk menambah pendapatan.</dd>
-                        </dl> 
+                        </dl>
+                                </div>
+                            </div>
+                        </div>
+                        
+                         
                         </p>
                         Dengan menyertai program ini sebagai Ahli Verified, anda akan menerima sistem Promosi dan Jualan secara automatik* yang boleh diibaratkan sebagai sebuah kedai buku Maya anda sendiri.
                         
@@ -79,9 +89,7 @@ cache.session = session;
                         
                         <?php include('step_promosi.php') ?>
                     </div>
-                    <div class="frame" id="_dan_seterusnya">
-                        <?php include('step_seterusnya.php') ?>
-                    </div>
+                    
                     
                 </div>
             </div>

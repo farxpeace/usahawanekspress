@@ -548,7 +548,10 @@ if(($session->userinfo['upline'] == '10') || $session->userinfo['upline'] == '')
 
 
 <div id="frame2_logged_out" class="display" <?php echo ($session->logged_in ? 'data-display="hide"' : 'data-display="show"') ?>>
-<h3>Sila login</h3>
+Sila pilih Pakej terlebih dahulu. Selepas anda memilih Pakej, anda boleh memilih 2 buah E-Book dari peniaga yang tersenarai.
+<br />
+Anda akan menjadi Ahli Verified setelah anda membuat semua pembayaran dan mengisikan maklumat pembayaran diruangan yang disediakan.
+<img src="<?php echo FOLDER_IMAGES.'/assets/tab_payment_and_receipt.png'; ?>" />
 </div>
 
 <div id="frame2_logged_in" class="display" <?php echo ($session->logged_in ? 'data-display="show"' : 'data-display="hide"') ?>>
