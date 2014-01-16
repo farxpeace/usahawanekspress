@@ -14,7 +14,7 @@
 $(function () {
     'use strict';
     // Change this to the location of your server-side upload handler:
-    var url = 'intelmlm_images/';
+    var url = FOLDER_IMAGES.'/';
     $('.frame_upload .fileupload').fileupload({
         url: url,
         dataType: 'json',
