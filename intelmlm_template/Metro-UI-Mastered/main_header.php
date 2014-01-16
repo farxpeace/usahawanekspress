@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="<?php echo THEME_LOC; ?>/css/metro-bootstrap.css">
-<script src="<?php echo THEME_LOC; ?>/docs/js/jquery/jquery.min.js"></script>
-<script src="<?php echo THEME_LOC; ?>/docs/js/jquery/jquery.widget.min.js"></script>
+<script src="<?php echo THEME_LOC; ?>/jquery-metro.min.js"></script>
 
-<script src="<?php echo THEME_LOC; ?>/js/metro-loader.js"></script>
+<link rel="stylesheet" href="<?php echo THEME_LOC; ?>/js/colorbox-master/example5/colorbox.css" />
 
-<link rel="stylesheet" href="<?php echo THEME_LOC; ?>/js/colorbox-master/example5/colorbox.css">
-<script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/colorbox-master/jquery.colorbox.js"></script>
-<script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/jquery.blockUI.js"></script>
-<script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/jquery.form.js"></script>
 
 <link rel="stylesheet" href="<?php echo THEME_LOC; ?>/js/jquery.qtip/jquery.qtip.css" />
-<script type="text/javascript" src="<?php echo THEME_LOC; ?>/js/jquery.qtip/jquery.qtip.js"></script>
+<script src="<?php echo THEME_LOC; ?>/colorbox-blockui-form-qtip.min.js"></script>
 
 <style>
         .list {
